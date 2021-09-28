@@ -29,7 +29,7 @@ Make sure your code passes ESLint. Run the following to verify:
 ```sh
 yarn lint
 ```
-Please make sure to update tests as appropriate.
+Please make sure to test your task as appropriate.
 
 ## License
 [Seven](https://app.seven.me)
