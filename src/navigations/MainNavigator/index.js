@@ -42,6 +42,7 @@ import Flow1 from '../../screens/Flow1'
 import Flow2Navigator from '../Flow2Navigator'
 import SuccessfulHabits from '../../screens/SuccessfulHabits'
 import Breathe from '../../components/Breathe'
+import PreActivityCard from '../../components/PreActivityCard'
 
 const Stack = createStackNavigator()
 const MainNavigator = () => {
@@ -58,6 +59,7 @@ const MainNavigator = () => {
       />
       <Stack.Screen name="SuccessfulHabits01" component={SuccessfulHabits} />
       <Stack.Screen name="Breathe" component={Breathe} />
+      <Stack.Screen name="PreActivityCard" component={PreActivityCard} />
     </Stack.Navigator>
   )
 }

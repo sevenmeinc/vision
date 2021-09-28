@@ -1,8 +1,8 @@
 import React from 'react'
 import { ScrollView, View, Text, Image } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
-import Button from '../Button'
-import Title from '../Title'
+// import Button from '../Button'
+import { Button } from 'react-native-paper'
 import Space from '../Space'
 import colors from '../../assets/colors'
 
@@ -18,28 +18,36 @@ const PreActivityCard = ({
 }) => {
   return (
     <ScrollView
-      sx={{
+      style={{
         display: 'flex',
         flexGrow: 1,
-        flexDirection: 'column',
+        flexDirection: 'column'
+      }}
+      contentContainerStyle={{
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
       <View
-        sx={{
+        style={{
           padding: 16,
           height: '100%',
+          width: '100%',
           justifyContent: 'flex-start'
         }}>
         <View
-          sx={{
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between'
+          }}
+          contentContainerStyle={{
+            display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between'
           }}>
           <Text
-            sx={{
-              fontFamily: 'SF Pro Text',
+            style={{
               fontStyle: 'normal',
               fontWeight: '600',
               fontSize: 14,
@@ -49,17 +57,14 @@ const PreActivityCard = ({
             }}>
             {activityType}
           </Text>
-          <Button
-            onPress={handleClose}
-            label={'Close'}
-            variant={'text'}
-            labelColor={colors.darkCyan}
-          />
+          <Button onPress={handleClose} mode={'text'} color={colors.darkCyan}>
+            Close
+          </Button>
         </View>
         <Image
           resizeMode={'cover'}
           source={{ uri: image }}
-          sx={{
+          style={{
             height: '80%',
             width: '100%',
             borderWidth: 1,
@@ -68,56 +73,70 @@ const PreActivityCard = ({
           }}
         />
       </View>
-      <View sx={{ minHeight: '35%', padding: 16 }}>
-        <Title
-          title={title}
-          sx={{
-            fontFamily: 'SF Pro Display',
+      <View style={{ minHeight: '35%', padding: 16 }}>
+        <Text
+          style={{
             fontStyle: 'normal',
             fontWeight: 'bold',
-            fontSize: '32px',
-            lineHeight: '38px'
-          }}
-        />
+            fontSize: 32,
+            lineHeight: 38
+          }}>
+          {title}
+        </Text>
         {timeEst ? (
           <View
-            sx={{
+            style={{
               flexDirection: 'row',
               alignItems: 'center'
             }}>
             <FeatherIcons name="clock" size={20} color={colors.gray2} />
-            <Text sx={{ color: colors.gray2 }}> {timeEst} min activity</Text>
+            <Text style={{ color: colors.gray2 }}> {timeEst} min activity</Text>
           </View>
         ) : (
           <Space index={3} />
         )}
         <Text
-          sx={{
-            fontFamily: 'SF Pro Text',
+          style={{
             fontStyle: 'normal',
-            fontWeight: 500,
             fontSize: 17,
             lineHeight: 24
           }}>
           {description}
         </Text>
       </View>
-      {}
       <View>
-        <Button
-          onPress={btn1.handler}
-          label={btn1.label}
-          variant={'contained'}
-        />
-        <Button
-          onPress={btn2.handler}
-          label={btn2.label}
-          variant={'text'}
-          labelColor={colors.gray2}
-        />
+        <Button onPress={btn1.handler} mode={'contained'} dark={true}>
+          {btn1.label}
+        </Button>
+        <Button onPress={btn2.handler} mode={'text'} labelColor={colors.gray2}>
+          {btn2.label}
+        </Button>
       </View>
     </ScrollView>
   )
 }
 
 export default PreActivityCard
+
+PreActivityCard.defaultProps = {
+  activityType: 'Reflection Activity',
+  image:
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3D0aURGT5WKezruVcRkgc29HptqChXblNxPsZxOn0-mfvQ0fVppxeasbe0x0yxDHvPO8&usqp=CAU',
+  title: 'Oh, snap! Guess what I saw?',
+  timeEst: '4:40',
+  description:
+    "Have you ever met a girl that you tried to date But a year to make love she wanted you to wait Let me tell ya a story of my situation I was talkin' to this girl from the U.S. Nation",
+  btn1: {
+    label: 'Get started',
+    handler: () => {
+      console.log('START')
+    }
+  },
+  btn2: {
+    label: 'Remind me later',
+    handler: () => {
+      console.log('LATERS')
+    }
+  },
+  handleClose: () => console.log('handleClose')
+}

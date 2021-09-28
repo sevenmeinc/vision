@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Dimensions } from 'react-native'
 import AnimatedLoader from 'react-native-animated-loader'
-import colors from '../../assets/colors'
 
+const windowWidth = Dimensions.get('window').width
 const styles = StyleSheet.create({
   lottie: {
-    width: 100,
-    height: 100
+    width: windowWidth * 0.75,
+    height: windowWidth * 0.75
   }
 })
 
@@ -20,7 +20,6 @@ const Breathe = () => {
       }}>
       <AnimatedLoader
         visible={true}
-        overlayColor={colors.lavenderBlossom}
         source={require('./breathe.json')}
         animationStyle={styles.lottie}
         speed={1}

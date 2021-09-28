@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Themed } from 'theme'
+import { Text, View } from 'react-native'
 
 const containerStyle = {
   marginBottom: 10,
@@ -8,8 +7,8 @@ const containerStyle = {
 }
 const Title = ({ title }) => {
   return (
-    <Themed.View sx={containerStyle}>
-      <Themed.Text
+    <View sx={containerStyle}>
+      <Text
         sx={{
           color: 'mako',
           fontSize: 34,
@@ -18,15 +17,13 @@ const Title = ({ title }) => {
           lineHeight: '41px'
         }}>
         {title}
-      </Themed.Text>
-    </Themed.View>
+      </Text>
+    </View>
   )
 }
 
 Title.defaultProps = {
   title: 'Title'
 }
-Title.propTypes = {
-  title: PropTypes.string
-}
+
 export default Title

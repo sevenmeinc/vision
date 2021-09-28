@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
 import FeatherIcons from 'react-native-vector-icons/Feather'
-import { TouchableOpacity, Text, View, Platform } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
 import Space from '../Space'
 import colors from '../../assets/colors'
 
 const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
   const newTimer = '00:00:00'
-  // const path = Platform.select({
-  //   ios: `${refId}-${promptNum}.m4a`,
-  //   android: `sdcard/${refId}-${promptNum}.mp4`
-  // })
+
   const BUTTON_MODES = {
     play: 'play',
     stop: 'square',
@@ -28,10 +25,29 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
   const [isRecording, setIsRecording] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
 
-  // RN AudioRecorderPlayer state
+  // AudioRecorder state
   const [recordTime, setRecordTime] = useState(newTimer)
   const [playTime, setPlayTime] = useState(newTimer)
   const [duration, setDuration] = useState(newTimer)
+
+  let time = setInterval(countTimer, 10000)
+  let totalSeconds = 0
+  const countTimer = () => {
+    ++totalSeconds
+    let hour = ~~(totalSeconds / 3600)
+    let minute = ~~((totalSeconds - hour * 3600) / 60)
+    let seconds = totalSeconds - (hour * 3600 + minute * 60)
+    if (hour < 10) {
+      hour = '0' + hour
+    }
+    if (minute < 10) {
+      minute = '0' + minute
+    }
+    if (seconds < 10) {
+      seconds = '0' + seconds
+    }
+    return `${hour}:${minute}:${seconds}`
+  }
 
   // onPress handlers
   const handleRecord = () => {
@@ -42,6 +58,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
     setBtn1Mode('delete')
     setBtn2Mode('stop')
     // TODO: start recording timer
+    setRecordTime(new Date())
     // const audioSet = {
     //   AudioEncoderAndroid: AudioEncoderAndroidType.AAC,
     //   AudioSourceAndroid: AudioSourceAndroidType.MIC,

@@ -26,6 +26,11 @@ const FlowScreen = (props) => {
         onPress={() => props.navigation.navigate('Breathe')}>
         Breathe
       </Button>
+      <Button
+        mode="outlined"
+        onPress={() => props.navigation.navigate('PreActivityCard')}>
+        PreActivityCard
+      </Button>
     </View>
   )
 }
