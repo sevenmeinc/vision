@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
-import { TransitionPresets } from '@react-navigation/stack';
+import { Platform } from 'react-native'
+import { TransitionPresets } from '@react-navigation/stack'
 
 export const modalOptions =
   Platform.OS === 'ios'
@@ -12,7 +12,7 @@ export const modalOptions =
               backgroundColor: 'transparent'
             },
             ...TransitionPresets.ModalPresentationIOS
-          };
+          }
         }
       }
     : {
@@ -25,7 +25,4 @@ export const modalOptions =
           },
           ...TransitionPresets.ScaleFromCenterAndroid
         }
-      };
-
-
-      
+      }
