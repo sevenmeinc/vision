@@ -25,7 +25,8 @@ module.exports = {
         singleQuote: true,
         semi: false,
         jsxBracketSameLine: true,
-        trailingComma: 'none'
+        trailingComma: 'none',
+        endOfLine: 'auto'
       }
     ],
     'max-len': [

@@ -10,6 +10,12 @@ const HomeScreen = (props) => {
         onPress={() => props.navigation.navigate('flow1')}>
         Flow 1
       </Button>
+      <Button
+        style={{ marginTop: 8 }}
+        mode="outlined"
+        onPress={() => props.navigation.navigate('flow2')}>
+        Flow 2
+      </Button>
     </View>
   )
 }
