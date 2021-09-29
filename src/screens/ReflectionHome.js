@@ -4,7 +4,7 @@ import Svg, { Rect, Path, Defs, G } from 'react-native-svg'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const ReflectionHome = () => {
+const ReflectionHome = ({ onPress }) => {
   const navigation = useNavigation()
 
   return (
@@ -274,6 +274,7 @@ const ReflectionHome = () => {
           </Svg>
         </View>
         <TouchableOpacity
+          onPress={onPress}
           style={{
             margin: 16,
             marginTop: 40,
