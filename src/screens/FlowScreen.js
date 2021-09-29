@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'react-native-paper'
 import { View } from 'react-native'
 
-const HomeScreen = (props) => {
+const FlowScreen = (props) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
@@ -20,4 +20,4 @@ const HomeScreen = (props) => {
   )
 }
 
-export default HomeScreen
+export default FlowScreen
