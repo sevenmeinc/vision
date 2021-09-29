@@ -2,8 +2,11 @@ import React from 'react'
 import { Image, Text, SafeAreaView, View } from 'react-native'
 import Svg, { Rect, Path, Defs, Circle, ClipPath, G } from 'react-native-svg'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
 
 const Flow2 = () => {
+  const navigation = useNavigation()
+
   return (
     <SafeAreaView
       style={{
@@ -110,6 +113,7 @@ const Flow2 = () => {
                 Spend a few minutes looking back on what you've learned so far!
               </Text>
               <TouchableOpacity
+                onPress={() => navigation.navigate('reflectionHome')}
                 style={{
                   width: 235,
                   height: 34,
