@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'react-native-paper'
 import { View } from 'react-native'
 
-const HomeScreen = (props) => {
+const FlowScreen = (props) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
@@ -13,11 +13,11 @@ const HomeScreen = (props) => {
       <Button
         style={{ marginTop: 8 }}
         mode="outlined"
-        onPress={() => props.navigation.navigate('flow2')}>
+        onPress={() => props.navigation.navigate('Flow 2')}>
         Flow 2
       </Button>
     </View>
   )
 }
 
-export default HomeScreen
+export default FlowScreen
