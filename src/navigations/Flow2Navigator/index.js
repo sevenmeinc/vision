@@ -1,15 +1,15 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import FlowScreen from '../../screens/FlowScreen'
 import { modalOptions } from '../utils'
-import Flow1 from '../../screens/Flow1'
 import Flow2 from '../../screens/Flow2'
+import ReflectionHome from '../../screens/ReflectionHome'
 
 const Stack = createStackNavigator()
 const Flow2Navigator = () => {
   return (
     <Stack.Navigator {...modalOptions}>
-      <Stack.Screen name="flow2" component={Flow2} />
+      <Stack.Screen name="Flow 2" component={Flow2} />
+      <Stack.Screen name="reflectionHome" component={ReflectionHome} />
     </Stack.Navigator>
   )
 }
