@@ -73,7 +73,7 @@ const PreActivityCard = ({
           }}
         />
       </View>
-      <View style={{ minHeight: '35%', padding: 16 }}>
+      <View style={{ minHeight: '35%', padding: 16, width: '100%' }}>
         <Text
           style={{
             fontStyle: 'normal',
@@ -123,7 +123,7 @@ PreActivityCard.defaultProps = {
   image:
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3D0aURGT5WKezruVcRkgc29HptqChXblNxPsZxOn0-mfvQ0fVppxeasbe0x0yxDHvPO8&usqp=CAU',
   title: 'Oh, snap! Guess what I saw?',
-  timeEst: '4:40',
+  // timeEst: '4:40',
   description:
     "Have you ever met a girl that you tried to date But a year to make love she wanted you to wait Let me tell ya a story of my situation I was talkin' to this girl from the U.S. Nation",
   btn1: {

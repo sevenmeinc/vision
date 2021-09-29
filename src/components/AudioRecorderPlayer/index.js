@@ -3,6 +3,7 @@ import FeatherIcons from 'react-native-vector-icons/Feather'
 import { TouchableOpacity, Text, View } from 'react-native'
 import Space from '../Space'
 import colors from '../../assets/colors'
+import Timer from './Timer'
 
 const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
   const newTimer = '00:00:00'
@@ -30,24 +31,24 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
   const [playTime, setPlayTime] = useState(newTimer)
   const [duration, setDuration] = useState(newTimer)
 
-  let time = setInterval(countTimer, 10000)
-  let totalSeconds = 0
-  const countTimer = () => {
-    ++totalSeconds
-    let hour = ~~(totalSeconds / 3600)
-    let minute = ~~((totalSeconds - hour * 3600) / 60)
-    let seconds = totalSeconds - (hour * 3600 + minute * 60)
-    if (hour < 10) {
-      hour = '0' + hour
-    }
-    if (minute < 10) {
-      minute = '0' + minute
-    }
-    if (seconds < 10) {
-      seconds = '0' + seconds
-    }
-    return `${hour}:${minute}:${seconds}`
-  }
+  // let time = setInterval(countTimer, 10000)
+  // let totalSeconds = 0
+  // const countTimer = () => {
+  //   ++totalSeconds
+  //   let hour = ~~(totalSeconds / 3600)
+  //   let minute = ~~((totalSeconds - hour * 3600) / 60)
+  //   let seconds = totalSeconds - (hour * 3600 + minute * 60)
+  //   if (hour < 10) {
+  //     hour = '0' + hour
+  //   }
+  //   if (minute < 10) {
+  //     minute = '0' + minute
+  //   }
+  //   if (seconds < 10) {
+  //     seconds = '0' + seconds
+  //   }
+  //   return `${hour}:${minute}:${seconds}`
+  // }
 
   // onPress handlers
   const handleRecord = () => {
@@ -58,7 +59,6 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
     setBtn1Mode('delete')
     setBtn2Mode('stop')
     // TODO: start recording timer
-    setRecordTime(new Date())
     // const audioSet = {
     //   AudioEncoderAndroid: AudioEncoderAndroidType.AAC,
     //   AudioSourceAndroid: AudioSourceAndroidType.MIC,
@@ -138,7 +138,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
 
   return (
     <View
-      sx={{
+      style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -149,16 +149,17 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
         <Text>Think out loud</Text>
       ) : (
         <Text
-          sx={{
+          style={{
             textAlign: isRecording ? 'center' : 'right',
             width: '40%'
           }}>
-          {isRecording ? recordTime : `${playTime} / ${duration}`}
+          {/* {isRecording ? recordTime : `${playTime} / ${duration}`} */}
+          {isRecording ? <Timer /> : `${playTime} / ${duration}`}
         </Text>
       )}
-      <Space index={3} />
+      <Space index={4} />
       <View
-        sx={{
+        style={{
           display: 'flex',
           flexDirection: 'row',
           width: '80%',
@@ -170,7 +171,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
           <FeatherIcons
             name={BUTTON_MODES[btn1Mode]}
             size={32}
-            color={colors.text}
+            color={'black'}
           />
         </TouchableOpacity>
 
@@ -185,15 +186,13 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
             borderRadius: 50,
             backgroundColor: ['play', 'pause'].includes(btn2Mode)
               ? 'transparent'
-              : colors.googleRed
+              : 'red'
           }}>
           <FeatherIcons
             name={BUTTON_MODES[btn2Mode]}
             size={50}
-            color={
-              ['play', 'pause'].includes(btn2Mode) ? colors.text : colors.white
-            }
-            borderColor={colors.googleRed}
+            color={['play', 'pause'].includes(btn2Mode) ? 'black' : 'white'}
+            borderColor={'red'}
           />
         </TouchableOpacity>
 

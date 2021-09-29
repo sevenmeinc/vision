@@ -43,6 +43,7 @@ import Flow2Navigator from '../Flow2Navigator'
 import SuccessfulHabits from '../../screens/SuccessfulHabits'
 import Breathe from '../../components/Breathe'
 import PreActivityCard from '../../components/PreActivityCard'
+import AuxRecorderPlayer from '../../components/AudioRecorderPlayer'
 
 const Stack = createStackNavigator()
 const MainNavigator = () => {
@@ -60,6 +61,7 @@ const MainNavigator = () => {
       <Stack.Screen name="SuccessfulHabits01" component={SuccessfulHabits} />
       <Stack.Screen name="Breathe" component={Breathe} />
       <Stack.Screen name="PreActivityCard" component={PreActivityCard} />
+      <Stack.Screen name="AuxRecorderPlayer" component={AuxRecorderPlayer} />
     </Stack.Navigator>
   )
 }

@@ -31,6 +31,11 @@ const FlowScreen = (props) => {
         onPress={() => props.navigation.navigate('PreActivityCard')}>
         PreActivityCard
       </Button>
+      <Button
+        mode="outlined"
+        onPress={() => props.navigation.navigate('AuxRecorderPlayer')}>
+        AuxRecorderPlayer
+      </Button>
     </View>
   )
 }
