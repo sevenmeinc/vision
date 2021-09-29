@@ -1,14 +1,10 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import PreActivityCard from '../../components/PreActivityCard'
-import { content } from '../../../assets/content'
 
-const {
-  successfulHabits: { title, timeEst, description, type }
-} = content
-
-const PreActivity = () => {
+const PreActivity = ({ route }) => {
   const navigation = useNavigation()
+  const { title, timeEst, description, type, prompts } = route.params
   return (
     <PreActivityCard
       handleClose={() => navigation.navigate('SuccessfulHabits01')}
@@ -18,9 +14,7 @@ const PreActivity = () => {
       timeEst={timeEst}
       description={description}
       btn1={{
-        handler: () => {
-          console.log('btn1, go to next')
-        },
+        handler: () => navigation.navigate('Prompts', { prompts: prompts }),
         label: 'Get started'
       }}
       btn2={{

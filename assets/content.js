@@ -6,8 +6,15 @@ export const content = {
     timeEst: 8,
     type: 'Reflection Activity',
     prompts: [
-      'What is one healthy habit you sustained long-term?',
-      'Why do you think you have been able to stick with it for so long?'
+      {
+        contemplation:
+          'Take a moment to reflect on the past few years. Consider what healthy habits you have stuck with for more than six months.',
+        prompt: 'What is one healthy habit you sustained long-term?'
+      },
+      {
+        prompt:
+          'Why do you think you have been able to stick with it for so long?'
+      }
     ]
   }
 }

@@ -13,7 +13,7 @@ const SucHab01 = () => {
       timeEst={timeEst}
       title={title}
       activityType={type}
-      goTo={'PreActivity'}
+      goTo={['PreActivity', { ...content.successfulHabits }]}
     />
   )
 }

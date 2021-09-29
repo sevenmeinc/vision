@@ -113,7 +113,7 @@ const MessageLanging = ({ timeEst, title, activityType, goTo }) => {
                 Spend a few minutes looking back on what you've learned so far!
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate(goTo)}
+                onPress={() => navigation.navigate(...goTo)}
                 style={{
                   width: 235,
                   height: 34,

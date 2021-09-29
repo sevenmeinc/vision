@@ -1,10 +1,8 @@
 import React from 'react'
 import { ScrollView, View, Text, Image } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
-// import Button from '../Button'
 import { Button } from 'react-native-paper'
 import Space from '../Space'
-import colors from '../../../assets/colors'
 
 const PreActivityCard = ({
   handleClose,
@@ -52,12 +50,11 @@ const PreActivityCard = ({
               fontWeight: '600',
               fontSize: 14,
               lineHeight: 17,
-              letterSpacing: -0.01,
-              color: colors.squant
+              letterSpacing: -0.01
             }}>
             {activityType}
           </Text>
-          <Button onPress={handleClose} mode={'text'} color={colors.darkCyan}>
+          <Button onPress={handleClose} mode={'text'}>
             Close
           </Button>
         </View>
@@ -67,8 +64,6 @@ const PreActivityCard = ({
           style={{
             height: '80%',
             width: '100%',
-            borderWidth: 1,
-            borderColor: colors.lightSilver,
             borderRadius: 8
           }}
         />
@@ -89,8 +84,8 @@ const PreActivityCard = ({
               flexDirection: 'row',
               alignItems: 'center'
             }}>
-            <FeatherIcons name="clock" size={20} color={colors.gray2} />
-            <Text style={{ color: colors.gray2 }}> {timeEst} min activity</Text>
+            <FeatherIcons name="clock" size={20} />
+            <Text> {timeEst} min activity</Text>
           </View>
         ) : (
           <Space index={3} />
@@ -108,7 +103,7 @@ const PreActivityCard = ({
         <Button onPress={btn1.handler} mode={'contained'} dark={true}>
           {btn1.label}
         </Button>
-        <Button onPress={btn2.handler} mode={'text'} labelColor={colors.gray2}>
+        <Button onPress={btn2.handler} mode={'text'}>
           {btn2.label}
         </Button>
       </View>
@@ -117,26 +112,3 @@ const PreActivityCard = ({
 }
 
 export default PreActivityCard
-
-PreActivityCard.defaultProps = {
-  activityType: 'Reflection Activity',
-  image:
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3D0aURGT5WKezruVcRkgc29HptqChXblNxPsZxOn0-mfvQ0fVppxeasbe0x0yxDHvPO8&usqp=CAU',
-  title: 'Oh, snap! Guess what I saw?',
-  // timeEst: '4:40',
-  description:
-    "Have you ever met a girl that you tried to date But a year to make love she wanted you to wait Let me tell ya a story of my situation I was talkin' to this girl from the U.S. Nation",
-  btn1: {
-    label: 'Get started',
-    handler: () => {
-      console.log('START')
-    }
-  },
-  btn2: {
-    label: 'Remind me later',
-    handler: () => {
-      console.log('LATERS')
-    }
-  },
-  handleClose: () => console.log('handleClose')
-}
