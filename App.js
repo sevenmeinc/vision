@@ -3,14 +3,11 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { enableScreens } from 'react-native-screens'
 import { ActivityIndicator } from 'react-native'
 import { useFonts } from 'expo-font'
-import { LogBox } from 'react-native'
+
 import MainNavigator from './src/navigations/MainNavigator'
 
 enableScreens()
 
-LogBox.ignoreLogs([
-  'VirtualizedLists should never be nested' // TODO: Remove when fixed
-])
 const MyTheme = {
   ...DefaultTheme,
   colors: {
