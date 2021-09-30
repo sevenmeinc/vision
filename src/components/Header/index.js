@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const Header = (props) => {
+const Header = ({ navigation, title }) => {
   return (
     <View
       style={{
@@ -21,9 +21,9 @@ const Header = (props) => {
           textAlign: 'center',
           letterSpacing: '-.01'
         }}>
-        Reflection activity
+        {title}
       </Text>
-      <TouchableOpacity onPress={() => props.navigation.goBack()}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text
           style={{
             fontSize: 14,

@@ -16,6 +16,12 @@ const FlowScreen = (props) => {
         onPress={() => props.navigation.navigate('Flow 2')}>
         Flow 2
       </Button>
+      <Button
+        style={{ marginTop: 8 }}
+        mode="outlined"
+        onPress={() => props.navigation.navigate('Flow 3')}>
+        Flow 3
+      </Button>
     </View>
   )
 }

@@ -14,7 +14,9 @@ const Flow2Navigator = () => {
         name="reflectionHome"
         component={ReflectionHome}
         options={({ navigation }) => ({
-          header: () => <Header navigation={navigation} />
+          header: () => (
+            <Header navigation={navigation} title="Reflection activity" />
+          )
         })}
       />
     </Stack.Navigator>
