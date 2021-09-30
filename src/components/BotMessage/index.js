@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { Colors } from '../../constants/colors'
+
 import Logo from '../Logo'
 
 const BotMessage = (props) => {
