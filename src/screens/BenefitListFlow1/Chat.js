@@ -63,7 +63,7 @@ const BotMessagesData = [
       },
       {
         message:
-          'What are the long-term benefits you imagine gaining from completing your Weekly Commitment?'
+          'What are three long-term benefits you might gain from completing your Weekly Commitment?'
       }
     ]
   },
