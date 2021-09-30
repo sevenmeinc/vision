@@ -4,7 +4,7 @@ import FeatherIcons from 'react-native-vector-icons/Feather'
 // import Button from '../Button'
 import { Button } from 'react-native-paper'
 import Space from '../Space'
-import colors from '../../assets/colors'
+import colors from '../../../assets/colors'
 
 const PreActivityCard = ({
   handleClose,
@@ -63,7 +63,7 @@ const PreActivityCard = ({
         </View>
         <Image
           resizeMode={'cover'}
-          source={{ uri: image }}
+          source={image}
           style={{
             height: '80%',
             width: '100%',

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import { TouchableOpacity, Text, View } from 'react-native'
 import Space from '../Space'
-import colors from '../../assets/colors'
+import colors from '../../../assets/colors'
 import Timer from './Timer'
 
 const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {

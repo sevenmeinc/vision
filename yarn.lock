@@ -6007,6 +6007,9 @@ react-native-screens@~3.4.0:
     warn-once "^0.1.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66a053 (WIP MessageLanding)
 react-native-svg@12.1.1:
   version "12.1.1"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-12.1.1.tgz#5f292410b8bcc07bbc52b2da7ceb22caf5bcaaee"
@@ -6014,7 +6017,11 @@ react-native-svg@12.1.1:
   dependencies:
     css-select "^2.1.0"
     css-tree "^1.0.0-alpha.39"
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> d66a053 (WIP MessageLanding)
 react-native-vector-icons@7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
@@ -6028,7 +6035,10 @@ react-native-vector-icons@7.1.0:
     lodash.template "^4.5.0"
     prop-types "^15.7.2"
     yargs "^15.0.2"
+<<<<<<< HEAD
 >>>>>>> cf434a5 (PreactivityCard)
+=======
+>>>>>>> d66a053 (WIP MessageLanding)
 
 react-native-web@~0.13.12:
   version "0.13.18"
