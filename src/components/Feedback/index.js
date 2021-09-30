@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Svg, { Rect, Path } from 'react-native-svg'
 import EmojiButton from '../EmojiButton'
 import Button from '../Button'
+import { Colors } from '../../constants/colors'
 
 const Feedback = ({ onPress }) => {
   const [feedback, setFeedback] = useState(false)

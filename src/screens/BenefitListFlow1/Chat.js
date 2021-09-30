@@ -9,7 +9,6 @@ import {
   KeyboardAvoidingView,
   Platform
 } from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Svg, { Circle, Path } from 'react-native-svg'
 import BotMessage from '../../components/BotMessage'
 import OutlineButton from '../../components/OutlineButton'
