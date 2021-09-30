@@ -21,7 +21,7 @@ const GetStarted = (props) => {
               fontSize: 25,
               marginVertical: 24
             }}>
-            Hey! I'm Seven. I will be guiding yu through this activity
+            Hey! I'm Seven. I will be guiding you through this activity
           </Text>
 
           <Text style={{ fontFamily: 'semiBold', fontSize: 24 }}>
