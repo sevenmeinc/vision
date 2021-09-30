@@ -1,10 +1,9 @@
 import React from 'react'
-import { SafeAreaView, View, Text, FlatList } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { SafeAreaView, View, Text, FlatList, ScrollView } from 'react-native'
+import BotMessage from '../../components/BotMessage'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import { Colors } from '../../constants/colors'
-import { BotMessage } from './Chat'
 
 const List = ({ title, list }) => {
   const renderItem = ({ item, index }) => {
@@ -34,8 +33,8 @@ const List = ({ title, list }) => {
   )
 }
 const BenefitList = ({ navigation, route }) => {
-  const shortTerms = route.params?.shortTerms
-  const longTerms = route.params?.longTerms
+  const shortTerms = route.params?.shortTerms ?? []
+  const longTerms = route.params?.longTerms ?? []
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
