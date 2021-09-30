@@ -19,7 +19,7 @@ const Header = (props) => {
           color: '#666666',
           fontWeight: '600',
           textAlign: 'center',
-          letterSpacing: '-.01'
+          letterSpacing: -0.01
         }}>
         Reflection activity
       </Text>
@@ -30,7 +30,7 @@ const Header = (props) => {
             color: '#00968A',
             fontWeight: '500',
             textAlign: 'center',
-            letterSpacing: '-.01'
+            letterSpacing: -0.01
           }}>
           Close
         </Text>

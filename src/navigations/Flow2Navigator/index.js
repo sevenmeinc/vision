@@ -1,8 +1,8 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { modalOptions } from '../utils'
-import Flow2 from '../../screens/Flow2'
-import ReflectionHome from '../../screens/ReflectionHome'
+import Flow2 from '../../screens/flow2/Flow2'
+import ReflectionHome from '../../screens/flow2/ReflectionHome'
 import Header from '../../components/Header'
 
 const Stack = createStackNavigator()

@@ -15,7 +15,7 @@ const ReflectionHome = () => {
           backgroundColor: '#fff'
         }}>
         <Image
-          source={require('../../assets/treasures.png')}
+          source={require('../../../assets/treasures.png')}
           style={{
             marginTop: 8
           }}
@@ -135,7 +135,7 @@ const ReflectionHome = () => {
             color: '#16161A',
             fontWeight: '700',
             margin: 16,
-            letterSpacing: '-.01',
+            letterSpacing: -0.01,
             alignSelf: 'flex-start'
           }}>
           Scientific studies
@@ -242,7 +242,7 @@ const ReflectionHome = () => {
             lineHeight: 15,
             color: '#16161A',
             fontWeight: '500',
-            letterSpacing: '.02',
+            letterSpacing: 0.02,
             alignSelf: 'flex-start',
             margin: 16,
             marginTop: 32
@@ -256,7 +256,7 @@ const ReflectionHome = () => {
             flexDirection: 'row'
           }}>
           <Image
-            source={require('../../assets/coach.png')}
+            source={require('../../../assets/coach.png')}
             style={{
               marginRight: 8
             }}

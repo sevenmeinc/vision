@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import FlowScreen from '../../screens/FlowScreen'
+import FlowScreen from '../../screens/flow2/FlowScreen'
 import Flow1 from '../../screens/Flow1'
 import Flow2Navigator from '../Flow2Navigator'
 
@@ -11,7 +11,7 @@ const MainNavigator = () => {
       <Stack.Screen name="Flows" component={FlowScreen} />
       <Stack.Screen name="flow1" component={Flow1} />
       <Stack.Screen
-        name="Flow 2"
+        name="flow2Navigator"
         component={Flow2Navigator}
         options={{
           headerShown: false
