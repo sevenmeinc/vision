@@ -39,11 +39,11 @@ const BotMessagesData = [
     id: 1,
     messages: [
       {
-        message: 'Great! FirstQuestion'
+        message: 'Great! First Question'
       },
       {
         message:
-          'What are the short-term benefits you imagine gaining from completing your Weekly Commitment?'
+          'What short-tem benefits might you gain from completing your Weekly Commitment?'
       }
     ]
   },
@@ -51,7 +51,7 @@ const BotMessagesData = [
     id: 1,
     messages: [
       {
-        message: "Let's try to comeup with 2 more."
+        message: 'Nice! Try to come with two more.'
       }
     ]
   },
@@ -101,7 +101,7 @@ const UserMessage = ({ messages }) => {
 
 const Chat = (props) => {
   const [chatMessages, setChatMessages] = useState([BotMessagesData[0]])
-
+  const [borderRadius, setBorderRadius] = useState(8)
   const [text, setText] = useState('')
 
   const [userResponse, setUserResponse] = useState([])
@@ -177,25 +177,34 @@ const Chat = (props) => {
               style={{
                 marginTop: 16,
                 flexDirection: 'row',
-                borderRadius: 100,
+                borderRadius: borderRadius * 3,
                 backgroundColor: 'rgba(25, 51, 64, 0.08)',
-                paddingHorizontal: 16,
-                paddingVertical: 8
+                paddingLeft: 16,
+                paddingRight: 12,
+                paddingVertical: 8,
+                maxHeight: 120
               }}>
               <TextInput
                 value={text}
                 onChangeText={(text) => setText(text)}
+                multiline
+                onContentSizeChange={({ nativeEvent }) => {
+                  const { contentSize } = nativeEvent
+                  if (contentSize.height > 18 && borderRadius !== 6) {
+                    setBorderRadius(9)
+                  } else if (contentSize.height === 18) {
+                    setBorderRadius(8)
+                  }
+                }}
                 style={{
                   flex: 1,
                   color: Colors.pianoBlack,
-                  height: 26,
+                  minHeight: 26,
                   marginRight: 20
                 }}
-                returnKeyType="send"
-                onSubmitEditing={onSendMessage}
               />
               <TouchableOpacity
-                style={{ position: 'absolute', right: 3, top: 6 }}
+                style={{ alignSelf: 'flex-end' }}
                 onPress={onSendMessage}>
                 <Send />
               </TouchableOpacity>
