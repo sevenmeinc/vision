@@ -4,7 +4,7 @@ import Svg, { Rect, Path, Defs, G } from 'react-native-svg'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const ReflectionHome = () => {
+const ShortTermBenefits = () => {
   const navigation = useNavigation()
 
   return (
@@ -282,8 +282,7 @@ const ReflectionHome = () => {
             height: 52,
             backgroundColor: '#193340',
             justifyContent: 'center'
-          }}
-          onPress={() => navigation.navigate('shortTermNavigator')}>
+          }}>
           <Text
             style={{
               fontSize: 17,
@@ -316,4 +315,4 @@ const ReflectionHome = () => {
   )
 }
 
-export default ReflectionHome
+export default ShortTermBenefits

@@ -3,7 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { modalOptions } from '../utils'
 import Flow2 from '../../screens/flow2/Flow2'
 import ReflectionHome from '../../screens/flow2/ReflectionHome'
+import ShortTermBenefits from '../../screens/flow2/ShortTermBenefits'
 import Header from '../../components/Header'
+import ShortTermNavigator from '../ShortTermNavigator'
 
 const Stack = createStackNavigator()
 const Flow2Navigator = () => {
