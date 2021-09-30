@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import { TouchableOpacity, Text, View } from 'react-native'
 import Space from '../Space'
-import colors from '../../../assets/colors'
 import Timer from './Timer'
 
-const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
-  const newTimer = '00:00:00'
+const newTimer = { min: 0, sec: 0 }
 
+const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
   const BUTTON_MODES = {
     play: 'play',
     stop: 'square',
@@ -24,105 +23,52 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
   const [btn2Mode, setBtn2Mode] = useState('record')
   const [btn3Mode, setBtn3Mode] = useState('video')
   const [isRecording, setIsRecording] = useState(false)
-  const [isPaused, setIsPaused] = useState(false)
 
   // AudioRecorder state
-  const [recordTime, setRecordTime] = useState(newTimer)
-  const [playTime, setPlayTime] = useState(newTimer)
+  const [time, setTime] = useState(newTimer)
   const [duration, setDuration] = useState(newTimer)
-
-  // let time = setInterval(countTimer, 10000)
-  // let totalSeconds = 0
-  // const countTimer = () => {
-  //   ++totalSeconds
-  //   let hour = ~~(totalSeconds / 3600)
-  //   let minute = ~~((totalSeconds - hour * 3600) / 60)
-  //   let seconds = totalSeconds - (hour * 3600 + minute * 60)
-  //   if (hour < 10) {
-  //     hour = '0' + hour
-  //   }
-  //   if (minute < 10) {
-  //     minute = '0' + minute
-  //   }
-  //   if (seconds < 10) {
-  //     seconds = '0' + seconds
-  //   }
-  //   return `${hour}:${minute}:${seconds}`
-  // }
+  const [timerGo, setTimerGo] = useState(false)
+  const [resetTimer, setResetTimer] = useState(false)
 
   // onPress handlers
   const handleRecord = () => {
-    if (isRecording) {
-      return
-    }
     setIsRecording(true)
     setBtn1Mode('delete')
     setBtn2Mode('stop')
-    // TODO: start recording timer
-    // const audioSet = {
-    //   AudioEncoderAndroid: AudioEncoderAndroidType.AAC,
-    //   AudioSourceAndroid: AudioSourceAndroidType.MIC,
-    //   AVEncoderAudioQualityKeyIOS: AVEncoderAudioQualityIOSType.high,
-    //   AVNumberOfChannelsKeyIOS: 2,
-    //   AVFormatIDKeyIOS: AVEncodingOption.aac
-    // }
-    // const result = audRecPlay.startRecorder(path, audioSet)
-    // audRecPlay.addRecordBackListener((e) => {
-    //   setRecordTime(audRecPlay.mmssss(Math.floor(e.currentPosition)))
-    //   return
-    // })
-    // return result
+    setTimerGo(true)
+    setResetTimer(false)
   }
 
   const handlePlay = async () => {
+    setResetTimer(false)
     setBtn2Mode('pause')
-    if (isPaused) {
-      setIsPaused(false)
-      return
-    }
-    // TODO start playTimer
-    // const msg = await audRecPlay.startPlayer(path)
-    // audRecPlay.addPlayBackListener((e) => {
-    //   setPlayTime(audRecPlay.mmssss(Math.floor(e.currentPosition)))
-    //   setDuration(audRecPlay.mmssss(Math.floor(e.duration)))
-    //   if (e.currentPosition === e.duration) {
-    //     setBtn2Mode('play')
-    //     setPlayTime(newTimer)
-    //   }
-    //   return
-    // })
-    // return msg
+    setTimerGo(true)
+  }
+
+  const handleRestart = () => {
+    setTime(newTimer)
+    setBtn2Mode('play')
+    setTimerGo(false)
+    setResetTimer(true)
   }
 
   const handleStop = () => {
-    // const result = audRecPlay.stopRecorder()
-    // audRecPlay.removeRecordBackListener()
+    setDuration({ ...time, sec: time.sec + 1 })
+    handleRestart()
     setIsRecording(false)
-    setDuration(recordTime)
-    setBtn2Mode('play')
     setBtn3Mode('restart')
-    // return result
   }
 
   const handleDelete = () => {
-    setIsPaused(false)
+    setTime(newTimer)
     setBtn1Mode('text')
     setBtn2Mode('record')
     setBtn3Mode('video')
   }
 
-  const handlePause = async () => {
+  const handlePause = () => {
     setBtn2Mode('play')
-    setIsPaused(true)
-    // await audRecPlay.pausePlayer()
-  }
-
-  const handleRestart = async () => {
-    // await audRecPlay.stopPlayer()
-    // audRecPlay.removePlayBackListener()
-    setPlayTime(newTimer)
-    setIsPaused(false)
-    setBtn2Mode('play')
+    setTimerGo(false)
   }
 
   const handleMode = {
@@ -136,25 +82,41 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
     text: handleText
   }
 
+  useEffect(() => {
+    if (btn2Mode === 'pause') {
+      if (duration.min === time.min && duration.sec === time.sec) {
+        handleRestart()
+      }
+    }
+  }, [btn2Mode, time, duration])
+
   return (
     <View
       style={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         width: '100%',
-        padding: 20
+        alignItems: 'center'
       }}>
       {btn2Mode === 'record' ? (
         <Text>Think out loud</Text>
       ) : (
         <Text
           style={{
-            textAlign: isRecording ? 'center' : 'right',
-            width: '40%'
+            textAlign: 'center',
+            width: '50%'
           }}>
-          {/* {isRecording ? recordTime : `${playTime} / ${duration}`} */}
-          {isRecording ? <Timer /> : `${playTime} / ${duration}`}
+          <Timer
+            time={time}
+            timerGo={timerGo}
+            setTime={setTime}
+            reset={resetTimer}
+          />
+          {isRecording
+            ? null
+            : ` / ${duration.min < 10 ? `0${duration.min}` : duration.min}:${
+                duration.sec < 10 ? `0${duration.sec}` : duration.sec
+              }`}
         </Text>
       )}
       <Space index={4} />
@@ -205,7 +167,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, refId, promptNum }) => {
           <FeatherIcons
             name={BUTTON_MODES[btn3Mode]}
             size={32}
-            color={colors.text}
+            color={'black'}
           />
         </TouchableOpacity>
       </View>

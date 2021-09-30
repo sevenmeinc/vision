@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { modalOptions } from '../utils'
 import PreActivity from '../../screens/SucHab01Screens/PreActivity'
 import SuccessfulHabits from '../../screens/SucHab01Screens/SuccessfulHabits'
-import Prompts from '../../screens/SucHab01Screens/Prompts'
+import PromptAudio from '../../screens/SucHab01Screens/PromptAudio'
 
 const Stack = createStackNavigator()
 const SucHab01Navigator = () => {
@@ -11,7 +11,7 @@ const SucHab01Navigator = () => {
     <Stack.Navigator {...modalOptions}>
       <Stack.Screen name="SuccessfulHabits01" component={SuccessfulHabits} />
       <Stack.Screen name="PreActivity" component={PreActivity} />
-      <Stack.Screen name="Prompts" component={Prompts} />
+      <Stack.Screen name="PromptAudio" component={PromptAudio} />
     </Stack.Navigator>
   )
 }

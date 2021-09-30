@@ -4,7 +4,7 @@ import PreActivityCard from '../../components/PreActivityCard'
 
 const PreActivity = ({ route }) => {
   const navigation = useNavigation()
-  const { title, timeEst, description, type, prompts } = route.params
+  const { title, timeEst, description, type } = route.params
   return (
     <PreActivityCard
       handleClose={() => navigation.navigate('SuccessfulHabits01')}
@@ -14,7 +14,7 @@ const PreActivity = ({ route }) => {
       timeEst={timeEst}
       description={description}
       btn1={{
-        handler: () => navigation.navigate('Prompts', { prompts: prompts }),
+        handler: () => navigation.navigate('PromptAudio', { ...route.params }),
         label: 'Get started'
       }}
       btn2={{

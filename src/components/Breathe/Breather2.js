@@ -4,11 +4,11 @@
  * */
 
 import React, { useRef } from 'react'
-import { StyleSheet, Text, View, Dimensions, Animated } from 'react-native'
+import { StyleSheet, View, Dimensions, Animated } from 'react-native'
 
 const { width, height } = Dimensions.get('window')
 const circleWidth = width / 4
-export default function App() {
+export default function Breathe2() {
   const move = useRef(new Animated.Value(0)).current
   const textOpacity = useRef(new Animated.Value(1)).current
   Animated.loop(
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    left: width / 3,
-    top: height / 4
+    left: '35%',
+    top: height / 6
   }
 })

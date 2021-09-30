@@ -1,12 +1,18 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Dimensions } from 'react-native'
+
+const { height } = Dimensions.get('window')
 
 const Breathe = ({
   breather, //component
   contemplationPrompt = 'default contemplation prompt'
 }) => {
   return (
-    <View>
+    <View
+      style={{
+        height: height / 3,
+        alignContent: 'center'
+      }}>
       <Text>{contemplationPrompt}</Text>
       {breather ? breather() : null}
     </View>

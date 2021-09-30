@@ -2,21 +2,24 @@
 import React, { useState, useEffect } from 'react'
 import { Text } from 'react-native'
 
-const Timer = (props) => {
-  const { initialMinute = 0, initialSeconds = 0 } = props
-  const [minutes, setMinutes] = useState(initialMinute)
-  const [seconds, setSeconds] = useState(initialSeconds)
+const Timer = ({ time, setTime, timerGo, reset }) => {
+  const [min, setMinutes] = useState(time.min)
+  const [sec, setSeconds] = useState(time.sec)
   useEffect(() => {
     let myInterval = setInterval(() => {
-      if (seconds > 0) {
-        setSeconds(seconds - 1)
+      if (reset) {
+        setMinutes(0)
+        setSeconds(0)
+        return
       }
-      if (seconds === 0) {
-        if (minutes === 0) {
-          clearInterval(myInterval)
+      if (timerGo) {
+        if (sec < 59) {
+          setSeconds(sec + 1)
+          setTime({ min, sec })
         } else {
-          setMinutes(minutes - 1)
-          setSeconds(59)
+          setSeconds(0)
+          setMinutes(min + 1)
+          setTime({ sec, min })
         }
       }
     }, 1000)
@@ -27,11 +30,9 @@ const Timer = (props) => {
 
   return (
     <>
-      {minutes === 0 && seconds === 0 ? null : (
-        <Text>
-          {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-        </Text>
-      )}
+      <Text>
+        {min < 10 ? `0${min}` : min}:{sec < 10 ? `0${sec}` : sec}
+      </Text>
     </>
   )
 }
