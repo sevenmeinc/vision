@@ -15,7 +15,7 @@ const ReflectionHome = ({ onPress }) => {
           backgroundColor: '#fff'
         }}>
         <Image
-          source={require('../../../assets/treasures.png')}
+          source={require('../../assets/treasures.png')}
           style={{
             marginTop: 8
           }}
@@ -256,7 +256,7 @@ const ReflectionHome = ({ onPress }) => {
             flexDirection: 'row'
           }}>
           <Image
-            source={require('../../../assets/coach.png')}
+            source={require('../../assets/coach.png')}
             style={{
               marginRight: 8
             }}
@@ -283,8 +283,7 @@ const ReflectionHome = ({ onPress }) => {
             height: 52,
             backgroundColor: '#193340',
             justifyContent: 'center'
-          }}
-          onPress={() => navigation.navigate('shortTermNavigator')}>
+          }}>
           <Text
             style={{
               fontSize: 17,

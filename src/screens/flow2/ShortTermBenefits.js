@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ScrollView, Image, Text, SafeAreaView, View } from 'react-native'
 import Svg, { Rect, Path, Circle, G } from 'react-native-svg'
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const ShortTermBenefits = () => {
+const ShortTermBenefits = ({
+  shortTermItem1,
+  shortTermItem2,
+  shortTermItem3
+}) => {
   const navigation = useNavigation()
 
   return (
@@ -28,7 +32,8 @@ const ShortTermBenefits = () => {
             fill="#4D4D4D"
           />
         </Svg>
-        <View
+        <TouchableOpacity
+          onPress={() => navigation.navigate('shortTermModal1')}
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -39,85 +44,12 @@ const ShortTermBenefits = () => {
             borderRadius: 8,
             borderColor: '#BFBFBF'
           }}>
-          <TextInput placeholder="Add an item..." />
-          <View
-            style={{
-              height: 24,
-              width: 24,
-              borderRadius: 100,
-              backgroundColor: '#193340',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-            <Svg
-              width={12}
-              height={12}
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <Path
-                d="M10.502 6h-9M6 1.5v9"
-                stroke="#fff"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </Svg>
-          </View>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: 344,
-            padding: 16,
-            borderStyle: 'dashed',
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#BFBFBF',
-            marginTop: 16
-          }}>
-          <TextInput placeholder="Add an item..." />
-          <View
-            style={{
-              height: 24,
-              width: 24,
-              borderRadius: 100,
-              backgroundColor: '#193340',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-            <Svg
-              width={12}
-              height={12}
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <Path
-                d="M10.502 6h-9M6 1.5v9"
-                stroke="#fff"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </Svg>
-          </View>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: 344,
-            padding: 16,
-            borderStyle: 'dashed',
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#BFBFBF',
-            marginTop: 16
-          }}>
           <TextInput
             placeholder="Add an item..."
-            multiline="true"
+            value={shortTermItem1}
+            editable={false}
+            multiline={true}
             style={{ textAlignVertical: 'top' }}
-            editable="false"
           />
           <View
             style={{
@@ -142,7 +74,95 @@ const ShortTermBenefits = () => {
               />
             </Svg>
           </View>
-        </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('shortTermModal2')}
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: 344,
+            padding: 16,
+            borderStyle: 'dashed',
+            borderWidth: 1,
+            borderRadius: 8,
+            borderColor: '#BFBFBF',
+            marginTop: 16
+          }}>
+          <TextInput
+            placeholder="Add an item..."
+            value={shortTermItem2}
+            editable={false}
+            multiline={true}
+            style={{ textAlignVertical: 'top' }}
+          />
+          <View
+            style={{
+              height: 24,
+              width: 24,
+              borderRadius: 100,
+              backgroundColor: '#193340',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+            <Svg
+              width={12}
+              height={12}
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <Path
+                d="M10.502 6h-9M6 1.5v9"
+                stroke="#fff"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </Svg>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('shortTermModal3')}
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: 344,
+            padding: 16,
+            borderStyle: 'dashed',
+            borderWidth: 1,
+            borderRadius: 8,
+            borderColor: '#BFBFBF',
+            marginTop: 16
+          }}>
+          <TextInput
+            placeholder="Add an item..."
+            style={{ textAlignVertical: 'top' }}
+            value={shortTermItem3}
+            editable={false}
+            multiline={true}
+          />
+          <View
+            style={{
+              height: 24,
+              width: 24,
+              borderRadius: 100,
+              backgroundColor: '#193340',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+            <Svg
+              width={12}
+              height={12}
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <Path
+                d="M10.502 6h-9M6 1.5v9"
+                stroke="#fff"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </Svg>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   )
