@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import FlowScreen from '../../screens/flow2/FlowScreen'
+import FlowScreen from '../../screens/FlowScreen'
 import Flow1 from '../../screens/Flow1'
 import Flow2Navigator from '../Flow2Navigator'
 import ShortTermNavigator from '../ShortTermNavigator'
