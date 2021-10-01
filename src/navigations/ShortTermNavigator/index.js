@@ -5,6 +5,7 @@ import { modalOptions } from '../utils'
 import ShortTermBenefits from '../../screens/flow2/ShortTermBenefits'
 import ShortTermBenefitModal from '../../screens/flow2/ShortTermBenefitModal'
 import ShortTermHeader from '../../components/ShortTermHeader'
+import ShortTermModalHeader from '../../components/ShortTermModalHeader'
 
 const Stack = createStackNavigator()
 const ShortTermNavigator = () => {
@@ -31,6 +32,9 @@ const ShortTermNavigator = () => {
       />
       <Stack.Screen
         name="shortTermModal1"
+        options={({ navigation }) => ({
+          header: () => <ShortTermModalHeader navigation={navigation} />
+        })}
         children={() => (
           <ShortTermBenefitModal
             shortTermItem={shortTermItem1}
@@ -40,6 +44,9 @@ const ShortTermNavigator = () => {
       />
       <Stack.Screen
         name="shortTermModal2"
+        options={({ navigation }) => ({
+          header: () => <ShortTermModalHeader navigation={navigation} />
+        })}
         children={() => (
           <ShortTermBenefitModal
             shortTermItem={shortTermItem2}
@@ -49,6 +56,9 @@ const ShortTermNavigator = () => {
       />
       <Stack.Screen
         name="shortTermModal3"
+        options={({ navigation }) => ({
+          header: () => <ShortTermModalHeader navigation={navigation} />
+        })}
         children={() => (
           <ShortTermBenefitModal
             shortTermItem={shortTermItem3}

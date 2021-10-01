@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import { ScrollView, Image, Text, SafeAreaView, View } from 'react-native'
-import Svg, { Rect, Path, Circle, G } from 'react-native-svg'
-import { TouchableOpacity, TextInput } from 'react-native-gesture-handler'
-import { useNavigation } from '@react-navigation/native'
+import React from 'react'
+import { SafeAreaView } from 'react-native'
+import { TextInput } from 'react-native-gesture-handler'
 
 const ShortTermBenefits = ({ shortTermItem, setShortTermItem }) => {
   return (
@@ -12,7 +10,7 @@ const ShortTermBenefits = ({ shortTermItem, setShortTermItem }) => {
         value={shortTermItem}
         onChangeText={(text) => setShortTermItem(text)}
         multiline={true}
-        style={{ textAlignVertical: 'top' }}
+        style={{ textAlignVertical: 'top', padding: 16 }}
       />
     </SafeAreaView>
   )

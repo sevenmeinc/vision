@@ -12,7 +12,7 @@ const Header = (props) => {
         paddingTop: 16,
         paddingVertical: 8,
         paddingHorizontal: 16,
-        backgroundColor: '#fff',
+        backgroundColor: '#DCDCDD',
         alignItems: 'center'
       }}>
       <Svg

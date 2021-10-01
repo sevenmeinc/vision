@@ -11,12 +11,93 @@ const ShortTermBenefits = ({
 }) => {
   const navigation = useNavigation()
 
+  let disableNextButton = true
+  if (shortTermItem1 && shortTermItem2 && shortTermItem3) {
+    disableNextButton = false
+  }
+
+  const renderItem = (shortTermItem, screen) => {
+    return (
+      <TouchableOpacity
+        onPress={() => navigation.navigate(screen)}
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          width: 344,
+          padding: 16,
+          borderStyle: shortTermItem ? 'solid' : 'dashed',
+          borderWidth: 1,
+          borderRadius: 8,
+          borderColor: '#BFBFBF',
+          backgroundColor: shortTermItem ? '#fff' : '#DCDCDD',
+          marginBottom: 16
+        }}>
+        <TextInput
+          placeholder="Add an item..."
+          value={shortTermItem}
+          editable={false}
+          multiline={true}
+          style={{ textAlignVertical: 'top' }}
+        />
+        {shortTermItem ? (
+          <View
+            style={{
+              height: 24,
+              width: 24,
+              borderRadius: 100,
+              backgroundColor: '#193340',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+            <Svg
+              width={12}
+              height={12}
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <Path
+                d="M8.499 1.5a1.414 1.414 0 012 2l-6.75 6.75-2.75.75.75-2.75 6.75-6.75z"
+                stroke="#fff"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </Svg>
+          </View>
+        ) : (
+          <View
+            style={{
+              height: 24,
+              width: 24,
+              borderRadius: 100,
+              backgroundColor: '#193340',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+            <Svg
+              width={12}
+              height={12}
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <Path
+                d="M10.502 6h-9M6 1.5v9"
+                stroke="#fff"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </Svg>
+          </View>
+        )}
+      </TouchableOpacity>
+    )
+  }
+
   return (
-    <SafeAreaView style={{ backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ backgroundColor: '#DCDCDD', flex: 1 }}>
       <ScrollView
         contentContainerStyle={{
           alignItems: 'center',
-          backgroundColor: '#fff'
+          backgroundColor: '#DCDCDD'
         }}>
         <Svg
           width={375}
@@ -32,138 +113,44 @@ const ShortTermBenefits = ({
             fill="#4D4D4D"
           />
         </Svg>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('shortTermModal1')}
+        {renderItem(shortTermItem1, 'shortTermModal1')}
+        {renderItem(shortTermItem2, 'shortTermModal2')}
+        {renderItem(shortTermItem3, 'shortTermModal3')}
+        <Text
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: 344,
             padding: 16,
-            borderStyle: 'dashed',
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#BFBFBF'
+            fontStyle: 'italic',
+            alignSelf: 'flex-start',
+            color: '#4D4D4D',
+            paddingTop: 0,
+            fontSize: 11
           }}>
-          <TextInput
-            placeholder="Add an item..."
-            value={shortTermItem1}
-            editable={false}
-            multiline={true}
-            style={{ textAlignVertical: 'top' }}
-          />
-          <View
-            style={{
-              height: 24,
-              width: 24,
-              borderRadius: 100,
-              backgroundColor: '#193340',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-            <Svg
-              width={12}
-              height={12}
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <Path
-                d="M10.502 6h-9M6 1.5v9"
-                stroke="#fff"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </Svg>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('shortTermModal2')}
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: 344,
-            padding: 16,
-            borderStyle: 'dashed',
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#BFBFBF',
-            marginTop: 16
-          }}>
-          <TextInput
-            placeholder="Add an item..."
-            value={shortTermItem2}
-            editable={false}
-            multiline={true}
-            style={{ textAlignVertical: 'top' }}
-          />
-          <View
-            style={{
-              height: 24,
-              width: 24,
-              borderRadius: 100,
-              backgroundColor: '#193340',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-            <Svg
-              width={12}
-              height={12}
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <Path
-                d="M10.502 6h-9M6 1.5v9"
-                stroke="#fff"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </Svg>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('shortTermModal3')}
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: 344,
-            padding: 16,
-            borderStyle: 'dashed',
-            borderWidth: 1,
-            borderRadius: 8,
-            borderColor: '#BFBFBF',
-            marginTop: 16
-          }}>
-          <TextInput
-            placeholder="Add an item..."
-            style={{ textAlignVertical: 'top' }}
-            value={shortTermItem3}
-            editable={false}
-            multiline={true}
-          />
-          <View
-            style={{
-              height: 24,
-              width: 24,
-              borderRadius: 100,
-              backgroundColor: '#193340',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-            <Svg
-              width={12}
-              height={12}
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <Path
-                d="M10.502 6h-9M6 1.5v9"
-                stroke="#fff"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </Svg>
-          </View>
-        </TouchableOpacity>
+          3 items required
+        </Text>
       </ScrollView>
+      <TouchableOpacity
+        disabled={disableNextButton}
+        style={{
+          margin: 16,
+          marginTop: 40,
+          borderRadius: 100,
+          width: 344,
+          height: 52,
+          backgroundColor: disableNextButton
+            ? 'rgba(25, 51, 64, 0.4)'
+            : '#193340',
+          justifyContent: 'center'
+        }}>
+        <Text
+          style={{
+            fontSize: 17,
+            color: '#fff',
+            fontWeight: '500',
+            textAlign: 'center'
+          }}>
+          Next
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   )
 }
