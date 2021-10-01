@@ -70,7 +70,7 @@ const Progress = ({ navigation, route }) => {
           name="md-close-sharp"
           size={24}
           color={Colors.pianoBlack}
-          onPress={() => navigation.navigate('Flow2')}
+          onPress={() => navigation.navigate('Flow1')}
         />
       </View>
     </View>

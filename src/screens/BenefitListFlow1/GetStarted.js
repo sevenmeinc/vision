@@ -21,7 +21,7 @@ const GetStarted = (props) => {
               fontSize: 25,
               marginVertical: 24
             }}>
-            Hey! I'm Seven. I will be guiding you through this activity
+            Hey! I'm Seven. I will be guiding you through this activity.
           </Text>
 
           <Text style={{ fontFamily: 'semiBold', fontSize: 24 }}>
@@ -37,7 +37,7 @@ const GetStarted = (props) => {
             <View style={{ marginTop: 12 }} />
             <OutlineButton
               title="Comeback later"
-              onPress={() => navigation.navigate('Flow2')}
+              onPress={() => navigation.navigate('Flow1')}
             />
           </View>
         </View>
