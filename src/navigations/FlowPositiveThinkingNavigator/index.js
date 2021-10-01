@@ -7,6 +7,7 @@ import Modal1 from '../../screens/PositiveThinking/modal1'
 import Modal2 from '../../screens/PositiveThinking/modal2'
 import Modal3 from '../../screens/PositiveThinking/modal3'
 import Modal4 from '../../screens/PositiveThinking/modal4'
+import VideoPlayer from '../../screens/PositiveThinking/video'
 
 const Stack = createStackNavigator()
 
@@ -43,6 +44,15 @@ const FlowPositiveThinkingModal = () => {
       <Stack.Screen
         name="positiveThinking4"
         component={Modal4}
+        options={({ navigation }) => ({
+          header: () => (
+            <Header navigation={navigation} title="Positive thinking" />
+          )
+        })}
+      />
+      <Stack.Screen
+        name="video1"
+        component={VideoPlayer}
         options={({ navigation }) => ({
           header: () => (
             <Header navigation={navigation} title="Positive thinking" />

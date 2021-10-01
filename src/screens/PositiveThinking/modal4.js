@@ -57,7 +57,8 @@ const Modal4 = () => {
             height: 52,
             backgroundColor: '#193340',
             justifyContent: 'center'
-          }}>
+          }}
+          onPress={() => navigation.navigate('video1')}>
           <Text
             style={{
               fontSize: 17,
