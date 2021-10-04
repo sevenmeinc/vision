@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { View, Button, SafeAreaView } from 'react-native'
 import { Video } from 'expo-av'
+import { useNavigation } from '@react-navigation/native'
 
 const VideoPage = () => {
   const [status, setStatus] = useState({})
   const video = useRef(null)
+  const navigation = useNavigation()
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -27,6 +29,10 @@ const VideoPage = () => {
               ? video.current.pauseAsync()
               : video.current.playAsync()
           }
+        />
+        <Button
+          title="Next"
+          onPress={() => navigation.navigate('postVideo1')}
         />
       </View>
     </SafeAreaView>

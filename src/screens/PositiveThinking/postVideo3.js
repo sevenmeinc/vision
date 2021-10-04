@@ -1,8 +1,12 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 
-const postVideo3 = () => {
-  return <View>Hello Post Video3</View>
+const PostVideo3 = () => {
+  return (
+    <View>
+      <Text>Hello Post Video</Text>
+    </View>
+  )
 }
 
-export default postVideo3
+export default PostVideo3
