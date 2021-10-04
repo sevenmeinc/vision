@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { useNavigation } from '@react-navigation/native'
-import { modalOptions } from '../utils'
+import { Text } from 'react-native'
 import ShortTermBenefits from '../../screens/BenefitListFlow2/ShortTermBenefits'
 import LongTermBenefits from '../../screens/BenefitListFlow2/LongTermBenefits'
 import ShortTermBenefitModal from '../../screens/BenefitListFlow2/ShortTermBenefitModal'
@@ -15,8 +14,6 @@ import ReviewBenefitList from '../../screens/BenefitListFlow2/ReviewBenefitList'
 
 const Stack = createStackNavigator()
 const ShortTermNavigator = () => {
-  const navigation = useNavigation()
-
   const [shortTermItem1, setShortTermItem1] = useState('')
   const [shortTermItem2, setShortTermItem2] = useState('')
   const [shortTermItem3, setShortTermItem3] = useState('')
@@ -162,8 +159,13 @@ const ShortTermNavigator = () => {
       <Stack.Screen
         name="Feedback"
         component={FeedbackScreen}
-        options={({ navigation, route }) => ({
-          headerLeft: () => null,
+        options={() => ({
+          title: null,
+          headerLeft: () => (
+            <Text style={{ fontFamily: 'semiBold', fontSize: 17, padding: 16 }}>
+              Benefits List
+            </Text>
+          ),
           headerRight: () => null
         })}
       />
