@@ -22,12 +22,6 @@ const FlowScreen = (props) => {
         onPress={() => props.navigation.navigate('SucHab01')}>
         Successful Habits 1
       </Button>
-      <Button
-        // incomming
-        mode="outlined"
-        onPress={() => props.navigation.navigate('Video')}>
-        Video
-      </Button>
     </View>
   )
 }

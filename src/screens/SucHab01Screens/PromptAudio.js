@@ -10,35 +10,40 @@ const windowHeight = Dimensions.get('window').height
 
 const PromptAudio = ({ route }) => {
   const navigation = useNavigation()
-  const { prompts, responses } = route.params
-  const prompt = prompts[responses.length]
-  const [didBreathe, setDidBreathe] = useState(false)
+  const {
+    prompts,
+    state: { responses, didBreathe }
+  } = route.params
+  const prompt = prompts[responses]
+  const [breathed, setBreathed] = useState(didBreathe)
 
   const breatheAudio = () => {
     return (
       <>
-        {!didBreathe ? (
+        {!breathed ? (
           <Breathe
             breather={Breather2}
-            contemplationPrompt={prompt.contemplation}
+            contemplationPrompt={prompt?.contemplation}
           />
         ) : (
           <View
             style={{
-              paddingTop: 20,
+              padding: 16,
               flex: 1,
               alignItems: 'center'
             }}>
-            <Text>{prompt.prompt}</Text>
+            <Text style={{ padding: 16 }}>{prompt?.prompt}</Text>
             <Space index={16} />
             <AuxRecorderPlayer
               handleText={() => {
-                // TODO navigate sending didBreathe
-                console.log('handleText')
+                navigation.navigate('PromptText', {
+                  ...route.params
+                })
               }}
               handleVideo={() => {
-                // TODO navigate sending didBreathe
-                console.log('handleVideo')
+                navigation.navigate('PromptVideo', {
+                  ...route.params
+                })
               }}
             />
           </View>
@@ -60,7 +65,14 @@ const PromptAudio = ({ route }) => {
         prompt={prompt}
         input={breatheAudio}
         handleNext={() => {
-          !didBreathe && setDidBreathe(true)
+          if (!breathed) {
+            setBreathed(true)
+            return
+          }
+          navigation.navigate('PromptAudio', {
+            ...route.params,
+            state: { responses: responses + 1, didBreathe: false }
+          })
         }}
         handleBack={() =>
           navigation.navigate('PreActivity', { ...route.params })

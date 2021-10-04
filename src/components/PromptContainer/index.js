@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { View, Dimensions, Text, TouchableOpacity } from 'react-native'
 import { Button } from 'react-native-paper'
 import FeatherIcons from 'react-native-vector-icons/Feather'
-// import Breathe from '../Breathe'
-// import Breather2 from '../Breathe/Breather2'
-// import AuxRecorderPlayer from '../AudioRecorderPlayer'
-// import Space from '../Space'
 
 const { width, height } = Dimensions.get('window')
 
-const PromptContainer = ({ prompt, handleNext, handleBack, input }) => {
+const PromptContainer = ({ handleNext, handleBack, input }) => {
   const navigation = useNavigation()
-  // const [didBreathe, setDidBreathe] = useState(false)
 
   return (
     <View

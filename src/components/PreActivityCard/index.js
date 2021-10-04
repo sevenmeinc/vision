@@ -28,7 +28,7 @@ const PreActivityCard = ({
       <View
         style={{
           padding: 16,
-          height: '100%',
+          height: '70%',
           width: '100%',
           justifyContent: 'flex-start'
         }}>

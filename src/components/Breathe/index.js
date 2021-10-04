@@ -10,7 +10,8 @@ const Breathe = ({
   return (
     <View
       style={{
-        height: height / 3,
+        padding: 16,
+        maxHeight: height / 5,
         alignContent: 'center'
       }}>
       <Text>{contemplationPrompt}</Text>

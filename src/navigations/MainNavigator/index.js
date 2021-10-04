@@ -41,7 +41,6 @@ import FlowScreen from '../../screens/FlowScreen'
 import Flow1 from '../../screens/Flow1'
 import Flow2Navigator from '../Flow2Navigator'
 import SucHab01Navigator from '../SucHab01Navigator'
-import VideoRec from '../../components/VideoRec'
 
 const Stack = createStackNavigator()
 const MainNavigator = () => {
@@ -59,13 +58,6 @@ const MainNavigator = () => {
       <Stack.Screen
         name="SucHab01"
         component={SucHab01Navigator}
-        options={{
-          headerShown: false
-        }}
-      />
-      <Stack.Screen
-        name="Video"
-        component={VideoRec}
         options={{
           headerShown: false
         }}
