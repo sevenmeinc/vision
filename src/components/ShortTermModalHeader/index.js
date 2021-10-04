@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const Header = ({ navigation, title }) => {
+const ShortTermModalHeader = (props) => {
   return (
     <View
       style={{
@@ -13,30 +13,42 @@ const Header = ({ navigation, title }) => {
         paddingHorizontal: 16,
         backgroundColor: '#fff'
       }}>
-      <Text
-        style={{
-          fontSize: 14,
-          color: '#666666',
-          fontWeight: '600',
-          textAlign: 'center',
-          letterSpacing: -0.01
-        }}>
-        {title}
-      </Text>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity onPress={() => props.navigation.goBack()}>
         <Text
           style={{
             fontSize: 14,
-            color: '#00968A',
+            color: '#32A6A6',
+            fontWeight: '600',
+            textAlign: 'center',
+            letterSpacing: -0.01
+          }}>
+          Cancel
+        </Text>
+      </TouchableOpacity>
+      <Text
+        style={{
+          fontSize: 14,
+          color: '#16161A',
+          fontWeight: '500',
+          textAlign: 'center',
+          letterSpacing: -0.01
+        }}>
+        Short-term benefits
+      </Text>
+      <TouchableOpacity onPress={() => props.navigation.goBack()}>
+        <Text
+          style={{
+            fontSize: 14,
+            color: '#32A6A6',
             fontWeight: '500',
             textAlign: 'center',
             letterSpacing: -0.01
           }}>
-          Close
+          Save
         </Text>
       </TouchableOpacity>
     </View>
   )
 }
 
-export default Header
+export default ShortTermModalHeader

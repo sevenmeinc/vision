@@ -28,7 +28,7 @@ const Flow2 = () => {
             alignSelf: 'flex-start'
           }}>
           <Image
-            source={require('../../assets/logomark.png')}
+            source={require('../../../assets/logomark.png')}
             style={{
               marginRight: 8
             }}
@@ -61,7 +61,7 @@ const Flow2 = () => {
             flexDirection: 'row',
             alignSelf: 'flex-start'
           }}>
-          <Image source={require('../../assets/coach.png')} />
+          <Image source={require('../../../assets/coach.png')} />
           <View
             style={{
               marginLeft: 8
@@ -153,7 +153,7 @@ const Flow2 = () => {
             alignSelf: 'flex-start'
           }}>
           <Image
-            source={require('../../assets/logomark.png')}
+            source={require('../../../assets/logomark.png')}
             style={{
               marginRight: 8
             }}

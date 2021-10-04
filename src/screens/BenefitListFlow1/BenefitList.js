@@ -43,7 +43,7 @@ const BenefitList = ({ navigation, route }) => {
             messages={[
               {
                 message:
-                  'Well done! Reflect on what you wrote below. Maintain momentum by reminding yourself of why you are working so hard. '
+                  'Well done! Reflect on what you wrote below. Maintain momentum by reminding yourself why you are working so hard.'
               }
             ]}
           />
