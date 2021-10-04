@@ -1,8 +1,10 @@
 import React from 'react'
-import { ScrollView, View, Text, Image } from 'react-native'
+import { View, Text, Image, Dimensions } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import { Button } from 'react-native-paper'
 import Space from '../Space'
+
+const { height, width } = Dimensions.get('window')
 
 const PreActivityCard = ({
   handleClose,
@@ -15,20 +17,21 @@ const PreActivityCard = ({
   btn2 // {handler: fn(), label: string}
 }) => {
   return (
-    <ScrollView
+    <View
       style={{
         display: 'flex',
         flexGrow: 1,
-        flexDirection: 'column'
-      }}
-      contentContainerStyle={{
+        padding: 16,
+        maxHeight: height,
+        backgroundColor: '#FFF',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'column'
       }}>
       <View
         style={{
           padding: 16,
-          height: '70%',
+          height: '50%',
           width: '100%',
           justifyContent: 'flex-start'
         }}>
@@ -50,7 +53,8 @@ const PreActivityCard = ({
               fontWeight: '600',
               fontSize: 14,
               lineHeight: 17,
-              letterSpacing: -0.01
+              letterSpacing: -0.01,
+              color: '#666666'
             }}>
             {activityType}
           </Text>
@@ -64,11 +68,18 @@ const PreActivityCard = ({
           style={{
             height: '80%',
             width: '100%',
-            borderRadius: 8
+            borderRadius: 8,
+            borderWidth: 1,
+            borderColor: 'lightgray'
           }}
         />
       </View>
-      <View style={{ minHeight: '35%', padding: 16, width: '100%' }}>
+      <View
+        style={{
+          height: '35%',
+          padding: 16,
+          width: '100%'
+        }}>
         <Text
           style={{
             fontStyle: 'normal',
@@ -107,7 +118,7 @@ const PreActivityCard = ({
           {btn2.label}
         </Button>
       </View>
-    </ScrollView>
+    </View>
   )
 }
 

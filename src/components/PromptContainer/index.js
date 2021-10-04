@@ -17,6 +17,7 @@ const PromptContainer = ({ handleNext, handleBack, input }) => {
           paddingRight: 32,
           flexDirection: 'row',
           alignItems: 'center',
+          width: width,
           justifyContent: 'space-between'
         }}>
         {/* carousel goes here */}

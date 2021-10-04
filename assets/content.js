@@ -15,6 +15,10 @@ export const content = {
         prompt:
           'Why do you think you have been able to stick with it for so long?'
       }
+    ],
+    postActivity: [
+      'What insights from this reflection can you apply to your pursuit of this vision and goal?',
+      'Where will you apply what you just reflected on in your daily life?'
     ]
   }
 }

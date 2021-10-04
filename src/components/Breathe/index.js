@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Dimensions } from 'react-native'
 
-const { height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const Breathe = ({
   breather, //component
@@ -11,10 +11,13 @@ const Breathe = ({
     <View
       style={{
         padding: 16,
-        maxHeight: height / 5,
-        alignContent: 'center'
+        width: width,
+        alignContent: 'center',
+        justifyContent: 'center'
       }}>
-      <Text>{contemplationPrompt ?? 'Breathing space'}</Text>
+      <Text style={{ textAlign: 'center' }}>
+        {contemplationPrompt ?? 'Breathing space'}
+      </Text>
       {breather()}
     </View>
   )

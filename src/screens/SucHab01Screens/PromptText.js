@@ -1,12 +1,21 @@
 import React, { useState } from 'react'
-import { View, Dimensions, TextInput, Text, StyleSheet } from 'react-native'
+import {
+  View,
+  Dimensions,
+  TextInput,
+  Text,
+  KeyboardAvoidingView,
+  SafeAreaView,
+  Platform
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import PromptContainer from '../../components/PromptContainer'
+import useKeyboard from '../../hooks/useKeyboard'
 
-const windowHeight = Dimensions.get('window').height
-const windowWidth = Dimensions.get('window').width
+const { width, height } = Dimensions.get('window')
 
 const PromptText = ({ route }) => {
+  const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
   const navigation = useNavigation()
   const {
     prompts,
@@ -16,61 +25,76 @@ const PromptText = ({ route }) => {
 
   const [res, setRes] = useState('')
 
-  const styles = StyleSheet.create({
-    centered: { alignItems: 'center', justifyContent: 'center' }
-  })
-
   const textInput = () => {
     return (
-      <>
-        <View>
-          <Text
-            style={{
-              fontSize: 17,
-              fontStyle: 'normal',
-              fontWeight: 500,
-              lineHeight: 20,
-              letterSpacing: -0.01,
-              textAlign: 'center'
-            }}>
-            {prompt.prompt}
-          </Text>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignContent: 'center',
+          alignItems: 'center',
+          margin: 16
+        }}>
+        <Text
+          style={{
+            fontSize: 17,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 20,
+            letterSpacing: -0.01,
+            textAlign: 'center'
+          }}>
+          {prompt.prompt}
+        </Text>
+        <View
+          style={{
+            width: '100%'
+          }}>
           <TextInput
             onChangeText={(msg) => {
               setRes(msg)
             }}
             value={res}
+            multiline={true}
             placeholder={'Start typing...'}
-            style={{ height: 100, width: windowWidth * 0.9 }}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            style={{ height: '100%', width: width * 0.9 }}
           />
         </View>
-      </>
+      </View>
     )
   }
 
   return (
-    <View
-      style={{
-        height: windowHeight,
-        padding: 16,
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-      <PromptContainer
-        prompt={prompt}
-        input={textInput}
-        handleNext={() => {
-          navigation.navigate('Breathe', {
-            ...route.params,
-            state: { responses: responses + 1 }
-          })
-        }}
-        handleBack={() =>
-          navigation.navigate('PromptAudio', { ...route.params })
-        }
-      />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <KeyboardAvoidingView
+        enabled={isKeyboardVisible}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={{ flex: 1 }}>
+        <View
+          style={{
+            height: height,
+            padding: 16,
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+          <PromptContainer
+            prompt={prompt}
+            input={textInput}
+            handleNext={() => {
+              navigation.navigate('Breathe', {
+                ...route.params,
+                state: { responses: responses + 1 }
+              })
+            }}
+            handleBack={() =>
+              navigation.navigate('PromptAudio', { ...route.params })
+            }
+          />
+        </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   )
 }
 

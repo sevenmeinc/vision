@@ -147,13 +147,17 @@ const PromptVideo = ({ route }) => {
         prompt={prompt}
         input={videoOrPreview}
         handleNext={() => {
-          navigation.navigate('Breathe', {
-            ...route.params,
-            state: { responses: responses + 1 }
-          })
+          if (prompts.length + 1 === responses) {
+            navigation.navigate('PostActivity', { ...route.params })
+          } else {
+            navigation.navigate('Breathe', {
+              ...route.params,
+              state: { responses: responses + 1 }
+            })
+          }
         }}
         handleBack={() =>
-          navigation.navigate('PreActivity', { ...route.params })
+          navigation.navigate('PromptAudio', { ...route.params })
         }
       />
     </View>

@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Dimensions, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import PromptContainer from '../../components/PromptContainer'
-import Breathe from '../../components/Breathe'
-import Breather2 from '../../components/Breathe/Breather2'
 import AuxRecorderPlayer from '../../components/AudioRecorderPlayer'
 import Space from '../../components/Space'
 const windowHeight = Dimensions.get('window').height
@@ -12,20 +10,13 @@ const PromptAudio = ({ route }) => {
   const navigation = useNavigation()
   const {
     prompts,
-    state: { responses, didBreathe }
+    state: { responses }
   } = route.params
   const prompt = prompts[responses]
-  // const [breathed, setBreathed] = useState(didBreathe)
 
   const breatheAudio = () => {
     return (
       <>
-        {/* {!breathed ? (
-          <Breathe
-            breather={Breather2}
-            contemplationPrompt={prompt?.contemplation}
-          />
-        ) : ( */}
         <View
           style={{
             padding: 16,
@@ -47,7 +38,6 @@ const PromptAudio = ({ route }) => {
             }}
           />
         </View>
-        {/* )} */}
       </>
     )
   }
@@ -65,10 +55,14 @@ const PromptAudio = ({ route }) => {
         prompt={prompt}
         input={breatheAudio}
         handleNext={() => {
-          navigation.navigate('Breathe', {
-            ...route.params,
-            state: { responses: responses + 1, didBreathe: false }
-          })
+          if (prompts.length === responses + 1) {
+            navigation.navigate('PostActivity', { ...route.params })
+          } else {
+            navigation.navigate('Breathe', {
+              ...route.params,
+              state: { responses: responses + 1 }
+            })
+          }
         }}
         handleBack={() =>
           navigation.navigate('PreActivity', { ...route.params })

@@ -4,7 +4,8 @@ import { useNavigation } from '@react-navigation/native'
 import PromptContainer from '../../components/PromptContainer'
 import Breathe from '../../components/Breathe'
 import Breather2 from '../../components/Breathe/Breather2'
-const windowHeight = Dimensions.get('window').height
+
+const { height, width } = Dimensions.get('window')
 
 const PromptAudio = ({ route }) => {
   const navigation = useNavigation()
@@ -18,6 +19,7 @@ const PromptAudio = ({ route }) => {
     return (
       <View
         style={{
+          width: width,
           paddingLeft: 16,
           paddingRight: 16,
           flex: 1,
@@ -34,7 +36,8 @@ const PromptAudio = ({ route }) => {
   return (
     <View
       style={{
-        height: windowHeight,
+        height: height,
+        width: width,
         padding: 16,
         flex: 1,
         alignItems: 'center',

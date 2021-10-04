@@ -125,7 +125,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
           display: 'flex',
           flexDirection: 'row',
           width: '80%',
-          justifyContent: 'space-around',
+          justifyContent: 'space-evenly',
           alignItems: 'center'
         }}>
         {/* btn1: pause/resume */}
