@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { ScrollView, Image, Text, SafeAreaView, View } from 'react-native'
+import { ScrollView, Image, Text, View } from 'react-native'
 import Svg, { Rect, Path, Circle, G } from 'react-native-svg'
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const ShortTermBenefits = ({
   shortTermItem1,
@@ -129,6 +130,7 @@ const ShortTermBenefits = ({
         </Text>
       </ScrollView>
       <TouchableOpacity
+        onPress={() => navigation.navigate('relaxScreen')}
         disabled={disableNextButton}
         style={{
           margin: 16,
