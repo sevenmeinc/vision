@@ -26,7 +26,6 @@ const PromptText = ({ route }) => {
         <View>
           <Text
             style={{
-              fontFamily: 'SF Pro Text',
               fontSize: 17,
               fontStyle: 'normal',
               fontWeight: 500,
@@ -62,7 +61,7 @@ const PromptText = ({ route }) => {
         prompt={prompt}
         input={textInput}
         handleNext={() => {
-          navigation.navigate('PromptAudio', {
+          navigation.navigate('Breathe', {
             ...route.params,
             state: { responses: responses + 1 }
           })

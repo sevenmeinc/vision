@@ -10,21 +10,17 @@ const PromptContainer = ({ handleNext, handleBack, input }) => {
   const navigation = useNavigation()
 
   return (
-    <View
-      style={{
-        paddingLeft: 16,
-        paddingRight: 16
-      }}>
+    <View>
       <View
         style={{
-          width: width,
-          paddingLeft: 16,
-          paddingRight: 16,
+          paddingLeft: 32,
+          paddingRight: 32,
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
-        <Text>some carousel indicator</Text>
+        {/* carousel goes here */}
+        <FeatherIcons name={'activity'} size={32} />
         <TouchableOpacity
           onPress={() => navigation.navigate('SuccessfulHabits01')}>
           <FeatherIcons name="x" size={36} />

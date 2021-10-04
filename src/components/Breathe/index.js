@@ -5,7 +5,7 @@ const { height } = Dimensions.get('window')
 
 const Breathe = ({
   breather, //component
-  contemplationPrompt = 'default contemplation prompt'
+  contemplationPrompt = 'Breathing space'
 }) => {
   return (
     <View
@@ -14,8 +14,8 @@ const Breathe = ({
         maxHeight: height / 5,
         alignContent: 'center'
       }}>
-      <Text>{contemplationPrompt}</Text>
-      {breather ? breather() : null}
+      <Text>{contemplationPrompt ?? 'Breathing space'}</Text>
+      {breather()}
     </View>
   )
 }

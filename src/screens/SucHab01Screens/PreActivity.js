@@ -16,7 +16,7 @@ const PreActivity = ({ route }) => {
       description={description}
       btn1={{
         handler: () =>
-          navigation.navigate('PromptAudio', {
+          navigation.navigate('Breathe', {
             ...route.params,
             state: {
               responses: 0

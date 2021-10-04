@@ -18,7 +18,8 @@ const PromptAudio = ({ route }) => {
     return (
       <View
         style={{
-          padding: 16,
+          paddingLeft: 16,
+          paddingRight: 16,
           flex: 1,
           alignItems: 'center'
         }}>
@@ -40,7 +41,7 @@ const PromptAudio = ({ route }) => {
         justifyContent: 'center'
       }}>
       <PromptContainer
-        prompt={prompt}
+        prompt={prompt.prompt}
         input={breathe}
         handleNext={() => {
           navigation.navigate('PromptAudio', { ...route.params })

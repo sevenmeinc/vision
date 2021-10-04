@@ -15,39 +15,39 @@ const PromptAudio = ({ route }) => {
     state: { responses, didBreathe }
   } = route.params
   const prompt = prompts[responses]
-  const [breathed, setBreathed] = useState(didBreathe)
+  // const [breathed, setBreathed] = useState(didBreathe)
 
   const breatheAudio = () => {
     return (
       <>
-        {!breathed ? (
+        {/* {!breathed ? (
           <Breathe
             breather={Breather2}
             contemplationPrompt={prompt?.contemplation}
           />
-        ) : (
-          <View
-            style={{
-              padding: 16,
-              flex: 1,
-              alignItems: 'center'
-            }}>
-            <Text style={{ padding: 16 }}>{prompt?.prompt}</Text>
-            <Space index={16} />
-            <AuxRecorderPlayer
-              handleText={() => {
-                navigation.navigate('PromptText', {
-                  ...route.params
-                })
-              }}
-              handleVideo={() => {
-                navigation.navigate('PromptVideo', {
-                  ...route.params
-                })
-              }}
-            />
-          </View>
-        )}
+        ) : ( */}
+        <View
+          style={{
+            padding: 16,
+            flex: 1,
+            alignItems: 'center'
+          }}>
+          <Text style={{ padding: 16 }}>{prompt?.prompt}</Text>
+          <Space index={16} />
+          <AuxRecorderPlayer
+            handleText={() => {
+              navigation.navigate('PromptText', {
+                ...route.params
+              })
+            }}
+            handleVideo={() => {
+              navigation.navigate('PromptVideo', {
+                ...route.params
+              })
+            }}
+          />
+        </View>
+        {/* )} */}
       </>
     )
   }
@@ -65,11 +65,7 @@ const PromptAudio = ({ route }) => {
         prompt={prompt}
         input={breatheAudio}
         handleNext={() => {
-          if (!breathed) {
-            setBreathed(true)
-            return
-          }
-          navigation.navigate('PromptAudio', {
+          navigation.navigate('Breathe', {
             ...route.params,
             state: { responses: responses + 1, didBreathe: false }
           })

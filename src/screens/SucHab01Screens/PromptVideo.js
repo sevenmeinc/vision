@@ -147,7 +147,7 @@ const PromptVideo = ({ route }) => {
         prompt={prompt}
         input={videoOrPreview}
         handleNext={() => {
-          navigation.navigate('PromptAudio', {
+          navigation.navigate('Breathe', {
             ...route.params,
             state: { responses: responses + 1 }
           })
