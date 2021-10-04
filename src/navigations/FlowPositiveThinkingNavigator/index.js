@@ -71,7 +71,7 @@ const FlowPositiveThinkingNavigator = () => {
         component={FlowPositiveThinking}
       />
       <Stack.Screen
-        name="positiveThinking1"
+        name="positiveThinkingModal"
         component={FlowPositiveThinkingModal}
         options={{
           headerShown: false
