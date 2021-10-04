@@ -1,26 +1,35 @@
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { useNavigation } from '@react-navigation/native'
-import { modalOptions } from '../utils'
+import { Text } from 'react-native'
 import ShortTermBenefits from '../../screens/BenefitListFlow2/ShortTermBenefits'
+import LongTermBenefits from '../../screens/BenefitListFlow2/LongTermBenefits'
 import ShortTermBenefitModal from '../../screens/BenefitListFlow2/ShortTermBenefitModal'
-import ShortTermHeader from '../../components/ShortTermHeader'
+import LongTermBenefitModal from '../../screens/BenefitListFlow2/LongTermBenefitModal'
+import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 import ShortTermModalHeader from '../../components/ShortTermModalHeader'
+import LongTermModalHeader from '../../components/LongTermModalHeader'
+import RelaxScreen from '../../screens/BenefitListFlow2/RelaxScreen'
+import FeedbackScreen from '../../screens/BenefitListFlow2/Feedback'
+import ReviewBenefitList from '../../screens/BenefitListFlow2/ReviewBenefitList'
 
 const Stack = createStackNavigator()
 const ShortTermNavigator = () => {
-  const navigation = useNavigation()
-
   const [shortTermItem1, setShortTermItem1] = useState('')
   const [shortTermItem2, setShortTermItem2] = useState('')
   const [shortTermItem3, setShortTermItem3] = useState('')
 
+  const [longTermItem1, setLongTermItem1] = useState('')
+  const [longTermItem2, setLongTermItem2] = useState('')
+  const [longTermItem3, setLongTermItem3] = useState('')
+
   return (
-    <Stack.Navigator {...modalOptions}>
+    <Stack.Navigator>
       <Stack.Screen
         name="shortTerm"
         options={({ navigation }) => ({
-          header: () => <ShortTermHeader navigation={navigation} />
+          header: () => (
+            <BenefitProgressHeader progress={1} navigation={navigation} />
+          )
         })}
         children={() => (
           <ShortTermBenefits
@@ -33,7 +42,8 @@ const ShortTermNavigator = () => {
       <Stack.Screen
         name="shortTermModal1"
         options={({ navigation }) => ({
-          header: () => <ShortTermModalHeader navigation={navigation} />
+          header: () => <ShortTermModalHeader navigation={navigation} />,
+          presentation: 'modal'
         })}
         children={() => (
           <ShortTermBenefitModal
@@ -45,7 +55,8 @@ const ShortTermNavigator = () => {
       <Stack.Screen
         name="shortTermModal2"
         options={({ navigation }) => ({
-          header: () => <ShortTermModalHeader navigation={navigation} />
+          header: () => <ShortTermModalHeader navigation={navigation} />,
+          presentation: 'modal'
         })}
         children={() => (
           <ShortTermBenefitModal
@@ -57,7 +68,8 @@ const ShortTermNavigator = () => {
       <Stack.Screen
         name="shortTermModal3"
         options={({ navigation }) => ({
-          header: () => <ShortTermModalHeader navigation={navigation} />
+          header: () => <ShortTermModalHeader navigation={navigation} />,
+          presentation: 'modal'
         })}
         children={() => (
           <ShortTermBenefitModal
@@ -65,6 +77,97 @@ const ShortTermNavigator = () => {
             setShortTermItem={setShortTermItem3}
           />
         )}
+      />
+      <Stack.Screen
+        name="relaxScreen"
+        component={RelaxScreen}
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader progress={2} navigation={navigation} />
+          ),
+          presentation: 'card'
+        })}
+      />
+      <Stack.Screen
+        name="longTerm"
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader progress={3} navigation={navigation} />
+          )
+        })}
+        children={() => (
+          <LongTermBenefits
+            longTermItem1={longTermItem1}
+            longTermItem2={longTermItem2}
+            longTermItem3={longTermItem3}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="longTermModal1"
+        options={({ navigation }) => ({
+          header: () => <LongTermModalHeader navigation={navigation} />,
+          presentation: 'modal'
+        })}
+        children={() => (
+          <LongTermBenefitModal
+            longTermItem={longTermItem1}
+            setLongTermItem={setLongTermItem1}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="longTermModal2"
+        options={({ navigation }) => ({
+          header: () => <LongTermModalHeader navigation={navigation} />,
+          presentation: 'modal'
+        })}
+        children={() => (
+          <LongTermBenefitModal
+            longTermItem={longTermItem2}
+            setLongTermItem={setLongTermItem2}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="longTermModal3"
+        options={({ navigation }) => ({
+          header: () => <LongTermModalHeader navigation={navigation} />,
+          presentation: 'modal'
+        })}
+        children={() => (
+          <LongTermBenefitModal
+            longTermItem={longTermItem3}
+            setLongTermItem={setLongTermItem3}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="reviewBenefitList"
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader progress={4} navigation={navigation} />
+          )
+        })}
+        children={() => (
+          <ReviewBenefitList
+            shortTerms={[shortTermItem1, shortTermItem2, shortTermItem3]}
+            longTerms={[longTermItem1, longTermItem2, longTermItem3]}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="Feedback"
+        component={FeedbackScreen}
+        options={() => ({
+          title: null,
+          headerLeft: () => (
+            <Text style={{ fontFamily: 'semiBold', fontSize: 17, padding: 16 }}>
+              Benefits List
+            </Text>
+          ),
+          headerRight: () => null
+        })}
       />
     </Stack.Navigator>
   )

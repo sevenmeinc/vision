@@ -202,7 +202,6 @@ const Chat = (props) => {
                   minHeight: 26,
                   marginRight: 20
                 }}
-                returnKeyType="send"
                 onSubmitEditing={onSendMessage}
               />
               <TouchableOpacity
