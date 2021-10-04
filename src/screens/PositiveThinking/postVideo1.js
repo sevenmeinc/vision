@@ -32,12 +32,12 @@ const PostVideo1 = (props) => {
           <View style={{ alignSelf: 'flex-end' }}>
             <OutlineButton
               title="Let's get started"
-              onPress={() => navigation.navigate('Chat')}
+              onPress={() => navigation.navigate('postVideo2')}
             />
             <View style={{ marginTop: 12 }} />
             <OutlineButton
               title="Comeback later"
-              onPress={() => navigation.navigate('Flow1')}
+              onPress={() => navigation.navigate('positiveThinkingHome')}
             />
           </View>
         </View>

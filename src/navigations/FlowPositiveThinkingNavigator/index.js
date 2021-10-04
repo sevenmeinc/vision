@@ -13,6 +13,9 @@ import VideoPlayer from '../../screens/PositiveThinking/video'
 import PostVideo1 from '../../screens/PositiveThinking/postVideo1'
 import PostVideo2 from '../../screens/PositiveThinking/postVideo2'
 import PostVideo3 from '../../screens/PositiveThinking/postVideo3'
+import PostVideo4 from '../../screens/PositiveThinking/postVideo4'
+import PostVideo5 from '../../screens/PositiveThinking/postVideo5'
+import PostVideo6 from '../../screens/PositiveThinking/postVideo6'
 
 const Stack = createStackNavigator()
 
@@ -169,29 +172,32 @@ const FlowPositiveThinkingModal = () => {
       <Stack.Screen
         name="postVideo2"
         component={PostVideo2}
-        options={({ navigation }) => ({
-          header: () => (
-            <Header
-              navigation={navigation}
-              title="Positive thinking"
-              home="positiveThinkingHome"
-            />
-          )
+        options={({ navigation, route }) => ({
+          headerTitle: () => <Progress navigation={navigation} route={route} />,
+          headerLeft: () => null,
+          headerRight: () => null
         })}
       />
       <Stack.Screen
         name="postVideo3"
         component={PostVideo3}
-        options={({ navigation }) => ({
-          header: () => (
-            <Header
-              navigation={navigation}
-              title="Positive thinking"
-              home="positiveThinkingHome"
-            />
-          )
+        options={({ navigation, route }) => ({
+          headerTitle: () => <Progress navigation={navigation} route={route} />,
+          headerLeft: () => null,
+          headerRight: () => null
         })}
       />
+      <Stack.Screen
+        name="postVideo4"
+        component={PostVideo4}
+        options={({ navigation, route }) => ({
+          headerTitle: () => <Progress navigation={navigation} route={route} />,
+          headerLeft: () => null,
+          headerRight: () => null
+        })}
+      />
+      <Stack.Screen name="postVideo5" component={PostVideo5} />
+      <Stack.Screen name="postVideo6" component={PostVideo6} />
     </Stack.Navigator>
   )
 }

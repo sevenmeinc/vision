@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView } from 'react-native'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 
-const PostVideo2 = (props) => {
+const PostVideo4 = (props) => {
   const { navigation } = props
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -21,7 +21,7 @@ const PostVideo2 = (props) => {
               fontSize: 25,
               marginVertical: 24
             }}>
-            You’re doing great!
+            Great job!
           </Text>
           <Text
             style={{
@@ -29,7 +29,8 @@ const PostVideo2 = (props) => {
               fontSize: 25,
               marginVertical: 24
             }}>
-            Let’s take a second to breathe and gather your thoughts.
+            Submit your response and feel free to leave any thoughts you might
+            have to go over in our next session!
           </Text>
           <Text style={{ fontFamily: 'semiBold', fontSize: 24 }}>
             Ready to get started?
@@ -39,7 +40,7 @@ const PostVideo2 = (props) => {
           <View style={{ alignSelf: 'flex-end' }}>
             <OutlineButton
               title="Let's get started"
-              onPress={() => navigation.navigate('postVideo3')}
+              onPress={() => navigation.navigate('postVideo5')}
             />
             <View style={{ marginTop: 12 }} />
             <OutlineButton
@@ -53,4 +54,4 @@ const PostVideo2 = (props) => {
   )
 }
 
-export default PostVideo2
+export default PostVideo4
