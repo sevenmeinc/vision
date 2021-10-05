@@ -2,16 +2,19 @@ import React, { useState } from 'react'
 import {
   View,
   Dimensions,
-  TextInput,
   Text,
   KeyboardAvoidingView,
   SafeAreaView,
-  Platform
+  Platform,
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native'
+import { TextInput } from 'react-native-gesture-handler'
+
 import PromptContainer from '../../components/PromptContainer'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const PromptText = ({ route }) => {
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
@@ -56,7 +59,7 @@ const PromptText = ({ route }) => {
             placeholder={'Start typing...'}
             onBlur={onBlur}
             onFocus={onFocus}
-            style={{ height: '100%', width: width * 0.9 }}
+            style={{ width: width * 0.9, marginBottom: 48 }}
           />
         </View>
       </View>
@@ -64,22 +67,21 @@ const PromptText = ({ route }) => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <KeyboardAvoidingView
-        enabled={isKeyboardVisible}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={{ flex: 1 }}>
-        <View
-          style={{
-            height: height,
-            padding: 16,
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-          <PromptContainer prompt={prompt} input={textInput} route={route} />
-        </View>
-      </KeyboardAvoidingView>
+    <SafeAreaView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <KeyboardAvoidingView
+          enabled={isKeyboardVisible}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+          <View
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingBottom: 16
+            }}>
+            <PromptContainer prompt={prompt} input={textInput} route={route} />
+          </View>
+        </KeyboardAvoidingView>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   )
 }
