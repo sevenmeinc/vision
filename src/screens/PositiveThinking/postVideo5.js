@@ -2,11 +2,12 @@ import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
+import { Colors } from '../../constants/colors'
 
 const PostVideo5 = (props) => {
   const { navigation } = props
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.cottonField }}>
       <View
         style={{
           flex: 1,
@@ -22,10 +23,6 @@ const PostVideo5 = (props) => {
               marginVertical: 24
             }}>
             One last thing...
-          </Text>
-
-          <Text style={{ fontFamily: 'semiBold', fontSize: 24 }}>
-            Ready to get started?
           </Text>
         </View>
         <View style={{ flex: 1, justifyContent: 'flex-end' }}>

@@ -1,10 +1,13 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
+import { FlatList } from 'react-native-gesture-handler'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
+import InputCard from '../../components/InputCard'
 
 const PostVideo3 = (props) => {
   const { navigation } = props
+  const list = [1, 2, 3]
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -23,9 +26,15 @@ const PostVideo3 = (props) => {
             }}>
             Change each example into a positive self-talk.
           </Text>
-          <Text style={{ fontFamily: 'semiBold', fontSize: 24 }}>
-            Ready to get started?
-          </Text>
+          <FlatList
+            keyExtractor={(item, index) => `${index}-${item}`}
+            horizontal
+            data={list}
+            renderItem={InputCard}
+            ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ padding: 10 }}
+          />
         </View>
         <View style={{ flex: 1, justifyContent: 'flex-end' }}>
           <View style={{ alignSelf: 'flex-end' }}>
