@@ -12,8 +12,7 @@ import FeatherIcons from 'react-native-vector-icons/Feather'
 import PromptContainer from '../../components/PromptContainer'
 import VideoRec from '../../components/VideoRec'
 
-const windowHeight = Dimensions.get('window').height
-const windowWidth = Dimensions.get('window').width
+const { width, height } = Dimensions.get('window')
 
 const PromptVideo = ({ route }) => {
   const navigation = useNavigation()
@@ -56,7 +55,7 @@ const PromptVideo = ({ route }) => {
         {preview ? (
           <View
             style={{
-              width: windowWidth * 0.8,
+              width: width * 0.8,
               justifyContent: 'flex-start',
               alignItems: 'center',
               flexDirection: 'column',
@@ -137,29 +136,13 @@ const PromptVideo = ({ route }) => {
   return (
     <View
       style={{
-        height: windowHeight,
+        height: height,
         padding: 16,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-      <PromptContainer
-        prompt={prompt}
-        input={videoOrPreview}
-        handleNext={() => {
-          if (prompts.length + 1 === responses) {
-            navigation.navigate('PostActivity', { ...route.params })
-          } else {
-            navigation.navigate('Breathe', {
-              ...route.params,
-              state: { responses: responses + 1 }
-            })
-          }
-        }}
-        handleBack={() =>
-          navigation.navigate('PromptAudio', { ...route.params })
-        }
-      />
+      <PromptContainer prompt={prompt} input={videoOrPreview} route={route} />
     </View>
   )
 }

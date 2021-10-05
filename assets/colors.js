@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
   // main
   primary: '#36847A',
   onPrimary: '#fff',

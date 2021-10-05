@@ -8,7 +8,6 @@ import {
   SafeAreaView,
   Platform
 } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
 import PromptContainer from '../../components/PromptContainer'
 import useKeyboard from '../../hooks/useKeyboard'
 
@@ -16,7 +15,6 @@ const { width, height } = Dimensions.get('window')
 
 const PromptText = ({ route }) => {
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
-  const navigation = useNavigation()
   const {
     prompts,
     state: { responses }
@@ -79,19 +77,7 @@ const PromptText = ({ route }) => {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-          <PromptContainer
-            prompt={prompt}
-            input={textInput}
-            handleNext={() => {
-              navigation.navigate('Breathe', {
-                ...route.params,
-                state: { responses: responses + 1 }
-              })
-            }}
-            handleBack={() =>
-              navigation.navigate('PromptAudio', { ...route.params })
-            }
-          />
+          <PromptContainer prompt={prompt} input={textInput} route={route} />
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>

@@ -1,13 +1,29 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { View, Dimensions, Text, TouchableOpacity } from 'react-native'
+import { View, Dimensions, TouchableOpacity } from 'react-native'
 import { Button } from 'react-native-paper'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 
 const { width, height } = Dimensions.get('window')
 
-const PromptContainer = ({ handleNext, handleBack, input }) => {
+const PromptContainer = ({ input, route, handleNext }) => {
   const navigation = useNavigation()
+
+  const {
+    prompts,
+    state: { responses }
+  } = route.params
+
+  const handleNextDefault = () => {
+    if (prompts?.length === responses + 1) {
+      navigation.navigate('PostActivity', { ...route.params })
+    } else {
+      navigation.navigate('Breathe', {
+        ...route.params,
+        state: { responses: responses + 1 }
+      })
+    }
+  }
 
   return (
     <View>
@@ -42,10 +58,10 @@ const PromptContainer = ({ handleNext, handleBack, input }) => {
           width: width,
           justifyContent: 'space-evenly'
         }}>
-        <Button mode={'contained'} onPress={handleBack}>
+        <Button mode={'contained'} onPress={() => navigation.goBack()}>
           back
         </Button>
-        <Button mode={'contained'} onPress={handleNext}>
+        <Button mode={'contained'} onPress={handleNext ?? handleNextDefault}>
           next
         </Button>
       </View>

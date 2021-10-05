@@ -46,12 +46,10 @@ const PromptAudio = ({ route }) => {
       <PromptContainer
         prompt={prompt.prompt}
         input={breathe}
+        route={route}
         handleNext={() => {
           navigation.navigate('PromptAudio', { ...route.params })
         }}
-        handleBack={() =>
-          navigation.navigate('PreActivity', { ...route.params })
-        }
       />
     </View>
   )
