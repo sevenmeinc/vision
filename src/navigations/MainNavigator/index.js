@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import FlowScreen from '../../screens/FlowScreen'
 import Flow2Navigator from '../Flow2Navigator'
 import FlowPositiveThinkingNavigator from '../FlowPositiveThinkingNavigator'
+import FlowPositiveThinkingActivity from '../FlowPositiveThinkingActivityNavigator'
 import ShortTermNavigator from '../ShortTermNavigator'
 import Flow1Navigator from '../Flow1Navigator'
 
@@ -34,6 +35,13 @@ const MainNavigator = () => {
       <Stack.Screen
         name="positiveThinking"
         component={FlowPositiveThinkingNavigator}
+        options={{
+          headerShown: false
+        }}
+      />
+      <Stack.Screen
+        name="positiveThinkingActivity"
+        component={FlowPositiveThinkingActivity}
         options={{
           headerShown: false
         }}
