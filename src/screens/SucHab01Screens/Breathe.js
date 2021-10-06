@@ -11,7 +11,7 @@ const PromptAudio = ({ route }) => {
   const navigation = useNavigation()
   const {
     prompts,
-    state: { responses }
+    state: { responses, stage }
   } = route.params
   const prompt = prompts[responses]
 
@@ -48,7 +48,10 @@ const PromptAudio = ({ route }) => {
         input={breathe}
         route={route}
         handleNext={() => {
-          navigation.navigate('PromptAudio', { ...route.params })
+          navigation.navigate('PromptAudio', {
+            ...route.params,
+            state: { ...route.params.state, stage: stage + 1 }
+          })
         }}
       />
     </View>

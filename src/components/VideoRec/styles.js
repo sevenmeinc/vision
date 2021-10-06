@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     letterSpacing: -0.01,
     textAlign: 'center'
   },
-  // preview: { flex: 1, resizeMode: 'contain' },
   centered: { alignItems: 'center', justifyContent: 'center' }
 })
 

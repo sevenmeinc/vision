@@ -34,7 +34,6 @@ const PromptAudio = ({ route }) => {
             }}
             handleVideo={() => {
               navigation.navigate('PromptVideo', {
-              // navigation.navigate('PromptVideo2', {
                 ...route.params
               })
             }}

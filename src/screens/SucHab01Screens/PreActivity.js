@@ -19,7 +19,8 @@ const PreActivity = ({ route }) => {
           navigation.navigate('Breathe', {
             ...route.params,
             state: {
-              responses: 0
+              responses: 0,
+              stage: 0
             }
           }),
         label: 'Get started'

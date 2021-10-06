@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { View, Dimensions, TouchableOpacity } from 'react-native'
 import { Button } from 'react-native-paper'
 import FeatherIcons from 'react-native-vector-icons/Feather'
+import Progress from '../../components/Progress'
 
 const { width, height } = Dimensions.get('window')
 
@@ -11,7 +12,7 @@ const PromptContainer = ({ input, route, handleNext }) => {
 
   const {
     prompts,
-    state: { responses }
+    state: { responses, stage }
   } = route.params
 
   const handleNextDefault = () => {
@@ -20,7 +21,7 @@ const PromptContainer = ({ input, route, handleNext }) => {
     } else {
       navigation.navigate('Breathe', {
         ...route.params,
-        state: { responses: responses + 1 }
+        state: { ...route.params.state, responses: responses + 1 }
       })
     }
   }
@@ -35,8 +36,7 @@ const PromptContainer = ({ input, route, handleNext }) => {
           width: width,
           justifyContent: 'space-between'
         }}>
-        {/* carousel goes here */}
-        <FeatherIcons name={'activity'} size={32} />
+        <Progress stage={stage} />
         <TouchableOpacity
           onPress={() => navigation.navigate('SuccessfulHabits01')}>
           <FeatherIcons name="x" size={36} />

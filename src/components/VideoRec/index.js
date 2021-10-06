@@ -117,10 +117,8 @@ const VideoRec = ({
       <View
         style={{
           position: 'absolute',
-          top: 40,
-          left: 40,
           opacity: 0.6,
-          width: '80%',
+          width: '85%',
           zIndex: 3,
           alignItems: 'flex-end',
           elevation: 300
