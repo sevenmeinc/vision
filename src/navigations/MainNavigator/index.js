@@ -4,6 +4,7 @@ import FlowScreen from '../../screens/FlowScreen'
 import Flow2Navigator from '../Flow2Navigator'
 import ShortTermNavigator from '../ShortTermNavigator'
 import Flow1Navigator from '../Flow1Navigator'
+import Flow3Navigator from '../Flow3Navigator'
 
 const Stack = createStackNavigator()
 const MainNavigator = () => {
@@ -18,6 +19,13 @@ const MainNavigator = () => {
       <Stack.Screen
         name="flow2Navigator"
         component={Flow2Navigator}
+        options={{
+          headerShown: false
+        }}
+      />
+      <Stack.Screen
+        name="flow3Navigator"
+        component={Flow3Navigator}
         options={{
           headerShown: false
         }}

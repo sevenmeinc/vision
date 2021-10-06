@@ -28,7 +28,11 @@ const ShortTermNavigator = () => {
         name="shortTerm"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader progress={1} navigation={navigation} />
+            <BenefitProgressHeader
+              progress={1}
+              homeScreen={'Flow 2'}
+              navigation={navigation}
+            />
           )
         })}
         children={() => (

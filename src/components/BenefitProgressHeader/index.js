@@ -4,7 +4,7 @@ import Svg, { Rect, Path } from 'react-native-svg'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 const BenefitProgressHeader = (props) => {
-  const { progress } = props
+  const { progress, homeScreen } = props
   const renderProgress = () => {
     if (progress === 1) {
       return (
@@ -158,7 +158,7 @@ const BenefitProgressHeader = (props) => {
         alignItems: 'center'
       }}>
       {renderProgress()}
-      <TouchableOpacity onPress={() => props.navigation.navigate('Flow 2')}>
+      <TouchableOpacity onPress={() => props.navigation.navigate(homeScreen)}>
         <Svg
           width={32}
           height={32}
