@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
 import { Colors } from '../../constants/colors'
 
 const InputCard = (props) => {
@@ -22,9 +22,13 @@ const InputCard = (props) => {
         }}>
         Example {props.index + 1}
       </Text>
-      <Text style={{ padding: 16 }}>
-        I will get to spend more time with my family.
-      </Text>
+      <TextInput
+        placeholder="I will get to spend more time with my family."
+        value={''}
+        onChangeText={(text) => ''}
+        multiline={true}
+        style={{ textAlignVertical: 'top', padding: 16 }}
+      />
     </View>
   )
 }

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { View, Dimensions } from 'react-native'
+import { View, Dimensions, SafeAreaView } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import Header from '../../components/Header'
 import VideoPlayer from '../../screens/PositiveThinking/video'
@@ -15,16 +15,17 @@ import { Colors } from '../../constants/colors'
 const FlowPositiveThinkingActivity = () => {
   const Stack = createStackNavigator()
 
-  const Progress = ({ navigation, route }) => {
+  const Progress = ({ navigation, route, backgroundColor, fillColor }) => {
     const ScreenWidth = Dimensions.get('window').width
     return (
-      <View
+      <SafeAreaView
         style={{
           width: ScreenWidth - 30,
           flexDirection: 'row',
           flex: 1,
           alignItems: 'center',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          backgroundColor: backgroundColor ? backgroundColor : 'white'
         }}>
         {
           <View style={{ flexDirection: 'row' }}>
@@ -32,7 +33,7 @@ const FlowPositiveThinkingActivity = () => {
               style={{
                 width: 45,
                 height: 2,
-                backgroundColor: Colors.pianoBlack,
+                backgroundColor: fillColor ? fillColor : 'white',
                 marginRight: 8,
                 opacity: route.name === 'video' ? 1 : 0.15
               }}
@@ -41,7 +42,7 @@ const FlowPositiveThinkingActivity = () => {
               style={{
                 width: 45,
                 height: 2,
-                backgroundColor: Colors.pianoBlack,
+                backgroundColor: fillColor ? fillColor : 'white',
                 marginRight: 8,
                 opacity: route.name === 'postVideo1' ? 1 : 0.15
               }}
@@ -50,7 +51,7 @@ const FlowPositiveThinkingActivity = () => {
               style={{
                 width: 45,
                 height: 2,
-                backgroundColor: Colors.pianoBlack,
+                backgroundColor: fillColor ? fillColor : 'white',
                 marginRight: 8,
                 opacity: route.name === 'postVideo2' ? 1 : 0.15
               }}
@@ -59,7 +60,7 @@ const FlowPositiveThinkingActivity = () => {
               style={{
                 width: 45,
                 height: 2,
-                backgroundColor: Colors.pianoBlack,
+                backgroundColor: fillColor ? fillColor : 'white',
                 marginRight: 8,
                 opacity: route.name === 'postVideo3' ? 1 : 0.15
               }}
@@ -68,7 +69,7 @@ const FlowPositiveThinkingActivity = () => {
               style={{
                 width: 45,
                 height: 2,
-                backgroundColor: Colors.pianoBlack,
+                backgroundColor: fillColor ? fillColor : 'white',
                 marginRight: 8,
                 opacity: route.name === 'postVideo4' ? 1 : 0.15
               }}
@@ -80,11 +81,11 @@ const FlowPositiveThinkingActivity = () => {
           <Ionicons
             name="md-close-sharp"
             size={24}
-            color={Colors.pianoBlack}
+            color={fillColor ? fillColor : 'white'}
             onPress={() => navigation.navigate('positiveThinkingHome')}
           />
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
 
@@ -107,36 +108,75 @@ const FlowPositiveThinkingActivity = () => {
         name="postVideo1"
         component={PostVideo1}
         options={({ navigation, route }) => ({
-          headerTitle: () => <Progress navigation={navigation} route={route} />,
+          headerTitle: () => (
+            <Progress
+              navigation={navigation}
+              route={route}
+              backgroundColor={Colors.doctor}
+              fillColor="black"
+            />
+          ),
           headerLeft: () => null,
-          headerRight: () => null
+          headerRight: () => null,
+          headerStyle: { backgroundColor: Colors.doctor }
         })}
       />
       <Stack.Screen
         name="postVideo2"
         component={PostVideo2}
         options={({ navigation, route }) => ({
-          headerTitle: () => <Progress navigation={navigation} route={route} />,
+          headerTitle: () => (
+            <Progress
+              navigation={navigation}
+              route={route}
+              backgroundColor={Colors.blueWhale}
+              fillColor="white"
+            />
+          ),
           headerLeft: () => null,
-          headerRight: () => null
+          headerRight: () => null,
+          headerStyle: {
+            backgroundColor: Colors.blueWhale
+          }
         })}
       />
       <Stack.Screen
         name="postVideo3"
         component={PostVideo3}
         options={({ navigation, route }) => ({
-          headerTitle: () => <Progress navigation={navigation} route={route} />,
+          headerTitle: () => (
+            <Progress
+              navigation={navigation}
+              route={route}
+              backgroundColor={Colors.doctor}
+              fillColor="black"
+            />
+          ),
           headerLeft: () => null,
-          headerRight: () => null
+          headerRight: () => null,
+          headerStyle: {
+            backgroundColor: Colors.doctor
+          }
         })}
       />
       <Stack.Screen
         name="postVideo4"
         component={PostVideo4}
         options={({ navigation, route }) => ({
-          headerTitle: () => <Progress navigation={navigation} route={route} />,
+          headerTitle: () => (
+            <Progress
+              navigation={navigation}
+              route={route}
+              backgroundColor={Colors.blueWhale}
+              fillColor="white"
+            />
+          ),
           headerLeft: () => null,
-          headerRight: () => null
+          headerRight: () => null,
+          headerStyle: {
+            backgroundColor: Colors.blueWhale,
+            borderColor: Colors.blueWhale
+          }
         })}
       />
       <Stack.Screen name="postVideo5" component={PostVideo5} />
