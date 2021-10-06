@@ -22,6 +22,12 @@ const FlowScreen = (props) => {
         onPress={() => props.navigation.navigate('flow3Navigator')}>
         Benefit list Flow 3
       </Button>
+      <Button
+        style={{ marginTop: 8 }}
+        mode="outlined"
+        onPress={() => props.navigation.navigate('SucHab01')}>
+        Successful Habits 1
+      </Button>
     </View>
   )
 }
