@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "vision",
-    "slug": "vision",
+    "name": "Successful Habits Flow 01",
+    "slug": "successful-habits-flow-01",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Does not seem to be effective in Web or emulator. Device appears to render as expected.",
+    "githubUrl": "https://github.com/sevenmeinc/vision@FE-387"
   }
 }
