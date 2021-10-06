@@ -7,16 +7,21 @@ import {
   SafeAreaView,
   Platform,
   Keyboard,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  StyleSheet
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
-
+import FeatherIcons from 'react-native-vector-icons/Feather'
 import PromptContainer from '../../components/PromptContainer'
 import useKeyboard from '../../hooks/useKeyboard'
 
 const { width } = Dimensions.get('window')
 
 const PromptText = ({ route }) => {
+  const navigation = useNavigation()
+
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
   const {
     prompts,
@@ -26,13 +31,33 @@ const PromptText = ({ route }) => {
 
   const [res, setRes] = useState('')
 
+  const handleAudio = () => {
+    navigation.navigate('PromptAudio', { ...route.params })
+  }
+  const handleVideo = () => {
+    navigation.navigate('PromptVideo', {
+      ...route.params
+    })
+  }
+
+  const styles = StyleSheet.create({
+    navButton: {
+      height: 40,
+      width: 40,
+      borderRadius: 8,
+      paddingHorizontal: 8,
+      paddingVertical: 8,
+      borderWidth: 1,
+      marginHorizontal: 8,
+      marginBottom: 8
+    }
+  })
+
   const textInput = () => {
     return (
       <View
         style={{
           justifyContent: 'center',
-          alignContent: 'center',
-          alignItems: 'center',
           margin: 16
         }}>
         <Text
@@ -48,19 +73,44 @@ const PromptText = ({ route }) => {
         </Text>
         <View
           style={{
-            width: '100%'
+            paddingBottom: 40
           }}>
           <TextInput
             onChangeText={(msg) => {
               setRes(msg)
             }}
             value={res}
-            multiline={true}
+            multiline
+            numberOfLines={8}
+            textAlignVertical="top"
             placeholder={'Start typing...'}
             onBlur={onBlur}
             onFocus={onFocus}
-            style={{ width: width * 0.9, marginBottom: 48 }}
+            style={{
+              width: width * 0.9,
+              flex: 1,
+              padding: 16,
+              fontSize: 17,
+              fontStyle: 'normal',
+              fontWeight: '400',
+              lineHeight: 22,
+              letterSpacing: 0,
+              textAlign: 'left'
+            }}
           />
+          <View
+            style={{
+              width: width,
+              marginBottom: 8,
+              flexDirection: 'row'
+            }}>
+            <TouchableOpacity style={styles.navButton} onPress={handleAudio}>
+              <FeatherIcons name={'mic'} size={20} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.navButton} onPress={handleVideo}>
+              <FeatherIcons name={'video'} size={20} />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     )
@@ -75,8 +125,7 @@ const PromptText = ({ route }) => {
           <View
             style={{
               alignItems: 'center',
-              justifyContent: 'center',
-              paddingBottom: 16
+              justifyContent: 'center'
             }}>
             <PromptContainer prompt={prompt} input={textInput} route={route} />
           </View>

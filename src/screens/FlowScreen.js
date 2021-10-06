@@ -17,7 +17,7 @@ const FlowScreen = (props) => {
         Benefit list Flow 2
       </Button>
       <Button
-        // incomming
+        style={{ marginTop: 8 }}
         mode="outlined"
         onPress={() => props.navigation.navigate('SucHab01')}>
         Successful Habits 1

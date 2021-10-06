@@ -4,7 +4,7 @@ import FeatherIcons from 'react-native-vector-icons/Feather'
 import { Button } from 'react-native-paper'
 import Space from '../Space'
 
-const { height, width } = Dimensions.get('window')
+const { height } = Dimensions.get('window')
 
 const PreActivityCard = ({
   handleClose,
@@ -21,7 +21,7 @@ const PreActivityCard = ({
       style={{
         display: 'flex',
         flexGrow: 1,
-        padding: 16,
+        paddingHorizontal: 16,
         maxHeight: height,
         backgroundColor: '#FFF',
         justifyContent: 'space-between',
@@ -30,19 +30,12 @@ const PreActivityCard = ({
       }}>
       <View
         style={{
-          padding: 16,
-          height: '50%',
+          height: '40%',
           width: '100%',
           justifyContent: 'flex-start'
         }}>
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}
-          contentContainerStyle={{
-            display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between'
@@ -76,8 +69,8 @@ const PreActivityCard = ({
       </View>
       <View
         style={{
-          height: '35%',
-          padding: 16,
+          height: '45%',
+          paddingHorizontal: 16,
           width: '100%'
         }}>
         <Text

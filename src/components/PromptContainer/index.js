@@ -54,6 +54,7 @@ const PromptContainer = ({ input, route, handleNext }) => {
       </View>
       <View
         style={{
+          padding: 16,
           flexDirection: 'row',
           width: width,
           justifyContent: 'space-evenly'

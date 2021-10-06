@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {
   View,
+  Image,
   KeyboardAvoidingView,
   Platform,
   Text,
@@ -9,12 +10,12 @@ import {
   SafeAreaView,
   StyleSheet
 } from 'react-native'
-import { Button } from 'react-native-paper'
+import { Button, Title } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import useKeyboard from '../../hooks/useKeyboard'
 
 const PostActivity = ({ route }) => {
-  const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
+  const { isKeyboardVisible, onFocus, onBlur, keyboardHeight } = useKeyboard()
   const navigation = useNavigation()
   const { postActivity } = route.params
   const [res, setRes] = useState('')
@@ -29,7 +30,25 @@ const PostActivity = ({ route }) => {
       marginBottom: 16,
       borderRadius: 8,
       width: '100%'
-    }
+    },
+    heading: {
+      fontSize: 17,
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: 20,
+      letterSpacing: -0.03,
+      textAlign: 'left',
+      marginBottom: 16
+    },
+    importedText: {
+      fontSize: 17,
+      fontStyle: 'normal',
+      fontWeight: '500',
+      lineHeight: 21,
+      letterSpacing: 0,
+      textAlign: 'left'
+    },
+    logo: { width: 20, height: 20 }
   })
 
   return (
@@ -37,26 +56,54 @@ const PostActivity = ({ route }) => {
       <KeyboardAvoidingView
         enabled={isKeyboardVisible}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={{ flex: 1 }}>
+        style={{ flex: 1, padding: 16 }}>
         <ScrollView>
-          <Text>Great Job!</Text>
-          <Text>
-            In light of your reflection, read over your vision and goal, and
-            answer the following question.
-          </Text>
+          <View style={{ padding: 15 }}>
+            <Title
+              styles={{
+                fontSize: 36,
+                fontStyle: 'normal',
+                fontWeight: '600',
+                lineHeight: 40,
+                letterSpacing: -0.03,
+                textAlign: 'left'
+              }}>
+              Well Done!
+            </Title>
+            <Text style={{ ...styles.importedText, color: '#666666' }}>
+              Take a moment to look back at your vision and goal. Respond to the
+              question below to start thinking about ways to apply your
+              learnings!
+            </Text>
+          </View>
           <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
-            <Text>My Vision</Text>
+            <Text style={styles.heading}>
+              {' '}
+              <Image
+                source={require('../../../assets/seven-icon.png')}
+                style={styles.logo}
+              />
+              My Vision
+            </Text>
             <View style={{ ...styles.container, backgroundColor: '#fff' }}>
-              <Text>
+              <Text style={styles.importedText}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet
                 nisi integer quis vel morbi elementum.
               </Text>
             </View>
           </View>
           <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
-            <Text>My goal</Text>
+            <Text style={styles.heading}>
+              <Image
+                source={require('../../../assets/seven-icon.png')}
+                style={styles.logo}
+              />
+              My goal
+            </Text>
             <View style={{ ...styles.container, backgroundColor: '#fff' }}>
-              <Text>Aliquet nisi integer quis vel morbi elementum.</Text>
+              <Text style={styles.importedText}>
+                Aliquet nisi integer quis vel morbi elementum.
+              </Text>
             </View>
           </View>
           {postActivity.length > resCount ? (
@@ -64,9 +111,10 @@ const PostActivity = ({ route }) => {
               style={{
                 ...styles.container,
                 backgroundColor: '#fff',
-                alignItems: 'flex-end'
+                alignItems: 'flex-end',
+                paddingBottom: keyboardHeight
               }}>
-              <Text>{postActivity[resCount]}</Text>
+              <Text style={styles.importedText}>{postActivity[resCount]}</Text>
               <TextInput
                 style={{
                   ...styles.container,
