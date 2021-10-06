@@ -8,5 +8,6 @@ export const Colors = {
   cottonField: '#f2f0e8',
   felicity: '#e5e4df',
   squant: '#666666',
-  doctor: '#f9f9f9'
+  doctor: '#f9f9f9',
+  woodsmoke15: '#16161A0F'
 }
