@@ -2,9 +2,9 @@ import React from 'react'
 import { SafeAreaView, View, Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
-import Svg, { Rect, Path, Defs, Circle, ClipPath, G } from 'react-native-svg'
+import Svg, { Rect, Path } from 'react-native-svg'
 
-const LongTermBenefitModal = ({ longTermItem, setLongTermItem }) => {
+const SelectionScreen = () => {
   const navigation = useNavigation()
 
   return (
@@ -162,4 +162,4 @@ const LongTermBenefitModal = ({ longTermItem, setLongTermItem }) => {
   )
 }
 
-export default LongTermBenefitModal
+export default SelectionScreen
