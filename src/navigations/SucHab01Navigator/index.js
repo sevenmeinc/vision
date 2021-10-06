@@ -1,6 +1,5 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { modalOptions } from '../utils'
 import PreActivity from '../../screens/SucHab01Screens/PreActivity'
 import SuccessfulHabits from '../../screens/SucHab01Screens/SuccessfulHabits'
 import BreatheScreen from '../../screens/SucHab01Screens/Breathe'
