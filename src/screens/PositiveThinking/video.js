@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { View, Button, SafeAreaView } from 'react-native'
 import { Video } from 'expo-av'
+import TapMoreWithBottomSheet from '../../components/TapMoreWithBottomSheet'
 
 const VideoPage = () => {
   const [status, setStatus] = useState({})
@@ -29,6 +30,7 @@ const VideoPage = () => {
           }
         />
       </View>
+      <TapMoreWithBottomSheet />
     </SafeAreaView>
   )
 }
