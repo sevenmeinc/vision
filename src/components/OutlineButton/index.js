@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableOpacity, View, Text } from 'react-native'
 import { Colors } from '../../constants/colors'
 
-const OutlineButton = ({ title, onPress }) => {
+const OutlineButton = ({ title, onPress, color }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View
@@ -10,7 +10,7 @@ const OutlineButton = ({ title, onPress }) => {
           paddingVertical: 12,
           paddingHorizontal: 16,
           borderWidth: 1,
-          borderColor: Colors.pianoBlack,
+          borderColor: color ? color : Colors.pianoBlack,
           borderRadius: 100,
           alignItems: 'center'
         }}>
@@ -18,7 +18,7 @@ const OutlineButton = ({ title, onPress }) => {
           style={{
             fontFamily: 'regular',
             fontSize: 17,
-            color: Colors.pianoBlack
+            color: color ? color : Colors.pianoBlack
           }}>
           {title}
         </Text>

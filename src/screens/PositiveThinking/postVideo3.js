@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
+import Button from '../../components/Button'
 import InputCard from '../../components/InputCard'
 
 const PostVideo3 = (props) => {
@@ -36,17 +37,21 @@ const PostVideo3 = (props) => {
             contentContainerStyle={{ padding: 10 }}
           />
         </View>
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-          <View style={{ alignSelf: 'flex-end' }}>
-            <OutlineButton
-              title="Let's get started"
-              onPress={() => navigation.navigate('postVideo4')}
-            />
-            <View style={{ marginTop: 12 }} />
-            <OutlineButton
-              title="Comeback later"
-              onPress={() => navigation.navigate('positiveThinkingHome')}
-            />
+        <View style={{ flex: 1 }}>
+          <View
+            style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ flex: 1 }}>
+              <OutlineButton title="Back" onPress={() => navigation.goBack()} />
+            </View>
+            <View sytle={{ margin: 10, flex: 1 }} />
+            <View style={{ flex: 1 }}>
+              <Button
+                title="Continue"
+                color="white"
+                background="#9e9e9f"
+                onPress={() => navigation.navigate('postVideo4')}
+              />
+            </View>
           </View>
         </View>
       </View>

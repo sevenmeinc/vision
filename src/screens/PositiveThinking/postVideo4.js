@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import Logo from '../../components/Logo'
-import OutlineButton from '../../components/OutlineButton'
+import Button from '../../components/Button'
 import { Colors } from '../../constants/colors'
 
 const PostVideo4 = (props) => {
@@ -15,7 +15,7 @@ const PostVideo4 = (props) => {
           paddingRight: 15
         }}>
         <View>
-          <Logo />
+          <Logo color="white" />
           <Text
             style={{
               fontFamily: 'semiBold',
@@ -36,17 +36,15 @@ const PostVideo4 = (props) => {
             have to go over in our next session!
           </Text>
         </View>
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-          <View style={{ alignSelf: 'flex-end' }}>
-            <OutlineButton
-              title="Let's get started"
+        <View style={{ flex: 1 }}>
+          <View>
+            <Button
+              title="Submit"
+              color="#16161A"
+              background="white"
               onPress={() => navigation.navigate('postVideo5')}
             />
-            <View style={{ marginTop: 12 }} />
-            <OutlineButton
-              title="Comeback later"
-              onPress={() => navigation.navigate('positiveThinkingHome')}
-            />
+            <View style={{ marginTop: 50 }} />
           </View>
         </View>
       </View>

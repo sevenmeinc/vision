@@ -43,6 +43,7 @@ const MainNavigator = () => {
       <Stack.Screen
         name="positiveThinkingActivity"
         component={FlowPositiveThinkingActivity}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="SucHab01"

@@ -15,7 +15,6 @@ const PostVideo5 = (props) => {
           paddingRight: 15
         }}>
         <View>
-          <Logo />
           <Text
             style={{
               fontFamily: 'semiBold',
@@ -34,7 +33,7 @@ const PostVideo5 = (props) => {
             <View style={{ marginTop: 12 }} />
             <OutlineButton
               title="Comeback later"
-              onPress={() => navigation.navigate('positiveThinkingHome')}
+              onPress={() => navigation.goBack()}
             />
           </View>
         </View>

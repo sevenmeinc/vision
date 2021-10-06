@@ -4,6 +4,7 @@ import { FlatList } from 'react-native-gesture-handler'
 import InputCard from '../../components/InputCard'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
+import Button from '../../components/Button'
 
 const PostVideo1 = (props) => {
   const list = [1, 2, 3]
@@ -38,17 +39,19 @@ const PostVideo1 = (props) => {
           />
         </View>
 
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-          <View style={{ alignSelf: 'flex-end' }}>
-            <OutlineButton
-              title="Let's get started"
-              onPress={() => navigation.navigate('postVideo2')}
-            />
-            <View style={{ marginTop: 12 }} />
-            <OutlineButton
-              title="Comeback later"
-              onPress={() => navigation.navigate('positiveThinkingHome')}
-            />
+        <View style={{ flex: 1 }}>
+          <View
+            style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ flex: 1 }}>
+              <OutlineButton title="Back" onPress={() => navigation.goBack()} />
+            </View>
+            <View sytle={{ margin: 10, flex: 1 }} />
+            <View style={{ flex: 1 }}>
+              <Button
+                title="Continue"
+                onPress={() => navigation.navigate('postVideo2')}
+              />
+            </View>
           </View>
         </View>
       </View>
