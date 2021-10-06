@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import PromptContainer from '../../components/PromptContainer'
 import VideoRec from '../../components/VideoRec'
+import Space from '../../components/Space'
 
 const { width, height } = Dimensions.get('window')
 
@@ -49,34 +50,48 @@ const PromptVideo = ({ route }) => {
     }
   })
 
-  const videoOrPreview = () => {
+  const PreviewScreen = () => {
     return (
-      <>
-        {preview ? (
-          <View
-            style={{
-              width: width * 0.8,
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              flexDirection: 'column',
-              flex: 0.9
-            }}>
+      <View style={{ ...styles.centered, paddingHorizontal: 16 }}>
+        <Text
+          style={{
+            fontSize: 17,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 20,
+            letterSpacing: -0.01,
+            textAlign: 'center'
+          }}>
+          {prompt.prompt}
+        </Text>
+        <View
+          style={{
+            ...styles.centered,
+            width: width * 0.75,
+            height: height * 0.5,
+            flexDirection: 'column'
+          }}>
+          <Space index={16} />
+          <Space index={16} />
+          <View>
             <Image
               source={imgUri}
               style={{
                 flex: 1,
+                height: height * 0.3,
                 maxWidth: '100%',
-                resizeMode: 'contain'
+                resizeMode: 'cover',
+                borderRadius: 20
               }}
             />
             <View
               style={{
                 ...styles.centered,
+                height: height * 0.5,
+                width: width * 0.75,
                 position: 'absolute',
-                top: '30%',
-                left: '9%',
                 padding: 6,
-                borderRadius: 50,
+                borderRadius: 20,
                 backgroundColor: '#16161A',
                 opacity: 0.6
               }}>
@@ -117,32 +132,35 @@ const PromptVideo = ({ route }) => {
               </View>
             </View>
           </View>
-        ) : (
-          <VideoRec
-            route={route}
-            handleAudio={handleAudio}
-            handleText={handleText}
-            setImgUri={setImgUri}
-            setPreview={setPreview}
-            setDuration={setDuration}
-            time={time}
-            setTime={setTime}
-          />
-        )}
-      </>
+        </View>
+      </View>
     )
   }
 
   return (
     <View
       style={{
+        ...styles.centered,
         height: height,
-        padding: 16,
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        width: width,
+        flex: 1
       }}>
-      <PromptContainer prompt={prompt} input={videoOrPreview} route={route} />
+      {preview ? (
+        <View styles={{ flex: 0.8 }}>
+          <PromptContainer input={PreviewScreen} route={route} />
+        </View>
+      ) : (
+        <VideoRec
+          route={route}
+          handleAudio={handleAudio}
+          handleText={handleText}
+          setImgUri={setImgUri}
+          setPreview={setPreview}
+          setDuration={setDuration}
+          time={time}
+          setTime={setTime}
+        />
+      )}
     </View>
   )
 }

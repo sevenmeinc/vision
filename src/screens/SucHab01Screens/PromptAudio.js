@@ -4,7 +4,8 @@ import { useNavigation } from '@react-navigation/native'
 import PromptContainer from '../../components/PromptContainer'
 import AuxRecorderPlayer from '../../components/AudioRecorderPlayer'
 import Space from '../../components/Space'
-const {height} = Dimensions.get('window')
+
+const { height } = Dimensions.get('window')
 
 const PromptAudio = ({ route }) => {
   const navigation = useNavigation()
@@ -33,6 +34,7 @@ const PromptAudio = ({ route }) => {
             }}
             handleVideo={() => {
               navigation.navigate('PromptVideo', {
+              // navigation.navigate('PromptVideo2', {
                 ...route.params
               })
             }}

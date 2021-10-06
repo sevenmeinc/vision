@@ -127,7 +127,7 @@ const PromptText = ({ route }) => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-            <PromptContainer prompt={prompt} input={textInput} route={route} />
+            <PromptContainer input={textInput} route={route} />
           </View>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>

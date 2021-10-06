@@ -3,6 +3,7 @@ import { View, Text, Image, Dimensions } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import { Button } from 'react-native-paper'
 import Space from '../Space'
+import { Colors } from '../../constants/colors'
 
 const { height } = Dimensions.get('window')
 
@@ -47,7 +48,7 @@ const PreActivityCard = ({
               fontSize: 14,
               lineHeight: 17,
               letterSpacing: -0.01,
-              color: '#666666'
+              color: Colors.shadyCharacter
             }}>
             {activityType}
           </Text>
@@ -86,10 +87,18 @@ const PreActivityCard = ({
           <View
             style={{
               flexDirection: 'row',
-              alignItems: 'center'
+              alignItems: 'center',
+              paddingVertical: 4
             }}>
-            <FeatherIcons name="clock" size={20} />
-            <Text> {timeEst} min activity</Text>
+            <FeatherIcons
+              name="clock"
+              size={20}
+              color={Colors.shadyCharacter}
+            />
+            <Text style={{ color: Colors.shadyCharacter }}>
+              {' '}
+              {timeEst} min activity
+            </Text>
           </View>
         ) : (
           <Space index={3} />
@@ -111,6 +120,7 @@ const PreActivityCard = ({
           {btn2.label}
         </Button>
       </View>
+      <Space index={8} />
     </View>
   )
 }
