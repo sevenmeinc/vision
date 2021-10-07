@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   View,
   Dimensions,
@@ -22,9 +22,9 @@ const PromptText = () => {
   const navigation = useNavigation()
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
+  const [dismissPadding, setDismissPadding] = useState(60)
 
   const [res, setRes] = useState('')
-
   const styles = StyleSheet.create({
     navButton: {
       height: 40,
@@ -37,13 +37,16 @@ const PromptText = () => {
       margin: 8
     }
   })
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            Keyboard.dismiss()
+            setDismissPadding(90)
+          }}>
           <View style={{ flex: 1, paddingHorizontal: 8 }}>
             <Text
               style={{
@@ -69,6 +72,7 @@ const PromptText = () => {
               placeholder={'Start typing...'}
               onBlur={onBlur}
               onFocus={onFocus}
+              autoFocus={true}
               style={{
                 width: width * 0.9,
                 flex: 1,
@@ -84,12 +88,14 @@ const PromptText = () => {
             <View
               style={{
                 display: isKeyboardVisible ? 'flex' : 'none',
-                marginBottom: isKeyboardVisible ? 90 : 30,
+                marginBottom: isKeyboardVisible ? dismissPadding : 0,
                 flexDirection: 'row',
                 justifyContent: 'space-between'
               }}>
               <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity style={styles.navButton}>
+                <TouchableOpacity
+                  style={styles.navButton}
+                  onPress={navigation.goBack}>
                   <FeatherIcons name={'mic'} size={20} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.navButton}>
@@ -98,13 +104,61 @@ const PromptText = () => {
               </View>
               <TouchableOpacity
                 style={styles.navButton}
-                onPress={Keyboard.dismiss}>
+                onPress={() => {
+                  Keyboard.dismiss()
+                  setDismissPadding(90)
+                }}>
                 <FeatherIcons name={'chevron-down'} size={30} />
               </TouchableOpacity>
             </View>
           </View>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
+      <View
+        style={{
+          flexDirection: 'row',
+          padding: 16,
+          paddingTop: 0
+        }}>
+        <TouchableOpacity
+          onPress={navigation.goBack}
+          style={{
+            marginRight: 4,
+            borderRadius: 100,
+            width: 168,
+            height: 52,
+            justifyContent: 'center',
+            backgroundColor: 'rgba(25, 51, 64, 0.08)'
+          }}>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: '500',
+              textAlign: 'center'
+            }}>
+            Back
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            marginLeft: 4,
+            borderRadius: 100,
+            width: 168,
+            height: 52,
+            justifyContent: 'center',
+            backgroundColor: '#193340'
+          }}>
+          <Text
+            style={{
+              fontSize: 17,
+              color: '#fff',
+              fontWeight: '500',
+              textAlign: 'center'
+            }}>
+            Next
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }
