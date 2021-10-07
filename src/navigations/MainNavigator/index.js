@@ -1,10 +1,11 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import FlowScreen from '../../screens/FlowScreen'
-import Flow1 from '../../screens/BenefitListFlow1/Flow1'
 import Flow2Navigator from '../Flow2Navigator'
 import FlowPositiveThinkingNavigator from '../FlowPositiveThinkingNavigator'
 import Flow1Navigator from '../Flow1Navigator'
+import ShortTermNavigator from '../ShortTermNavigator'
+import SucHab01Navigator from '../SucHab01Navigator'
 
 const Stack = createStackNavigator()
 const MainNavigator = () => {
@@ -17,7 +18,7 @@ const MainNavigator = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Flow 2"
+        name="flow2Navigator"
         component={Flow2Navigator}
         options={{
           headerShown: false
@@ -30,7 +31,22 @@ const MainNavigator = () => {
           headerShown: false
         }}
       />
+      <Stack.Screen
+        name="shortTermNavigator"
+        component={ShortTermNavigator}
+        options={{
+          headerShown: false
+        }}
+      />
+      <Stack.Screen
+        name="SucHab01"
+        component={SucHab01Navigator}
+        options={{
+          headerShown: false
+        }}
+      />
     </Stack.Navigator>
   )
 }
+
 export default MainNavigator

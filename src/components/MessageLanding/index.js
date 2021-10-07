@@ -4,7 +4,7 @@ import Svg, { Rect, Path, Defs, Circle, ClipPath, G } from 'react-native-svg'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const Flow2 = () => {
+const MessageLanging = ({ timeEst, title, activityType, goTo }) => {
   const navigation = useNavigation()
 
   return (
@@ -28,7 +28,7 @@ const Flow2 = () => {
             alignSelf: 'flex-start'
           }}>
           <Image
-            source={require('../../assets/logomark.png')}
+            source={require('../../../assets/logomark.png')}
             style={{
               marginRight: 8
             }}
@@ -61,7 +61,7 @@ const Flow2 = () => {
             flexDirection: 'row',
             alignSelf: 'flex-start'
           }}>
-          <Image source={require('../../assets/coach.png')} />
+          <Image source={require('../../../assets/coach.png')} />
           <View
             style={{
               marginLeft: 8
@@ -92,7 +92,7 @@ const Flow2 = () => {
                   color: '#16161A',
                   fontWeight: '700'
                 }}>
-                Benefits List
+                {title}
               </Text>
               <Text
                 style={{
@@ -101,7 +101,7 @@ const Flow2 = () => {
                   fontWeight: '500',
                   marginTop: 4
                 }}>
-                Coaching Tool · 8 min
+                {activityType} · {timeEst} min
               </Text>
               <Text
                 style={{
@@ -113,7 +113,7 @@ const Flow2 = () => {
                 Spend a few minutes looking back on what you've learned so far!
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate('reflectionHome')}
+                onPress={() => navigation.navigate(...goTo)}
                 style={{
                   width: 235,
                   height: 34,
@@ -153,7 +153,7 @@ const Flow2 = () => {
             alignSelf: 'flex-start'
           }}>
           <Image
-            source={require('../../assets/logomark.png')}
+            source={require('../../../assets/logomark.png')}
             style={{
               marginRight: 8
             }}
@@ -243,4 +243,4 @@ const Flow2 = () => {
   )
 }
 
-export default Flow2
+export default MessageLanging

@@ -48,7 +48,7 @@ const styles = {
   skillText: {
     fontFamily: 'medium',
     fontSize: 14,
-    color: 'pianoBlack',
+    color: Colors.pianoBlack,
     flexBasis: '87%',
     alignSelf: 'center'
   },
@@ -216,7 +216,7 @@ const TapMoreWithBottomSheet = () => {
   const bottomSheetRef = useRef(null)
 
   // variables
-  const snapPoints = useMemo(() => ['80%'], [])
+  const snapPoints = useMemo(() => ['50%', '95%'], [])
 
   // renders
   return (

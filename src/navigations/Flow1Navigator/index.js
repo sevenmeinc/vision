@@ -3,13 +3,14 @@ import { View, Text, Dimensions } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons'
+import Flow1 from '../../screens/BenefitListFlow2/Flow2'
 import ReflectionHome from '../../screens/ReflectionHome'
-import Flow2 from '../../screens/Flow2'
 import GetStarted from '../../screens/BenefitListFlow1/GetStarted'
 import Chat from '../../screens/BenefitListFlow1/Chat'
 import BenefitList from '../../screens/BenefitListFlow1/BenefitList'
 import { Colors } from '../../constants/colors'
 import FeedbackScreen from '../../screens/BenefitListFlow1/Feedback'
+import Header from '../../components/Header'
 
 const Stack = createStackNavigator()
 const ScreenWidth = Dimensions.get('window').width
@@ -69,7 +70,7 @@ const Progress = ({ navigation, route }) => {
           name="md-close-sharp"
           size={24}
           color={Colors.pianoBlack}
-          onPress={() => navigation.navigate('Flow2')}
+          onPress={() => navigation.navigate('Flow1')}
         />
       </View>
     </View>
@@ -128,12 +129,13 @@ const Flow1Navigator = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Flow2" component={Flow2} />
+      <Stack.Screen name="Flow1" component={Flow1} />
       <Stack.Screen
         name="reflectionHome"
-        options={{
+        options={({ navigation }) => ({
+          header: () => <Header navigation={navigation} />,
           presentation: 'modal'
-        }}
+        })}
         children={(props) => (
           <ReflectionHome
             {...props}
