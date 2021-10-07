@@ -26,6 +26,13 @@ const MainNavigator = () => {
         }}
       />
       <Stack.Screen
+        name="Flow 3"
+        component={FlowPositiveThinkingNavigator}
+        options={{
+          headerShown: false
+        }}
+      />
+      <Stack.Screen
         name="shortTermNavigator"
         component={ShortTermNavigator}
         options={{

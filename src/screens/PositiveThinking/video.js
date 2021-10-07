@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { View, Button, SafeAreaView } from 'react-native'
 import { Video } from 'expo-av'
 import { useNavigation } from '@react-navigation/native'
+import TapMoreWithBottomSheet from '../../components/TapMoreWithBottomSheet'
 
 const VideoPage = () => {
   const [status, setStatus] = useState({})
@@ -35,6 +36,7 @@ const VideoPage = () => {
           onPress={() => navigation.navigate('postVideo1')}
         />
       </View>
+      <TapMoreWithBottomSheet />
     </SafeAreaView>
   )
 }
