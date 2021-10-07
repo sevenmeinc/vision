@@ -20,7 +20,7 @@ const End = () => {
         timeEst={timeEst}
         title={title}
         activityType={type}
-        goTo={() => {}}
+        goTo={['Flows']}
       />
     </TouchableOpacity>
   )
