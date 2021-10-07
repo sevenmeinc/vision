@@ -1,14 +1,13 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
-import InputCard from '../../components/InputCard'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import Button from '../../components/Button'
 
-const PostVideo1 = (props) => {
+const PostVideo1 = ({ navigation, renderItem }) => {
   const list = [1, 2, 3]
-  const { navigation } = props
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -32,7 +31,7 @@ const PostVideo1 = (props) => {
             keyExtractor={(item, index) => `${index}-${item}`}
             horizontal
             data={list}
-            renderItem={InputCard}
+            renderItem={renderItem}
             ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ padding: 10 }}

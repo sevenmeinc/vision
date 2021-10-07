@@ -4,11 +4,15 @@ import { FlatList } from 'react-native-gesture-handler'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import Button from '../../components/Button'
-import InputCard from '../../components/InputCard'
+import InputAudioCard from '../../components/InputAudioCard'
 
-const PostVideo3 = (props) => {
-  const { navigation } = props
-  const list = [1, 2, 3]
+const PostVideo3 = ({
+  navigation,
+  positiveThinking1,
+  positiveThinking2,
+  positiveThinking3
+}) => {
+  const list = [positiveThinking1, positiveThinking2, positiveThinking3]
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -31,7 +35,17 @@ const PostVideo3 = (props) => {
             keyExtractor={(item, index) => `${index}-${item}`}
             horizontal
             data={list}
-            renderItem={InputCard}
+            renderItem={({ item, index }) => {
+              return (
+                <InputAudioCard
+                  index={index}
+                  item={item}
+                  positiveThinking1={positiveThinking1}
+                  positiveThinking2={positiveThinking2}
+                  positiveThinking3={positiveThinking3}
+                />
+              )
+            }}
             ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ padding: 10 }}

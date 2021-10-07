@@ -11,10 +11,30 @@ import PostVideo4 from '../../screens/PositiveThinking/postVideo4'
 import PostVideo5 from '../../screens/PositiveThinking/postVideo5'
 import PostVideo6 from '../../screens/PositiveThinking/postVideo6'
 import { Colors } from '../../constants/colors'
-import Logo from '../../components/Logo'
+import InputCard from '../../components/InputCard'
 
 const FlowPositiveThinkingActivity = () => {
   const Stack = createStackNavigator()
+
+  const [positiveThinking1, setPositiveThinking1] = useState('')
+  const [positiveThinking2, setPositiveThinking2] = useState('')
+  const [positiveThinking3, setPositiveThinking3] = useState('')
+
+  const renderItem = ({ item, index }) => {
+    return (
+      <InputCard
+        item={item}
+        index={index}
+        positiveThinking1={positiveThinking1}
+        setPositiveThinking1={setPositiveThinking1}
+        positiveThinking2={positiveThinking2}
+        setPositiveThinking2={setPositiveThinking2}
+        positiveThinking3={positiveThinking3}
+        setPositiveThinking3={setPositiveThinking3}
+      />
+    )
+  }
+
   const Progress = ({ navigation, route, backgroundColor, fillColor }) => {
     const ScreenWidth = Dimensions.get('window').width
     return (
@@ -142,7 +162,9 @@ const FlowPositiveThinkingActivity = () => {
       />
       <Stack.Screen
         name="postVideo1"
-        component={PostVideo1}
+        children={({ navigation }) => (
+          <PostVideo1 navigation={navigation} renderItem={renderItem} />
+        )}
         options={({ navigation, route }) => ({
           headerTitle: () => (
             <Progress
@@ -178,7 +200,14 @@ const FlowPositiveThinkingActivity = () => {
       />
       <Stack.Screen
         name="postVideo3"
-        component={PostVideo3}
+        children={({ navigation }) => (
+          <PostVideo3
+            navigation={navigation}
+            positiveThinking1={positiveThinking1}
+            positiveThinking2={positiveThinking2}
+            positiveThinking3={positiveThinking3}
+          />
+        )}
         options={({ navigation, route }) => ({
           headerTitle: () => (
             <Progress

@@ -2,7 +2,23 @@ import React from 'react'
 import { View, Text, TextInput } from 'react-native'
 import { Colors } from '../../constants/colors'
 
-const InputCard = (props) => {
+const InputCard = ({
+  index,
+  item,
+  setPositiveThinking1,
+  setPositiveThinking2,
+  setPositiveThinking3
+}) => {
+  const handleChange = (index, text) => {
+    if (index === 0) {
+      setPositiveThinking1(text)
+    } else if (index === 1) {
+      setPositiveThinking2(text)
+    } else {
+      setPositiveThinking3(text)
+    }
+  }
+
   return (
     <View
       style={{
@@ -20,12 +36,12 @@ const InputCard = (props) => {
           color: Colors.grey,
           padding: 16
         }}>
-        Example {props.index + 1}
+        Example {index + 1}
       </Text>
       <TextInput
         placeholder="I will get to spend more time with my family."
-        value={''}
-        onChangeText={(text) => ''}
+        value={item}
+        onChangeText={(text) => handleChange(index, text)}
         multiline={true}
         style={{ textAlignVertical: 'top', padding: 16 }}
       />
