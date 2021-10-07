@@ -123,13 +123,13 @@ const FaqRoute = () => (
       style={{
         fontFamily: 'medium',
         fontSize: 13,
-        color: 'pianoBlack',
+        color: Colors.pianoBlack,
         marginTop: 24,
         marginBottom: 8
       }}>
       Frequently asked questions #1
     </Text>
-    <Text style={{ fontFamily: 'regular', fontSize: 13, color: 'squant' }}>
+    <Text style={{ fontFamily: 'regular', fontSize: 13, color: Colors.squant }}>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque minus
       suscipit quae voluptates consequuntur aut optio esse ducimus iste dolorem
       officiis itaque ad quas, pariatur ab deserunt incidunt nobis? Doloremque!
@@ -138,13 +138,13 @@ const FaqRoute = () => (
       style={{
         fontFamily: 'medium',
         fontSize: 13,
-        color: 'pianoBlack',
+        color: Colors.pianoBlack,
         marginTop: 24,
         marginBottom: 8
       }}>
       Frequently asked questions #2
     </Text>
-    <Text style={{ fontFamily: 'regular', fontSize: 13, color: 'squant' }}>
+    <Text style={{ fontFamily: 'regular', fontSize: 13, color: Colors.squant }}>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque minus
       suscipit quae voluptates consequuntur aut optio esse ducimus iste dolorem
       officiis itaque ad quas, pariatur ab deserunt incidunt nobis? Doloremque!
