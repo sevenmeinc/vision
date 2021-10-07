@@ -41,10 +41,9 @@ const PostVideo1 = ({ navigation, renderItem }) => {
         <View style={{ flex: 1 }}>
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, marginRight: 10 }}>
               <OutlineButton title="Back" onPress={() => navigation.goBack()} />
             </View>
-            <View sytle={{ margin: 10, flex: 1 }} />
             <View style={{ flex: 1 }}>
               <Button
                 title="Continue"

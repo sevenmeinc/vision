@@ -7,7 +7,12 @@ import { Colors } from '../../constants/colors'
 const PostVideo4 = (props) => {
   const { navigation } = props
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: Colors.blueWhale }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: Colors.blueWhale,
+        flexdirection: 'column'
+      }}>
       <View
         style={{
           flex: 1,
@@ -19,7 +24,7 @@ const PostVideo4 = (props) => {
           <Text
             style={{
               fontFamily: 'semiBold',
-              fontSize: 25,
+              fontSize: 36,
               marginVertical: 24,
               color: 'white'
             }}>
@@ -28,7 +33,7 @@ const PostVideo4 = (props) => {
           <Text
             style={{
               fontFamily: 'semiBold',
-              fontSize: 25,
+              fontSize: 36,
               marginVertical: 24,
               color: 'white'
             }}>
@@ -36,7 +41,7 @@ const PostVideo4 = (props) => {
             have to go over in our next session!
           </Text>
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ marginTop: 100 }}>
           <View>
             <Button
               title="Submit"
@@ -44,7 +49,6 @@ const PostVideo4 = (props) => {
               background="white"
               onPress={() => navigation.navigate('postVideo5')}
             />
-            <View style={{ marginTop: 50 }} />
           </View>
         </View>
       </View>
