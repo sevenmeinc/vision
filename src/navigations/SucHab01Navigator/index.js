@@ -7,7 +7,6 @@ import PromptAudio from '../../screens/SucHab01Screens/PromptAudio'
 import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
 import PromptText from '../../screens/SucHab01Screens/PromptText'
 import PostActivity from '../../screens/SucHab01Screens/PostActivity'
-import End from '../../screens/SucHab01Screens/End'
 
 const Stack = createStackNavigator()
 const SucHab01Navigator = () => {
@@ -42,11 +41,6 @@ const SucHab01Navigator = () => {
       <Stack.Screen
         name="PostActivity"
         component={PostActivity}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="End"
-        component={End}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
