@@ -40,7 +40,6 @@ const InputCard = ({
       </Text>
       <TextInput
         placeholder="I will get to spend more time with my family."
-        value={item}
         onChangeText={(text) => handleChange(index, text)}
         multiline={true}
         style={{ textAlignVertical: 'top', padding: 16 }}

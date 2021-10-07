@@ -1,10 +1,9 @@
 import React from 'react'
-import { View, Text, SafeAreaView } from 'react-native'
-import Logo from '../../components/Logo'
+import { View, Text, SafeAreaView, Image } from 'react-native'
 import Button from '../../components/Button'
 import { Colors } from '../../constants/colors'
 
-const WeekComponent = ({ weekNumber }) => {
+const WeekComponent = ({ weekNumber, image }) => {
   return (
     <View
       style={{
@@ -12,19 +11,19 @@ const WeekComponent = ({ weekNumber }) => {
         alignItems: 'center',
         height: 80,
         width: 80,
-        backgroundColor: 'white',
+        backgroundColor: weekNumber >= 7 ? '#E5E4DF' : 'white',
         borderRadius: 12,
         margin: 3,
         marginBottom: 24
       }}>
-      <Logo />
+      <Image source={image} />
       <Text style={{ marginTop: 8 }}>Week {weekNumber}</Text>
     </View>
   )
 }
 const PostVideo6 = (props) => {
-  const weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   const { navigation } = props
+  const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.cottonField }}>
@@ -56,9 +55,54 @@ const PostVideo6 = (props) => {
               flexDirection: 'row',
               marginVertical: 40
             }}>
-            {weeks.map((number) => {
-              return <WeekComponent weekNumber={number} key={number} />
-            })}
+            <WeekComponent
+              weekNumber={1}
+              image={require('../../../assets/PositiveThinking/weeks/week1.png')}
+            />
+            <WeekComponent
+              weekNumber={2}
+              image={require('../../../assets/PositiveThinking/weeks/week2.png')}
+            />
+            <WeekComponent
+              weekNumber={3}
+              image={require('../../../assets/PositiveThinking/weeks/week3.png')}
+            />
+            <WeekComponent
+              weekNumber={4}
+              image={require('../../../assets/PositiveThinking/weeks/week4.png')}
+            />
+            <WeekComponent
+              weekNumber={5}
+              image={require('../../../assets/PositiveThinking/weeks/week5.png')}
+            />
+            <WeekComponent
+              weekNumber={6}
+              image={require('../../../assets/PositiveThinking/weeks/week6.png')}
+            />
+            <WeekComponent
+              weekNumber={7}
+              image={require('../../../assets/PositiveThinking/weeks/weekEmpty.png')}
+            />
+            <WeekComponent
+              weekNumber={8}
+              image={require('../../../assets/PositiveThinking/weeks/weekEmpty.png')}
+            />
+            <WeekComponent
+              weekNumber={9}
+              image={require('../../../assets/PositiveThinking/weeks/weekEmpty.png')}
+            />
+            <WeekComponent
+              weekNumber={10}
+              image={require('../../../assets/PositiveThinking/weeks/weekEmpty.png')}
+            />
+            <WeekComponent
+              weekNumber={11}
+              image={require('../../../assets/PositiveThinking/weeks/weekEmpty.png')}
+            />
+            <WeekComponent
+              weekNumber={12}
+              image={require('../../../assets/PositiveThinking/weeks/weekEmpty.png')}
+            />
           </View>
         </View>
 

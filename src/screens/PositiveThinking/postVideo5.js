@@ -1,43 +1,78 @@
 import React from 'react'
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import { Colors } from '../../constants/colors'
-
+import ReflectionInput from '../../components/ReflectionInput'
+import Button from '../../components/Button'
 const PostVideo5 = (props) => {
   const { navigation } = props
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.cottonField }}>
-      <View
-        style={{
-          flex: 1,
-          paddingLeft: 16,
-          paddingRight: 15
-        }}>
-        <View>
-          <Text
+      <ScrollView>
+        <View
+          style={{
+            flex: 1,
+            paddingLeft: 16,
+            paddingRight: 15
+          }}>
+          <View>
+            <Text
+              style={{
+                fontFamily: 'semiBold',
+                fontSize: 36,
+                marginTop: 24,
+                marginBottom: 40
+              }}>
+              One last thing...
+            </Text>
+          </View>
+          <View
             style={{
-              fontFamily: 'semiBold',
-              fontSize: 25,
-              marginVertical: 24
+              backgroundColor: Colors.felicity,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 8
             }}>
-            One last thing...
-          </Text>
-        </View>
-        <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-          <View style={{ alignSelf: 'flex-end' }}>
-            <OutlineButton
-              title="Let's get started"
-              onPress={() => navigation.navigate('postVideo6')}
-            />
-            <View style={{ marginTop: 12 }} />
-            <OutlineButton
-              title="Comeback later"
-              onPress={() => navigation.goBack()}
-            />
+            <View
+              style={{
+                alignSelf: 'flex-start',
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginVertical: 16
+              }}>
+              <View>
+                <Logo />
+              </View>
+              <Text>Reflection and manifestation</Text>
+            </View>
+
+            <ReflectionInput question="What are some things that you learned from this activity?" />
+            <ReflectionInput question="Where do you see yourself applying this new knowledge in your daily life?" />
+            <ReflectionInput question="What is something you wish to be able to do comfortably a month from now?" />
+          </View>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'flex-end',
+              flexDirection: 'row',
+              marginTop: 30
+            }}>
+            <View style={{ flex: 1 }}>
+              <OutlineButton title="Back" onPress={() => navigation.goBack()} />
+            </View>
+            <View sytle={{ margin: 10, flex: 1 }} />
+            <View style={{ flex: 1 }}>
+              <Button
+                title="Continue"
+                background={Colors.pianoBlack}
+                color={'white'}
+                onPress={() => navigation.navigate('postVideo6')}
+              />
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

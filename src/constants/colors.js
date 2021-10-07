@@ -9,5 +9,6 @@ export const Colors = {
   felicity: '#e5e4df',
   squant: '#666666',
   doctor: '#f9f9f9',
-  woodsmoke15: '#16161A0F'
+  woodsmoke15: '#16161A0F',
+  fountainCity: '#99d5d0'
 }
