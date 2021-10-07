@@ -17,12 +17,12 @@ import FeatherIcons from 'react-native-vector-icons/Feather'
 import PromptContainer from '../../components/PromptContainer'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 const PromptText = ({ route }) => {
   const navigation = useNavigation()
 
-  const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
+  const { isKeyboardVisible, onFocus, onBlur, keyboardHeight } = useKeyboard()
   const {
     prompts,
     state: { responses }
@@ -45,103 +45,96 @@ const PromptText = ({ route }) => {
       height: 40,
       width: 40,
       borderRadius: 8,
-      paddingHorizontal: 8,
-      paddingVertical: 8,
+      padding: 8,
       borderWidth: 1,
-      marginHorizontal: 8,
-      marginBottom: 8
+      marginHorizontal: 8
     }
   })
 
   const textInput = () => {
     return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <KeyboardAvoidingView
-          enabled={isKeyboardVisible}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-          <View
-            style={{
-              justifyContent: 'center',
-              margin: 16
-            }}>
-            <Text
-              style={{
-                fontSize: 17,
-                fontStyle: 'normal',
-                fontWeight: '500',
-                lineHeight: 20,
-                letterSpacing: -0.01,
-                textAlign: 'center'
-              }}>
-              {prompt.prompt}
-            </Text>
-            <View
-              style={{
-                paddingBottom: 40
-              }}>
-              <TextInput
-                onChangeText={(msg) => {
-                  setRes(msg)
-                }}
-                value={res}
-                multiline
-                numberOfLines={8}
-                textAlignVertical="top"
-                placeholder={'Start typing...'}
-                onBlur={onBlur}
-                onFocus={onFocus}
+      <SafeAreaView>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <KeyboardAvoidingView
+            enabled={isKeyboardVisible}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <View>
+              <Text
                 style={{
-                  width: width * 0.9,
-                  flex: 1,
-                  padding: 16,
                   fontSize: 17,
                   fontStyle: 'normal',
-                  fontWeight: '400',
-                  lineHeight: 22,
-                  letterSpacing: 0,
-                  textAlign: 'left'
-                }}
-              />
+                  fontWeight: '500',
+                  lineHeight: 20,
+                  letterSpacing: -0.01,
+                  textAlign: 'center',
+                  padding: 16
+                }}>
+                {prompt.prompt}
+              </Text>
               <View
                 style={{
                   width: width,
-                  marginBottom: 8,
-                  flexDirection: 'row'
+                  alignItems: 'center',
+                  height: height - 64
                 }}>
-                <TouchableOpacity
-                  style={styles.navButton}
-                  onPress={handleAudio}>
-                  <FeatherIcons name={'mic'} size={20} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.navButton}
-                  onPress={handleVideo}>
-                  <FeatherIcons name={'video'} size={20} />
-                </TouchableOpacity>
+                <TextInput
+                  onChangeText={(msg) => {
+                    setRes(msg)
+                  }}
+                  value={res}
+                  multiline
+                  numberOfLines={8}
+                  textAlignVertical="top"
+                  placeholder={'Start typing...'}
+                  onBlur={onBlur}
+                  onFocus={onFocus}
+                  style={{
+                    width: width,
+                    flex: 1,
+                    padding: 16,
+                    fontSize: 17,
+                    fontStyle: 'normal',
+                    fontWeight: '400',
+                    lineHeight: 22,
+                    letterSpacing: 0,
+                    textAlign: 'left'
+                  }}
+                />
+                {isKeyboardVisible && (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      width: width,
+                      paddingBottom: keyboardHeight + 80
+                    }}>
+                    <TouchableOpacity
+                      style={styles.navButton}
+                      onPress={handleAudio}>
+                      <FeatherIcons name={'mic'} size={20} />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.navButton}
+                      onPress={handleVideo}>
+                      <FeatherIcons name={'video'} size={20} />
+                    </TouchableOpacity>
+                  </View>
+                )}
               </View>
             </View>
-          </View>
-        </KeyboardAvoidingView>
-      </TouchableWithoutFeedback>
+          </KeyboardAvoidingView>
+        </TouchableWithoutFeedback>
+      </SafeAreaView>
     )
   }
 
   return (
-    <SafeAreaView>
-      {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <KeyboardAvoidingView
-          enabled={isKeyboardVisible}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}> */}
-      <View
-        style={{
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-        <PromptContainer prompt={prompt} input={textInput} route={route} />
-      </View>
-      {/* </KeyboardAvoidingView>
-      </TouchableWithoutFeedback> */}
-    </SafeAreaView>
+    <View
+      style={{
+        alignItems: 'flext-start',
+        justifyContent: 'center'
+      }}>
+      <PromptContainer input={textInput} route={route} />
+    </View>
   )
 }
 
