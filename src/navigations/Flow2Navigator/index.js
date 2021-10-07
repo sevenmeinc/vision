@@ -16,7 +16,9 @@ const Flow2Navigator = () => {
       <Stack.Screen
         name="reflectionHome"
         options={({ navigation }) => ({
-          header: () => <Header navigation={navigation} />
+          header: () => (
+            <Header navigation={navigation} title="Reflection activity" />
+          )
         })}
         children={(props) => (
           <ReflectionHome
