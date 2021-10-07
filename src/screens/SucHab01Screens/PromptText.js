@@ -55,82 +55,92 @@ const PromptText = ({ route }) => {
 
   const textInput = () => {
     return (
-      <View
-        style={{
-          justifyContent: 'center',
-          margin: 16
-        }}>
-        <Text
-          style={{
-            fontSize: 17,
-            fontStyle: 'normal',
-            fontWeight: '500',
-            lineHeight: 20,
-            letterSpacing: -0.01,
-            textAlign: 'center'
-          }}>
-          {prompt.prompt}
-        </Text>
-        <View
-          style={{
-            paddingBottom: 40
-          }}>
-          <TextInput
-            onChangeText={(msg) => {
-              setRes(msg)
-            }}
-            value={res}
-            multiline
-            numberOfLines={8}
-            textAlignVertical="top"
-            placeholder={'Start typing...'}
-            onBlur={onBlur}
-            onFocus={onFocus}
-            style={{
-              width: width * 0.9,
-              flex: 1,
-              padding: 16,
-              fontSize: 17,
-              fontStyle: 'normal',
-              fontWeight: '400',
-              lineHeight: 22,
-              letterSpacing: 0,
-              textAlign: 'left'
-            }}
-          />
-          <View
-            style={{
-              width: width,
-              marginBottom: 8,
-              flexDirection: 'row'
-            }}>
-            <TouchableOpacity style={styles.navButton} onPress={handleAudio}>
-              <FeatherIcons name={'mic'} size={20} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.navButton} onPress={handleVideo}>
-              <FeatherIcons name={'video'} size={20} />
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-    )
-  }
-
-  return (
-    <SafeAreaView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView
           enabled={isKeyboardVisible}
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
           <View
             style={{
-              alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              margin: 16
             }}>
-            <PromptContainer prompt={prompt} input={textInput} route={route} />
+            <Text
+              style={{
+                fontSize: 17,
+                fontStyle: 'normal',
+                fontWeight: '500',
+                lineHeight: 20,
+                letterSpacing: -0.01,
+                textAlign: 'center'
+              }}>
+              {prompt.prompt}
+            </Text>
+            <View
+              style={{
+                paddingBottom: 40
+              }}>
+              <TextInput
+                onChangeText={(msg) => {
+                  setRes(msg)
+                }}
+                value={res}
+                multiline
+                numberOfLines={8}
+                textAlignVertical="top"
+                placeholder={'Start typing...'}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                style={{
+                  width: width * 0.9,
+                  flex: 1,
+                  padding: 16,
+                  fontSize: 17,
+                  fontStyle: 'normal',
+                  fontWeight: '400',
+                  lineHeight: 22,
+                  letterSpacing: 0,
+                  textAlign: 'left'
+                }}
+              />
+              <View
+                style={{
+                  width: width,
+                  marginBottom: 8,
+                  flexDirection: 'row'
+                }}>
+                <TouchableOpacity
+                  style={styles.navButton}
+                  onPress={handleAudio}>
+                  <FeatherIcons name={'mic'} size={20} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.navButton}
+                  onPress={handleVideo}>
+                  <FeatherIcons name={'video'} size={20} />
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
+    )
+  }
+
+  return (
+    <SafeAreaView>
+      {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <KeyboardAvoidingView
+          enabled={isKeyboardVisible}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}> */}
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+        <PromptContainer prompt={prompt} input={textInput} route={route} />
+      </View>
+      {/* </KeyboardAvoidingView>
+      </TouchableWithoutFeedback> */}
     </SafeAreaView>
   )
 }
