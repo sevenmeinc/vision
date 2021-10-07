@@ -13,11 +13,7 @@ const Stack = createStackNavigator()
 const SucHab01Navigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="SuccessfulHabits01"
-        component={SuccessfulHabits}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="SuccessfulHabits01" component={SuccessfulHabits} />
       <Stack.Screen
         name="PreActivity"
         component={PreActivity}
