@@ -41,6 +41,7 @@ const SelectionScreen = () => {
             width: '100%'
           }}>
           <TouchableOpacity
+            onPress={() => navigation.navigate('PromptText')}
             style={{
               width: 30,
               height: 30,
@@ -119,7 +120,7 @@ const SelectionScreen = () => {
       </View>
       <View style={{ flexDirection: 'row', padding: 16 }}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Flow 2')}
+          onPress={navigation.goBack}
           style={{
             marginRight: 4,
             borderRadius: 100,

@@ -7,6 +7,9 @@ import SelectionScreen from '../../screens/BenefitListFlow3/SelectionScreen'
 import ReflectionHome from '../../screens/ReflectionHome'
 import Header from '../../components/Header'
 import BenefitProgressHeader from '../../components/BenefitProgressHeader'
+import PromptAudio from '../../screens/BenefitListFlow3/PromptAudio'
+import PromptVideo from '../../screens/BenefitListFlow3/PromptVideo'
+import PromptText from '../../screens/BenefitListFlow3/PromptText'
 
 const Stack = createStackNavigator()
 const Flow3Navigator = () => {
@@ -42,6 +45,17 @@ const Flow3Navigator = () => {
           presentation: 'card'
         })}
       />
+      <Stack.Screen
+        name="PromptAudio"
+        component={PromptAudio}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PromptVideo"
+        component={PromptVideo}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="PromptText" component={PromptText} />
     </Stack.Navigator>
   )
 }
