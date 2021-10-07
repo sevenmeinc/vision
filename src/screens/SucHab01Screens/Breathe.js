@@ -7,7 +7,7 @@ import Breather2 from '../../components/Breathe/Breather2'
 
 const { height, width } = Dimensions.get('window')
 
-const PromptAudio = ({ route }) => {
+const BreateScreen = ({ route }) => {
   const navigation = useNavigation()
   const {
     prompts,
@@ -58,4 +58,4 @@ const PromptAudio = ({ route }) => {
   )
 }
 
-export default PromptAudio
+export default BreateScreen

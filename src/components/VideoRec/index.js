@@ -118,6 +118,7 @@ const VideoRec = ({
         style={{
           position: 'absolute',
           opacity: 0.6,
+          top: '4%',
           width: '85%',
           zIndex: 3,
           alignItems: 'flex-end',
@@ -127,7 +128,8 @@ const VideoRec = ({
           style={{
             padding: 6,
             borderRadius: 50,
-            backgroundColor: '#16161A'
+            backgroundColor: '#16161A',
+            marginBottom: 16
           }}
           onPress={() => navigation.navigate('SuccessfulHabits01')}>
           <FeatherIcons name="x" size={36} color={'white'} />
