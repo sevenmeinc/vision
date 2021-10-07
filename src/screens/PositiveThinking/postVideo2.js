@@ -36,15 +36,11 @@ const PostVideo2 = (props) => {
           </Text>
         </View>
         <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-          <View style={{ alignSelf: 'flex-end' }}>
+          <View style={{ flex: 1 }}>
             <OutlineButton
+              color="white"
               title="Let's get started"
               onPress={() => navigation.navigate('postVideo3')}
-            />
-            <View style={{ marginTop: 12 }} />
-            <OutlineButton
-              title="Comeback later"
-              onPress={() => navigation.goBack()}
             />
           </View>
         </View>
