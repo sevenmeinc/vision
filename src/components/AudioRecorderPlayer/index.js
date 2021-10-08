@@ -61,6 +61,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
 
   const handleDelete = () => {
     setTime(newTimer)
+    setIsRecording(false)
     setBtn1Mode('text')
     setBtn2Mode('record')
     setBtn3Mode('video')

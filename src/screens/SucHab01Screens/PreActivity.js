@@ -8,8 +8,8 @@ const PreActivity = ({ route }) => {
 
   return (
     <PreActivityCard
-      handleClose={() => navigation.navigate('SuccessfulHabits01')}
-      activityType={type}
+      // handleClose={() => navigation.navigate('SuccessfulHabits01')}
+      // activityType={type}
       image={require('../../../assets/suc-hab-img.png')}
       title={title}
       timeEst={timeEst}
@@ -26,7 +26,7 @@ const PreActivity = ({ route }) => {
         label: 'Get started'
       }}
       btn2={{
-        handler: () => navigation.navigate('SuccessfulHabits01'),
+        handler: () => navigation.goBack(),
         label: 'Remind me later'
       }}
     />

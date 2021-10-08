@@ -12,8 +12,8 @@ const PreActivityCard = ({
   title,
   timeEst, // optional
   description,
-  btn1, // {handler: fn(), label: string}
-  btn2 // {handler: fn(), label: string}
+  handleBtn1, // fn()
+  handleBtn2
 }) => {
   return (
     <View
@@ -90,11 +90,11 @@ const PreActivityCard = ({
         </Text>
       </View>
       <View>
-        <Button onPress={btn1.handler} mode={'contained'} dark={true}>
-          {btn1.label}
+        <Button onPress={handleBtn1} mode={'contained'} dark={true}>
+          Get Started
         </Button>
-        <Button onPress={btn2.handler} mode={'text'}>
-          {btn2.label}
+        <Button onPress={handleBtn2} mode={'text'}>
+          Remind me later
         </Button>
       </View>
       <Space index={8} />

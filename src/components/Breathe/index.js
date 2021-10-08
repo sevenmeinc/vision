@@ -1,24 +1,24 @@
 import React from 'react'
 import { View, Text, Dimensions } from 'react-native'
+// import ButtonBackNext from '../ButtonBackNext'
+import Breathe2 from './Breather2'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
-const Breathe = ({
-  breather, //component
-  contemplationPrompt = 'Breathing space'
-}) => {
+const Breathe = ({ contemplationPrompt }) => {
   return (
     <View
       style={{
-        padding: 16,
+        paddingHorizontal: 16,
         width: width,
         alignContent: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-between'
       }}>
       <Text style={{ textAlign: 'center' }}>
         {contemplationPrompt ?? 'Breathing space'}
       </Text>
-      {breather()}
+      <Breathe2 />
+      {/* <ButtonBackNext /> */}
     </View>
   )
 }
