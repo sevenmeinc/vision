@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef } from 'react'
 import {
   View,
   Text,
@@ -226,6 +226,9 @@ const TapMoreWithBottomSheet = ({ onOpen, variant, onClose }) => {
     },
     [onClose]
   )
+  useEffect(() => {
+    bottomSheetRef.current?.close()
+  }, [])
   // renders
   return (
     <>

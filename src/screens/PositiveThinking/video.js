@@ -56,7 +56,7 @@ const VideoPage = () => {
     <SafeAreaView
       style={{
         flex: 1,
-        backgroundColor: !status.isPlaying ? 'black' : 'white'
+        backgroundColor: 'black'
       }}>
       <View style={{ flex: 1 }}>
         <Video
