@@ -58,10 +58,9 @@ const PostVideo5 = (props) => {
               flexDirection: 'row',
               marginTop: 30
             }}>
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, marginRight: 10 }}>
               <OutlineButton title="Back" onPress={() => navigation.goBack()} />
             </View>
-            <View sytle={{ margin: 10, flex: 1 }} />
             <View style={{ flex: 1 }}>
               <Button
                 title="Continue"

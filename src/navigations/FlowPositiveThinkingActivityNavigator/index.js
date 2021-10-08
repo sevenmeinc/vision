@@ -194,7 +194,8 @@ const FlowPositiveThinkingActivity = () => {
           headerLeft: () => null,
           headerRight: () => null,
           headerStyle: {
-            backgroundColor: Colors.blueWhale
+            backgroundColor: Colors.blueWhale,
+            shadowColor: 'transparent'
           }
         })}
       />
@@ -220,7 +221,8 @@ const FlowPositiveThinkingActivity = () => {
           headerLeft: () => null,
           headerRight: () => null,
           headerStyle: {
-            backgroundColor: Colors.doctor
+            backgroundColor: Colors.doctor,
+            shadowColor: 'transparent'
           }
         })}
       />
@@ -240,7 +242,7 @@ const FlowPositiveThinkingActivity = () => {
           headerRight: () => null,
           headerStyle: {
             backgroundColor: Colors.blueWhale,
-            borderColor: Colors.blueWhale
+            shadowColor: 'transparent'
           }
         })}
       />
@@ -254,7 +256,8 @@ const FlowPositiveThinkingActivity = () => {
           headerLeft: () => null,
           headerRight: () => null,
           headerStyle: {
-            backgroundColor: Colors.cottonField
+            backgroundColor: Colors.cottonField,
+            shadowColor: 'transparent'
           }
         })}
       />
@@ -268,7 +271,8 @@ const FlowPositiveThinkingActivity = () => {
           headerLeft: () => null,
           headerRight: () => null,
           headerStyle: {
-            backgroundColor: Colors.cottonField
+            backgroundColor: Colors.cottonField,
+            shadowColor: 'transparent'
           }
         })}
       />

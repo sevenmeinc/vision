@@ -17,7 +17,8 @@ const PostVideo4 = (props) => {
         style={{
           flex: 1,
           paddingLeft: 16,
-          paddingRight: 15
+          paddingRight: 15,
+          marginTop: 20
         }}>
         <View>
           <Logo color="white" />
