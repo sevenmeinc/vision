@@ -51,7 +51,7 @@ const PreviewScreen = ({ imgUri, duration, time }) => {
         }}>
         <Space index={16} />
         <Space index={16} />
-        <View>
+        <View style={{ alignItems: 'center' }}>
           <Image
             source={imgUri}
             style={{

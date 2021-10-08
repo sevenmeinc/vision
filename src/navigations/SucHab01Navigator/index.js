@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import PreActivity from '../../screens/SucHab01Screens/PreActivity'
 import SuccessfulHabits from '../../screens/SucHab01Screens/SuccessfulHabits'
 import BreatheScreen from '../../screens/SucHab01Screens/Breathe'
 import PromptAudio from '../../screens/SucHab01Screens/PromptAudio'
 import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
+import PromptText from '../../screens/SucHab01Screens/PromptText'
 import PostActivity from '../../screens/SucHab01Screens/PostActivity'
 import Header from '../../components/Header'
 import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 
 const Stack = createStackNavigator()
 const SucHab01Navigator = () => {
+  const [isPreview, setIsPreview] = useState(false)
   return (
     <Stack.Navigator>
       <Stack.Screen name="SuccessfulHabits01" component={SuccessfulHabits} />
@@ -25,7 +27,7 @@ const SucHab01Navigator = () => {
         })}
       />
       <Stack.Screen
-        name="PromptAudio"
+        name="PromptAudio1"
         component={PromptAudio}
         options={({ navigation }) => ({
           header: () => (
@@ -51,17 +53,57 @@ const SucHab01Navigator = () => {
         })}
       />
       <Stack.Screen
-        name="PromptVideo"
-        component={PromptVideo}
-        options={{ headerShown: false }}
+        name="PromptVideo1"
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader
+              current={2}
+              total={3}
+              navigation={navigation}
+            />
+          ),
+          headerShown: isPreview
+        })}
+        children={(props) => (
+          <PromptVideo {...props} setIsPreview={setIsPreview} />
+        )}
       />
       <Stack.Screen
-        name="PromptText"
+        name="PromptVideo2"
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader
+              current={3}
+              total={3}
+              navigation={navigation}
+            />
+          ),
+          headerShown: isPreview
+        })}
+        children={(props) => (
+          <PromptVideo {...props} setIsPreview={setIsPreview} />
+        )}
+      />
+      <Stack.Screen
+        name="PromptText1"
         component={PromptText}
         options={({ navigation }) => ({
           header: () => (
             <BenefitProgressHeader
               current={2}
+              total={3}
+              navigation={navigation}
+            />
+          )
+        })}
+      />
+      <Stack.Screen
+        name="PromptText2"
+        component={PromptText}
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader
+              current={3}
               total={3}
               navigation={navigation}
             />
@@ -97,7 +139,14 @@ const SucHab01Navigator = () => {
       <Stack.Screen
         name="PostActivity"
         component={PostActivity}
-        options={{ headerShown: false }}
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader
+              title={'Past Successful Habits'}
+              navigation={navigation}
+            />
+          )
+        })}
       />
     </Stack.Navigator>
   )

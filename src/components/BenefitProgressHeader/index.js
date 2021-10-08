@@ -1,12 +1,12 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Svg, { Path } from 'react-native-svg'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import { Colors } from '../../constants/colors'
 
-const BenefitProgressHeader = ({ current, total, homeScreen, navigation }) => {
+const BenefitProgressHeader = ({ current, total, title, navigation }) => {
   const renderProgress = () => {
     let stage = 0
     const progressArray = []
@@ -21,6 +21,20 @@ const BenefitProgressHeader = ({ current, total, homeScreen, navigation }) => {
       )
     }
     return progressArray
+  }
+
+  const renderTitle = () => {
+    return (
+      <Text
+        style={{
+          fontSize: 17,
+          fontStyle: 'normal',
+          fontWeight: '600',
+          lineHeight: 20
+        }}>
+        {title}
+      </Text>
+    )
   }
   return (
     <SafeAreaView
@@ -37,7 +51,7 @@ const BenefitProgressHeader = ({ current, total, homeScreen, navigation }) => {
         style={{
           flexDirection: 'row'
         }}>
-        {renderProgress()}
+        {title ? renderTitle() : renderProgress()}
       </View>
       <TouchableOpacity onPress={() => navigation.popToTop()}>
         <Svg

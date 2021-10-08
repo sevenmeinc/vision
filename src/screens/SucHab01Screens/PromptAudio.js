@@ -11,36 +11,35 @@ const PromptAudio = ({ route }) => {
   const navigation = useNavigation()
   const {
     prompts,
-    state: { responses }
+    state: { responses, stage }
   } = route.params
 
   const prompt = prompts[responses]
 
   const Audio = () => {
     return (
-      <>
-        <View
-          style={{
-            padding: 16,
-            flex: 1,
-            alignItems: 'center'
-          }}>
-          <Text style={{ padding: 16 }}>{prompt?.prompt}</Text>
-          <Space index={16} />
-          <AuxRecorderPlayer
-            handleText={() => {
-              navigation.navigate('PromptText', {
-                ...route.params
-              })
-            }}
-            handleVideo={() => {
-              navigation.navigate('PromptVideo', {
-                ...route.params
-              })
-            }}
-          />
-        </View>
-      </>
+      <View
+        style={{
+          padding: 16,
+          paddingTop: 0,
+          flex: 1,
+          alignItems: 'center'
+        }}>
+        <Text style={{ padding: 16 }}>{prompt?.prompt}</Text>
+        <Space index={16} />
+        <AuxRecorderPlayer
+          handleText={() => {
+            navigation.navigate(stage === 1 ? 'PromptText1' : 'PromptText2', {
+              ...route.params
+            })
+          }}
+          handleVideo={() => {
+            navigation.navigate(stage === 1 ? 'PromptVideo1' : 'PromptVideo2', {
+              ...route.params
+            })
+          }}
+        />
+      </View>
     )
   }
 
@@ -49,6 +48,7 @@ const PromptAudio = ({ route }) => {
       style={{
         height: height,
         padding: 16,
+        paddingTop: 0,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'

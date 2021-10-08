@@ -44,8 +44,7 @@ const PostActivity = ({ route }) => {
 
   return (
     <KeyboardAwareScrollView>
-      <View
-        style={{ paddingHorizontal: 16, paddingTop: 32, paddingBottom: 16 }}>
+      <View style={{ paddingHorizontal: 16, paddingTop: 0, paddingBottom: 16 }}>
         <Title
           styles={{
             fontSize: 36,

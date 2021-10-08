@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Dimensions,
@@ -16,13 +16,13 @@ import { TextInput } from 'react-native-gesture-handler'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const PromptText = () => {
   const navigation = useNavigation()
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
-  const [dismissPadding, setDismissPadding] = useState(60)
+  const [dismissPadding, setDismissPadding] = useState(30)
 
   const [res, setRes] = useState('')
   const styles = StyleSheet.create({
@@ -45,7 +45,7 @@ const PromptText = () => {
         <TouchableWithoutFeedback
           onPress={() => {
             Keyboard.dismiss()
-            setDismissPadding(90)
+            setDismissPadding(140)
           }}>
           <View style={{ flex: 1, paddingHorizontal: 8 }}>
             <Text
@@ -56,8 +56,7 @@ const PromptText = () => {
                 lineHeight: 20,
                 letterSpacing: -0.01,
                 textAlign: 'center',
-                marginHorizontal: 15,
-                marginVertical: 30
+                marginHorizontal: 15
               }}>
               What is one healthy habit you sustained long-term?
             </Text>
@@ -87,8 +86,8 @@ const PromptText = () => {
             />
             <View
               style={{
-                display: isKeyboardVisible ? 'flex' : 'none',
-                marginBottom: isKeyboardVisible ? dismissPadding : 0,
+                opacity: isKeyboardVisible ? 1 : 0,
+                paddingBottom: dismissPadding,
                 flexDirection: 'row',
                 justifyContent: 'space-between'
               }}>
@@ -106,59 +105,60 @@ const PromptText = () => {
                 style={styles.navButton}
                 onPress={() => {
                   Keyboard.dismiss()
-                  setDismissPadding(90)
+                  setDismissPadding(140)
                 }}>
                 <FeatherIcons name={'chevron-down'} size={30} />
               </TouchableOpacity>
             </View>
           </View>
         </TouchableWithoutFeedback>
+        <View
+          style={{
+            display: isKeyboardVisible ? 'none' : 'flex',
+            flexDirection: 'row',
+            padding: 16,
+            paddingTop: 0
+          }}>
+          <TouchableOpacity
+            onPress={navigation.goBack}
+            style={{
+              marginRight: 4,
+              borderRadius: 100,
+              width: 168,
+              height: 52,
+              justifyContent: 'center',
+              backgroundColor: 'rgba(25, 51, 64, 0.08)'
+            }}>
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: '500',
+                textAlign: 'center'
+              }}>
+              Back
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              marginLeft: 4,
+              borderRadius: 100,
+              width: 168,
+              height: 52,
+              justifyContent: 'center',
+              backgroundColor: '#193340'
+            }}>
+            <Text
+              style={{
+                fontSize: 17,
+                color: '#fff',
+                fontWeight: '500',
+                textAlign: 'center'
+              }}>
+              Next
+            </Text>
+          </TouchableOpacity>
+        </View>
       </KeyboardAvoidingView>
-      <View
-        style={{
-          flexDirection: 'row',
-          padding: 16,
-          paddingTop: 0
-        }}>
-        <TouchableOpacity
-          onPress={navigation.goBack}
-          style={{
-            marginRight: 4,
-            borderRadius: 100,
-            width: 168,
-            height: 52,
-            justifyContent: 'center',
-            backgroundColor: 'rgba(25, 51, 64, 0.08)'
-          }}>
-          <Text
-            style={{
-              fontSize: 17,
-              fontWeight: '500',
-              textAlign: 'center'
-            }}>
-            Back
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            marginLeft: 4,
-            borderRadius: 100,
-            width: 168,
-            height: 52,
-            justifyContent: 'center',
-            backgroundColor: '#193340'
-          }}>
-          <Text
-            style={{
-              fontSize: 17,
-              color: '#fff',
-              fontWeight: '500',
-              textAlign: 'center'
-            }}>
-            Next
-          </Text>
-        </TouchableOpacity>
-      </View>
     </SafeAreaView>
   )
 }

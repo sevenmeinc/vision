@@ -39,6 +39,7 @@ const BreateScreen = ({ route }) => {
         height: height,
         width: width,
         padding: 16,
+        paddingTop: 0,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
@@ -48,7 +49,7 @@ const BreateScreen = ({ route }) => {
         input={breathe}
         route={route}
         handleNext={() => {
-          navigation.navigate(stage === 0 ? 'PromptAudio' : 'PromptAudio2', {
+          navigation.navigate(stage === 0 ? 'PromptAudio1' : 'PromptAudio2', {
             ...route.params,
             state: { ...route.params.state, stage: stage + 1 }
           })
