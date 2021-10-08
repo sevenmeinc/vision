@@ -7,7 +7,7 @@ import Space from '../../components/Space'
 
 const { height } = Dimensions.get('window')
 
-const PromptAudio = ({ route }) => {
+const PromptAudio = ({ route, nextTextScreen, nextVideoScreen }) => {
   const navigation = useNavigation()
   const {
     prompts,
@@ -29,12 +29,12 @@ const PromptAudio = ({ route }) => {
         <Space index={16} />
         <AuxRecorderPlayer
           handleText={() => {
-            navigation.navigate(stage === 1 ? 'PromptText1' : 'PromptText2', {
+            navigation.navigate(nextTextScreen, {
               ...route.params
             })
           }}
           handleVideo={() => {
-            navigation.navigate(stage === 1 ? 'PromptVideo1' : 'PromptVideo2', {
+            navigation.navigate(nextVideoScreen, {
               ...route.params
             })
           }}

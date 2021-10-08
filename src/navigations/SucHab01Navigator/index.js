@@ -28,7 +28,6 @@ const SucHab01Navigator = () => {
       />
       <Stack.Screen
         name="PromptAudio1"
-        component={PromptAudio}
         options={({ navigation }) => ({
           header: () => (
             <BenefitProgressHeader
@@ -38,10 +37,16 @@ const SucHab01Navigator = () => {
             />
           )
         })}
+        children={(props) => (
+          <PromptAudio
+            {...props}
+            nextTextScreen={'PromptText1'}
+            nextVideoScreen={'PromptVideo1'}
+          />
+        )}
       />
       <Stack.Screen
         name="PromptAudio2"
-        component={PromptAudio}
         options={({ navigation }) => ({
           header: () => (
             <BenefitProgressHeader
@@ -51,6 +56,13 @@ const SucHab01Navigator = () => {
             />
           )
         })}
+        children={(props) => (
+          <PromptAudio
+            {...props}
+            nextTextScreen={'PromptText2'}
+            nextVideoScreen={'PromptVideo2'}
+          />
+        )}
       />
       <Stack.Screen
         name="PromptVideo1"
