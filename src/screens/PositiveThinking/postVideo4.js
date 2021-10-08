@@ -21,7 +21,7 @@ const PostVideo4 = (props) => {
           marginTop: 20
         }}>
         <View>
-          <Logo color="white" />
+          <Logo fill="white" />
           <Text
             style={{
               fontFamily: 'semiBold',
