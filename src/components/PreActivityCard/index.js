@@ -8,8 +8,6 @@ import { Colors } from '../../constants/colors'
 const { height } = Dimensions.get('window')
 
 const PreActivityCard = ({
-  handleClose,
-  activityType,
   image,
   title,
   timeEst, // optional
@@ -22,7 +20,7 @@ const PreActivityCard = ({
       style={{
         display: 'flex',
         flexGrow: 1,
-        paddingHorizontal: 16,
+        padding: 16,
         maxHeight: height,
         backgroundColor: '#FFF',
         justifyContent: 'space-between',
@@ -35,27 +33,6 @@ const PreActivityCard = ({
           width: '100%',
           justifyContent: 'flex-start'
         }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}>
-          <Text
-            style={{
-              fontStyle: 'normal',
-              fontWeight: '600',
-              fontSize: 14,
-              lineHeight: 17,
-              letterSpacing: -0.01,
-              color: Colors.shadyCharacter
-            }}>
-            {activityType}
-          </Text>
-          <Button onPress={handleClose} mode={'text'}>
-            Close
-          </Button>
-        </View>
         <Image
           resizeMode={'cover'}
           source={image}

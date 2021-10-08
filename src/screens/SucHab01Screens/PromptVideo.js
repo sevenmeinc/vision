@@ -12,6 +12,7 @@ import FeatherIcons from 'react-native-vector-icons/Feather'
 import PromptContainer from '../../components/PromptContainer'
 import VideoRec from '../../components/VideoRec'
 import Space from '../../components/Space'
+import PreviewScreen from './PreviewScreen'
 
 const { width, height } = Dimensions.get('window')
 
@@ -51,7 +52,7 @@ const PromptVideo = ({ route }) => {
     }
   })
 
-  const PreviewScreen = () => {
+  const PreviewScreens = () => {
     return (
       <View style={{ ...styles.centered, paddingHorizontal: 16 }}>
         <Text
@@ -148,7 +149,12 @@ const PromptVideo = ({ route }) => {
       }}>
       {preview ? (
         <View styles={{ flex: 0.8 }}>
-          <PromptContainer input={PreviewScreen} route={route} />
+          <PromptContainer
+            input={() => (
+              <PreviewScreen time={time} duration={duration} imgUri={imgUri} />
+            )}
+            route={route}
+          />
         </View>
       ) : (
         <VideoRec

@@ -1,15 +1,13 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native'
-import { modalOptions } from '../utils'
 import Flow3 from '../../screens/BenefitListFlow3/Flow3'
-import SelectionScreen from '../../screens/BenefitListFlow3/SelectionScreen'
 import ReflectionHome from '../../screens/ReflectionHome'
 import Header from '../../components/Header'
 import BenefitProgressHeader from '../../components/BenefitProgressHeader'
-import PromptAudio from '../../screens/BenefitListFlow3/PromptAudio'
-import PromptVideo from '../../screens/BenefitListFlow3/PromptVideo'
-import PromptText from '../../screens/BenefitListFlow3/PromptText'
+import PromptAudio from '../../screens/SucHab01Screens/PromptAudio'
+import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
+import PromptText from '../../screens/SucHab01Screens/PromptText'
 import { content } from '../../../assets/content'
 
 const Stack = createStackNavigator()
@@ -22,7 +20,9 @@ const Flow3Navigator = () => {
       <Stack.Screen
         name="reflectionHome"
         options={({ navigation }) => ({
-          header: () => <Header navigation={navigation} />,
+          header: () => (
+            <Header navigation={navigation} title="Reflection activity" />
+          ),
           presentation: 'modal'
         })}
         children={(props) => (
@@ -65,13 +65,7 @@ const Flow3Navigator = () => {
           />
         )}
       />
-      <Stack.Screen
-        name="PromptText"
-        component={PromptText}
-        options={() => ({
-          presentation: 'modal'
-        })}
-      />
+      <Stack.Screen name="PromptText" component={PromptText} />
     </Stack.Navigator>
   )
 }

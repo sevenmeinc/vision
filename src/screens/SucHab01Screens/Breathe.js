@@ -48,7 +48,7 @@ const BreateScreen = ({ route }) => {
         input={breathe}
         route={route}
         handleNext={() => {
-          navigation.navigate('PromptAudio', {
+          navigation.navigate(stage === 0 ? 'PromptAudio' : 'PromptAudio2', {
             ...route.params,
             state: { ...route.params.state, stage: stage + 1 }
           })

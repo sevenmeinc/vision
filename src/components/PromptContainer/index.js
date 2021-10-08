@@ -19,7 +19,7 @@ const PromptContainer = ({ input, route, handleNext }) => {
     if (prompts?.length === responses + 1) {
       navigation.navigate('PostActivity', { ...route.params })
     } else {
-      navigation.navigate('Breathe', {
+      navigation.navigate('Breathe2', {
         ...route.params,
         state: { ...route.params.state, responses: responses + 1 }
       })
