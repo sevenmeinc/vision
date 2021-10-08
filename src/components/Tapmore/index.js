@@ -5,21 +5,22 @@ import { Feather } from '@expo/vector-icons'
 
 const { width } = Dimensions.get('window')
 
-const Tapmore = ({ onPress }) => {
+const Tapmore = ({ onPress, variant }) => {
+  const color = variant === 'light' ? 'white' : '#666666'
   return (
     <TouchableOpacity
       onPress={onPress}
       style={{
         alignItems: 'center',
-        width: width
+        width
       }}>
-      <Feather name="chevron-up" size={16} color="#666666" />
+      <Feather name="chevron-up" size={16} color={color} />
       <Text
-        sx={{
+        style={{
           alignSelf: 'center',
           fontFamily: 'medium',
           fontSize: 11,
-          color: '#666666'
+          color
         }}>
         Tap more
       </Text>
@@ -28,7 +29,8 @@ const Tapmore = ({ onPress }) => {
 }
 
 Tapmore.defaultProps = {
-  onPress: () => {}
+  onPress: () => {},
+  variant: ''
 }
 
 export default Tapmore
