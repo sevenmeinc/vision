@@ -11,7 +11,8 @@ const GetStarted = (props) => {
         style={{
           flex: 1,
           paddingLeft: 16,
-          paddingRight: 15
+          paddingRight: 15,
+          paddingBottom: 10
         }}>
         <View>
           <Logo />
