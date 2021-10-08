@@ -34,7 +34,7 @@ const PromptAudio = ({ route, nextTextScreen, nextVideoScreen }) => {
             })
           }}
           handleVideo={() => {
-            navigation.navigate(nextVideoScreen, {
+            navigation.navigate(stage === 1 ? 'PromptVideo1' : 'PromptVideo2', {
               ...route.params
             })
           }}
