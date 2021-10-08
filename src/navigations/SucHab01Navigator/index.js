@@ -5,9 +5,7 @@ import SuccessfulHabits from '../../screens/SucHab01Screens/SuccessfulHabits'
 import BreatheScreen from '../../screens/SucHab01Screens/Breathe'
 import PromptAudio from '../../screens/SucHab01Screens/PromptAudio'
 import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
-import PromptText from '../../screens/SucHab01Screens/PromptText'
 import PostActivity from '../../screens/SucHab01Screens/PostActivity'
-import End from '../../screens/SucHab01Screens/End'
 import Header from '../../components/Header'
 import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 
@@ -99,11 +97,6 @@ const SucHab01Navigator = () => {
       <Stack.Screen
         name="PostActivity"
         component={PostActivity}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="End"
-        component={End}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

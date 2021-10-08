@@ -16,7 +16,7 @@ import { TextInput } from 'react-native-gesture-handler'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const { width } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 const PromptText = () => {
   const navigation = useNavigation()
