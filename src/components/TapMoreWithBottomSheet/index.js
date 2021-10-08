@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useCallback, useMemo, useRef } from 'react'
 import {
   View,
   Text,
@@ -129,7 +129,7 @@ const FaqRoute = () => (
       }}>
       Frequently asked questions #1
     </Text>
-    <Text style={{ fontFamily: 'regular', fontSize: 13, color: 'squant' }}>
+    <Text style={{ fontFamily: 'regular', fontSize: 13, color: 'black' }}>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque minus
       suscipit quae voluptates consequuntur aut optio esse ducimus iste dolorem
       officiis itaque ad quas, pariatur ab deserunt incidunt nobis? Doloremque!
@@ -144,7 +144,7 @@ const FaqRoute = () => (
       }}>
       Frequently asked questions #2
     </Text>
-    <Text style={{ fontFamily: 'regular', fontSize: 13, color: 'squant' }}>
+    <Text style={{ fontFamily: 'regular', fontSize: 13, color: 'black' }}>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque minus
       suscipit quae voluptates consequuntur aut optio esse ducimus iste dolorem
       officiis itaque ad quas, pariatur ab deserunt incidunt nobis? Doloremque!
@@ -211,13 +211,21 @@ function TabViewScreen() {
   )
 }
 
-const TapMoreWithBottomSheet = () => {
+const TapMoreWithBottomSheet = ({ onOpen, variant, onClose }) => {
   // ref
   const bottomSheetRef = useRef(null)
 
   // variables
   const snapPoints = useMemo(() => ['50%', '95%'], [])
 
+  const handleSheetChanges = useCallback(
+    (index) => {
+      if (index === -1) {
+        onClose()
+      }
+    },
+    [onClose]
+  )
   // renders
   return (
     <>
@@ -225,7 +233,13 @@ const TapMoreWithBottomSheet = () => {
         style={{
           justifyContent: 'center'
         }}>
-        <Tapmore onPress={() => bottomSheetRef.current?.snapToIndex(0)} />
+        <Tapmore
+          variant={variant}
+          onPress={() => {
+            onOpen()
+            bottomSheetRef.current?.snapToIndex(0)
+          }}
+        />
       </View>
 
       <BottomSheet
@@ -233,6 +247,7 @@ const TapMoreWithBottomSheet = () => {
         index={-1}
         snapPoints={snapPoints}
         enablePanDownToClose={true}
+        onChange={handleSheetChanges}
         backgroundStyle={{
           shadowRadius: 2,
           shadowOffset: {
@@ -250,7 +265,11 @@ const TapMoreWithBottomSheet = () => {
             justifyContent: 'space-between'
           }}>
           <Text style={{ fontFamily: 'bold', fontSize: 14 }}>Overview</Text>
-          <TouchableOpacity onPress={() => bottomSheetRef.current?.close()}>
+          <TouchableOpacity
+            onPress={() => {
+              onClose()
+              bottomSheetRef.current?.close()
+            }}>
             <Text style={{ color: Colors.primary }}>Close</Text>
           </TouchableOpacity>
         </View>
@@ -260,4 +279,9 @@ const TapMoreWithBottomSheet = () => {
   )
 }
 
+TapMoreWithBottomSheet.defaultProps = {
+  onPress: () => {},
+  onOpen: () => {},
+  onClose: () => {}
+}
 export default TapMoreWithBottomSheet

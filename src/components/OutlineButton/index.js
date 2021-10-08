@@ -2,7 +2,15 @@ import React from 'react'
 import { TouchableOpacity, View, Text } from 'react-native'
 import { Colors } from '../../constants/colors'
 
-const OutlineButton = ({ title, onPress }) => {
+const styles = {
+  light: {
+    container: { borderColor: 'white' },
+    text: { color: 'white' }
+  }
+}
+const OutlineButton = ({ title, onPress, variant }) => {
+  const lightContainer = variant === 'light' ? styles.light.container : {}
+  const lightColor = variant === 'light' ? styles.light.text : {}
   return (
     <TouchableOpacity onPress={onPress}>
       <View
@@ -12,13 +20,15 @@ const OutlineButton = ({ title, onPress }) => {
           borderWidth: 1,
           borderColor: Colors.pianoBlack,
           borderRadius: 100,
-          alignItems: 'center'
+          alignItems: 'center',
+          ...lightContainer
         }}>
         <Text
           style={{
             fontFamily: 'regular',
             fontSize: 17,
-            color: Colors.pianoBlack
+            color: Colors.pianoBlack,
+            ...lightColor
           }}>
           {title}
         </Text>
