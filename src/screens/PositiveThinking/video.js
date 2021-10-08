@@ -1,8 +1,7 @@
 import React, { useRef, useState, useMemo } from 'react'
-import { View, Button, SafeAreaView } from 'react-native'
+import { View, SafeAreaView } from 'react-native'
 import { Video } from 'expo-av'
 import { useNavigation } from '@react-navigation/native'
-import TapMoreWithBottomSheet from '../../components/TapMoreWithBottomSheet'
 import VideoEndedContent from '../../components/VideoEndedContent'
 import VideoPausedContent from '../../components/VideoPausedContent'
 
@@ -32,7 +31,7 @@ const VideoPage = () => {
   const [videoDuration, setVideoDuration] = useState(0)
   const video = useRef(null)
   const navigation = useNavigation()
-  //   console.log(millisToMinutesAndSeconds(videoDuration))
+
   const time = useMemo(
     () => millisToMinutesAndSeconds(videoDuration),
     [videoDuration]
@@ -76,7 +75,7 @@ const VideoPage = () => {
             {finish ? (
               <VideoEndedContent
                 handleContinue={() => navigation.navigate('postVideo1')}
-                handleLater={() => {}}
+                handleLater={navigation.goBack}
               />
             ) : (
               <VideoPausedContent
