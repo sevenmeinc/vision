@@ -17,6 +17,7 @@ const { width, height } = Dimensions.get('window')
 
 const PromptVideo = ({ route }) => {
   const navigation = useNavigation()
+
   const {
     prompts,
     state: { responses }

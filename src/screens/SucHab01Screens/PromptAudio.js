@@ -13,6 +13,8 @@ const PromptAudio = ({ route }) => {
     prompts,
     state: { responses }
   } = route.params
+
+  console.log(route.params, 'route.params audoe')
   const prompt = prompts[responses]
 
   const Audio = () => {

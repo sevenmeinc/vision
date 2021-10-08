@@ -25,15 +25,17 @@ const ShortTermNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="shortTerm"
+        name="shortTermScreen"
         options={({ navigation }) => ({
           header: () => (
             <BenefitProgressHeader
-              progress={1}
+              current={1}
+              total={4}
               homeScreen={'Flow 2'}
               navigation={navigation}
             />
-          )
+          ),
+          presentation: 'card'
         })}
         children={() => (
           <ShortTermBenefits
@@ -87,7 +89,11 @@ const ShortTermNavigator = () => {
         component={RelaxScreen}
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader progress={2} navigation={navigation} />
+            <BenefitProgressHeader
+              current={2}
+              total={4}
+              navigation={navigation}
+            />
           ),
           presentation: 'card'
         })}
@@ -96,7 +102,11 @@ const ShortTermNavigator = () => {
         name="longTerm"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader progress={3} navigation={navigation} />
+            <BenefitProgressHeader
+              current={3}
+              total={4}
+              navigation={navigation}
+            />
           )
         })}
         children={() => (
@@ -150,7 +160,11 @@ const ShortTermNavigator = () => {
         name="reviewBenefitList"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader progress={4} navigation={navigation} />
+            <BenefitProgressHeader
+              current={4}
+              total={4}
+              navigation={navigation}
+            />
           )
         })}
         children={() => (

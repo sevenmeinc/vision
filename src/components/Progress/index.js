@@ -11,17 +11,17 @@ const Progress = ({ stage = 0 }) => {
       }}>
       <FeatherIcons
         name={'minus'}
-        size={30}
+        size={36}
         color={stage === 0 ? 'black' : Colors.woodsmoke15}
       />
       <FeatherIcons
         name={'minus'}
-        size={30}
+        size={36}
         color={stage === 1 ? 'black' : Colors.woodsmoke15}
       />
       <FeatherIcons
         name={'minus'}
-        size={30}
+        size={36}
         color={stage === 2 ? 'black' : Colors.woodsmoke15}
       />
     </View>

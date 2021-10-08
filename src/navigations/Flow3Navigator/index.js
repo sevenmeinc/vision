@@ -10,6 +10,7 @@ import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 import PromptAudio from '../../screens/BenefitListFlow3/PromptAudio'
 import PromptVideo from '../../screens/BenefitListFlow3/PromptVideo'
 import PromptText from '../../screens/BenefitListFlow3/PromptText'
+import { content } from '../../../assets/content'
 
 const Stack = createStackNavigator()
 const Flow3Navigator = () => {
@@ -27,17 +28,18 @@ const Flow3Navigator = () => {
         children={(props) => (
           <ReflectionHome
             {...props}
-            onPress={() => navigation.navigate('selectionScreen')}
+            onPress={() => navigation.navigate('PromptAudio')}
           />
         )}
       />
       <Stack.Screen
-        name="selectionScreen"
-        component={SelectionScreen}
+        name="PromptAudio"
+        component={PromptAudio}
         options={({ navigation }) => ({
           header: () => (
             <BenefitProgressHeader
-              progress={2}
+              current={2}
+              total={5}
               homeScreen={'Flow 3'}
               navigation={navigation}
             />
@@ -46,16 +48,30 @@ const Flow3Navigator = () => {
         })}
       />
       <Stack.Screen
-        name="PromptAudio"
-        component={PromptAudio}
+        name="PromptVideo"
         options={{ headerShown: false }}
+        children={(props) => (
+          <PromptVideo
+            {...props}
+            route={{
+              params: {
+                ...content.successfulHabits,
+                state: {
+                  responses: 0,
+                  stage: 0
+                }
+              }
+            }}
+          />
+        )}
       />
       <Stack.Screen
-        name="PromptVideo"
-        component={PromptVideo}
-        options={{ headerShown: false }}
+        name="PromptText"
+        component={PromptText}
+        options={() => ({
+          presentation: 'modal'
+        })}
       />
-      <Stack.Screen name="PromptText" component={PromptText} />
     </Stack.Navigator>
   )
 }

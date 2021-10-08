@@ -23,7 +23,7 @@ const Header = ({ navigation, title }) => {
         }}>
         {title}
       </Text>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity onPress={() => navigation.popToTop()}>
         <Text
           style={{
             fontSize: 14,

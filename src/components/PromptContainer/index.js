@@ -30,20 +30,6 @@ const PromptContainer = ({ input, route, handleNext }) => {
     <View>
       <View
         style={{
-          padding: 32,
-          flexDirection: 'row',
-          alignItems: 'center',
-          width: width,
-          justifyContent: 'space-between'
-        }}>
-        <Progress stage={stage} />
-        <TouchableOpacity
-          onPress={() => navigation.navigate('SuccessfulHabits01')}>
-          <FeatherIcons name="x" size={36} />
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{
           paddingTop: 20,
           flex: 1,
           alignItems: 'center',

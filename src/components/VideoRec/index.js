@@ -131,7 +131,7 @@ const VideoRec = ({
             backgroundColor: '#16161A',
             marginBottom: 16
           }}
-          onPress={() => navigation.navigate('SuccessfulHabits01')}>
+          onPress={() => navigation.popToTop()}>
           <FeatherIcons name="x" size={36} color={'white'} />
         </TouchableOpacity>
         <View
