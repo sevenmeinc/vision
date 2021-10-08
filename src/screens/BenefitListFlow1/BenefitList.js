@@ -37,7 +37,7 @@ const BenefitList = ({ navigation, route }) => {
   const longTerms = route.params?.longTerms ?? []
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 10 }}>
         <View style={{ paddingHorizontal: 16 }}>
           <BotMessage
             messages={[
@@ -51,13 +51,13 @@ const BenefitList = ({ navigation, route }) => {
           <View style={{ marginTop: 24 }} />
           <List title="Long-term benefits" list={longTerms} />
         </View>
+        <View style={{ paddingHorizontal: 16 }}>
+          <Button
+            title="Finish activity"
+            onPress={() => navigation.navigate('Feedback')}
+          />
+        </View>
       </ScrollView>
-      <View style={{ paddingHorizontal: 16 }}>
-        <Button
-          title="Finish activity"
-          onPress={() => navigation.navigate('Feedback')}
-        />
-      </View>
     </SafeAreaView>
   )
 }

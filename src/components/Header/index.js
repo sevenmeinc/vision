@@ -1,16 +1,16 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Text, SafeAreaView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const Header = ({ navigation, title }) => {
+const Header = ({ navigation, title, home = '' }) => {
   return (
-    <View
+    <SafeAreaView
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingTop: 16,
-        paddingVertical: 8,
-        paddingHorizontal: 16,
+        marginVertical: 8,
+        marginHorizontal: 16,
         backgroundColor: '#fff'
       }}>
       <Text
@@ -23,7 +23,10 @@ const Header = ({ navigation, title }) => {
         }}>
         {title}
       </Text>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity
+        onPress={() =>
+          home !== '' ? navigation.navigate(home) : navigation.goBack()
+        }>
         <Text
           style={{
             fontSize: 14,
@@ -35,7 +38,7 @@ const Header = ({ navigation, title }) => {
           Close
         </Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   )
 }
 
