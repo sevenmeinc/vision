@@ -42,7 +42,7 @@ const PostVideo4 = (props) => {
             have to go over in our next session!
           </Text>
         </View>
-        <View style={{ marginTop: 100 }}>
+        <View>
           <View>
             <Button
               title="Submit"

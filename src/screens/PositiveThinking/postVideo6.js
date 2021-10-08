@@ -114,7 +114,6 @@ const PostVideo6 = (props) => {
               background="black"
               onPress={() => navigation.navigate('positiveThinkingHome')}
             />
-            <View style={{ marginTop: 50 }} />
           </View>
         </View>
       </View>
