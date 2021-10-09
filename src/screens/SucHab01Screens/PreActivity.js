@@ -8,8 +8,6 @@ const PreActivity = ({ route }) => {
 
   return (
     <PreActivityCard
-      // handleClose={() => navigation.navigate('SuccessfulHabits01')}
-      // activityType={type}
       image={require('../../../assets/suc-hab-img.png')}
       title={title}
       timeEst={timeEst}

@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     width: 168,
     height: 52,
     justifyContent: 'center'
-  }
+  },
+  text: { fontSize: 17, fontWeight: '500', textAlign: 'center' }
 })
 
 const ButtonBackNext = ({ handleNext }) => {
@@ -37,19 +38,12 @@ const ButtonBackNext = ({ handleNext }) => {
       <TouchableOpacity
         onPress={navigation.goBack}
         style={{
-          // marginRight: 4,
-          // borderRadius: 100,
-          // width: 168,
-          // height: 52,
-          // justifyContent: 'center',
           ...styles.button,
           backgroundColor: 'rgba(25, 51, 64, 0.08)'
         }}>
         <Text
           style={{
-            fontSize: 17,
-            fontWeight: '500',
-            textAlign: 'center'
+            ...styles.text
           }}>
           Back
         </Text>
@@ -57,20 +51,13 @@ const ButtonBackNext = ({ handleNext }) => {
       <TouchableOpacity
         onPress={handleNext}
         style={{
-          // marginLeft: 4,
-          // borderRadius: 100,
-          // width: 168,
-          // height: 52,
-          // justifyContent: 'center',
           ...styles.button,
           backgroundColor: '#193340'
         }}>
         <Text
           style={{
-            fontSize: 17,
-            color: '#fff',
-            fontWeight: '500',
-            textAlign: 'center'
+            ...styles.text,
+            color: '#fff'
           }}>
           Next
         </Text>

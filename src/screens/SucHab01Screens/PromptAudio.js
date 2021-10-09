@@ -1,59 +1,31 @@
 import React from 'react'
-import { View, Dimensions, Text } from 'react-native'
+import { View, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import PromptContainer from '../../components/PromptContainer'
 import AuxRecorderPlayer from '../../components/AudioRecorderPlayer'
-import Space from '../../components/Space'
+import ButtonBackNext from '../../components/ButtonBackNext'
 
-const { height } = Dimensions.get('window')
-
-const PromptAudio = ({ route, textScreen, videoScreen }) => {
+const PromptAudio = ({ prompt, textScreen, videoScreen, handleNext }) => {
   const navigation = useNavigation()
-  const {
-    prompts,
-    state: { responses, stage }
-  } = route.params
-
-  const prompt = prompts[responses]
-
-  const Audio = () => {
-    return (
-      <View
-        style={{
-          padding: 16,
-          paddingTop: 0,
-          flex: 1,
-          alignItems: 'center'
-        }}>
-        <Text style={{ padding: 16 }}>{prompt?.prompt}</Text>
-        <Space index={16} />
-        <AuxRecorderPlayer
-          handleText={() => {
-            navigation.navigate(textScreen, {
-              ...route.params
-            })
-          }}
-          handleVideo={() => {
-            navigation.navigate(videoScreen, {
-              ...route.params
-            })
-          }}
-        />
-      </View>
-    )
-  }
 
   return (
     <View
       style={{
-        height: height,
         padding: 16,
         paddingTop: 0,
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-between'
       }}>
-      <PromptContainer input={Audio} route={route} />
+      <Text style={{ padding: 16 }}>{prompt}</Text>
+      <AuxRecorderPlayer
+        handleText={() => {
+          navigation.navigate(textScreen)
+        }}
+        handleVideo={() => {
+          navigation.navigate(videoScreen)
+        }}
+      />
+      <ButtonBackNext handleNext={handleNext} />
     </View>
   )
 }

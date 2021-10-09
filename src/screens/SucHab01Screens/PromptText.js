@@ -15,10 +15,11 @@ import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import useKeyboard from '../../hooks/useKeyboard'
+import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { width } = Dimensions.get('window')
 
-const PromptText = () => {
+const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
   const navigation = useNavigation()
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
@@ -58,7 +59,7 @@ const PromptText = () => {
                 textAlign: 'center',
                 marginHorizontal: 15
               }}>
-              What is one healthy habit you sustained long-term?
+              {prompt}
             </Text>
             <TextInput
               onChangeText={(msg) => {
@@ -94,10 +95,16 @@ const PromptText = () => {
               <View style={{ flexDirection: 'row' }}>
                 <TouchableOpacity
                   style={styles.navButton}
-                  onPress={navigation.goBack}>
+                  onPress={() => {
+                    navigation.navigate(audioScreen)
+                  }}>
                   <FeatherIcons name={'mic'} size={20} />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.navButton}>
+                <TouchableOpacity
+                  style={styles.navButton}
+                  onPress={() => {
+                    navigation.navigate(videoScreen)
+                  }}>
                   <FeatherIcons name={'video'} size={20} />
                 </TouchableOpacity>
               </View>
@@ -112,53 +119,8 @@ const PromptText = () => {
             </View>
           </View>
         </TouchableWithoutFeedback>
-        <View
-          style={{
-            display: isKeyboardVisible ? 'none' : 'flex',
-            flexDirection: 'row',
-            padding: 16,
-            paddingTop: 0
-          }}>
-          <TouchableOpacity
-            onPress={navigation.goBack}
-            style={{
-              marginRight: 4,
-              borderRadius: 100,
-              width: 168,
-              height: 52,
-              justifyContent: 'center',
-              backgroundColor: 'rgba(25, 51, 64, 0.08)'
-            }}>
-            <Text
-              style={{
-                fontSize: 17,
-                fontWeight: '500',
-                textAlign: 'center'
-              }}>
-              Back
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              marginLeft: 4,
-              borderRadius: 100,
-              width: 168,
-              height: 52,
-              justifyContent: 'center',
-              backgroundColor: '#193340'
-            }}>
-            <Text
-              style={{
-                fontSize: 17,
-                color: '#fff',
-                fontWeight: '500',
-                textAlign: 'center'
-              }}>
-              Next
-            </Text>
-          </TouchableOpacity>
-        </View>
       </KeyboardAvoidingView>
+      <ButtonBackNext handleNext={handleNext} />
     </SafeAreaView>
   )
 }

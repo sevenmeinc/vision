@@ -7,21 +7,23 @@ import Timer from '../AudioRecorderPlayer/Timer'
 import styles from './styles'
 
 const VideoRec = ({
-  route,
-  handleAudio,
-  handleText,
+  // route,
+  prompt,
+  audioScreen,
+  textScreen,
   setImgUri,
   setPreview,
   setDuration,
   time,
-  setTime
+  setTime,
+  previewScreen
 }) => {
   const navigation = useNavigation()
-  const {
-    prompts,
-    state: { responses }
-  } = route.params
-  const prompt = prompts[responses]
+  // const {
+  //   prompts,
+  //   state: { responses }
+  // } = route.params
+  // const prompt = prompts[responses]
   const [hasPermission, setHasPermission] = useState(null)
 
   let cam
@@ -59,6 +61,7 @@ const VideoRec = ({
       }
     }
     await cam.takePictureAsync(options)
+    navigation.navigate(previewScreen)
   }
 
   // onPress handlers
@@ -93,8 +96,8 @@ const VideoRec = ({
     record: handleRecord,
     stop: handleStop,
     delete: handleDelete,
-    audio: handleAudio,
-    text: handleText
+    audio: () => navigation.navigate(audioScreen),
+    text: () => navigation.navigate(textScreen)
   }
 
   useEffect(() => {
@@ -146,7 +149,7 @@ const VideoRec = ({
               ...styles.text,
               textAlign: 'center'
             }}>
-            {prompt.prompt}
+            {prompt}
           </Text>
         </View>
       </View>
