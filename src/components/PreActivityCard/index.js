@@ -1,7 +1,7 @@
 import React from 'react'
-import { View, Text, Image, Dimensions } from 'react-native'
+import { View, Text, Image, Dimensions, TouchableOpacity } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
-import { Button } from 'react-native-paper'
+// import { Button } from 'react-native-paper'
 import Space from '../Space'
 import { Colors } from '../../constants/colors'
 
@@ -89,15 +89,53 @@ const PreActivityCard = ({
           {description}
         </Text>
       </View>
-      <View>
-        <Button onPress={handleBtn1} mode={'contained'} dark={true}>
-          Get Started
-        </Button>
-        <Button onPress={handleBtn2} mode={'text'}>
-          Remind me later
-        </Button>
+      <View
+        style={{
+          width: '100%',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}>
+        <TouchableOpacity
+          onPress={handleBtn1}
+          style={{
+            marginRight: 4,
+            borderRadius: 100,
+            width: '80%',
+            height: 52,
+            justifyContent: 'center',
+            backgroundColor: '#193340'
+          }}>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: '500',
+              textAlign: 'center',
+              color: '#fff'
+            }}>
+            Get Started
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleBtn2}
+          style={{
+            marginRight: 4,
+            borderRadius: 100,
+            width: '80%',
+            height: 52,
+            justifyContent: 'center'
+          }}>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: '500',
+              textAlign: 'center',
+              color: '#193340'
+            }}>
+            Remind me later
+          </Text>
+        </TouchableOpacity>
+        <Space index={8} />
       </View>
-      <Space index={8} />
     </View>
   )
 }

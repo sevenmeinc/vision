@@ -1,16 +1,5 @@
-import React, { useState } from 'react'
-import {
-  View,
-  Dimensions,
-  Text,
-  KeyboardAvoidingView,
-  SafeAreaView,
-  Platform,
-  Keyboard,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-  StyleSheet
-} from 'react-native'
+import React from 'react'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const styles = StyleSheet.create({
@@ -49,7 +38,7 @@ const ButtonBackNext = ({ handleNext }) => {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={handleNext}
+        onPress={() => navigation.navigate(handleNext)}
         style={{
           ...styles.button,
           backgroundColor: '#193340'

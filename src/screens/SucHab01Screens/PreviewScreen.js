@@ -11,7 +11,7 @@ import { useNavigation } from '@react-navigation/native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 // import PromptContainer from '../../components/PromptContainer'
 // import VideoRec from '../../components/VideoRec'
-import Space from '../../components/Space'
+// import Space from '../../components/Space'
 import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { width, height } = Dimensions.get('window')
@@ -31,7 +31,13 @@ const PreviewScreen = ({ prompt, imgUri, duration, time, handleNext }) => {
   })
 
   return (
-    <View style={{ ...styles.centered, paddingHorizontal: 16 }}>
+    <View
+      style={{
+        ...styles.centered,
+        height: '100%',
+        paddingHorizontal: 16,
+        justifyContent: 'space-between'
+      }}>
       <Text
         style={{
           fontSize: 17,
@@ -50,15 +56,12 @@ const PreviewScreen = ({ prompt, imgUri, duration, time, handleNext }) => {
           height: height * 0.5,
           flexDirection: 'column'
         }}>
-        <Space index={16} />
-        <Space index={16} />
         <View style={{ alignItems: 'center' }}>
           <Image
             source={imgUri}
             style={{
               flex: 1,
-              height: height * 0.3,
-              maxWidth: '100%',
+              width: width * 0.75,
               resizeMode: 'cover',
               borderRadius: 20
             }}

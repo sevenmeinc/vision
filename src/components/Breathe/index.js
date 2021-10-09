@@ -13,7 +13,17 @@ const Breathe = ({ contemplationPrompt }) => {
         alignContent: 'center',
         justifyContent: 'space-between'
       }}>
-      <Text style={{ textAlign: 'center' }}>
+      <Text
+        style={{
+          color: '#4D4D4D',
+          fontFamily: 'SF Pro Text',
+          fontSize: 14,
+          fontStyle: 'normal',
+          fontWeight: '400',
+          lineHeight: 19,
+          letterSpacing: 0.01,
+          textAlign: 'center'
+        }}>
         {contemplationPrompt ?? 'Breathing space'}
       </Text>
       <Breathe2 />

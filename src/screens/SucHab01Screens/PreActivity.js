@@ -4,7 +4,7 @@ import PreActivityCard from '../../components/PreActivityCard'
 
 const PreActivity = ({ route }) => {
   const navigation = useNavigation()
-  const { title, timeEst, description, type } = route.params
+  const { title, timeEst, description } = route.params
 
   return (
     <PreActivityCard

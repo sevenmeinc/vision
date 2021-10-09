@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, Dimensions } from 'react-native'
 import Breathe from '../../components/Breathe'
 import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { height, width } = Dimensions.get('window')
 
-const BreatheScreen = ({ prompt, handleNext }) => {
+const BreatheScreen = ({
+  prompt,
+  handleNext,
+  setImgUri,
+  setDuration,
+  setTime
+}) => {
+  useEffect(() => {
+    setImgUri(null)
+    setDuration({ min: 0, sec: 0 })
+    setTime({ min: 0, sec: 0 })
+  }, [setImgUri, setDuration, setTime])
+
   return (
     <View
       style={{

@@ -12,7 +12,7 @@ const VideoRec = ({
   audioScreen,
   textScreen,
   setImgUri,
-  setPreview,
+  // setPreview,
   setDuration,
   time,
   setTime,
@@ -57,7 +57,7 @@ const VideoRec = ({
       exif: false,
       onPictureSaved: (p) => {
         setImgUri(p)
-        setPreview(true)
+        // setPreview(true)
       }
     }
     await cam.takePictureAsync(options)
@@ -78,6 +78,8 @@ const VideoRec = ({
     setTimerGo(false)
     setResetTimer(true)
     takePicture()
+    setBtn2Mode('record')
+    setBtn1Mode('text')
   }
 
   const handleDelete = () => {
@@ -89,7 +91,7 @@ const VideoRec = ({
     setBtn3Mode('audio')
     setDuration(newTimer)
     setImgUri(null)
-    setPreview(false)
+    // setPreview(false)
   }
 
   const handleMode = {

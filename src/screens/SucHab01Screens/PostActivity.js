@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
-import { View, Image, Text, TextInput, StyleSheet } from 'react-native'
+import {
+  View,
+  Image,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Button, Title } from 'react-native-paper'
+import { Title } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const PostActivity = ({ route }) => {
+const PostActivity = ({ postActivity }) => {
   const { onFocus, onBlur } = useKeyboard()
   const navigation = useNavigation()
-  const { postActivity } = route.params
   const [res, setRes] = useState('')
   const [resCount, setResCount] = useState(0)
 
@@ -39,12 +45,25 @@ const PostActivity = ({ route }) => {
       letterSpacing: 0,
       textAlign: 'left'
     },
-    logo: { width: 20, height: 20 }
+    logo: { width: 20, height: 20 },
+    button: {
+      marginRight: 4,
+      borderRadius: 100,
+      width: '80%',
+      height: 52,
+      justifyContent: 'center'
+    }
   })
 
   return (
     <KeyboardAwareScrollView>
-      <View style={{ paddingHorizontal: 16, paddingTop: 0, paddingBottom: 16 }}>
+      <View
+        style={{
+          paddingHorizontal: 16,
+          paddingTop: 0,
+          paddingBottom: 16,
+          justifyContent: 'center'
+        }}>
         <Title
           styles={{
             fontSize: 36,
@@ -117,23 +136,39 @@ const PostActivity = ({ route }) => {
               width: '100%',
               alignItems: 'flex-end'
             }}>
-            <Button
+            <Text
               onPress={() => {
                 setResCount(resCount + 1)
                 setRes('')
               }}>
               SAVE
-            </Button>
+            </Text>
           </View>
         </View>
       ) : (
-        <Button
-          onPress={() => {
-            navigation.navigate('Flows')
-          }}
-          mode={'contained'}>
-          Finish Activity
-        </Button>
+        <View
+          style={{
+            width: '100%',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Flows')}
+            style={{
+              ...styles.button,
+              backgroundColor: '#193340'
+            }}>
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: '500',
+                textAlign: 'center',
+                color: '#fff'
+              }}>
+              Finish Activity
+            </Text>
+          </TouchableOpacity>
+        </View>
       )}
     </KeyboardAwareScrollView>
   )
