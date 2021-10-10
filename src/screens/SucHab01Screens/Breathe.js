@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { View, Dimensions } from 'react-native'
+import { SafeAreaView, Dimensions } from 'react-native'
 import Breathe from '../../components/Breathe'
 import ButtonBackNext from '../../components/ButtonBackNext'
 
@@ -19,7 +19,7 @@ const BreatheScreen = ({
   }, [setImgUri, setDuration, setTime])
 
   return (
-    <View
+    <SafeAreaView
       style={{
         height: height,
         width: width,
@@ -30,7 +30,7 @@ const BreatheScreen = ({
       }}>
       <Breathe contemplationPrompt={prompt.contemplation} />
       <ButtonBackNext handleNext={handleNext} />
-    </View>
+    </SafeAreaView>
   )
 }
 

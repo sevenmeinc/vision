@@ -100,7 +100,18 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
         alignItems: 'center'
       }}>
       {btn2Mode === 'record' ? (
-        <Text>Think out loud</Text>
+        <Text
+          style={{
+            fontSize: 13,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 16,
+            letterSpacing: 0,
+            textAlign: 'left',
+            color: '#737376'
+          }}>
+          Think out loud
+        </Text>
       ) : (
         <Text
           style={{

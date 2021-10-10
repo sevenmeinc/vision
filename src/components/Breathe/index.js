@@ -15,8 +15,20 @@ const Breathe = ({ contemplationPrompt }) => {
       }}>
       <Text
         style={{
+          fontSize: 17,
+          fontStyle: 'normal',
+          fontWeight: '500',
+          lineHeight: 20,
+          letterSpacing: -0.01,
+          textAlign: 'center',
+          color: '#16161A',
+          marginBottom: 12
+        }}>
+        {contemplationPrompt ? 'Breathing Space' : 'Nice!'}
+      </Text>
+      <Text
+        style={{
           color: '#4D4D4D',
-          fontFamily: 'SF Pro Text',
           fontSize: 14,
           fontStyle: 'normal',
           fontWeight: '400',
@@ -24,7 +36,7 @@ const Breathe = ({ contemplationPrompt }) => {
           letterSpacing: 0.01,
           textAlign: 'center'
         }}>
-        {contemplationPrompt ?? 'Breathing space'}
+        {contemplationPrompt ?? 'Take a moment to relax and breathe.'}
       </Text>
       <Breathe2 />
     </View>

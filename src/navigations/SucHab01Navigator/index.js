@@ -22,11 +22,8 @@ const newTimer = { min: 0, sec: 0 }
 const SucHab01Navigator = () => {
   const navigation = useNavigation()
 
-  // const [stage, setStage] = useState(0)
-  // const [responses, setresponses] = useState(0)
   const [isPreview, setIsPreview] = useState(false)
   const [imgUri, setImgUri] = useState(null)
-  // const [preview, setPreview] = useState(false)
   const [duration, setDuration] = useState(newTimer)
   const [time, setTime] = useState(newTimer)
 

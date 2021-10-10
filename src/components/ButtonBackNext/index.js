@@ -4,10 +4,9 @@ import { useNavigation } from '@react-navigation/native'
 
 const styles = StyleSheet.create({
   button: {
-    marginRight: 4,
     borderRadius: 100,
     width: 168,
-    height: 52,
+    height: 49,
     justifyContent: 'center'
   },
   text: { fontSize: 17, fontWeight: '500', textAlign: 'center' }
@@ -20,9 +19,10 @@ const ButtonBackNext = ({ handleNext }) => {
     <View
       style={{
         display: 'flex',
+        width: '100%',
         flexDirection: 'row',
-        padding: 16,
-        paddingTop: 0
+        paddingTop: 0,
+        justifyContent: 'space-evenly'
       }}>
       <TouchableOpacity
         onPress={navigation.goBack}

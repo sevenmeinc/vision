@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   View,
+  SafeAreaView,
   Dimensions,
   TouchableOpacity,
   Image,
@@ -9,9 +10,6 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
-// import PromptContainer from '../../components/PromptContainer'
-// import VideoRec from '../../components/VideoRec'
-// import Space from '../../components/Space'
 import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { width, height } = Dimensions.get('window')
@@ -31,7 +29,7 @@ const PreviewScreen = ({ prompt, imgUri, duration, time, handleNext }) => {
   })
 
   return (
-    <View
+    <SafeAreaView
       style={{
         ...styles.centered,
         height: '100%',
@@ -116,7 +114,7 @@ const PreviewScreen = ({ prompt, imgUri, duration, time, handleNext }) => {
         </View>
       </View>
       <ButtonBackNext handleNext={handleNext} />
-    </View>
+    </SafeAreaView>
   )
 }
 

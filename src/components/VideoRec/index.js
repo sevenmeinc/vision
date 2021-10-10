@@ -7,23 +7,16 @@ import Timer from '../AudioRecorderPlayer/Timer'
 import styles from './styles'
 
 const VideoRec = ({
-  // route,
   prompt,
   audioScreen,
   textScreen,
   setImgUri,
-  // setPreview,
   setDuration,
   time,
   setTime,
   previewScreen
 }) => {
   const navigation = useNavigation()
-  // const {
-  //   prompts,
-  //   state: { responses }
-  // } = route.params
-  // const prompt = prompts[responses]
   const [hasPermission, setHasPermission] = useState(null)
 
   let cam
@@ -43,7 +36,6 @@ const VideoRec = ({
   const [btn3Mode, setBtn3Mode] = useState('audio')
 
   // Recorder state
-  // const [time, setTime] = useState(newTimer)
   const [timerGo, setTimerGo] = useState(false)
   const [resetTimer, setResetTimer] = useState(false)
 
@@ -57,11 +49,9 @@ const VideoRec = ({
       exif: false,
       onPictureSaved: (p) => {
         setImgUri(p)
-        // setPreview(true)
       }
     }
     await cam.takePictureAsync(options)
-    navigation.navigate(previewScreen)
   }
 
   // onPress handlers
@@ -74,12 +64,12 @@ const VideoRec = ({
 
   const handleStop = async () => {
     setDuration({ ...time, sec: time.sec + 1 })
-    // setTime(newTimer)
     setTimerGo(false)
     setResetTimer(true)
     takePicture()
     setBtn2Mode('record')
     setBtn1Mode('text')
+    previewScreen && navigation.navigate(previewScreen)
   }
 
   const handleDelete = () => {
@@ -91,7 +81,6 @@ const VideoRec = ({
     setBtn3Mode('audio')
     setDuration(newTimer)
     setImgUri(null)
-    // setPreview(false)
   }
 
   const handleMode = {

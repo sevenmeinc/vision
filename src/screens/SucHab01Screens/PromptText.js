@@ -98,14 +98,14 @@ const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
                   onPress={() => {
                     navigation.navigate(audioScreen)
                   }}>
-                  <FeatherIcons name={'mic'} size={20} />
+                  <FeatherIcons name={'mic'} size={20} color={'#717173'} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.navButton}
                   onPress={() => {
                     navigation.navigate(videoScreen)
                   }}>
-                  <FeatherIcons name={'video'} size={20} />
+                  <FeatherIcons name={'video'} size={20} color={'#717173'} />
                 </TouchableOpacity>
               </View>
               <TouchableOpacity
@@ -114,7 +114,11 @@ const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
                   Keyboard.dismiss()
                   setDismissPadding(140)
                 }}>
-                <FeatherIcons name={'chevron-down'} size={30} />
+                <FeatherIcons
+                  name={'chevron-down'}
+                  size={30}
+                  color={'#717173'}
+                />
               </TouchableOpacity>
             </View>
           </View>

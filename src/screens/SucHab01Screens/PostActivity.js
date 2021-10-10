@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {
   View,
+  SafeAreaView,
   Image,
   Text,
   TextInput,
@@ -24,9 +25,9 @@ const PostActivity = ({ postActivity }) => {
       flexDirection: 'column',
       alignItems: 'flex-start',
       padding: 16,
+      marginHorizontal: 16,
       marginBottom: 16,
-      borderRadius: 8,
-      width: '100%'
+      borderRadius: 8
     },
     heading: {
       fontSize: 17,
@@ -56,121 +57,140 @@ const PostActivity = ({ postActivity }) => {
   })
 
   return (
-    <KeyboardAwareScrollView>
-      <View
-        style={{
-          paddingHorizontal: 16,
-          paddingTop: 0,
-          paddingBottom: 16,
-          justifyContent: 'center'
-        }}>
-        <Title
-          styles={{
-            fontSize: 36,
-            fontStyle: 'normal',
-            fontWeight: '600',
-            lineHeight: 40,
-            letterSpacing: -0.03,
-            textAlign: 'left'
-          }}>
-          Well Done!
-        </Title>
-        <Text style={{ ...styles.importedText, color: '#666666' }}>
-          Take a moment to look back at your vision and goal. Respond to the
-          question below to start thinking about ways to apply your learnings!
-        </Text>
-      </View>
-      <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
-        <Text style={styles.heading}>
-          {' '}
-          <Image
-            source={require('../../../assets/seven-icon.png')}
-            style={styles.logo}
-          />
-          My Vision
-        </Text>
-        <View style={{ ...styles.container, backgroundColor: '#fff' }}>
-          <Text style={styles.importedText}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet
-            nisi integer quis vel morbi elementum.
-          </Text>
-        </View>
-      </View>
-      <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
-        <Text style={styles.heading}>
-          <Image
-            source={require('../../../assets/seven-icon.png')}
-            style={styles.logo}
-          />
-          My goal
-        </Text>
-        <View style={{ ...styles.container, backgroundColor: '#fff' }}>
-          <Text style={styles.importedText}>
-            Aliquet nisi integer quis vel morbi elementum.
-          </Text>
-        </View>
-      </View>
-      {postActivity.length > resCount ? (
+    <SafeAreaView>
+      <KeyboardAwareScrollView>
         <View
           style={{
-            ...styles.container,
-            backgroundColor: '#fff'
+            paddingHorizontal: 16,
+            paddingTop: 0,
+            paddingBottom: 16,
+            justifyContent: 'center'
           }}>
-          <Text style={styles.importedText}>{postActivity[resCount]}</Text>
-          <TextInput
-            style={{
-              textAlignVertical: 'top'
-            }}
-            onChangeText={(msg) => {
-              setRes(msg)
-            }}
-            value={res}
-            placeholder={'Start typing...'}
-            multiline={true}
-            numberOfLines={14}
-            onBlur={onBlur}
-            onFocus={onFocus}
-          />
-          <View
-            style={{
-              width: '100%',
-              alignItems: 'flex-end'
+          <Title
+            styles={{
+              fontSize: 36,
+              fontStyle: 'normal',
+              fontWeight: '600',
+              lineHeight: 40,
+              letterSpacing: -0.03,
+              textAlign: 'left'
             }}>
-            <Text
-              onPress={() => {
-                setResCount(resCount + 1)
-                setRes('')
-              }}>
-              SAVE
+            Great Job!
+          </Title>
+          <Text style={{ ...styles.importedText, color: '#666666' }}>
+            Take a moment to look back at your vision and goal. Respond to the
+            question below to start thinking about ways to apply your learnings!
+          </Text>
+        </View>
+        <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
+          <Text style={styles.heading}>
+            {' '}
+            <Image
+              source={require('../../../assets/seven-icon.png')}
+              style={styles.logo}
+            />{' '}
+            My Vision
+          </Text>
+          <View style={{ ...styles.container, backgroundColor: '#fff' }}>
+            <Text style={styles.importedText}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet
+              nisi integer quis vel morbi elementum.
             </Text>
           </View>
         </View>
-      ) : (
-        <View
-          style={{
-            width: '100%',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Flows')}
-            style={{
-              ...styles.button,
-              backgroundColor: '#193340'
-            }}>
-            <Text
-              style={{
-                fontSize: 17,
-                fontWeight: '500',
-                textAlign: 'center',
-                color: '#fff'
-              }}>
-              Finish Activity
+        <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
+          <Text style={styles.heading}>
+            <Image
+              source={require('../../../assets/seven-icon.png')}
+              style={styles.logo}
+            />{' '}
+            My goal
+          </Text>
+          <View style={{ ...styles.container, backgroundColor: '#fff' }}>
+            <Text style={styles.importedText}>
+              Aliquet nisi integer quis vel morbi elementum.
             </Text>
-          </TouchableOpacity>
+          </View>
         </View>
-      )}
-    </KeyboardAwareScrollView>
+        {postActivity.length > resCount ? (
+          <View
+            style={{
+              ...styles.container,
+              backgroundColor: '#fff',
+              borderWidth: 1,
+              borderColor: '#E5E5E5',
+              shadowColor: '#000000',
+              shadowOpacity: 0.4,
+              shadowRadius: 8,
+              shadowOffset: { height: 4 }
+            }}>
+            <Text style={styles.importedText}>{postActivity[resCount]}</Text>
+            <TextInput
+              style={{
+                textAlignVertical: 'top',
+                minHeight: 150,
+                marginTop: 16
+              }}
+              onChangeText={(msg) => {
+                setRes(msg)
+              }}
+              value={res}
+              placeholder={'Start typing...'}
+              multiline={true}
+              numberOfLines={14}
+              onBlur={onBlur}
+              onFocus={onFocus}
+            />
+            <View
+              style={{
+                width: '100%',
+                alignItems: 'flex-end'
+              }}>
+              <Text
+                style={{
+                  color: '#00968A',
+                  fontSize: 17,
+                  fontStyle: 'normal',
+                  fontWeight: '500',
+                  lineHeight: 20,
+                  letterSpacing: -0.01,
+                  textAlign: 'right'
+                }}
+                onPress={() => {
+                  setResCount(resCount + 1)
+                  setRes('')
+                }}>
+                SAVE
+              </Text>
+            </View>
+          </View>
+        ) : (
+          <View
+            style={{
+              width: '100%',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Flows')}
+              style={{
+                ...styles.button,
+                backgroundColor: '#193340'
+              }}>
+              <Text
+                style={{
+                  fontSize: 17,
+                  fontWeight: '500',
+                  textAlign: 'center',
+                  color: '#fff'
+                }}>
+                Finish Activity
+              </Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      </KeyboardAwareScrollView>
+    </SafeAreaView>
   )
 }
 

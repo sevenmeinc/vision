@@ -1,9 +1,14 @@
 import React from 'react'
-import { View, Text, Image, Dimensions, TouchableOpacity } from 'react-native'
+import {
+  View,
+  SafeAreaView,
+  Text,
+  Image,
+  Dimensions,
+  TouchableOpacity
+} from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
-// import { Button } from 'react-native-paper'
 import Space from '../Space'
-import { Colors } from '../../constants/colors'
 
 const { height } = Dimensions.get('window')
 
@@ -16,11 +21,12 @@ const PreActivityCard = ({
   handleBtn2
 }) => {
   return (
-    <View
+    <SafeAreaView
       style={{
         display: 'flex',
         flexGrow: 1,
-        padding: 16,
+        marginHorizontal: 16,
+        marginTop: 16,
         maxHeight: height,
         backgroundColor: '#FFF',
         justifyContent: 'space-between',
@@ -48,15 +54,18 @@ const PreActivityCard = ({
       <View
         style={{
           height: '45%',
-          paddingHorizontal: 16,
-          width: '100%'
+          width: '100%',
+          paddingHorizontal: 16
         }}>
         <Text
           style={{
-            fontStyle: 'normal',
-            fontWeight: 'bold',
             fontSize: 32,
-            lineHeight: 38
+            fontStyle: 'normal',
+            fontWeight: '700',
+            lineHeight: 38,
+            letterSpacing: 0,
+            textAlign: 'left',
+            marginBottom: 8
           }}>
           {title}
         </Text>
@@ -65,14 +74,19 @@ const PreActivityCard = ({
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              paddingVertical: 4
+              marginBottom: 24
             }}>
-            <FeatherIcons
-              name="clock"
-              size={20}
-              color={Colors.shadyCharacter}
-            />
-            <Text style={{ color: Colors.shadyCharacter }}>
+            <FeatherIcons name="clock" size={20} color={'#808080'} />
+            <Text
+              style={{
+                color: '#808080',
+                fontSize: 17,
+                fontStyle: 'normal',
+                fontWeight: '500',
+                lineHeight: 20,
+                letterSpacing: 0,
+                textAlign: 'left'
+              }}>
               {' '}
               {timeEst} min activity
             </Text>
@@ -82,9 +96,12 @@ const PreActivityCard = ({
         )}
         <Text
           style={{
-            fontStyle: 'normal',
             fontSize: 17,
-            lineHeight: 24
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 24,
+            letterSpacing: 0,
+            textAlign: 'left'
           }}>
           {description}
         </Text>
@@ -98,7 +115,6 @@ const PreActivityCard = ({
         <TouchableOpacity
           onPress={handleBtn1}
           style={{
-            marginRight: 4,
             borderRadius: 100,
             width: '80%',
             height: 52,
@@ -118,25 +134,22 @@ const PreActivityCard = ({
         <TouchableOpacity
           onPress={handleBtn2}
           style={{
-            marginRight: 4,
             borderRadius: 100,
-            width: '80%',
-            height: 52,
-            justifyContent: 'center'
+            justifyContent: 'center',
+            marginTop: 20
           }}>
           <Text
             style={{
               fontSize: 17,
               fontWeight: '500',
               textAlign: 'center',
-              color: '#193340'
+              color: '#808080'
             }}>
             Remind me later
           </Text>
         </TouchableOpacity>
-        <Space index={8} />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

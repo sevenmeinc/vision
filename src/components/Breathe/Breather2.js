@@ -5,6 +5,7 @@
 
 import React, { useRef } from 'react'
 import { StyleSheet, View, Dimensions, Animated } from 'react-native'
+import { Colors } from '../../constants/colors'
 
 const { width, height } = Dimensions.get('window')
 const circleWidth = width / 4
@@ -58,7 +59,7 @@ export default function Breathe2() {
             key={item}
             style={{
               opacity: 0.1,
-              backgroundColor: 'purple',
+              backgroundColor: Colors.primary,
               width: circleWidth,
               height: circleWidth,
               borderRadius: circleWidth / 2,
