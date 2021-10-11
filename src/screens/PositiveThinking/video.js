@@ -24,7 +24,7 @@ export const millisToMinutesAndSeconds = (millis) => {
     ? minutes + 1 + ':00'
     : minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 }
-const VideoPage = () => {
+const VideoPage = ({ nextScreen }) => {
   const [opacity, setOpacity] = useState(false)
   const [status, setStatus] = useState({})
   const [finish, setFinish] = useState(false)
@@ -74,7 +74,7 @@ const VideoPage = () => {
           <View style={[styles.overlay, { opacity: !opacity ? 0.8 : 1 }]}>
             {finish ? (
               <VideoEndedContent
-                handleContinue={() => navigation.navigate('postVideo1')}
+                handleContinue={() => navigation.navigate(nextScreen)}
                 handleLater={navigation.goBack}
               />
             ) : (

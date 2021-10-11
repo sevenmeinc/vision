@@ -12,6 +12,7 @@ import PromptText from '../../screens/SucHab01Screens/PromptText'
 import PostActivity from '../../screens/SucHab01Screens/PostActivity'
 import BreatheScreen from '../../screens/SucHab01Screens/Breathe'
 import PreviewScreen from '../../screens/SucHab01Screens/PreviewScreen'
+import VideoPlayer from '../../screens/PositiveThinking/video'
 import { content } from '../../../assets/content'
 
 const Stack = createStackNavigator()
@@ -41,8 +42,24 @@ const Flow3Navigator = () => {
         children={(props) => (
           <ReflectionHome
             {...props}
-            onPress={() => navigation.navigate('PromptAudio1')}
+            onPress={() => navigation.navigate('video')}
           />
+        )}
+      />
+      <Stack.Screen
+        name="video"
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader
+              current={1}
+              total={5}
+              navigation={navigation}
+              darkMode={true}
+            />
+          )
+        })}
+        children={(props) => (
+          <VideoPlayer {...props} nextScreen={'PromptAudio1'} />
         )}
       />
       <Stack.Screen
