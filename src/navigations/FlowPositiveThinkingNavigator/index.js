@@ -1,13 +1,13 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { modalOptions } from '../utils'
 import Header from '../../components/Header'
 import FlowPositiveThinking from '../../screens/FlowPositiveThinking'
 import Modal1 from '../../screens/PositiveThinking/modal1'
 import Modal2 from '../../screens/PositiveThinking/modal2'
 import Modal3 from '../../screens/PositiveThinking/modal3'
 import Modal4 from '../../screens/PositiveThinking/modal4'
-import VideoPlayer from '../../screens/PositiveThinking/video'
+
+import { modalOptions } from '../utils'
 
 const Stack = createStackNavigator()
 
@@ -19,7 +19,11 @@ const FlowPositiveThinkingModal = () => {
         component={Modal1}
         options={({ navigation }) => ({
           header: () => (
-            <Header navigation={navigation} title="Positive thinking" />
+            <Header
+              navigation={navigation}
+              title="Positive thinking"
+              home="positiveThinkingHome"
+            />
           )
         })}
       />
@@ -28,7 +32,11 @@ const FlowPositiveThinkingModal = () => {
         component={Modal2}
         options={({ navigation }) => ({
           header: () => (
-            <Header navigation={navigation} title="Positive thinking" />
+            <Header
+              navigation={navigation}
+              title="Positive thinking"
+              home="positiveThinkingHome"
+            />
           )
         })}
       />
@@ -37,7 +45,11 @@ const FlowPositiveThinkingModal = () => {
         component={Modal3}
         options={({ navigation }) => ({
           header: () => (
-            <Header navigation={navigation} title="Positive thinking" />
+            <Header
+              navigation={navigation}
+              title="Positive thinking"
+              home="positiveThinkingHome"
+            />
           )
         })}
       />
@@ -46,16 +58,11 @@ const FlowPositiveThinkingModal = () => {
         component={Modal4}
         options={({ navigation }) => ({
           header: () => (
-            <Header navigation={navigation} title="Positive thinking" />
-          )
-        })}
-      />
-      <Stack.Screen
-        name="video1"
-        component={VideoPlayer}
-        options={({ navigation }) => ({
-          header: () => (
-            <Header navigation={navigation} title="Positive thinking" />
+            <Header
+              navigation={navigation}
+              title="Positive thinking"
+              home="positiveThinkingHome"
+            />
           )
         })}
       />
@@ -67,11 +74,11 @@ const FlowPositiveThinkingNavigator = () => {
   return (
     <Stack.Navigator {...modalOptions}>
       <Stack.Screen
-        name="Flow Positive Thinking"
+        name="positiveThinkingHome"
         component={FlowPositiveThinking}
       />
       <Stack.Screen
-        name="positiveThinking1"
+        name="positiveThinkingModal"
         component={FlowPositiveThinkingModal}
         options={{
           headerShown: false

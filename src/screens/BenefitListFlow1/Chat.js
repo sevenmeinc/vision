@@ -143,7 +143,7 @@ const Chat = (props) => {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
-        keyboardVerticalOffset={120}>
+        keyboardVerticalOffset={100}>
         <View style={{ flex: 1, paddingHorizontal: 15 }}>
           <FlatList
             keyExtractor={keyExtractor}
@@ -202,7 +202,6 @@ const Chat = (props) => {
                   minHeight: 26,
                   marginRight: 20
                 }}
-                onSubmitEditing={onSendMessage}
               />
               <TouchableOpacity
                 style={{ alignSelf: 'flex-end' }}

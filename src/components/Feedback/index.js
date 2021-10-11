@@ -9,7 +9,8 @@ const Feedback = ({ onPress }) => {
   const [feedback, setFeedback] = useState(false)
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: 'space-between' }}>
+      <View
+        style={{ flex: 1, justifyContent: 'space-between', paddingBottom: 20 }}>
         <View
           style={{
             flex: 1,

@@ -155,8 +155,8 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
           style={{
             alignItems: 'center',
             justifyContent: 'center',
-            width: 80,
-            height: 80,
+            width: 48,
+            height: 48,
             borderRadius: 50,
             backgroundColor: ['play', 'pause'].includes(btn2Mode)
               ? 'transparent'
@@ -164,7 +164,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
           }}>
           <FeatherIcons
             name={BUTTON_MODES[btn2Mode]}
-            size={50}
+            size={25}
             color={['play', 'pause'].includes(btn2Mode) ? 'black' : 'white'}
             borderColor={'red'}
           />
