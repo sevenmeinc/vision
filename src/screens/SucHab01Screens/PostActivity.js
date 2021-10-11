@@ -181,7 +181,8 @@ const PostActivity = ({ postActivity }) => {
             onPress={() => navigation.navigate('Flows')}
             style={{
               ...styles.button,
-              backgroundColor: '#193340'
+              backgroundColor: '#193340',
+              opacity: postActivity.length > resCount ? 0.4 : null
             }}>
             <Text
               style={{
