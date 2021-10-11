@@ -65,7 +65,7 @@ const SucHab01Navigator = () => {
           <BreatheScreen
             {...props}
             prompt={prompts[0]}
-            handleNext={'PromptAudio1'}
+            nextScreen={'PromptAudio1'}
             setImgUri={setImgUri}
             setDuration={setDuration}
             setTime={setTime}
@@ -87,7 +87,7 @@ const SucHab01Navigator = () => {
           <BreatheScreen
             {...props}
             prompt={prompts[1]}
-            handleNext={'PromptAudio2'}
+            nextScreen={'PromptAudio2'}
             setImgUri={setImgUri}
             setDuration={setDuration}
             setTime={setTime}
@@ -111,7 +111,7 @@ const SucHab01Navigator = () => {
             prompt={prompts[0].prompt}
             textScreen={'PromptText1'}
             videoScreen={'PromptVideo1'}
-            handleNext={'Breathe2'}
+            nextScreen={'Breathe2'}
           />
         )}
       />
@@ -132,7 +132,7 @@ const SucHab01Navigator = () => {
             prompt={prompts[1].prompt}
             textScreen={'PromptText2'}
             videoScreen={'PromptVideo2'}
-            handleNext={'PostActivity'}
+            nextScreen={'PostActivity'}
           />
         )}
       />
@@ -208,7 +208,7 @@ const SucHab01Navigator = () => {
             imgUri={imgUri}
             duration={duration}
             time={time}
-            handleNext={'Breathe2'}
+            nextScreen={'Breathe2'}
           />
         )}
       />
@@ -230,7 +230,7 @@ const SucHab01Navigator = () => {
             imgUri={imgUri}
             duration={duration}
             time={time}
-            handleNext={'PostActivity'}
+            nextScreen={'PostActivity'}
           />
         )}
       />
@@ -249,7 +249,7 @@ const SucHab01Navigator = () => {
           <PromptText
             {...props}
             prompt={prompts[0].prompt}
-            handleNext={'Breathe2'}
+            nextScreen={'Breathe2'}
             audioScreen={'PromptAudio1'}
             videoScreen={'PromptVideo1'}
           />
@@ -270,7 +270,7 @@ const SucHab01Navigator = () => {
           <PromptText
             {...props}
             prompt={prompts[1].prompt}
-            handleNext={'Breathe2'}
+            nextScreen={'PostActivity'}
             audioScreen={'PromptAudio2'}
             videoScreen={'PromptVideo2'}
           />

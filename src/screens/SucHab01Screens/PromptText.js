@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   View,
   Dimensions,
@@ -19,7 +19,13 @@ import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { width } = Dimensions.get('window')
 
-const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
+const PromptText = ({
+  setResponse,
+  prompt,
+  nextScreen,
+  audioScreen,
+  videoScreen
+}) => {
   const navigation = useNavigation()
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
@@ -38,6 +44,12 @@ const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
       margin: 8
     }
   })
+
+  useEffect(() => {
+    if (setResponse && res) {
+      return () => setResponse(res)
+    }
+  })
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView
@@ -48,7 +60,7 @@ const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
             Keyboard.dismiss()
             setDismissPadding(140)
           }}>
-          <View style={{ flex: 1, paddingHorizontal: 8 }}>
+          <View style={{ flex: 1, paddingHorizontal: 8, marginTop: 24 }}>
             <Text
               style={{
                 fontSize: 17,
@@ -76,6 +88,7 @@ const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
               style={{
                 width: width * 0.9,
                 flex: 1,
+                marginTop: 24,
                 padding: 16,
                 fontSize: 17,
                 fontStyle: 'normal',
@@ -124,7 +137,7 @@ const PromptText = ({ prompt, handleNext, audioScreen, videoScreen }) => {
           </View>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
-      <ButtonBackNext handleNext={handleNext} />
+      <ButtonBackNext nextScreen={nextScreen} />
     </SafeAreaView>
   )
 }

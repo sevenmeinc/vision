@@ -1,10 +1,16 @@
 import React from 'react'
-import { SafeAreaView, Text } from 'react-native'
+import { SafeAreaView, Text, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import AuxRecorderPlayer from '../../components/AudioRecorderPlayer'
 import ButtonBackNext from '../../components/ButtonBackNext'
 
-const PromptAudio = ({ prompt, textScreen, videoScreen, handleNext }) => {
+const PromptAudio = ({
+  description,
+  prompt,
+  textScreen,
+  videoScreen,
+  nextScreen
+}) => {
   const navigation = useNavigation()
 
   return (
@@ -16,18 +22,35 @@ const PromptAudio = ({ prompt, textScreen, videoScreen, handleNext }) => {
         alignItems: 'center',
         justifyContent: 'space-between'
       }}>
-      <Text
-        style={{
-          padding: 16,
-          fontSize: 17,
-          fontStyle: 'normal',
-          fontWeight: '500',
-          lineHeight: 20,
-          letterSpacing: -0.01,
-          textAlign: 'center'
-        }}>
-        {prompt}
-      </Text>
+      <View>
+        <Text
+          style={{
+            padding: 16,
+            paddingTop: 0,
+            fontSize: 17,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 20,
+            letterSpacing: -0.01,
+            textAlign: 'center'
+          }}>
+          {prompt}
+        </Text>
+        <Text
+          style={{
+            paddingHorizontal: 16,
+            fontSize: 14,
+            fontStyle: 'normal',
+            fontWeight: '400',
+            lineHeight: 20,
+            letterSpacing: -0.01,
+            textAlign: 'center',
+            color: '#4D4D4D'
+          }}>
+          {description}
+        </Text>
+      </View>
+
       <AuxRecorderPlayer
         handleText={() => {
           navigation.navigate(textScreen)
@@ -36,7 +59,7 @@ const PromptAudio = ({ prompt, textScreen, videoScreen, handleNext }) => {
           navigation.navigate(videoScreen)
         }}
       />
-      <ButtonBackNext handleNext={handleNext} />
+      <ButtonBackNext nextScreen={nextScreen} />
     </SafeAreaView>
   )
 }

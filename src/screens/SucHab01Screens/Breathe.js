@@ -7,7 +7,7 @@ const { height, width } = Dimensions.get('window')
 
 const BreatheScreen = ({
   prompt,
-  handleNext,
+  nextScreen,
   setImgUri,
   setDuration,
   setTime
@@ -29,7 +29,7 @@ const BreatheScreen = ({
         justifyContent: 'space-between'
       }}>
       <Breathe contemplationPrompt={prompt.contemplation} />
-      <ButtonBackNext handleNext={handleNext} />
+      <ButtonBackNext nextScreen={nextScreen} />
     </SafeAreaView>
   )
 }

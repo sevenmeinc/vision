@@ -42,7 +42,6 @@ const BenefitProgressHeader = ({ current, total, title, navigation }) => {
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingTop: 16,
-        paddingVertical: 8,
         paddingHorizontal: 16,
         backgroundColor: '#F9F9F9',
         alignItems: 'center'
