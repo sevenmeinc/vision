@@ -1,40 +1,45 @@
 import React from 'react'
-import { Text, SafeAreaView } from 'react-native'
+import { Text, SafeAreaView, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 const Header = ({ navigation, title }) => {
   return (
     <SafeAreaView
       style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingTop: 16,
-        marginVertical: 8,
-        marginHorizontal: 16,
         backgroundColor: '#fff'
       }}>
-      <Text
+      <View
         style={{
-          fontSize: 14,
-          color: '#666666',
-          fontWeight: '600',
-          textAlign: 'center',
-          letterSpacing: -0.01
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          paddingTop: 16,
+          marginVertical: 8,
+          marginHorizontal: 16,
+          backgroundColor: '#fff'
         }}>
-        {title}
-      </Text>
-      <TouchableOpacity onPress={() => navigation.popToTop()}>
         <Text
           style={{
             fontSize: 14,
-            color: '#00968A',
-            fontWeight: '500',
+            color: '#666666',
+            fontWeight: '600',
             textAlign: 'center',
             letterSpacing: -0.01
           }}>
-          Close
+          {title}
         </Text>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.popToTop()}>
+          <Text
+            style={{
+              fontSize: 14,
+              color: '#00968A',
+              fontWeight: '500',
+              textAlign: 'center',
+              letterSpacing: -0.01
+            }}>
+            Close
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }

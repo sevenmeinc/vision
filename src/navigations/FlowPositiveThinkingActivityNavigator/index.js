@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { View, Dimensions, SafeAreaView, Text, Image } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import Header from '../../components/Header'
 import VideoPlayer from '../../screens/PositiveThinking/video'
 import PostVideo1 from '../../screens/PositiveThinking/postVideo1'
 import PostVideo2 from '../../screens/PositiveThinking/postVideo2'
@@ -11,6 +10,7 @@ import PostVideo4 from '../../screens/PositiveThinking/postVideo4'
 import PostVideo5 from '../../screens/PositiveThinking/postVideo5'
 import PostVideo6 from '../../screens/PositiveThinking/postVideo6'
 import { Colors } from '../../constants/colors'
+import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 import InputCard from '../../components/InputCard'
 
 const FlowPositiveThinkingActivity = () => {
@@ -109,7 +109,7 @@ const FlowPositiveThinkingActivity = () => {
     )
   }
 
-  const CoachHeader = ({ navigation, route }) => {
+  const CoachHeader = ({ navigation }) => {
     return (
       <View
         style={{
@@ -149,8 +149,19 @@ const FlowPositiveThinkingActivity = () => {
     <Stack.Navigator>
       <Stack.Screen
         name="video1"
-        children={() => <VideoPlayer nextPage="postVideo1" />}
-        options={{ headerShown: false }}
+        options={({ navigation }) => ({
+          header: () => (
+            <BenefitProgressHeader
+              current={1}
+              total={5}
+              navigation={navigation}
+              darkMode={true}
+            />
+          )
+        })}
+        children={(props) => (
+          <VideoPlayer {...props} nextScreen={'postVideo1'} />
+        )}
       />
       <Stack.Screen
         name="postVideo1"
