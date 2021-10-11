@@ -149,7 +149,7 @@ const FlowPositiveThinkingActivity = () => {
     <Stack.Navigator>
       <Stack.Screen
         name="video1"
-        component={VideoPlayer}
+        children={() => <VideoPlayer nextPage="postVideo1" />}
         options={{ headerShown: false }}
       />
       <Stack.Screen
