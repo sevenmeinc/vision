@@ -4,8 +4,7 @@ export const content = {
     description:
       'Choose one healthy habit you have sustained long-term. Reflect on why you think you’ve been able to stick with it for so long. This will give you information you can use to help you build and maintain new habits.',
     timeEst: 8,
-    type: '$Reflection Activity',
-    // image: require('./suc-hag-img.png'),
+    type: 'Reflection Activity',
     prompts: [
       {
         contemplation:

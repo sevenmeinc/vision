@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   View,
   SafeAreaView,
@@ -17,7 +17,8 @@ const PostActivity = ({ postActivity }) => {
   const { onFocus, onBlur } = useKeyboard()
   const navigation = useNavigation()
   const [res, setRes] = useState('')
-  const [resCount, setResCount] = useState(0)
+  const [responses, setResponses] = useState([])
+  const [saveDisabled, setSaveDisabled] = useState(true)
 
   const styles = StyleSheet.create({
     container: {
@@ -55,6 +56,14 @@ const PostActivity = ({ postActivity }) => {
       justifyContent: 'center'
     }
   })
+
+  useEffect(() => {
+    if (res.length) {
+      setSaveDisabled(false)
+    } else {
+      setSaveDisabled(true)
+    }
+  }, [res])
 
   return (
     <SafeAreaView>
@@ -126,15 +135,14 @@ const PostActivity = ({ postActivity }) => {
             minHeight: 320
           }}>
           <Text style={styles.importedText}>
-            {postActivity.length > resCount
-              ? postActivity[resCount]
+            {postActivity.length > responses.length
+              ? postActivity[responses.length]
               : postActivity[postActivity.length - 1]}
           </Text>
           <TextInput
             style={{
               textAlignVertical: 'top',
               minHeight: 200,
-              // height: '80%',
               marginTop: 16
             }}
             onChangeText={(msg) => {
@@ -152,22 +160,36 @@ const PostActivity = ({ postActivity }) => {
               width: '100%',
               alignItems: 'flex-end'
             }}>
-            <Text
+            <TouchableOpacity
+              disabled={saveDisabled}
               style={{
-                color: '#00968A',
-                fontSize: 17,
-                fontStyle: 'normal',
-                fontWeight: '500',
-                lineHeight: 20,
-                letterSpacing: -0.01,
-                textAlign: 'right'
+                opacity:
+                  saveDisabled || postActivity.length === responses.length
+                    ? 0.4
+                    : null
               }}
               onPress={() => {
-                setResCount(resCount + 1)
-                setRes('')
+                if (postActivity.length > responses.length) {
+                  setResponses([...responses, res])
+                  setSaveDisabled(true)
+                  return
+                } else {
+                  setRes('')
+                }
               }}>
-              SAVE
-            </Text>
+              <Text
+                style={{
+                  color: '#00968A',
+                  fontSize: 17,
+                  fontStyle: 'normal',
+                  fontWeight: '500',
+                  lineHeight: 20,
+                  letterSpacing: -0.01,
+                  textAlign: 'right'
+                }}>
+                SAVE
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View
@@ -177,12 +199,12 @@ const PostActivity = ({ postActivity }) => {
             alignItems: 'center'
           }}>
           <TouchableOpacity
-            disabled={postActivity.length > resCount}
+            disabled={postActivity.length > responses.length}
             onPress={() => navigation.navigate('Flows')}
             style={{
               ...styles.button,
               backgroundColor: '#193340',
-              opacity: postActivity.length > resCount ? 0.4 : null
+              opacity: postActivity.length > responses.length ? 0.4 : null
             }}>
             <Text
               style={{
