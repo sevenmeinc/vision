@@ -121,7 +121,9 @@ const PostActivity = ({ postActivity }) => {
             shadowColor: '#000000',
             shadowOpacity: 0.4,
             shadowRadius: 8,
-            shadowOffset: { height: 4 }
+            shadowOffset: { height: 4 },
+            marginBottom: 48,
+            minHeight: 320
           }}>
           <Text style={styles.importedText}>
             {postActivity.length > resCount
@@ -131,7 +133,8 @@ const PostActivity = ({ postActivity }) => {
           <TextInput
             style={{
               textAlignVertical: 'top',
-              minHeight: 150,
+              minHeight: 200,
+              // height: '80%',
               marginTop: 16
             }}
             onChangeText={(msg) => {
