@@ -85,6 +85,7 @@ const VideoPage = () => {
                 onPressPlay={() => video.current?.playAsync()}
                 onOpen={() => setOpacity(true)}
                 onClose={() => setOpacity(false)}
+                handleContinue={() => navigation.navigate('postVideo1')}
                 hideTapMore={false}
               />
             )}

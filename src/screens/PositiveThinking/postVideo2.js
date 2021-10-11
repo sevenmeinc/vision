@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import * as Progress from 'react-native-progress'
 import Logo from '../../components/Logo'
@@ -9,9 +9,11 @@ const PostVideo2 = (props) => {
   const [progress, setProgress] = useState(0)
   const { navigation } = props
 
-  setTimeout(() => {
-    setProgress(progress + 0.1)
-  }, 1000)
+  useEffect(() => {
+    setTimeout(() => {
+      setProgress(progress + 0.1)
+    }, 1000)
+  })
 
   return (
     <SafeAreaView
