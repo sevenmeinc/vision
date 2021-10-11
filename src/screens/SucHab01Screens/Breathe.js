@@ -1,61 +1,37 @@
-import React from 'react'
-import { View, Dimensions } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import PromptContainer from '../../components/PromptContainer'
+import React, { useEffect } from 'react'
+import { SafeAreaView, Dimensions } from 'react-native'
 import Breathe from '../../components/Breathe'
-import Breather2 from '../../components/Breathe/Breather2'
+import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { height, width } = Dimensions.get('window')
 
-const BreateScreen = ({ route }) => {
-  const navigation = useNavigation()
-  const {
-    prompts,
-    state: { responses, stage }
-  } = route.params
-  const prompt = prompts[responses]
-
-  const breathe = () => {
-    return (
-      <View
-        style={{
-          width: width,
-          paddingLeft: 16,
-          paddingRight: 16,
-          flex: 1,
-          alignItems: 'center'
-        }}>
-        <Breathe
-          breather={Breather2}
-          contemplationPrompt={prompt.contemplation}
-        />
-      </View>
-    )
-  }
+const BreatheScreen = ({
+  prompt,
+  handleNext,
+  setImgUri,
+  setDuration,
+  setTime
+}) => {
+  useEffect(() => {
+    setImgUri(null)
+    setDuration({ min: 0, sec: 0 })
+    setTime({ min: 0, sec: 0 })
+  }, [setImgUri, setDuration, setTime])
 
   return (
-    <View
+    <SafeAreaView
       style={{
         height: height,
         width: width,
         padding: 16,
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-between'
       }}>
-      <PromptContainer
-        prompt={prompt.prompt}
-        input={breathe}
-        route={route}
-        handleNext={() => {
-          navigation.navigate('PromptAudio', {
-            ...route.params,
-            state: { ...route.params.state, stage: stage + 1 }
-          })
-        }}
-      />
-    </View>
+      <Breathe contemplationPrompt={prompt.contemplation} />
+      <ButtonBackNext handleNext={handleNext} />
+    </SafeAreaView>
   )
 }
 
-export default BreateScreen
+export default BreatheScreen

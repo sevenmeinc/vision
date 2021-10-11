@@ -1,24 +1,44 @@
 import React from 'react'
 import { View, Text, Dimensions } from 'react-native'
+import Breathe2 from './Breather2'
 
 const { width } = Dimensions.get('window')
 
-const Breathe = ({
-  breather, //component
-  contemplationPrompt = 'Breathing space'
-}) => {
+const Breathe = ({ contemplationPrompt }) => {
   return (
     <View
       style={{
-        padding: 16,
+        paddingHorizontal: 16,
         width: width,
         alignContent: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-between'
       }}>
-      <Text style={{ textAlign: 'center' }}>
-        {contemplationPrompt ?? 'Breathing space'}
+      <Text
+        style={{
+          fontSize: 17,
+          fontStyle: 'normal',
+          fontWeight: '500',
+          lineHeight: 20,
+          letterSpacing: -0.01,
+          textAlign: 'center',
+          color: '#16161A',
+          marginBottom: 12
+        }}>
+        {contemplationPrompt ? 'Breathing Space' : 'Nice!'}
       </Text>
-      {breather()}
+      <Text
+        style={{
+          color: '#4D4D4D',
+          fontSize: 14,
+          fontStyle: 'normal',
+          fontWeight: '400',
+          lineHeight: 19,
+          letterSpacing: 0.01,
+          textAlign: 'center'
+        }}>
+        {contemplationPrompt ?? 'Take a moment to relax and breathe.'}
+      </Text>
+      <Breathe2 />
     </View>
   )
 }

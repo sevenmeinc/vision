@@ -6,6 +6,7 @@ import Flow2Navigator from '../Flow2Navigator'
 import FlowPositiveThinkingNavigator from '../FlowPositiveThinkingNavigator'
 import FlowPositiveThinkingActivity from '../FlowPositiveThinkingActivityNavigator'
 import ShortTermNavigator from '../ShortTermNavigator'
+import Flow3Navigator from '../Flow3Navigator'
 import SucHab01Navigator from '../SucHab01Navigator'
 
 const Stack = createStackNavigator()
@@ -26,8 +27,8 @@ const MainNavigator = () => {
         }}
       />
       <Stack.Screen
-        name="Flow 3"
-        component={FlowPositiveThinkingNavigator}
+        name="flow3Navigator"
+        component={Flow3Navigator}
         options={{
           headerShown: false
         }}

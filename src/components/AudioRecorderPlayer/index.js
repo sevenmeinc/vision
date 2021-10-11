@@ -61,6 +61,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
 
   const handleDelete = () => {
     setTime(newTimer)
+    setIsRecording(false)
     setBtn1Mode('text')
     setBtn2Mode('record')
     setBtn3Mode('video')
@@ -99,7 +100,18 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
         alignItems: 'center'
       }}>
       {btn2Mode === 'record' ? (
-        <Text>Think out loud</Text>
+        <Text
+          style={{
+            fontSize: 13,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 16,
+            letterSpacing: 0,
+            textAlign: 'left',
+            color: '#737376'
+          }}>
+          Think out loud
+        </Text>
       ) : (
         <Text
           style={{

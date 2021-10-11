@@ -1,150 +1,40 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import Svg, { Rect, Path } from 'react-native-svg'
+import Svg, { Path } from 'react-native-svg'
+import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import FeatherIcons from 'react-native-vector-icons/Feather'
+import { Colors } from '../../constants/colors'
 
-const BenefitProgressHeader = (props) => {
-  const { progress } = props
+const BenefitProgressHeader = ({ current, total, title, navigation }) => {
   const renderProgress = () => {
-    if (progress === 1) {
-      return (
-        <Svg
-          width={156}
-          height={2}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          {...props}>
-          <Rect width={36} height={2} rx={1} fill="#16161A" />
-          <Rect
-            x={40}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect
-            x={80}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect
-            x={120}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-        </Svg>
+    let stage = 0
+    const progressArray = []
+    while (stage++ < total) {
+      progressArray.push(
+        <FeatherIcons
+          key={stage}
+          name={'minus'}
+          size={36}
+          color={stage === current ? 'black' : Colors.woodsmoke15}
+        />
       )
     }
-    if (progress === 2) {
-      return (
-        <Svg
-          width={156}
-          height={2}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          {...props}>
-          <Rect
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect x={40} width={36} height={2} rx={1} fill="#16161A" />
-          <Rect
-            x={80}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect
-            x={120}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-        </Svg>
-      )
-    }
-    if (progress === 3) {
-      return (
-        <Svg
-          width={156}
-          height={2}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <Rect
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect
-            x={40}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect x={80} width={36} height={2} rx={1} fill="#16161A" />
-          <Rect
-            x={120}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-        </Svg>
-      )
-    }
-    if (progress === 4) {
-      return (
-        <Svg
-          width={156}
-          height={2}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <Rect
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect
-            x={40}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect
-            x={80}
-            width={36}
-            height={2}
-            rx={1}
-            fill="#16161A"
-            fillOpacity={0.15}
-          />
-          <Rect x={120} width={36} height={2} rx={1} fill="#16161A" />
-        </Svg>
-      )
-    }
+    return progressArray
+  }
+
+  const renderTitle = () => {
+    return (
+      <Text
+        style={{
+          fontSize: 17,
+          fontStyle: 'normal',
+          fontWeight: '600',
+          lineHeight: 20
+        }}>
+        {title}
+      </Text>
+    )
   }
   return (
     <SafeAreaView
@@ -154,17 +44,21 @@ const BenefitProgressHeader = (props) => {
         paddingTop: 16,
         paddingVertical: 8,
         paddingHorizontal: 16,
-        backgroundColor: '#DCDCDD',
+        backgroundColor: '#F9F9F9',
         alignItems: 'center'
       }}>
-      {renderProgress()}
-      <TouchableOpacity onPress={() => props.navigation.navigate('Flow 2')}>
+      <View
+        style={{
+          flexDirection: 'row'
+        }}>
+        {title ? renderTitle() : renderProgress()}
+      </View>
+      <TouchableOpacity onPress={() => navigation.popToTop()}>
         <Svg
           width={32}
           height={32}
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          {...props}>
+          xmlns="http://www.w3.org/2000/svg">
           <Path
             d="M24 8L8 24M8 8l16 16"
             stroke="#16161A"
