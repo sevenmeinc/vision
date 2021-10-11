@@ -24,7 +24,7 @@ export const millisToMinutesAndSeconds = (millis) => {
     ? minutes + 1 + ':00'
     : minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 }
-const VideoPage = ({ nextScreen }) => {
+const VideoPage = ({ nextScreen, title, subTitle }) => {
   const [opacity, setOpacity] = useState(false)
   const [status, setStatus] = useState({})
   const [finish, setFinish] = useState(false)
@@ -79,8 +79,8 @@ const VideoPage = ({ nextScreen }) => {
               />
             ) : (
               <VideoPausedContent
-                title="Part 01"
-                subTitle="Benefits of Positive Thinking"
+                title={title}
+                subTitle={subTitle}
                 time={time}
                 onPressPlay={() => video.current?.playAsync()}
                 onOpen={() => setOpacity(true)}

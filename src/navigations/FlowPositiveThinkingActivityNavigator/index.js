@@ -160,7 +160,12 @@ const FlowPositiveThinkingActivity = () => {
           )
         })}
         children={(props) => (
-          <VideoPlayer {...props} nextScreen={'postVideo1'} />
+          <VideoPlayer
+            {...props}
+            title={'Part 01'}
+            subTitle={'Benefits of Positive Thinking'}
+            nextScreen={'postVideo1'}
+          />
         )}
       />
       <Stack.Screen

@@ -16,7 +16,7 @@ import VideoPlayer from '../../screens/PositiveThinking/video'
 import { content } from '../../../assets/content'
 
 const Stack = createStackNavigator()
-const { prompts, postActivity } = content.successfulHabits
+const { prompts, postActivity } = content.benefitsList
 const newTimer = { min: 0, sec: 0 }
 
 const Flow3Navigator = () => {
@@ -59,7 +59,12 @@ const Flow3Navigator = () => {
           )
         })}
         children={(props) => (
-          <VideoPlayer {...props} nextScreen={'PromptAudio1'} />
+          <VideoPlayer
+            {...props}
+            title={'REFLECTION ACTIVITY'}
+            subTitle={'Benefits List'}
+            nextScreen={'PromptAudio1'}
+          />
         )}
       />
       <Stack.Screen
@@ -76,10 +81,8 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PromptAudio
             {...props}
-            prompt={'Short-term benefits'}
-            description={
-              'Tell us all the short-term benefits that you imagine gaining from completing your Weekly Commitment.'
-            }
+            prompt={prompts[0].prompt}
+            description={prompts[0].contemplation}
             textScreen={'PromptText1'}
             videoScreen={'PromptVideo1'}
             nextScreen={'Breathe'}
@@ -100,10 +103,8 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PromptAudio
             {...props}
-            prompt={'Long-term benefits'}
-            description={
-              'What are the long-term benefits you imagine gaining from completing your Weekly Commitment?'
-            }
+            prompt={prompts[1].prompt}
+            description={prompts[1].contemplation}
             textScreen={'PromptText2'}
             videoScreen={'PromptVideo2'}
             nextScreen={'ReviewBenefitList'}
@@ -126,7 +127,7 @@ const Flow3Navigator = () => {
           <PromptVideo
             {...props}
             setIsPreview={setIsPreview}
-            prompt={prompts[0].prompt}
+            prompt={prompts[2].prompt}
             audioScreen={'PromptAudio1'}
             textScreen={'PromptText1'}
             previewScreen={'Preview1'}
@@ -153,7 +154,7 @@ const Flow3Navigator = () => {
           <PromptVideo
             {...props}
             setIsPreview={setIsPreview}
-            prompt={prompts[1].prompt}
+            prompt={prompts[3].prompt}
             audioScreen={'PromptAudio2'}
             textScreen={'PromptText2'}
             previewScreen={'Preview2'}
@@ -178,7 +179,7 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PreviewScreen
             {...props}
-            prompt={prompts[0].prompt}
+            prompt={prompts[2].prompt}
             imgUri={imgUri}
             duration={duration}
             time={time}
@@ -200,7 +201,7 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PreviewScreen
             {...props}
-            prompt={prompts[1].prompt}
+            prompt={prompts[3].prompt}
             imgUri={imgUri}
             duration={duration}
             time={time}
@@ -222,7 +223,7 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PromptText
             {...props}
-            prompt={prompts[0].prompt}
+            prompt={prompts[2].prompt}
             setResponse={setShortTermBenefits}
             nextScreen={'Breathe'}
             audioScreen={'PromptAudio1'}
@@ -244,7 +245,7 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PromptText
             {...props}
-            prompt={prompts[1].prompt}
+            prompt={prompts[3].prompt}
             setResponse={setLongTermBenefits}
             nextScreen={'ReviewBenefitList'}
             audioScreen={'PromptAudio2'}
@@ -266,7 +267,7 @@ const Flow3Navigator = () => {
         children={(props) => (
           <BreatheScreen
             {...props}
-            prompt={prompts[1]}
+            prompt={'Breathing space'}
             nextScreen={'PromptAudio2'}
             setImgUri={setImgUri}
             setDuration={setDuration}
