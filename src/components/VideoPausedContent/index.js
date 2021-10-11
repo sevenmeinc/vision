@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { Feather, Ionicons } from '@expo/vector-icons'
 import TapMoreWithBottomSheet from '../TapMoreWithBottomSheet'
+import OutlineButton from '../OutlineButton'
 
 const VideoPausedContent = ({
   title,
@@ -10,7 +11,8 @@ const VideoPausedContent = ({
   onPressPlay,
   onOpen,
   onClose,
-  hideTapMore
+  hideTapMore,
+  handleContinue
 }) => {
   return (
     <View
@@ -55,6 +57,11 @@ const VideoPausedContent = ({
           <Ionicons name="play-circle-outline" size={120} color="white" />
         </TouchableOpacity>
       </View>
+      <OutlineButton
+        title="Skip video intro"
+        onPress={handleContinue}
+        variant="light"
+      />
       {!hideTapMore && (
         <TapMoreWithBottomSheet
           variant="light"
