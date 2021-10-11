@@ -112,83 +112,85 @@ const PostActivity = ({ postActivity }) => {
             </Text>
           </View>
         </View>
-        {postActivity.length > resCount ? (
-          <View
+        <View
+          style={{
+            ...styles.container,
+            backgroundColor: '#fff',
+            borderWidth: 1,
+            borderColor: '#E5E5E5',
+            shadowColor: '#000000',
+            shadowOpacity: 0.4,
+            shadowRadius: 8,
+            shadowOffset: { height: 4 }
+          }}>
+          <Text style={styles.importedText}>
+            {postActivity.length > resCount
+              ? postActivity[resCount]
+              : postActivity[postActivity.length - 1]}
+          </Text>
+          <TextInput
             style={{
-              ...styles.container,
-              backgroundColor: '#fff',
-              borderWidth: 1,
-              borderColor: '#E5E5E5',
-              shadowColor: '#000000',
-              shadowOpacity: 0.4,
-              shadowRadius: 8,
-              shadowOffset: { height: 4 }
-            }}>
-            <Text style={styles.importedText}>{postActivity[resCount]}</Text>
-            <TextInput
-              style={{
-                textAlignVertical: 'top',
-                minHeight: 150,
-                marginTop: 16
-              }}
-              onChangeText={(msg) => {
-                setRes(msg)
-              }}
-              value={res}
-              placeholder={'Start typing...'}
-              multiline={true}
-              numberOfLines={14}
-              onBlur={onBlur}
-              onFocus={onFocus}
-            />
-            <View
-              style={{
-                width: '100%',
-                alignItems: 'flex-end'
-              }}>
-              <Text
-                style={{
-                  color: '#00968A',
-                  fontSize: 17,
-                  fontStyle: 'normal',
-                  fontWeight: '500',
-                  lineHeight: 20,
-                  letterSpacing: -0.01,
-                  textAlign: 'right'
-                }}
-                onPress={() => {
-                  setResCount(resCount + 1)
-                  setRes('')
-                }}>
-                SAVE
-              </Text>
-            </View>
-          </View>
-        ) : (
+              textAlignVertical: 'top',
+              minHeight: 150,
+              marginTop: 16
+            }}
+            onChangeText={(msg) => {
+              setRes(msg)
+            }}
+            value={res}
+            placeholder={'Start typing...'}
+            multiline={true}
+            numberOfLines={14}
+            onBlur={onBlur}
+            onFocus={onFocus}
+          />
           <View
             style={{
               width: '100%',
-              flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'flex-end'
             }}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Flows')}
+            <Text
               style={{
-                ...styles.button,
-                backgroundColor: '#193340'
+                color: '#00968A',
+                fontSize: 17,
+                fontStyle: 'normal',
+                fontWeight: '500',
+                lineHeight: 20,
+                letterSpacing: -0.01,
+                textAlign: 'right'
+              }}
+              onPress={() => {
+                setResCount(resCount + 1)
+                setRes('')
               }}>
-              <Text
-                style={{
-                  fontSize: 17,
-                  fontWeight: '500',
-                  textAlign: 'center',
-                  color: '#fff'
-                }}>
-                Finish Activity
-              </Text>
-            </TouchableOpacity>
+              SAVE
+            </Text>
           </View>
-        )}
+        </View>
+        <View
+          style={{
+            width: '100%',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
+          <TouchableOpacity
+            disabled={postActivity.length > resCount}
+            onPress={() => navigation.navigate('Flows')}
+            style={{
+              ...styles.button,
+              backgroundColor: '#193340'
+            }}>
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: '500',
+                textAlign: 'center',
+                color: '#fff'
+              }}>
+              Finish Activity
+            </Text>
+          </TouchableOpacity>
+        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   )

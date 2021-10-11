@@ -18,8 +18,7 @@ export const content = {
       }
     ],
     postActivity: [
-      'What insights from this reflection can you apply to your pursuit of this vision and goal?',
-      'Where will you apply what you just reflected on in your daily life?'
+      'What insights from this reflection can you apply to your pursuit of this vision and goal?'
     ]
   }
 }
