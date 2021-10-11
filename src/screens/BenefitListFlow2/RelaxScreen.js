@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { ScrollView, Image, Text, View } from 'react-native'
-import Svg, { Rect, Path, Circle, G, Defs } from 'react-native-svg'
-import { TouchableOpacity, TextInput } from 'react-native-gesture-handler'
+import React from 'react'
+import { Text, View } from 'react-native'
+import Svg, { Path, Circle, G, Defs } from 'react-native-svg'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const RelaxScreen = ({ shortTermItem1, shortTermItem2, shortTermItem3 }) => {
+const RelaxScreen = () => {
   const navigation = useNavigation()
 
   return (
