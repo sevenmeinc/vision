@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   View,
   SafeAreaView,
@@ -17,7 +17,8 @@ const PostActivity = ({ postActivity }) => {
   const { onFocus, onBlur } = useKeyboard()
   const navigation = useNavigation()
   const [res, setRes] = useState('')
-  const [resCount, setResCount] = useState(0)
+  const [responses, setResponses] = useState([])
+  const [saveDisabled, setSaveDisabled] = useState(true)
 
   const styles = StyleSheet.create({
     container: {
@@ -55,6 +56,14 @@ const PostActivity = ({ postActivity }) => {
       justifyContent: 'center'
     }
   })
+
+  useEffect(() => {
+    if (res.length) {
+      setSaveDisabled(false)
+    } else {
+      setSaveDisabled(true)
+    }
+  }, [res])
 
   return (
     <SafeAreaView>
@@ -112,39 +121,61 @@ const PostActivity = ({ postActivity }) => {
             </Text>
           </View>
         </View>
-        {postActivity.length > resCount ? (
+        <View
+          style={{
+            ...styles.container,
+            backgroundColor: '#fff',
+            borderWidth: 1,
+            borderColor: '#E5E5E5',
+            shadowColor: '#000000',
+            shadowOpacity: 0.4,
+            shadowRadius: 8,
+            shadowOffset: { height: 4 },
+            marginBottom: 48,
+            minHeight: 320
+          }}>
+          <Text style={styles.importedText}>
+            {postActivity.length > responses.length
+              ? postActivity[responses.length]
+              : postActivity[postActivity.length - 1]}
+          </Text>
+          <TextInput
+            style={{
+              textAlignVertical: 'top',
+              minHeight: 200,
+              marginTop: 16
+            }}
+            onChangeText={(msg) => {
+              setRes(msg)
+            }}
+            value={res}
+            placeholder={'Start typing...'}
+            multiline={true}
+            numberOfLines={14}
+            onBlur={onBlur}
+            onFocus={onFocus}
+          />
           <View
             style={{
-              ...styles.container,
-              backgroundColor: '#fff',
-              borderWidth: 1,
-              borderColor: '#E5E5E5',
-              shadowColor: '#000000',
-              shadowOpacity: 0.4,
-              shadowRadius: 8,
-              shadowOffset: { height: 4 }
+              width: '100%',
+              alignItems: 'flex-end'
             }}>
-            <Text style={styles.importedText}>{postActivity[resCount]}</Text>
-            <TextInput
+            <TouchableOpacity
+              disabled={saveDisabled}
               style={{
-                textAlignVertical: 'top',
-                minHeight: 150,
-                marginTop: 16
+                opacity:
+                  saveDisabled || postActivity.length === responses.length
+                    ? 0.4
+                    : null
               }}
-              onChangeText={(msg) => {
-                setRes(msg)
-              }}
-              value={res}
-              placeholder={'Start typing...'}
-              multiline={true}
-              numberOfLines={14}
-              onBlur={onBlur}
-              onFocus={onFocus}
-            />
-            <View
-              style={{
-                width: '100%',
-                alignItems: 'flex-end'
+              onPress={() => {
+                if (postActivity.length > responses.length) {
+                  setResponses([...responses, res])
+                  setSaveDisabled(true)
+                  return
+                } else {
+                  setRes('')
+                }
               }}>
               <Text
                 style={{
@@ -155,40 +186,37 @@ const PostActivity = ({ postActivity }) => {
                   lineHeight: 20,
                   letterSpacing: -0.01,
                   textAlign: 'right'
-                }}
-                onPress={() => {
-                  setResCount(resCount + 1)
-                  setRes('')
                 }}>
                 SAVE
               </Text>
-            </View>
-          </View>
-        ) : (
-          <View
-            style={{
-              width: '100%',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Flows')}
-              style={{
-                ...styles.button,
-                backgroundColor: '#193340'
-              }}>
-              <Text
-                style={{
-                  fontSize: 17,
-                  fontWeight: '500',
-                  textAlign: 'center',
-                  color: '#fff'
-                }}>
-                Finish Activity
-              </Text>
             </TouchableOpacity>
           </View>
-        )}
+        </View>
+        <View
+          style={{
+            width: '100%',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
+          <TouchableOpacity
+            disabled={postActivity.length > responses.length}
+            onPress={() => navigation.navigate('Flows')}
+            style={{
+              ...styles.button,
+              backgroundColor: '#193340',
+              opacity: postActivity.length > responses.length ? 0.4 : null
+            }}>
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: '500',
+                textAlign: 'center',
+                color: '#fff'
+              }}>
+              Finish Activity
+            </Text>
+          </TouchableOpacity>
+        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   )
