@@ -14,7 +14,7 @@ import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { width, height } = Dimensions.get('window')
 
-const PreviewScreen = ({ prompt, imgUri, duration, time, handleNext }) => {
+const PreviewScreen = ({ prompt, imgUri, duration, time, nextScreen }) => {
   const navigation = useNavigation()
   const styles = StyleSheet.create({
     centered: { alignItems: 'center', justifyContent: 'center' },
@@ -113,7 +113,7 @@ const PreviewScreen = ({ prompt, imgUri, duration, time, handleNext }) => {
           </View>
         </View>
       </View>
-      <ButtonBackNext handleNext={handleNext} />
+      <ButtonBackNext nextScreen={nextScreen} />
     </SafeAreaView>
   )
 }

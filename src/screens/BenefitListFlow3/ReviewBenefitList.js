@@ -3,52 +3,76 @@ import {
   SafeAreaView,
   View,
   Text,
-  FlatList,
   ScrollView,
   TouchableOpacity
 } from 'react-native'
 import Svg, { Path } from 'react-native-svg'
 import { useNavigation } from '@react-navigation/native'
-import Card from '../../components/Card'
-import { Colors } from '../../constants/colors'
 
-const List = ({ title, list }) => {
-  const renderItem = ({ item, index }) => {
-    return <Card index={index} item={item} />
+const List = ({ items }) => {
+  const renderCard = (title, description) => {
+    return (
+      <View
+        style={{
+          width: 280,
+          height: 360,
+          borderRadius: 12,
+          backgroundColor: '#FFFFFF',
+          borderWidth: 1,
+          borderColor: '#DADADA',
+          padding: 16,
+          margin: 16,
+          shadowColor: '#000000',
+          shadowOpacity: 0.4,
+          shadowRadius: 6,
+          shadowOffset: { height: 2 }
+        }}>
+        <Text
+          style={{
+            fontSize: 14,
+            color: '#808080',
+            fontWeight: '500',
+            marginBottom: 16
+          }}>
+          {title}
+        </Text>
+        <Text
+          style={{
+            fontSize: 17,
+            color: '#16161A',
+            fontWeight: '400',
+            lineHeight: 22
+          }}>
+          {description || 'No text response'}
+        </Text>
+      </View>
+    )
   }
   return (
-    <View style={{ paddingHorizontal: 16 }}>
-      <Text
-        style={{
-          color: Colors.pianoBlack,
-          fontFamily: 'medium',
-          fontSize: 13,
-          marginBottom: 12
-        }}>
-        {title}
-      </Text>
-      <FlatList
-        keyExtractor={(item, index) => `${index}-${item}`}
-        horizontal
-        data={list}
-        renderItem={renderItem}
-        ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ padding: 10 }}
-      />
-    </View>
+    <ScrollView
+      pagingEnabled={true}
+      horizontal={true}
+      style={{ paddingHorizontal: 8 }}
+      snapToAlignment={'center'}>
+      {renderCard('Short-term benefits', items[0])}
+      {renderCard('Long-term benefits', items[1])}
+    </ScrollView>
   )
 }
-const ReviewBenefitList = ({ shortTerms = [], longTerms = [] }) => {
+const ReviewBenefitList = ({
+  shortTermBenefits,
+  longTermBenefits,
+  nextScreen
+}) => {
   const navigation = useNavigation()
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#DCDCDD' }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
         <View>
           <Svg
             width={375}
-            height={153}
+            height={145}
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <Path
@@ -60,9 +84,7 @@ const ReviewBenefitList = ({ shortTerms = [], longTerms = [] }) => {
               fill="#4D4D4D"
             />
           </Svg>
-          <List title="Short-term benefits" list={shortTerms} />
-          <View style={{ marginTop: 24 }} />
-          <List title="Long-term benefits" list={longTerms} />
+          <List items={[shortTermBenefits, longTermBenefits]} />
         </View>
       </ScrollView>
       <View style={{ flexDirection: 'row', padding: 16 }}>
@@ -86,7 +108,7 @@ const ReviewBenefitList = ({ shortTerms = [], longTerms = [] }) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Feedback')}
+          onPress={() => navigation.navigate(nextScreen)}
           style={{
             marginLeft: 4,
             borderRadius: 100,

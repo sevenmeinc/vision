@@ -24,7 +24,7 @@ export const millisToMinutesAndSeconds = (millis) => {
     ? minutes + 1 + ':00'
     : minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 }
-const VideoPage = ({ nextPage }) => {
+const VideoPage = ({ nextScreen, title, subTitle }) => {
   const [opacity, setOpacity] = useState(false)
   const [status, setStatus] = useState({})
   const [finish, setFinish] = useState(false)
@@ -74,18 +74,18 @@ const VideoPage = ({ nextPage }) => {
           <View style={[styles.overlay, { opacity: !opacity ? 0.8 : 1 }]}>
             {finish ? (
               <VideoEndedContent
-                handleContinue={() => navigation.navigate(nextPage)}
+                handleContinue={() => navigation.navigate(nextScreen)}
                 handleLater={navigation.goBack}
               />
             ) : (
               <VideoPausedContent
-                title="Part 01"
-                subTitle="Benefits of Positive Thinking"
+                title={title}
+                subTitle={subTitle}
                 time={time}
                 onPressPlay={() => video.current?.playAsync()}
                 onOpen={() => setOpacity(true)}
                 onClose={() => setOpacity(false)}
-                handleContinue={() => navigation.navigate(nextPage)}
+                handleContinue={() => navigation.navigate(nextScreen)}
                 hideTapMore={false}
               />
             )}

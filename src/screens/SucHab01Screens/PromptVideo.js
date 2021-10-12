@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, Dimensions, StyleSheet } from 'react-native'
+import { View, Dimensions, StyleSheet } from 'react-native'
 import VideoRec from '../../components/VideoRec'
 
 const { width, height } = Dimensions.get('window')
@@ -27,7 +27,7 @@ const PromptVideo = ({
   })
 
   return (
-    <SafeAreaView
+    <View
       style={{
         ...styles.centered,
         height: height,
@@ -44,7 +44,7 @@ const PromptVideo = ({
         setTime={setTime}
         previewScreen={previewScreen}
       />
-    </SafeAreaView>
+    </View>
   )
 }
 

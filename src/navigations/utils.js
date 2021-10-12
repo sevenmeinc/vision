@@ -4,7 +4,7 @@ import { TransitionPresets } from '@react-navigation/stack'
 export const modalOptions =
   Platform.OS === 'ios'
     ? {
-        screenOptions: ({ route, navigation }) => {
+        screenOptions: () => {
           return {
             gestureEnabled: false,
             cardOverlayEnabled: true,

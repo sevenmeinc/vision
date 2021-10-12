@@ -6,7 +6,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import { Colors } from '../../constants/colors'
 
-const BenefitProgressHeader = ({ current, total, title, navigation }) => {
+const BenefitProgressHeader = ({
+  current,
+  total,
+  title,
+  navigation,
+  darkMode
+}) => {
   const renderProgress = () => {
     let stage = 0
     const progressArray = []
@@ -16,7 +22,15 @@ const BenefitProgressHeader = ({ current, total, title, navigation }) => {
           key={stage}
           name={'minus'}
           size={36}
-          color={stage === current ? 'black' : Colors.woodsmoke15}
+          color={
+            stage === current
+              ? darkMode
+                ? 'white'
+                : 'black'
+              : darkMode
+              ? Colors.ashToAsh
+              : Colors.woodsmoke15
+          }
         />
       )
     }
@@ -42,9 +56,8 @@ const BenefitProgressHeader = ({ current, total, title, navigation }) => {
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingTop: 16,
-        paddingVertical: 8,
         paddingHorizontal: 16,
-        backgroundColor: '#F9F9F9',
+        backgroundColor: darkMode ? 'black' : '#F9F9F9',
         alignItems: 'center'
       }}>
       <View
@@ -61,7 +74,7 @@ const BenefitProgressHeader = ({ current, total, title, navigation }) => {
           xmlns="http://www.w3.org/2000/svg">
           <Path
             d="M24 8L8 24M8 8l16 16"
-            stroke="#16161A"
+            stroke={darkMode ? 'white' : '#16161A'}
             strokeWidth={2.667}
             strokeLinecap="round"
             strokeLinejoin="round"

@@ -4,7 +4,6 @@ import { Colors } from '../../constants/colors'
 
 const InputCard = ({
   index,
-  item,
   setPositiveThinking1,
   setPositiveThinking2,
   setPositiveThinking3
