@@ -216,7 +216,7 @@ const TapMoreWithBottomSheet = ({ onOpen, variant, onClose }) => {
   const bottomSheetRef = useRef(null)
 
   // variables
-  const snapPoints = useMemo(() => ['50%', '95%'], [])
+  const snapPoints = useMemo(() => ['99%'], [])
 
   const handleSheetChanges = useCallback(
     (index) => {
