@@ -70,6 +70,7 @@ const Flow3Navigator = () => {
             title={'REFLECTION ACTIVITY'}
             subTitle={'Benefits List'}
             nextScreen={'PromptAudio1'}
+            hideTapMore={true}
           />
         )}
       />
@@ -125,9 +126,11 @@ const Flow3Navigator = () => {
               current={2}
               total={5}
               navigation={navigation}
+              paddingTop={0}
             />
           ),
-          headerShown: isPreview
+          headerShown: isPreview,
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptVideo
@@ -152,9 +155,11 @@ const Flow3Navigator = () => {
               current={4}
               total={5}
               navigation={navigation}
+              paddingTop={0}
             />
           ),
-          headerShown: isPreview
+          headerShown: isPreview,
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptVideo
@@ -179,8 +184,10 @@ const Flow3Navigator = () => {
               current={2}
               total={5}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PreviewScreen
@@ -201,8 +208,10 @@ const Flow3Navigator = () => {
               current={4}
               total={5}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PreviewScreen
@@ -223,8 +232,10 @@ const Flow3Navigator = () => {
               current={2}
               total={5}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptText
@@ -245,8 +256,10 @@ const Flow3Navigator = () => {
               current={4}
               total={5}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptText

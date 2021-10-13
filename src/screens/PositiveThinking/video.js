@@ -24,7 +24,7 @@ export const millisToMinutesAndSeconds = (millis) => {
     ? minutes + 1 + ':00'
     : minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 }
-const VideoPage = ({ nextScreen, title, subTitle }) => {
+const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
   const [opacity, setOpacity] = useState(false)
   const [status, setStatus] = useState({})
   const [finish, setFinish] = useState(false)
@@ -86,7 +86,7 @@ const VideoPage = ({ nextScreen, title, subTitle }) => {
                 onOpen={() => setOpacity(true)}
                 onClose={() => setOpacity(false)}
                 handleContinue={() => navigation.navigate(nextScreen)}
-                hideTapMore={false}
+                hideTapMore={hideTapMore}
               />
             )}
           </View>
