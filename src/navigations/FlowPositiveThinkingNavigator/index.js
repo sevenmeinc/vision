@@ -76,6 +76,9 @@ const FlowPositiveThinkingNavigator = () => {
       <Stack.Screen
         name="positiveThinkingHome"
         component={FlowPositiveThinking}
+        options={{
+          headerTitle: 'Chat'
+        }}
       />
       <Stack.Screen
         name="positiveThinkingModal"

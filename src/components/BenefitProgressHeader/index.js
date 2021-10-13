@@ -11,7 +11,8 @@ const BenefitProgressHeader = ({
   total,
   title,
   navigation,
-  darkMode
+  darkMode,
+  paddingTop = 16
 }) => {
   const renderProgress = () => {
     let stage = 0
@@ -55,7 +56,7 @@ const BenefitProgressHeader = ({
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingTop: 16,
+        paddingTop: paddingTop,
         paddingHorizontal: 16,
         backgroundColor: darkMode ? 'black' : '#F9F9F9',
         alignItems: 'center'

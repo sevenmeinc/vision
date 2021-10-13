@@ -130,7 +130,13 @@ const Flow1Navigator = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Flow1" component={Flow1} />
+      <Stack.Screen
+        name="Flow1"
+        component={Flow1}
+        options={{
+          headerTitle: 'Chat'
+        }}
+      />
       <Stack.Screen
         name="reflectionHome"
         options={({ navigation }) => ({

@@ -13,9 +13,9 @@ const BreatheScreen = ({
   setTime
 }) => {
   useEffect(() => {
-    setImgUri(null)
-    setDuration({ min: 0, sec: 0 })
-    setTime({ min: 0, sec: 0 })
+    setImgUri?.(null)
+    setDuration?.({ min: 0, sec: 0 })
+    setTime?.({ min: 0, sec: 0 })
   }, [setImgUri, setDuration, setTime])
 
   return (

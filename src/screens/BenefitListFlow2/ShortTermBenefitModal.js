@@ -11,6 +11,7 @@ const ShortTermBenefitModal = ({ shortTermItem, setShortTermItem }) => {
         onChangeText={(text) => setShortTermItem(text)}
         multiline={true}
         style={{ textAlignVertical: 'top', padding: 16 }}
+        autoFocus={true}
       />
     </SafeAreaView>
   )
