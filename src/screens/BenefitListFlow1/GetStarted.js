@@ -37,7 +37,7 @@ const GetStarted = (props) => {
             />
             <View style={{ marginTop: 12 }} />
             <OutlineButton
-              title="Comeback later"
+              title="Come back later"
               onPress={() => navigation.navigate('Flow1')}
             />
           </View>
