@@ -3,6 +3,7 @@ import { View, Text, Dimensions } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons'
+import { ScrollView } from 'react-native-gesture-handler'
 import Flow1 from '../../screens/BenefitListFlow2/Flow2'
 import ReflectionHome from '../../screens/ReflectionHome'
 import GetStarted from '../../screens/BenefitListFlow1/GetStarted'
@@ -137,14 +138,16 @@ const Flow1Navigator = () => {
           presentation: 'modal'
         })}
         children={(props) => (
-          <ReflectionHome
-            {...props}
-            onPress={() =>
-              navigation.navigate('GetStarted', {
-                screen: 'GetStarted'
-              })
-            }
-          />
+          <ScrollView>
+            <ReflectionHome
+              {...props}
+              onPress={() =>
+                navigation.navigate('GetStarted', {
+                  screen: 'GetStarted'
+                })
+              }
+            />
+          </ScrollView>
         )}
       />
       <Stack.Screen
