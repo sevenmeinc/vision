@@ -9,7 +9,9 @@ const PromptAudio = ({
   prompt,
   textScreen,
   videoScreen,
-  nextScreen
+  nextScreen,
+  isPreview,
+  setIsPreview
 }) => {
   const navigation = useNavigation()
 
@@ -58,8 +60,9 @@ const PromptAudio = ({
         handleVideo={() => {
           navigation.navigate(videoScreen)
         }}
+        setIsPreview={setIsPreview}
       />
-      <ButtonBackNext nextScreen={nextScreen} />
+      <ButtonBackNext nextScreen={nextScreen} disableButton={!isPreview} />
     </SafeAreaView>
   )
 }

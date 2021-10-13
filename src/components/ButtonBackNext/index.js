@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   text: { fontSize: 17, fontWeight: '500', textAlign: 'center' }
 })
 
-const ButtonBackNext = ({ nextScreen }) => {
+const ButtonBackNext = ({ nextScreen, disableButton }) => {
   const navigation = useNavigation()
 
   return (
@@ -39,6 +39,7 @@ const ButtonBackNext = ({ nextScreen }) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => navigation.navigate(nextScreen)}
+        disabled={disableButton}
         style={{
           ...styles.button,
           backgroundColor: '#193340'

@@ -6,7 +6,7 @@ import Timer from './Timer'
 
 const newTimer = { min: 0, sec: 0 }
 
-const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
+const AuxRecorderPlayer = ({ handleVideo, handleText, setIsPreview }) => {
   const BUTTON_MODES = {
     play: 'play',
     stop: 'square',
@@ -57,6 +57,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
     handleRestart()
     setIsRecording(false)
     setBtn3Mode('restart')
+    setIsPreview(true)
   }
 
   const handleDelete = () => {
@@ -65,6 +66,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText }) => {
     setBtn1Mode('text')
     setBtn2Mode('record')
     setBtn3Mode('video')
+    setIsPreview(false)
   }
 
   const handlePause = () => {

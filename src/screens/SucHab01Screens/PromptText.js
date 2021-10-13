@@ -106,7 +106,7 @@ const PromptText = ({
             <View
               style={{
                 opacity: isKeyboardVisible ? 1 : 0,
-                paddingBottom: dismissPadding,
+                paddingBottom: dismissPadding + 50,
                 flexDirection: 'row',
                 justifyContent: 'space-between'
               }}>
@@ -142,7 +142,7 @@ const PromptText = ({
           </View>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
-      <ButtonBackNext nextScreen={nextScreen} />
+      <ButtonBackNext nextScreen={nextScreen} disableButton={!res.length} />
     </SafeAreaView>
   )
 }
