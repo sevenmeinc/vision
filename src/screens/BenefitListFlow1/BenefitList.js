@@ -53,7 +53,7 @@ const BenefitList = ({ navigation, route }) => {
         </View>
         <View style={{ paddingHorizontal: 16 }}>
           <Button
-            title="Finish activity"
+            title="Continue"
             onPress={() => navigation.navigate('Feedback')}
           />
         </View>
