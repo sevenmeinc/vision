@@ -76,6 +76,7 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
               <VideoEndedContent
                 handleContinue={() => navigation.navigate(nextScreen)}
                 handleLater={navigation.goBack}
+                handleReplay={() => video.current.replayAsync()}
               />
             ) : (
               <VideoPausedContent
