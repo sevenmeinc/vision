@@ -30,6 +30,7 @@ const PromptText = ({
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
   const [dismissPadding, setDismissPadding] = useState(80)
+
   const [res, setRes] = useState('')
   const styles = StyleSheet.create({
     navButton: {
@@ -62,7 +63,7 @@ const PromptText = ({
         <TouchableWithoutFeedback
           onPress={() => {
             Keyboard.dismiss()
-            setDismissPadding(200)
+            dismissKeyboardPadding()
           }}>
           <View
             style={{
@@ -119,7 +120,7 @@ const PromptText = ({
               }}>
               <View style={{ flexDirection: 'row' }}>
                 <TouchableOpacity
-                  disabled={isKeyboardVisible}
+                  disabled={!isKeyboardVisible}
                   style={styles.navButton}
                   onPress={() => {
                     navigation.navigate(audioScreen)
@@ -127,7 +128,7 @@ const PromptText = ({
                   <FeatherIcons name={'mic'} size={20} color={'#717173'} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                  disabled={isKeyboardVisible}
+                  disabled={!isKeyboardVisible}
                   style={styles.navButton}
                   onPress={() => {
                     navigation.navigate(videoScreen)
@@ -136,7 +137,7 @@ const PromptText = ({
                 </TouchableOpacity>
               </View>
               <TouchableOpacity
-                disabled={isKeyboardVisible}
+                disabled={!isKeyboardVisible}
                 style={styles.navButton}
                 onPress={() => {
                   Keyboard.dismiss()

@@ -61,6 +61,8 @@ const PromptAudio = ({
           navigation.navigate(videoScreen)
         }}
         setIsPreview={setIsPreview}
+        btn1Initial={{ text: 'edit' }}
+        btn3Initial={{ video: 'video' }}
       />
       <ButtonBackNext nextScreen={nextScreen} disableButton={!isPreview} />
     </SafeAreaView>

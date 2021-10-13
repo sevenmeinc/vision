@@ -46,7 +46,11 @@ const InputAudioCard = ({ index, item }) => {
         Your response will appear here.
       </Text>
       <View style={{ flex: 1, justifyContent: 'flex-end', marginBottom: 15 }}>
-        <AuxRecorderPlayer />
+        <AuxRecorderPlayer
+          btn1Initial={{}}
+          btn3Initial={{}}
+          setIsPreview={() => {}}
+        />
       </View>
     </View>
   )

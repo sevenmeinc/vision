@@ -6,7 +6,13 @@ import Timer from './Timer'
 
 const newTimer = { min: 0, sec: 0 }
 
-const AuxRecorderPlayer = ({ handleVideo, handleText, setIsPreview }) => {
+const AuxRecorderPlayer = ({
+  handleVideo,
+  handleText,
+  setIsPreview,
+  btn1Initial,
+  btn3Initial
+}) => {
   const BUTTON_MODES = {
     play: 'play',
     stop: 'square',
@@ -14,14 +20,17 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, setIsPreview }) => {
     pause: 'pause',
     delete: 'trash-2',
     restart: 'rotate-ccw',
-    video: 'video',
-    text: 'edit'
+    ...btn1Initial,
+    ...btn3Initial
   }
 
+  const BTN1INITIAL_STATE = Object.keys(btn1Initial)[0]
+  const BTN3INITIAL_STATE = Object.keys(btn3Initial)[0]
+
   // component state
-  const [btn1Mode, setBtn1Mode] = useState('text')
+  const [btn1Mode, setBtn1Mode] = useState(BTN1INITIAL_STATE ?? null)
   const [btn2Mode, setBtn2Mode] = useState('record')
-  const [btn3Mode, setBtn3Mode] = useState('video')
+  const [btn3Mode, setBtn3Mode] = useState(BTN3INITIAL_STATE ?? null)
   const [isRecording, setIsRecording] = useState(false)
 
   // AudioRecorder state
@@ -35,6 +44,7 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, setIsPreview }) => {
     setIsRecording(true)
     setBtn1Mode('delete')
     setBtn2Mode('stop')
+    setBtn3Mode('restart')
     setTimerGo(true)
     setResetTimer(false)
   }
@@ -56,16 +66,15 @@ const AuxRecorderPlayer = ({ handleVideo, handleText, setIsPreview }) => {
     setDuration({ ...time, sec: time.sec + 1 })
     handleRestart()
     setIsRecording(false)
-    setBtn3Mode('restart')
     setIsPreview(true)
   }
 
   const handleDelete = () => {
     setTime(newTimer)
     setIsRecording(false)
-    setBtn1Mode('text')
+    setBtn1Mode(BTN1INITIAL_STATE ?? null)
     setBtn2Mode('record')
-    setBtn3Mode('video')
+    setBtn3Mode(BTN3INITIAL_STATE ?? null)
     setIsPreview(false)
   }
 
