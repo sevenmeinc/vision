@@ -39,11 +39,11 @@ const BotMessagesData = [
     id: 1,
     messages: [
       {
-        message: 'Great! First Question'
+        message: 'Great! First Question:'
       },
       {
         message:
-          'What short-tem benefits might you gain from completing your Weekly Commitment?'
+          'What short-term benefits might you gain from completing your Weekly Commitment?'
       }
     ]
   },
@@ -63,7 +63,7 @@ const BotMessagesData = [
       },
       {
         message:
-          'What are three long-term benefits you might gain from completing your Weekly Commitment?'
+          'What are three long-term benefits might you gain from completing your Weekly Commitment?'
       }
     ]
   },
@@ -71,8 +71,7 @@ const BotMessagesData = [
     id: 1,
     messages: [
       {
-        message:
-          'Nice! Now let’s review your answers and keep them in the back of your mind.'
+        message: 'Well done!'
       }
     ]
   }
@@ -109,7 +108,7 @@ const Chat = (props) => {
   const keyExtractor = (item, index) => `${index}-${item}`
 
   useEffect(() => {
-    if (userResponse.length === 1) {
+    if (userResponse.length === 1 || userResponse.length === 4) {
       setChatMessages((prev) => [BotMessagesData[1], ...prev])
     } else if (userResponse.length === 3) {
       setChatMessages((prev) => [BotMessagesData[2], ...prev])
@@ -168,7 +167,7 @@ const Chat = (props) => {
                 <View style={{ marginTop: 8 }} />
                 <OutlineButton
                   title="Come back later"
-                  onPress={() => props.navigation.navigate('Flow2')}
+                  onPress={() => props.navigation.navigate('Flow1')}
                 />
               </View>
             </View>
