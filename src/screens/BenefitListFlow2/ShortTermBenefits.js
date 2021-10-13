@@ -1,14 +1,16 @@
 import React from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import { ScrollView, Text, View, Dimensions } from 'react-native'
 import Svg, { Path } from 'react-native-svg'
 import { TouchableOpacity, TextInput } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+const { width } = Dimensions.get('window')
 
 const ShortTermBenefits = ({
   shortTermItem1,
   shortTermItem2,
-  shortTermItem3
+  shortTermItem3,
+  nextScreen
 }) => {
   const navigation = useNavigation()
 
@@ -24,14 +26,18 @@ const ShortTermBenefits = ({
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          width: 344,
+          width: width - 30,
           padding: 16,
           borderStyle: shortTermItem ? 'solid' : 'dashed',
           borderWidth: 1,
           borderRadius: 8,
           borderColor: '#BFBFBF',
-          backgroundColor: shortTermItem ? '#fff' : '#DCDCDD',
-          marginBottom: 16
+          backgroundColor: shortTermItem ? '#fff' : '#F9F9F9',
+          marginBottom: 16,
+          shadowColor: '#000000',
+          shadowOpacity: 0.1,
+          shadowRadius: 2,
+          shadowOffset: { height: 1 }
         }}>
         <TextInput
           placeholder="Add an item..."
@@ -94,11 +100,11 @@ const ShortTermBenefits = ({
   }
 
   return (
-    <SafeAreaView style={{ backgroundColor: '#DCDCDD', flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: '#F9F9F9', flex: 1 }}>
       <ScrollView
         contentContainerStyle={{
           alignItems: 'center',
-          backgroundColor: '#DCDCDD'
+          backgroundColor: '#F9F9F9'
         }}>
         <Svg
           width={375}
@@ -129,30 +135,50 @@ const ShortTermBenefits = ({
           3 items required
         </Text>
       </ScrollView>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('relaxScreen')}
-        disabled={disableNextButton}
-        style={{
-          margin: 16,
-          marginTop: 40,
-          borderRadius: 100,
-          width: 344,
-          height: 52,
-          backgroundColor: disableNextButton
-            ? 'rgba(25, 51, 64, 0.4)'
-            : '#193340',
-          justifyContent: 'center'
-        }}>
-        <Text
+      <View style={{ flexDirection: 'row', padding: 16, alignSelf: 'center' }}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
           style={{
-            fontSize: 17,
-            color: '#fff',
-            fontWeight: '500',
-            textAlign: 'center'
+            marginRight: 4,
+            borderRadius: 100,
+            width: 168,
+            height: 52,
+            justifyContent: 'center',
+            backgroundColor: 'rgba(25, 51, 64, 0.08)'
           }}>
-          Next
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: '500',
+              textAlign: 'center'
+            }}>
+            Back
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(nextScreen)}
+          disabled={disableNextButton}
+          style={{
+            marginLeft: 4,
+            borderRadius: 100,
+            width: 168,
+            height: 52,
+            justifyContent: 'center',
+            backgroundColor: disableNextButton
+              ? 'rgba(25, 51, 64, 0.4)'
+              : '#193340'
+          }}>
+          <Text
+            style={{
+              fontSize: 17,
+              color: '#fff',
+              fontWeight: '500',
+              textAlign: 'center'
+            }}>
+            Next
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }

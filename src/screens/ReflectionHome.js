@@ -11,7 +11,7 @@ import Svg, { Rect, Path, Defs, G } from 'react-native-svg'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const ReflectionHome = ({ onPress }) => {
   const navigation = useNavigation()

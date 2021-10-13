@@ -11,6 +11,7 @@ const LongTermBenefitModal = ({ longTermItem, setLongTermItem }) => {
         onChangeText={(text) => setLongTermItem(text)}
         multiline={true}
         style={{ textAlignVertical: 'top', padding: 16 }}
+        autoFocus={true}
       />
     </SafeAreaView>
   )
