@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, SafeAreaView, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const Header = ({ navigation, title }) => {
+const Header = ({ navigation, title, popTo }) => {
   return (
     <SafeAreaView
       style={{
@@ -27,7 +27,12 @@ const Header = ({ navigation, title }) => {
           }}>
           {title}
         </Text>
-        <TouchableOpacity onPress={() => navigation.popToTop()}>
+        <TouchableOpacity
+          onPress={
+            popTo
+              ? () => navigation.navigate(popTo)
+              : () => navigation.popToTop()
+          }>
           <Text
             style={{
               fontSize: 14,

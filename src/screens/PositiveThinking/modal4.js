@@ -74,7 +74,7 @@ const Modal4 = () => {
             margin: 4,
             justifyContent: 'center'
           }}
-          onPress={() => navigation.goBack()}>
+          onPress={() => navigation.navigate('positiveThinkingActivity')}>
           <Text
             style={{
               fontSize: 14,

@@ -22,7 +22,7 @@ const FlowPositiveThinkingModal = () => {
             <Header
               navigation={navigation}
               title="Positive thinking"
-              home="positiveThinkingHome"
+              popTo="positiveThinkingHome"
             />
           )
         })}
@@ -35,7 +35,7 @@ const FlowPositiveThinkingModal = () => {
             <Header
               navigation={navigation}
               title="Positive thinking"
-              home="positiveThinkingHome"
+              popTo="positiveThinkingHome"
             />
           )
         })}
@@ -48,7 +48,7 @@ const FlowPositiveThinkingModal = () => {
             <Header
               navigation={navigation}
               title="Positive thinking"
-              home="positiveThinkingHome"
+              popTo="positiveThinkingHome"
             />
           )
         })}
@@ -61,7 +61,7 @@ const FlowPositiveThinkingModal = () => {
             <Header
               navigation={navigation}
               title="Positive thinking"
-              home="positiveThinkingHome"
+              popTo="positiveThinkingHome"
             />
           )
         })}
