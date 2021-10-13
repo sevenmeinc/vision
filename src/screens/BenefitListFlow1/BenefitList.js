@@ -37,7 +37,12 @@ const BenefitList = ({ navigation, route }) => {
   const longTerms = route.params?.longTerms ?? []
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 10 }}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: 10,
+          justifyContent: 'space-between'
+        }}>
         <View style={{ paddingHorizontal: 16 }}>
           <BotMessage
             messages={[
