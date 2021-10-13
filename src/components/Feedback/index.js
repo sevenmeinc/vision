@@ -77,7 +77,7 @@ const Feedback = ({ onPress }) => {
           </View>
         </View>
         <View style={{ paddingHorizontal: 16 }}>
-          <Button title="Return to my feed" onPress={onPress} />
+          <Button title="Finish activity" onPress={onPress} />
         </View>
       </View>
     </SafeAreaView>
