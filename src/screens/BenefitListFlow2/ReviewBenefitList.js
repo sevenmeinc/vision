@@ -39,11 +39,11 @@ const List = ({ title, list }) => {
     </View>
   )
 }
-const ReviewBenefitList = ({ shortTerms = [], longTerms = [] }) => {
+const ReviewBenefitList = ({ shortTerms = [], longTerms = [], nextScreen }) => {
   const navigation = useNavigation()
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#DCDCDD' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9F9F9' }}>
       <ScrollView>
         <View>
           <Svg
@@ -65,7 +65,7 @@ const ReviewBenefitList = ({ shortTerms = [], longTerms = [] }) => {
           <List title="Long-term benefits" list={longTerms} />
         </View>
       </ScrollView>
-      <View style={{ flexDirection: 'row', padding: 16 }}>
+      <View style={{ flexDirection: 'row', padding: 16, alignSelf: 'center' }}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={{
@@ -86,7 +86,7 @@ const ReviewBenefitList = ({ shortTerms = [], longTerms = [] }) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Feedback')}
+          onPress={() => navigation.navigate(nextScreen)}
           style={{
             marginLeft: 4,
             borderRadius: 100,

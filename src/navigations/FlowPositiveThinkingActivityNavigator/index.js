@@ -165,6 +165,7 @@ const FlowPositiveThinkingActivity = () => {
             title={'Part 01'}
             subTitle={'Benefits of Positive Thinking'}
             nextScreen={'postVideo1'}
+            hideTapMore={false}
           />
         )}
       />
