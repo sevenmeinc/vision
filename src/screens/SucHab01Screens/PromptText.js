@@ -29,7 +29,7 @@ const PromptText = ({
   const navigation = useNavigation()
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
-  const [dismissPadding, setDismissPadding] = useState(80)
+  const [dismissPadding, setDismissPadding] = useState(65)
 
   const [res, setRes] = useState('')
   const styles = StyleSheet.create({
