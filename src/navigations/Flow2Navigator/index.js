@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from '@react-navigation/native'
-import { modalOptions } from '../utils'
 import Flow2 from '../../screens/BenefitListFlow2/Flow2'
 import ReflectionHome from '../../screens/ReflectionHome'
 import Header from '../../components/Header'
