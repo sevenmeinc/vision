@@ -21,14 +21,16 @@ const ButtonBackNext = ({ nextScreen, disableButton }) => {
         display: 'flex',
         width: '100%',
         flexDirection: 'row',
-        paddingTop: 0,
+        padding: 8,
         justifyContent: 'space-evenly'
       }}>
       <TouchableOpacity
         onPress={navigation.goBack}
         style={{
           ...styles.button,
-          backgroundColor: 'rgba(25, 51, 64, 0.08)'
+          backgroundColor: 'rgba(25, 51, 64, 0.08)',
+          borderWidth: 1,
+          borderColor: 'lightgray'
         }}>
         <Text
           style={{

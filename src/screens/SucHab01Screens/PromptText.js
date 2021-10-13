@@ -29,8 +29,7 @@ const PromptText = ({
   const navigation = useNavigation()
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
-  const [dismissPadding, setDismissPadding] = useState(65)
-
+  const [dismissPadding, setDismissPadding] = useState(80)
   const [res, setRes] = useState('')
   const styles = StyleSheet.create({
     navButton: {
@@ -58,13 +57,20 @@ const PromptText = ({
     <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
+        enabled={isKeyboardVisible}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <TouchableWithoutFeedback
           onPress={() => {
             Keyboard.dismiss()
-            dismissKeyboardPadding()
+            setDismissPadding(200)
           }}>
-          <View style={{ flex: 1, paddingHorizontal: 8, marginTop: 24 }}>
+          <View
+            style={{
+              flex: 1,
+              paddingHorizontal: 8,
+              marginTop: 24,
+              alignItems: 'center'
+            }}>
             <Text
               style={{
                 fontSize: 17,
@@ -91,7 +97,7 @@ const PromptText = ({
               onFocus={onFocus}
               autoFocus={true}
               style={{
-                width: width * 0.9,
+                width: width,
                 flex: 1,
                 marginTop: 24,
                 padding: 16,
@@ -106,12 +112,14 @@ const PromptText = ({
             <View
               style={{
                 opacity: isKeyboardVisible ? 1 : 0,
-                paddingBottom: dismissPadding + 50,
+                paddingBottom: dismissPadding,
                 flexDirection: 'row',
+                width: '100%',
                 justifyContent: 'space-between'
               }}>
               <View style={{ flexDirection: 'row' }}>
                 <TouchableOpacity
+                  disabled={isKeyboardVisible}
                   style={styles.navButton}
                   onPress={() => {
                     navigation.navigate(audioScreen)
@@ -119,6 +127,7 @@ const PromptText = ({
                   <FeatherIcons name={'mic'} size={20} color={'#717173'} />
                 </TouchableOpacity>
                 <TouchableOpacity
+                  disabled={isKeyboardVisible}
                   style={styles.navButton}
                   onPress={() => {
                     navigation.navigate(videoScreen)
@@ -127,6 +136,7 @@ const PromptText = ({
                 </TouchableOpacity>
               </View>
               <TouchableOpacity
+                disabled={isKeyboardVisible}
                 style={styles.navButton}
                 onPress={() => {
                   Keyboard.dismiss()
