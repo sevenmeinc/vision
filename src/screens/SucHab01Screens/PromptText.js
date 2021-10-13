@@ -53,7 +53,7 @@ const PromptText = ({
     if (setResponse && res) {
       return () => setResponse(res)
     }
-  })
+  }, [setResponse, res])
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView
@@ -80,6 +80,7 @@ const PromptText = ({
             <TextInput
               onChangeText={(msg) => {
                 setRes(msg)
+                dismissKeyboardPadding()
               }}
               value={res}
               multiline
