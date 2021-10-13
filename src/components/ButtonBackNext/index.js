@@ -1,6 +1,14 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+
+const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   button: {
@@ -19,7 +27,7 @@ const ButtonBackNext = ({ nextScreen, disableButton }) => {
     <View
       style={{
         display: 'flex',
-        width: '100%',
+        width: width,
         flexDirection: 'row',
         padding: 8,
         justifyContent: 'space-evenly'
