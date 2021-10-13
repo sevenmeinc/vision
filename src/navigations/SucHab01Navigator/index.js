@@ -29,7 +29,11 @@ const SucHab01Navigator = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="SuccessfulHabits01" component={SuccessfulHabits} />
+      <Stack.Screen
+        name="SuccessfulHabits01"
+        component={SuccessfulHabits}
+        options={{ headerTitle: 'Chat' }}
+      />
       <Stack.Screen
         name="PreActivity"
         options={({ navigation }) => ({

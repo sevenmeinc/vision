@@ -12,7 +12,13 @@ const Flow2Navigator = () => {
 
   return (
     <Stack.Navigator {...modalOptions}>
-      <Stack.Screen name="Flow 2" component={Flow2} />
+      <Stack.Screen
+        name="Flow 2"
+        component={Flow2}
+        options={{
+          headerTitle: 'Chat'
+        }}
+      />
       <Stack.Screen
         name="reflectionHome"
         options={({ navigation }) => ({
