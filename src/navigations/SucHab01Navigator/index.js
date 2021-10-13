@@ -148,9 +148,11 @@ const SucHab01Navigator = () => {
               current={2}
               total={3}
               navigation={navigation}
+              paddingTop={0}
             />
           ),
-          headerShown: isPreview
+          headerShown: isPreview,
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptVideo
@@ -175,9 +177,11 @@ const SucHab01Navigator = () => {
               current={3}
               total={3}
               navigation={navigation}
+              paddingTop={0}
             />
           ),
-          headerShown: isPreview
+          headerShown: isPreview,
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptVideo
@@ -202,8 +206,10 @@ const SucHab01Navigator = () => {
               current={2}
               total={3}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PreviewScreen
@@ -224,8 +230,10 @@ const SucHab01Navigator = () => {
               current={2}
               total={3}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PreviewScreen
@@ -246,8 +254,10 @@ const SucHab01Navigator = () => {
               current={2}
               total={3}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptText
@@ -267,8 +277,10 @@ const SucHab01Navigator = () => {
               current={3}
               total={3}
               navigation={navigation}
+              paddingTop={0}
             />
-          )
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
           <PromptText

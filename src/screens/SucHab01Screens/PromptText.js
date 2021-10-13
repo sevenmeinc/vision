@@ -29,7 +29,7 @@ const PromptText = ({
   const navigation = useNavigation()
 
   const { isKeyboardVisible, onFocus, onBlur } = useKeyboard()
-  const [dismissPadding, setDismissPadding] = useState(60)
+  const [dismissPadding, setDismissPadding] = useState(65)
 
   const [res, setRes] = useState('')
   const styles = StyleSheet.create({
@@ -45,6 +45,10 @@ const PromptText = ({
     }
   })
 
+  const dismissKeyboardPadding = () => {
+    setDismissPadding(180)
+  }
+
   useEffect(() => {
     if (setResponse && res) {
       return () => setResponse(res)
@@ -58,7 +62,7 @@ const PromptText = ({
         <TouchableWithoutFeedback
           onPress={() => {
             Keyboard.dismiss()
-            setDismissPadding(140)
+            dismissKeyboardPadding()
           }}>
           <View style={{ flex: 1, paddingHorizontal: 8, marginTop: 24 }}>
             <Text
@@ -125,7 +129,7 @@ const PromptText = ({
                 style={styles.navButton}
                 onPress={() => {
                   Keyboard.dismiss()
-                  setDismissPadding(140)
+                  dismissKeyboardPadding()
                 }}>
                 <FeatherIcons
                   name={'chevron-down'}
