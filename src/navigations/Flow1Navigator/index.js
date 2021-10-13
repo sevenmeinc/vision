@@ -140,7 +140,9 @@ const Flow1Navigator = () => {
       <Stack.Screen
         name="reflectionHome"
         options={({ navigation }) => ({
-          header: () => <Header navigation={navigation} />,
+          header: () => (
+            <Header navigation={navigation} title="Reflection activity" />
+          ),
           presentation: 'modal'
         })}
         children={(props) => (
