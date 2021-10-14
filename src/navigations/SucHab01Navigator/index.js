@@ -22,7 +22,7 @@ const newTimer = { min: 0, sec: 0 }
 const SucHab01Navigator = () => {
   const navigation = useNavigation()
 
-  const [isPreview, setIsPreview] = useState(false)
+  const [audioResponse, setAudioResponse] = useState()
   const [imgUri, setImgUri] = useState(null)
   const [duration, setDuration] = useState(newTimer)
   const [time, setTime] = useState(newTimer)
@@ -112,6 +112,8 @@ const SucHab01Navigator = () => {
         children={(props) => (
           <PromptAudio
             {...props}
+            isPreview={audioResponse}
+            setIsPreview={setAudioResponse}
             prompt={prompts[0].prompt}
             textScreen={'PromptText1'}
             videoScreen={'PromptVideo1'}
@@ -133,6 +135,8 @@ const SucHab01Navigator = () => {
         children={(props) => (
           <PromptAudio
             {...props}
+            isPreview={audioResponse}
+            setIsPreview={setAudioResponse}
             prompt={prompts[1].prompt}
             textScreen={'PromptText2'}
             videoScreen={'PromptVideo2'}
@@ -151,13 +155,12 @@ const SucHab01Navigator = () => {
               paddingTop={0}
             />
           ),
-          headerShown: isPreview,
+          headerShown: false,
           presentation: 'modal'
         })}
         children={(props) => (
           <PromptVideo
             {...props}
-            setIsPreview={setIsPreview}
             prompt={prompts[0].prompt}
             audioScreen={'PromptAudio1'}
             textScreen={'PromptText1'}
@@ -180,13 +183,12 @@ const SucHab01Navigator = () => {
               paddingTop={0}
             />
           ),
-          headerShown: isPreview,
+          headerShown: false,
           presentation: 'modal'
         })}
         children={(props) => (
           <PromptVideo
             {...props}
-            setIsPreview={setIsPreview}
             prompt={prompts[1].prompt}
             audioScreen={'PromptAudio2'}
             textScreen={'PromptText2'}
