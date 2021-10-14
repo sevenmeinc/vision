@@ -22,7 +22,7 @@ const InputCard = ({
     <View
       style={{
         backgroundColor: 'white',
-        height: 360,
+        height: 300,
         width: 280,
         borderRadius: 12,
         border: '1px solid #DADADA',
