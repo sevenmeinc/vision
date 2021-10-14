@@ -45,7 +45,7 @@ const PreActivityCard = ({
           resizeMode={'cover'}
           source={image}
           style={{
-            height: height * 0.4,
+            height: 260,
             width: width - 32,
             borderRadius: 8,
             marginBottom: 24
@@ -53,7 +53,7 @@ const PreActivityCard = ({
         />
         <View
           style={{
-            minHeight: 260,
+            minHeight: height * 0.2,
             width: width - 32,
             paddingHorizontal: 16,
             marginBottom: 62
