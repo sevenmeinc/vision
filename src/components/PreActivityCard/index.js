@@ -11,7 +11,7 @@ import {
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import Space from '../Space'
 
-const { height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const PreActivityCard = ({
   image,
@@ -22,134 +22,111 @@ const PreActivityCard = ({
   handleBtn2
 }) => {
   return (
-    <SafeAreaView
-      style={{
-        display: 'flex',
-        flexGrow: 1,
-        marginHorizontal: 16,
-        marginTop: 16,
-        backgroundColor: '#FFF',
-        alignItems: 'center',
-        flexDirection: 'column'
-      }}>
-      <ScrollView>
-        <View
+    <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
+      <ScrollView
+        contentContainerStyle={{
+          alignItems: 'center',
+          backgroundColor: '#fff'
+        }}>
+        <Image
+          source={image}
           style={{
-            height: height * 0.4,
-            width: '100%',
-            justifyContent: 'flex-start'
-          }}>
-          <Image
-            resizeMode={'cover'}
-            source={image}
-            style={{
-              height: '90%',
-              width: '100%',
-              borderRadius: 8,
-              borderWidth: 1,
-              borderColor: 'lightgray'
-            }}
-          />
-        </View>
-        <View
+            marginTop: 8,
+            width: width - 30,
+            height: 258,
+            borderRadius: 12
+          }}
+          resizeMode={'cover'}
+        />
+        <Text
           style={{
-            minHeight: height * 0.2,
-            width: '100%',
-            paddingHorizontal: 16,
-            marginBottom: 20
+            fontSize: 32,
+            fontStyle: 'normal',
+            fontWeight: '700',
+            lineHeight: 38,
+            letterSpacing: 0,
+            textAlign: 'left',
+            marginVertical: 8
           }}>
-          <Text
+          {title}
+        </Text>
+        {timeEst ? (
+          <View
             style={{
-              fontSize: 32,
-              fontStyle: 'normal',
-              fontWeight: '700',
-              lineHeight: 38,
-              letterSpacing: 0,
-              textAlign: 'left',
-              marginBottom: 8
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginBottom: 24,
+              alignSelf: 'flex-start',
+              paddingHorizontal: 16
             }}>
-            {title}
-          </Text>
-          {timeEst ? (
-            <View
+            <FeatherIcons name="clock" size={20} color={'#808080'} />
+            <Text
               style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginBottom: 24
+                color: '#808080',
+                fontSize: 17,
+                fontStyle: 'normal',
+                fontWeight: '500',
+                lineHeight: 20,
+                letterSpacing: 0,
+                textAlign: 'left'
               }}>
-              <FeatherIcons name="clock" size={20} color={'#808080'} />
-              <Text
-                style={{
-                  color: '#808080',
-                  fontSize: 17,
-                  fontStyle: 'normal',
-                  fontWeight: '500',
-                  lineHeight: 20,
-                  letterSpacing: 0,
-                  textAlign: 'left'
-                }}>
-                {' '}
-                {timeEst} min activity
-              </Text>
-            </View>
-          ) : (
-            <Space index={3} />
-          )}
+              {' '}
+              {timeEst} min activity
+            </Text>
+          </View>
+        ) : (
+          <Space index={3} />
+        )}
+        <Text
+          style={{
+            fontSize: 17,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 24,
+            letterSpacing: 0,
+            textAlign: 'left',
+            paddingHorizontal: 16
+          }}>
+          {description}
+        </Text>
+
+        <TouchableOpacity
+          onPress={handleBtn1}
+          style={{
+            borderRadius: 100,
+            width: width - 30,
+            height: 52,
+            justifyContent: 'center',
+            backgroundColor: '#193340',
+            marginTop: 62
+          }}>
           <Text
             style={{
               fontSize: 17,
-              fontStyle: 'normal',
               fontWeight: '500',
-              lineHeight: 24,
-              letterSpacing: 0,
-              textAlign: 'left'
+              textAlign: 'center',
+              color: '#fff'
             }}>
-            {description}
+            Get Started
           </Text>
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleBtn2}
           style={{
-            width: '100%',
-            flexDirection: 'column',
-            alignItems: 'center'
+            borderRadius: 100,
+            justifyContent: 'center',
+            marginTop: 20
           }}>
-          <TouchableOpacity
-            onPress={handleBtn1}
+          <Text
             style={{
-              borderRadius: 100,
-              width: '80%',
-              height: 52,
-              justifyContent: 'center',
-              backgroundColor: '#193340'
+              fontSize: 17,
+              fontWeight: '500',
+              textAlign: 'center',
+              color: '#808080'
             }}>
-            <Text
-              style={{
-                fontSize: 17,
-                fontWeight: '500',
-                textAlign: 'center',
-                color: '#fff'
-              }}>
-              Get Started
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleBtn2}
-            style={{
-              borderRadius: 100,
-              justifyContent: 'center',
-              marginTop: 20
-            }}>
-            <Text
-              style={{
-                fontSize: 17,
-                fontWeight: '500',
-                textAlign: 'center',
-                color: '#808080'
-              }}>
-              Remind me later
-            </Text>
-          </TouchableOpacity>
-        </View>
+            Remind me later
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   )
