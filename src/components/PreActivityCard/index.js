@@ -34,7 +34,7 @@ const PreActivityCard = ({
     <SafeAreaView
       style={{
         marginHorizontal: 16,
-        backgroundColor: '#FFF'
+        flexGrow: 1
       }}>
       <ScrollView>
         <Image
