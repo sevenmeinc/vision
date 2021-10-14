@@ -52,7 +52,8 @@ const ButtonBackNext = ({ nextScreen, disableButton }) => {
         disabled={disableButton}
         style={{
           ...styles.button,
-          backgroundColor: '#193340'
+          backgroundColor: '#193340',
+          opacity: disableButton ? 0.4 : 1
         }}>
         <Text
           style={{

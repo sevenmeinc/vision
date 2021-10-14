@@ -12,7 +12,7 @@ import {
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import Space from '../Space'
 
-const { height } = Dimensions.get('window')
+const { height, width } = Dimensions.get('window')
 
 const PreActivityCard = ({
   image,
@@ -33,16 +33,20 @@ const PreActivityCard = ({
   return (
     <SafeAreaView
       style={{
-        marginHorizontal: 16,
-        flexGrow: 1
+        flexGrow: 1,
+        backgroundColor: '#FFF'
       }}>
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{
+          alignItems: 'center',
+          backgroundColor: '#fff'
+        }}>
         <Image
           resizeMode={'cover'}
           source={image}
           style={{
             height: height * 0.4,
-            width: '100%',
+            width: width - 32,
             borderRadius: 8,
             marginBottom: 24
           }}
@@ -50,7 +54,7 @@ const PreActivityCard = ({
         <View
           style={{
             minHeight: height * 0.2,
-            width: '100%',
+            width: width - 32,
             paddingHorizontal: 16,
             marginBottom: 62
           }}>
@@ -88,43 +92,41 @@ const PreActivityCard = ({
             {description}
           </Text>
         </View>
-        <View style={{ alignItems: 'center' }}>
-          <TouchableOpacity
-            onPress={handleBtn1}
+        <TouchableOpacity
+          onPress={handleBtn1}
+          style={{
+            borderRadius: 100,
+            width: width - 32,
+            height: 52,
+            justifyContent: 'center',
+            backgroundColor: '#193340'
+          }}>
+          <Text
             style={{
-              borderRadius: 100,
-              width: '80%',
-              height: 52,
-              justifyContent: 'center',
-              backgroundColor: '#193340'
+              ...styles.descText,
+              lineHeight: 24,
+              textAlign: 'center',
+              color: '#fff'
             }}>
-            <Text
-              style={{
-                ...styles.descText,
-                lineHeight: 24,
-                textAlign: 'center',
-                color: '#fff'
-              }}>
-              Get Started
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={handleBtn2}
+            Get Started
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleBtn2}
+          style={{
+            borderRadius: 100,
+            justifyContent: 'center',
+            marginTop: 20
+          }}>
+          <Text
             style={{
-              borderRadius: 100,
-              justifyContent: 'center',
-              marginTop: 20
+              ...styles.descText,
+              textAlign: 'center',
+              color: '#808080'
             }}>
-            <Text
-              style={{
-                ...styles.descText,
-                textAlign: 'center',
-                color: '#808080'
-              }}>
-              Remind me later
-            </Text>
-          </TouchableOpacity>
-        </View>
+            Remind me later
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   )
