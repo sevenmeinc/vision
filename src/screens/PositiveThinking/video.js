@@ -80,9 +80,7 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
             {finish || skip ? (
               <VideoEndedContent
                 handleContinue={() => navigation.navigate(nextScreen)}
-                handleLater={() =>
-                  navigation.navigate('positiveThinkingActivity')
-                }
+                handleLater={() => navigation.navigate('positiveThinkingHome')}
                 handleReplay={() => handleReplay(video)}
               />
             ) : (
