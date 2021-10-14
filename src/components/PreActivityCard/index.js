@@ -6,7 +6,8 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import Space from '../Space'
@@ -21,42 +22,37 @@ const PreActivityCard = ({
   handleBtn1, // fn()
   handleBtn2
 }) => {
+  const styles = StyleSheet.create({
+    descText: {
+      fontSize: 17,
+      fontStyle: 'normal',
+      fontWeight: '500'
+    }
+  })
+
   return (
     <SafeAreaView
       style={{
-        display: 'flex',
-        flexGrow: 1,
         marginHorizontal: 16,
-        marginTop: 16,
-        backgroundColor: '#FFF',
-        alignItems: 'center',
-        flexDirection: 'column'
+        backgroundColor: '#FFF'
       }}>
       <ScrollView>
-        <View
+        <Image
+          resizeMode={'cover'}
+          source={image}
           style={{
             height: height * 0.4,
             width: '100%',
-            justifyContent: 'flex-start'
-          }}>
-          <Image
-            resizeMode={'cover'}
-            source={image}
-            style={{
-              height: '90%',
-              width: '100%',
-              borderRadius: 8,
-              borderWidth: 1,
-              borderColor: 'lightgray'
-            }}
-          />
-        </View>
+            borderRadius: 8,
+            marginBottom: 24
+          }}
+        />
         <View
           style={{
             minHeight: height * 0.2,
             width: '100%',
             paddingHorizontal: 16,
-            marginBottom: 20
+            marginBottom: 62
           }}>
           <Text
             style={{
@@ -70,36 +66,21 @@ const PreActivityCard = ({
             }}>
             {title}
           </Text>
-          {timeEst ? (
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginBottom: 24
-              }}>
-              <FeatherIcons name="clock" size={20} color={'#808080'} />
-              <Text
-                style={{
-                  color: '#808080',
-                  fontSize: 17,
-                  fontStyle: 'normal',
-                  fontWeight: '500',
-                  lineHeight: 20,
-                  letterSpacing: 0,
-                  textAlign: 'left'
-                }}>
-                {' '}
-                {timeEst} min activity
-              </Text>
-            </View>
-          ) : (
-            <Space index={3} />
-          )}
           <Text
             style={{
-              fontSize: 17,
-              fontStyle: 'normal',
-              fontWeight: '500',
+              ...styles.descText,
+              color: '#808080',
+              lineHeight: 20,
+              letterSpacing: 0,
+              textAlign: 'left'
+            }}>
+            <FeatherIcons name="clock" size={20} color={'#808080'} /> {timeEst}{' '}
+            min activity
+          </Text>
+          <Space index={3} />
+          <Text
+            style={{
+              ...styles.descText,
               lineHeight: 24,
               letterSpacing: 0,
               textAlign: 'left'
@@ -107,12 +88,7 @@ const PreActivityCard = ({
             {description}
           </Text>
         </View>
-        <View
-          style={{
-            width: '100%',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}>
+        <View style={{ alignItems: 'center' }}>
           <TouchableOpacity
             onPress={handleBtn1}
             style={{
@@ -124,8 +100,8 @@ const PreActivityCard = ({
             }}>
             <Text
               style={{
-                fontSize: 17,
-                fontWeight: '500',
+                ...styles.descText,
+                lineHeight: 24,
                 textAlign: 'center',
                 color: '#fff'
               }}>
@@ -141,8 +117,7 @@ const PreActivityCard = ({
             }}>
             <Text
               style={{
-                fontSize: 17,
-                fontWeight: '500',
+                ...styles.descText,
                 textAlign: 'center',
                 color: '#808080'
               }}>
