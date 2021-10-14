@@ -5,12 +5,14 @@ import {
   Text,
   Image,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView,
+  StyleSheet
 } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import Space from '../Space'
 
-const { height } = Dimensions.get('window')
+const { height, width } = Dimensions.get('window')
 
 const PreActivityCard = ({
   image,
@@ -20,111 +22,89 @@ const PreActivityCard = ({
   handleBtn1, // fn()
   handleBtn2
 }) => {
+  const styles = StyleSheet.create({
+    descText: {
+      fontSize: 17,
+      fontStyle: 'normal',
+      fontWeight: '500'
+    }
+  })
+
   return (
     <SafeAreaView
       style={{
-        display: 'flex',
         flexGrow: 1,
-        marginHorizontal: 16,
-        marginTop: 16,
-        maxHeight: height,
-        backgroundColor: '#FFF',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexDirection: 'column'
+        backgroundColor: '#FFF'
       }}>
-      <View
-        style={{
-          height: '40%',
-          width: '100%',
-          justifyContent: 'flex-start'
+      <ScrollView
+        contentContainerStyle={{
+          alignItems: 'center',
+          backgroundColor: '#fff'
         }}>
         <Image
           resizeMode={'cover'}
           source={image}
           style={{
-            height: '80%',
-            width: '100%',
+            height: 260,
+            width: width - 32,
             borderRadius: 8,
-            borderWidth: 1,
-            borderColor: 'lightgray'
+            marginBottom: 24
           }}
         />
-      </View>
-      <View
-        style={{
-          height: '45%',
-          width: '100%',
-          paddingHorizontal: 16
-        }}>
-        <Text
+        <View
           style={{
-            fontSize: 32,
-            fontStyle: 'normal',
-            fontWeight: '700',
-            lineHeight: 38,
-            letterSpacing: 0,
-            textAlign: 'left',
-            marginBottom: 8
+            minHeight: height * 0.2,
+            width: width - 32,
+            paddingHorizontal: 16,
+            marginBottom: 62
           }}>
-          {title}
-        </Text>
-        {timeEst ? (
-          <View
+          <Text
             style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginBottom: 24
+              fontSize: 32,
+              fontStyle: 'normal',
+              fontWeight: '700',
+              lineHeight: 38,
+              letterSpacing: 0,
+              textAlign: 'left',
+              marginBottom: 8
             }}>
-            <FeatherIcons name="clock" size={20} color={'#808080'} />
-            <Text
-              style={{
-                color: '#808080',
-                fontSize: 17,
-                fontStyle: 'normal',
-                fontWeight: '500',
-                lineHeight: 20,
-                letterSpacing: 0,
-                textAlign: 'left'
-              }}>
-              {' '}
-              {timeEst} min activity
-            </Text>
-          </View>
-        ) : (
+            {title}
+          </Text>
+          <Text
+            style={{
+              ...styles.descText,
+              color: '#808080',
+              lineHeight: 20,
+              letterSpacing: 0,
+              textAlign: 'left'
+            }}>
+            <FeatherIcons name="clock" size={20} color={'#808080'} /> {timeEst}{' '}
+            min activity
+          </Text>
           <Space index={3} />
-        )}
-        <Text
-          style={{
-            fontSize: 17,
-            fontStyle: 'normal',
-            fontWeight: '500',
-            lineHeight: 24,
-            letterSpacing: 0,
-            textAlign: 'left'
-          }}>
-          {description}
-        </Text>
-      </View>
-      <View
-        style={{
-          width: '100%',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}>
+          <Text
+            style={{
+              ...styles.descText,
+              lineHeight: 24,
+              letterSpacing: 0,
+              textAlign: 'left'
+            }}>
+            {description}
+          </Text>
+        </View>
         <TouchableOpacity
           onPress={handleBtn1}
           style={{
             borderRadius: 100,
-            width: '80%',
+            width: width - 32,
             height: 52,
             justifyContent: 'center',
             backgroundColor: '#193340'
           }}>
           <Text
             style={{
-              fontSize: 17,
-              fontWeight: '500',
+              ...styles.descText,
+              lineHeight: 24,
               textAlign: 'center',
               color: '#fff'
             }}>
@@ -140,15 +120,14 @@ const PreActivityCard = ({
           }}>
           <Text
             style={{
-              fontSize: 17,
-              fontWeight: '500',
+              ...styles.descText,
               textAlign: 'center',
               color: '#808080'
             }}>
             Remind me later
           </Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

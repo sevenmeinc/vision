@@ -1,6 +1,14 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+
+const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   button: {
@@ -12,23 +20,25 @@ const styles = StyleSheet.create({
   text: { fontSize: 17, fontWeight: '500', textAlign: 'center' }
 })
 
-const ButtonBackNext = ({ nextScreen }) => {
+const ButtonBackNext = ({ nextScreen, disableButton }) => {
   const navigation = useNavigation()
 
   return (
     <View
       style={{
         display: 'flex',
-        width: '100%',
+        width: width,
         flexDirection: 'row',
-        paddingTop: 0,
+        padding: 8,
         justifyContent: 'space-evenly'
       }}>
       <TouchableOpacity
         onPress={navigation.goBack}
         style={{
           ...styles.button,
-          backgroundColor: 'rgba(25, 51, 64, 0.08)'
+          backgroundColor: 'rgba(25, 51, 64, 0.08)',
+          borderWidth: 1,
+          borderColor: 'lightgray'
         }}>
         <Text
           style={{
@@ -39,9 +49,11 @@ const ButtonBackNext = ({ nextScreen }) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => navigation.navigate(nextScreen)}
+        disabled={disableButton}
         style={{
           ...styles.button,
-          backgroundColor: '#193340'
+          backgroundColor: '#193340',
+          opacity: disableButton ? 0.4 : 1
         }}>
         <Text
           style={{

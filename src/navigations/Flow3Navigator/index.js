@@ -22,6 +22,7 @@ const newTimer = { min: 0, sec: 0 }
 const Flow3Navigator = () => {
   const navigation = useNavigation()
   const [isPreview, setIsPreview] = useState(false)
+  const [audioResponse, setAudioResponse] = useState()
   const [imgUri, setImgUri] = useState(null)
   const [duration, setDuration] = useState(newTimer)
   const [time, setTime] = useState(newTimer)
@@ -88,6 +89,8 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PromptAudio
             {...props}
+            isPreview={audioResponse}
+            setIsPreview={setAudioResponse}
             prompt={prompts[0].prompt}
             description={prompts[0].contemplation}
             textScreen={'PromptText1'}
@@ -110,6 +113,8 @@ const Flow3Navigator = () => {
         children={(props) => (
           <PromptAudio
             {...props}
+            isPreview={audioResponse}
+            setIsPreview={setAudioResponse}
             prompt={prompts[1].prompt}
             description={prompts[1].contemplation}
             textScreen={'PromptText2'}
