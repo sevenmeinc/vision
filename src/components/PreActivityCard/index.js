@@ -53,7 +53,7 @@ const PreActivityCard = ({
         />
         <View
           style={{
-            minHeight: height * 0.2,
+            minHeight: 260,
             width: width - 32,
             paddingHorizontal: 16,
             marginBottom: 62
