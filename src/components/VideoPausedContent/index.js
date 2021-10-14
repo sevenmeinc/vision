@@ -12,7 +12,7 @@ const VideoPausedContent = ({
   onOpen,
   onClose,
   hideTapMore,
-  handleContinue
+  handleSkip
 }) => {
   return (
     <View
@@ -59,7 +59,7 @@ const VideoPausedContent = ({
       </View>
       <OutlineButton
         title="Skip video intro"
-        onPress={handleContinue}
+        onPress={handleSkip}
         variant="light"
       />
       {!hideTapMore && (

@@ -28,6 +28,7 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
   const [opacity, setOpacity] = useState(false)
   const [status, setStatus] = useState({})
   const [finish, setFinish] = useState(false)
+  const [skip, setSkip] = useState(false)
   const [videoDuration, setVideoDuration] = useState(0)
   const video = useRef(null)
   const navigation = useNavigation()
@@ -37,6 +38,10 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
     [videoDuration]
   )
 
+  const handleReplay = (ref) => {
+    ref.current.replayAsync()
+    setSkip(false)
+  }
   const _onPlaybackStatusUpdate = (playbackStatus) => {
     setVideoDuration(() => playbackStatus.durationMillis)
     setStatus(() => playbackStatus)
@@ -72,11 +77,13 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
 
         {!status.isPlaying && (
           <View style={[styles.overlay, { opacity: !opacity ? 0.8 : 1 }]}>
-            {finish ? (
+            {finish || skip ? (
               <VideoEndedContent
                 handleContinue={() => navigation.navigate(nextScreen)}
-                handleLater={navigation.goBack}
-                handleReplay={() => video.current.replayAsync()}
+                handleLater={() =>
+                  navigation.navigate('positiveThinkingActivity')
+                }
+                handleReplay={() => handleReplay(video)}
               />
             ) : (
               <VideoPausedContent
@@ -86,7 +93,7 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
                 onPressPlay={() => video.current?.playAsync()}
                 onOpen={() => setOpacity(true)}
                 onClose={() => setOpacity(false)}
-                handleContinue={() => navigation.navigate(nextScreen)}
+                handleSkip={() => setSkip(true)}
                 hideTapMore={hideTapMore}
               />
             )}
