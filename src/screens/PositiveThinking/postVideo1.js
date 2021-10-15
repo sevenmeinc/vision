@@ -1,13 +1,23 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import Button from '../../components/Button'
 
-const PostVideo1 = ({ navigation, renderItem }) => {
+const PostVideo1 = ({
+  navigation,
+  renderItem,
+  positiveThinking1,
+  positiveThinking2,
+  positiveThinking3
+}) => {
   const list = [1, 2, 3]
-
+  let disableNextButton = true
+  if (positiveThinking1 || positiveThinking2 || positiveThinking3) {
+    disableNextButton = false
+  }
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -50,7 +60,9 @@ const PostVideo1 = ({ navigation, renderItem }) => {
             </View>
             <View style={{ flex: 1 }}>
               <Button
+                disabled={disableNextButton}
                 title="Continue"
+                background={disableNextButton ? '#9e9ea0' : Colors.pianoBlack}
                 onPress={() => navigation.navigate('postVideo2')}
               />
             </View>

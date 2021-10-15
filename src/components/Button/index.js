@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 const Button = (props) => {
-  const { title, onPress, background, color } = props
+  const { title, onPress, background, color, disabled } = props
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} disabled={disabled}>
       <View
         style={{
           width: '100%',

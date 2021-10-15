@@ -5,14 +5,22 @@ import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import Button from '../../components/Button'
 import InputAudioCard from '../../components/InputAudioCard'
+import { Colors } from '../../constants/colors'
 
 const PostVideo3 = ({
   navigation,
   positiveThinking1,
   positiveThinking2,
-  positiveThinking3
+  positiveThinking3,
+  setIsPreview,
+  isPreview
 }) => {
   const list = [positiveThinking1, positiveThinking2, positiveThinking3]
+
+  let disableNextButton = true
+  if (isPreview) {
+    disableNextButton = false
+  }
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -44,6 +52,7 @@ const PostVideo3 = ({
                   positiveThinking1={positiveThinking1}
                   positiveThinking2={positiveThinking2}
                   positiveThinking3={positiveThinking3}
+                  setIsPreview={setIsPreview}
                 />
               )
             }}
@@ -65,7 +74,8 @@ const PostVideo3 = ({
               <Button
                 title="Continue"
                 color="white"
-                background="#9e9e9f"
+                disabled={disableNextButton}
+                background={disableNextButton ? '#9e9ea0' : Colors.pianoBlack}
                 onPress={() => navigation.navigate('postVideo4')}
               />
             </View>

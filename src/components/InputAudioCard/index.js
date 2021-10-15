@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import { Colors } from '../../constants/colors'
 import AuxRecorderPlayer from '../AudioRecorderPlayer'
 
-const InputAudioCard = ({ index, item }) => {
+const InputAudioCard = ({ index, item, setIsPreview }) => {
   return (
     <View
       style={{
@@ -49,7 +49,9 @@ const InputAudioCard = ({ index, item }) => {
         <AuxRecorderPlayer
           btn1Initial={{}}
           btn3Initial={{}}
-          setIsPreview={() => {}}
+          setIsPreview={() => {
+            setIsPreview(true)
+          }}
         />
       </View>
     </View>

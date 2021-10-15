@@ -23,6 +23,7 @@ import CoachHeader from '../../components/CoachHeader'
 const Stack = createStackNavigator()
 
 const FlowPositiveThinkingNavigator = () => {
+  const [isPreview, setIsPreview] = useState(false)
   const [positiveThinking1, setPositiveThinking1] = useState('')
   const [positiveThinking2, setPositiveThinking2] = useState('')
   const [positiveThinking3, setPositiveThinking3] = useState('')
@@ -114,7 +115,13 @@ const FlowPositiveThinkingNavigator = () => {
       <Stack.Screen
         name="postVideo1"
         children={({ navigation }) => (
-          <PostVideo1 navigation={navigation} renderItem={renderItem} />
+          <PostVideo1
+            navigation={navigation}
+            renderItem={renderItem}
+            positiveThinking1={positiveThinking1}
+            positiveThinking2={positiveThinking2}
+            positiveThinking3={positiveThinking3}
+          />
         )}
         options={({ navigation, route }) => ({
           headerTitle: () => (
@@ -158,6 +165,8 @@ const FlowPositiveThinkingNavigator = () => {
             positiveThinking1={positiveThinking1}
             positiveThinking2={positiveThinking2}
             positiveThinking3={positiveThinking3}
+            setIsPreview={setIsPreview}
+            isPreview={isPreview}
           />
         )}
         options={({ navigation, route }) => ({
