@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import { Colors } from '../../constants/colors'
 import ReflectionInput from '../../components/ReflectionInput'
 import Button from '../../components/Button'
+
 const PostVideo5 = (props) => {
   const { navigation } = props
+  const [value1, setValue1] = useState('')
+  const [value2, setValue2] = useState('')
+  const [value3, setValue3] = useState('')
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.cottonField }}>
       <ScrollView>
@@ -47,9 +51,24 @@ const PostVideo5 = (props) => {
               <Text>Reflection</Text>
             </View>
 
-            <ReflectionInput question="What are some things that you learned from this activity?" />
-            <ReflectionInput question="Where could you apply this new knowledge in your daily life?" />
-            <ReflectionInput question="What is something you wish to be able to do comfortably a month from now?" />
+            <ReflectionInput
+              question="What are some things that you learned from this activity?"
+              value={value1}
+              onChangeText={(text) => setValue1(text)}
+              disabled={!value1}
+            />
+            <ReflectionInput
+              question="Where could you apply this new knowledge in your daily life?"
+              value={value2}
+              onChangeText={(text) => setValue2(text)}
+              disabled={!value2}
+            />
+            <ReflectionInput
+              question="What is something you wish to be able to do comfortably a month from now?"
+              value={value3}
+              onChangeText={(text) => setValue3(text)}
+              disabled={!value3}
+            />
           </View>
           <View
             style={{
