@@ -25,7 +25,7 @@ const PostVideo1 = ({ navigation, renderItem }) => {
               fontSize: 25,
               marginVertical: 24
             }}>
-            Share 2-3 examples of negative self-talk that you tell yourself.
+            Share 2-3 negative statements that you tell yourself.
           </Text>
 
           <FlatList

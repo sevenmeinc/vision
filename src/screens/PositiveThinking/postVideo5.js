@@ -44,11 +44,11 @@ const PostVideo5 = (props) => {
               <View>
                 <Logo />
               </View>
-              <Text>Reflection and manifestation</Text>
+              <Text>Reflection</Text>
             </View>
 
             <ReflectionInput question="What are some things that you learned from this activity?" />
-            <ReflectionInput question="Where do you see yourself applying this new knowledge in your daily life?" />
+            <ReflectionInput question="Where could you apply this new knowledge in your daily life?" />
             <ReflectionInput question="What is something you wish to be able to do comfortably a month from now?" />
           </View>
           <View

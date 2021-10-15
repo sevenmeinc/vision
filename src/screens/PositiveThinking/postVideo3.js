@@ -30,7 +30,7 @@ const PostVideo3 = ({
               fontSize: 25,
               marginVertical: 24
             }}>
-            Change each example into a positive self-talk.
+            Reword each statement so that it is positive.
           </Text>
           <FlatList
             keyExtractor={(item, index) => `${index}-${item}`}
