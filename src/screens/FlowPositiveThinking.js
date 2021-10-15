@@ -111,7 +111,7 @@ const FlowPositiveThinking = () => {
                 Spend a few minutes looking back on what you've learned so far!
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate('positiveThinkingModal')}
+                onPress={() => navigation.navigate('positiveThinking1')}
                 style={{
                   width: 235,
                   height: 34,
