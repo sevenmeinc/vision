@@ -10,9 +10,12 @@ const PostVideo2 = (props) => {
   const { navigation } = props
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setProgress(progress + 0.1)
     }, 1000)
+    return () => {
+      clearTimeout(timer)
+    }
   })
 
   return (

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useMemo } from 'react'
-import { View, SafeAreaView } from 'react-native'
+import { View, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
 import { Video } from 'expo-av'
 import { useNavigation } from '@react-navigation/native'
 import VideoEndedContent from '../../components/VideoEndedContent'
@@ -64,17 +64,17 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
         backgroundColor: 'black'
       }}>
       <View style={{ flex: 1 }}>
-        <Video
-          ref={video}
-          style={{ flex: 1 }}
-          source={{
-            uri: 'https://content-stage.seven-internal.me/media/original_videos/Habits.mp4'
-          }}
-          useNativeControls
-          resizeMode="contain"
-          onPlaybackStatusUpdate={_onPlaybackStatusUpdate}
-        />
-
+        <TouchableWithoutFeedback onPress={() => video.current?.pauseAsync()}>
+          <Video
+            ref={video}
+            style={{ flex: 1 }}
+            source={{
+              uri: 'https://content-stage.seven-internal.me/media/original_videos/Habits.mp4'
+            }}
+            resizeMode="contain"
+            onPlaybackStatusUpdate={_onPlaybackStatusUpdate}
+          />
+        </TouchableWithoutFeedback>
         {!status.isPlaying && (
           <View style={[styles.overlay, { opacity: !opacity ? 0.8 : 1 }]}>
             {finish || skip ? (
