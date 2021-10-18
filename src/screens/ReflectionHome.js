@@ -145,9 +145,9 @@ const ReflectionHome = ({ onPress }) => {
             alignSelf: 'flex-start'
           }}>
           List all the short-term and long-term benefits you imagine gaining
-          from completing your Weekly Commitment. Reflecting on what you’ve
-          listed will reinforce the significance of taking this step toward your
-          goal(s).
+          from completing your Weekly Commitment. Identifying, and reflecting
+          on, specific benefits will reinforce the importance of taking this
+          step toward your larger goal(s).
         </Text>
         <Text
           style={{
