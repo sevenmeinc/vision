@@ -1,5 +1,11 @@
 import React from 'react'
-import { View, Text, SafeAreaView } from 'react-native'
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+  Keyboard
+} from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Logo from '../../components/Logo'
@@ -28,16 +34,19 @@ const PostVideo1 = ({
           marginTop: 20
         }}>
         <View>
-          <Logo />
-          <Text
-            style={{
-              fontFamily: 'semiBold',
-              fontSize: 25,
-              marginVertical: 24
-            }}>
-            Share 2-3 negative statements that you tell yourself.
-          </Text>
-
+          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+            <View>
+              <Logo />
+              <Text
+                style={{
+                  fontFamily: 'semiBold',
+                  fontSize: 25,
+                  marginVertical: 24
+                }}>
+                Share 2-3 negative statements that you tell yourself.
+              </Text>
+            </View>
+          </TouchableWithoutFeedback>
           <FlatList
             keyExtractor={(item, index) => `${index}-${item}`}
             horizontal
