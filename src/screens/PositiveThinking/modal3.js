@@ -39,13 +39,14 @@ const Modal3 = () => {
           style={{
             fontSize: 17,
             lineHeight: 24,
-            color: '#595959',
-            fontWeight: '500',
+            color: '#666666',
+            fontWeight: '400',
             margin: 16,
             alignSelf: 'flex-start'
           }}>
-          There are many health benefits to positive thinking, including
-          decreasing depression and better cardiovascular health.
+          The following technique can help you make the switch from negative to
+          positive self-talk. It requires patience and repetition, but will
+          become more natural over time with practice..
         </Text>
 
         <TouchableOpacity

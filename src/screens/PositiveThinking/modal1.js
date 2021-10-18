@@ -34,19 +34,20 @@ const Modal1 = () => {
             alignSelf: 'flex-start',
             margin: 16
           }}>
-          Benefits to Positive Thinking
+          What is positive thinking?
         </Text>
         <Text
           style={{
             fontSize: 17,
             lineHeight: 24,
-            color: '#595959',
-            fontWeight: '500',
+            color: '#666666',
+            fontWeight: '400',
             margin: 16,
             alignSelf: 'flex-start'
           }}>
-          There are many health benefits to positive thinking, including
-          decreasing depression and better cardiovascular health.
+          Positive thinking has been linked to various health benefits,
+          including reducing symptoms of depression and improving cardiovascular
+          health..
         </Text>
 
         <TouchableOpacity
