@@ -111,7 +111,7 @@ const PostVideo6 = (props) => {
               title="Finish activity"
               color="white"
               background="black"
-              onPress={() => navigation.navigate('positiveThinkingHome')}
+              onPress={() => navigation.navigate('Flows')}
             />
           </View>
         </View>
