@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, TextInput, TouchableOpacity } from 'react-native'
 import { Colors } from '../../constants/colors'
 
-const ReflectionInput = ({ question }) => {
+const ReflectionInput = ({ question, value, onChangeText, disabled }) => {
   return (
     <View
       style={{
@@ -26,12 +26,17 @@ const ReflectionInput = ({ question }) => {
       <TextInput
         placeholder="I learned..."
         multiline={true}
+        value={value}
+        onChangeText={onChangeText}
         style={{ textAlignVertical: 'top', padding: 16, flex: 1 }}
       />
       <View>
         <TouchableOpacity
-          style={{ marginBottom: 20, marginRight: 20, alignSelf: 'flex-end' }}>
-          <Text style={{ color: Colors.fountainCity }}>Save</Text>
+          style={{ marginBottom: 20, marginRight: 20, alignSelf: 'flex-end' }}
+          disabled={disabled}>
+          <Text style={{ color: disabled ? Colors.fountainCity : '#00968A' }}>
+            Save
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

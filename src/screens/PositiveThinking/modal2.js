@@ -74,7 +74,7 @@ const Modal2 = () => {
             margin: 4,
             justifyContent: 'center'
           }}
-          onPress={() => navigation.goBack()}>
+          onPress={() => navigation.navigate('video')}>
           <Text
             style={{
               fontSize: 14,

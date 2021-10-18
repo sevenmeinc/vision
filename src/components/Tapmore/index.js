@@ -22,7 +22,7 @@ const Tapmore = ({ onPress, variant }) => {
           fontSize: 11,
           color
         }}>
-        Tap more
+        Tap for more
       </Text>
     </TouchableOpacity>
   )

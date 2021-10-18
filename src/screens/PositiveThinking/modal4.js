@@ -58,7 +58,7 @@ const Modal4 = () => {
             backgroundColor: '#193340',
             justifyContent: 'center'
           }}
-          onPress={() => navigation.navigate('positiveThinkingActivity')}>
+          onPress={() => navigation.navigate('video')}>
           <Text
             style={{
               fontSize: 17,
@@ -74,7 +74,7 @@ const Modal4 = () => {
             margin: 4,
             justifyContent: 'center'
           }}
-          onPress={() => navigation.goBack()}>
+          onPress={() => navigation.navigate('video')}>
           <Text
             style={{
               fontSize: 14,

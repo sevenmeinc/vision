@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import Logo from '../Logo'
 import OutlineButton from '../../components/OutlineButton'
 
-const VideoEndedContent = ({ handleContinue, handleLater }) => {
+const VideoEndedContent = ({ handleContinue, handleLater, handleReplay }) => {
   return (
     <View
       style={{
@@ -38,6 +38,12 @@ const VideoEndedContent = ({ handleContinue, handleLater }) => {
           variant="light"
           title="Let's do it"
           onPress={handleContinue}
+        />
+        <View style={{ marginTop: 12 }} />
+        <OutlineButton
+          variant="light"
+          title="Replay video"
+          onPress={handleReplay}
         />
         <View style={{ marginTop: 12 }} />
         <OutlineButton

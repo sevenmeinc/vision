@@ -4,7 +4,7 @@ import FlowScreen from '../../screens/FlowScreen'
 import Flow1Navigator from '../Flow1Navigator'
 import Flow2Navigator from '../Flow2Navigator'
 import FlowPositiveThinkingNavigator from '../FlowPositiveThinkingNavigator'
-import FlowPositiveThinkingActivity from '../FlowPositiveThinkingActivityNavigator'
+
 import Flow3Navigator from '../Flow3Navigator'
 import SucHab01Navigator from '../SucHab01Navigator'
 
@@ -40,11 +40,7 @@ const MainNavigator = () => {
           headerShown: false
         }}
       />
-      <Stack.Screen
-        name="positiveThinkingActivity"
-        component={FlowPositiveThinkingActivity}
-        options={{ headerShown: false }}
-      />
+
       <Stack.Screen
         name="SucHab01"
         component={SucHab01Navigator}
