@@ -33,26 +33,28 @@ const Modal2 = () => {
             alignSelf: 'flex-start',
             margin: 16
           }}>
-          What is Self-talk?
+          Observe your self-talk
         </Text>
         <Text
           style={{
             fontSize: 17,
             lineHeight: 24,
-            color: '#595959',
-            fontWeight: '500',
+            color: '#666666',
+            fontWeight: '400',
             margin: 16,
             alignSelf: 'flex-start'
           }}>
-          There are many health benefits to positive thinking, including
-          decreasing depression and better cardiovascular health.
+          One way to get started with positive thinking is by observing your
+          self-talk — the inner discussion you have with yourself. Negative
+          self-talk can make you doubt your abilities and lower your
+          self-esteem, while positive self-talk can enhance your general
+          wellbeing.
         </Text>
 
         <TouchableOpacity
           onPress={() => navigation.navigate('positiveThinking3')}
           style={{
             margin: 16,
-            marginTop: 40,
             borderRadius: 100,
             width: 344,
             height: 52,

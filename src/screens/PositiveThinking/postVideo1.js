@@ -41,7 +41,8 @@ const PostVideo1 = ({
                 style={{
                   fontFamily: 'semiBold',
                   fontSize: 25,
-                  marginVertical: 24
+                  marginVertical: 24,
+                  fontWeight: '600'
                 }}>
                 Share 2-3 negative statements that you tell yourself.
               </Text>
