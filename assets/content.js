@@ -2,7 +2,7 @@ export const content = {
   successfulHabits: {
     title: 'Past Successful Habits',
     description:
-      'Choose one healthy habit you have sustained long-term. Reflect on why you think you’ve been able to stick with it for so long. This will give you information you can use to help you build and maintain new habits.',
+      'Identify one current healthy habit you have been able to sustain long-term. Reflect on why you think you’ve been able to stick with it for so long. This will provide insights you can use to help build and maintain new healthy habits. If you’re a visual learner, consider drawing or writing what comes to mind.',
     timeEst: 8,
     type: 'Reflection Activity',
     prompts: [
