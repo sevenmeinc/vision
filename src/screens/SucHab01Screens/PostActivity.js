@@ -87,8 +87,8 @@ const PostActivity = ({ postActivity }) => {
             Great Job!
           </Title>
           <Text style={{ ...styles.importedText, color: '#666666' }}>
-            Take a moment to look back at your vision and goal. Respond to the
-            question below to start thinking about ways to apply your learnings!
+            With your past successful habit in mind, take a moment to look back
+            on your vision and goal.
           </Text>
         </View>
         <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>

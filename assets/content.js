@@ -17,7 +17,7 @@ export const content = {
       }
     ],
     postActivity: [
-      'What insights from this reflection can you apply to your pursuit of this vision and goal?'
+      'What insight did you gain from this reflection that you can apply in your pursuit of this vision and goal?'
     ]
   },
   benefitsList: {
@@ -33,7 +33,10 @@ export const content = {
         contemplation:
           'What are the long-term benefits you imagine gaining from completing your Weekly Commitment?'
       },
-      { prompt: 'What is one healthy habit you sustained long-term?' },
+      {
+        prompt:
+          'What is one healthy habit that you have maintained for longer than six months?'
+      },
       {
         prompt:
           'Why do you think you have been able to stick with it for so long?'
