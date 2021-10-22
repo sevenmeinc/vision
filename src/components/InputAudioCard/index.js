@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text } from 'react-native'
 import { Colors } from '../../constants/colors'
 import AuxRecorderPlayer from '../AudioRecorderPlayer'
 
 const InputAudioCard = ({ index, item, setIsPreview }) => {
+  const [savedRecording, setSavedRecording] = useState(false)
   return (
     <View
       style={{
@@ -39,7 +40,7 @@ const InputAudioCard = ({ index, item, setIsPreview }) => {
         style={{
           fontStyle: 'italic',
           fontSize: 17,
-          color: '#B2B2B2',
+          color: savedRecording ? Colors.pianoBlack : '#B2B2B2',
           marginHorizontal: 16,
           marginVertical: 12
         }}>
@@ -52,6 +53,7 @@ const InputAudioCard = ({ index, item, setIsPreview }) => {
           setIsPreview={() => {
             setIsPreview(true)
           }}
+          setSavedRecording={setSavedRecording}
         />
       </View>
     </View>
