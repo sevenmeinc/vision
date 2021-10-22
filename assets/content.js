@@ -9,7 +9,8 @@ export const content = {
       {
         contemplation:
           'Take a moment to reflect on the past few years. Consider what healthy habits you have stuck with for more than six months.',
-        prompt: 'What is one healthy habit you sustained long-term?'
+        prompt:
+          'What is one healthy habit that you have maintained for longer than six months?'
       },
       {
         prompt:

@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { useNavigation } from '@react-navigation/native'
 import Flow3 from '../../screens/BenefitListFlow3/Flow3'
 import ReviewBenefitList from '../../screens/BenefitListFlow3/ReviewBenefitList'
-import ReflectionHome from '../../screens/ReflectionHome'
-import Header from '../../components/Header'
 import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 import PromptAudio from '../../screens/SucHab01Screens/PromptAudio'
 import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
@@ -20,7 +17,6 @@ const { prompts, postActivity } = content.benefitsList
 const newTimer = { min: 0, sec: 0 }
 
 const Flow3Navigator = () => {
-  const navigation = useNavigation()
   const [isPreview, setIsPreview] = useState(false)
   const [audioResponse, setAudioResponse] = useState()
   const [imgUri, setImgUri] = useState(null)
@@ -37,21 +33,6 @@ const Flow3Navigator = () => {
         options={{
           headerTitle: 'Chat'
         }}
-      />
-      <Stack.Screen
-        name="reflectionHome"
-        options={({ navigation }) => ({
-          header: () => (
-            <Header navigation={navigation} title="Reflection activity" />
-          ),
-          presentation: 'modal'
-        })}
-        children={(props) => (
-          <ReflectionHome
-            {...props}
-            onPress={() => navigation.navigate('video')}
-          />
-        )}
       />
       <Stack.Screen
         name="video"

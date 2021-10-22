@@ -11,7 +11,8 @@ const AuxRecorderPlayer = ({
   handleText,
   setIsPreview,
   btn1Initial,
-  btn3Initial
+  btn3Initial,
+  setSavedRecording
 }) => {
   const BUTTON_MODES = {
     play: 'play',
@@ -67,6 +68,7 @@ const AuxRecorderPlayer = ({
     handleRestart()
     setIsRecording(false)
     setIsPreview(true)
+    setSavedRecording?.(true)
   }
 
   const handleDelete = () => {
@@ -76,6 +78,7 @@ const AuxRecorderPlayer = ({
     setBtn2Mode('record')
     setBtn3Mode(BTN3INITIAL_STATE ?? null)
     setIsPreview(false)
+    setSavedRecording?.(false)
   }
 
   const handlePause = () => {
