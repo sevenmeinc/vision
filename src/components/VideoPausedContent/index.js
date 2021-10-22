@@ -54,11 +54,6 @@ const VideoPausedContent = ({
           <Ionicons name="play-circle-outline" size={120} color="white" />
         </TouchableOpacity>
       </View>
-      {/* <OutlineButton
-        title="Skip video intro"
-        onPress={handleSkip}
-        variant="light"
-      /> */}
       {!hideTapMore && (
         <TapMoreWithBottomSheet
           variant="light"
