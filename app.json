@@ -29,6 +29,6 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "Does not seem to be effective in Web or emulator. Device appears to render as expected.",
-    "githubUrl": "https://github.com/sevenmeinc/vision@FE-387"
+    "githubUrl": "https://github.com/sevenmeinc/vision.git"
   }
 }
