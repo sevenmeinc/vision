@@ -4,7 +4,8 @@ import {
   Text,
   Dimensions,
   TouchableOpacity,
-  Animated
+  Animated,
+  Platform
 } from 'react-native'
 import BottomSheet from '@gorhom/bottom-sheet'
 import { TabView, SceneMap } from 'react-native-tab-view'
@@ -230,6 +231,11 @@ const TapMoreWithBottomSheet = ({ onOpen, variant, onClose }) => {
     bottomSheetRef.current?.close()
   }, [])
   // renders
+
+  if (Platform.OS === 'android') {
+    return <Text>No View</Text>
+  }
+
   return (
     <>
       <View
