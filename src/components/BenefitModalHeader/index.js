@@ -1,10 +1,11 @@
 import React from 'react'
-import { Text, SafeAreaView, View } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-const Header = ({ navigation, title }) => {
+const BenefitModalHeader = (props) => {
   const insets = useSafeAreaInsets()
+
   return (
     <SafeAreaView
       style={{
@@ -16,30 +17,42 @@ const Header = ({ navigation, title }) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           paddingTop: 16,
-          marginVertical: 8,
-          marginHorizontal: 16,
+          paddingVertical: 8,
+          paddingHorizontal: 16,
           backgroundColor: '#fff'
         }}>
-        <Text
-          style={{
-            fontSize: 14,
-            color: '#666666',
-            fontWeight: '600',
-            textAlign: 'center',
-            letterSpacing: -0.01
-          }}>
-          {title}
-        </Text>
-        <TouchableOpacity onPress={() => navigation.popToTop()}>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
           <Text
             style={{
               fontSize: 14,
-              color: '#00968A',
+              color: '#32A6A6',
+              fontWeight: '600',
+              textAlign: 'center',
+              letterSpacing: -0.01
+            }}>
+            Cancel
+          </Text>
+        </TouchableOpacity>
+        <Text
+          style={{
+            fontSize: 14,
+            color: '#16161A',
+            fontWeight: '500',
+            textAlign: 'center',
+            letterSpacing: -0.01
+          }}>
+          {props.title}
+        </Text>
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <Text
+            style={{
+              fontSize: 14,
+              color: '#32A6A6',
               fontWeight: '500',
               textAlign: 'center',
               letterSpacing: -0.01
             }}>
-            Close
+            Save
           </Text>
         </TouchableOpacity>
       </View>
@@ -47,4 +60,4 @@ const Header = ({ navigation, title }) => {
   )
 }
 
-export default Header
+export default BenefitModalHeader

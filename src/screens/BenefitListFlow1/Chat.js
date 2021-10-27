@@ -143,7 +143,7 @@ const Chat = (props) => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
         keyboardVerticalOffset={100}>
-        <View style={{ flex: 1, paddingHorizontal: 15 }}>
+        <View style={{ flex: 1, paddingHorizontal: 15, paddingBottom: 30 }}>
           <FlatList
             keyExtractor={keyExtractor}
             data={chatMessages}

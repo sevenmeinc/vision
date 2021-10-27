@@ -13,9 +13,7 @@ import PostVideo3 from '../../screens/PositiveThinking/postVideo3'
 import PostVideo4 from '../../screens/PositiveThinking/postVideo4'
 import PostVideo5 from '../../screens/PositiveThinking/postVideo5'
 import PostVideo6 from '../../screens/PositiveThinking/postVideo6'
-
 import InputCard from '../../components/InputCard'
-import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 import ProgressHeader from '../../components/ProgressHeader'
 import { Colors } from '../../constants/colors'
 import CoachHeader from '../../components/CoachHeader'
@@ -94,7 +92,7 @@ const FlowPositiveThinkingNavigator = () => {
         name="video"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={1}
               total={5}
               navigation={navigation}

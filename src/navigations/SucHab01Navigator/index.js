@@ -8,7 +8,7 @@ import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
 import PromptText from '../../screens/SucHab01Screens/PromptText'
 import PostActivity from '../../screens/SucHab01Screens/PostActivity'
 import Header from '../../components/Header'
-import BenefitProgressHeader from '../../components/BenefitProgressHeader'
+import ProgressHeader from '../../components/ProgressHeader'
 import { content } from '../../../assets/content'
 import image from '../../../assets/suc-hab-img.png'
 import BreatheScreen from '../../screens/SucHab01Screens/Breathe'
@@ -58,11 +58,7 @@ const SucHab01Navigator = () => {
         name="Breathe"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={1}
-              total={3}
-              navigation={navigation}
-            />
+            <ProgressHeader current={1} total={3} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -80,11 +76,7 @@ const SucHab01Navigator = () => {
         name="Breathe2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={2}
-              total={3}
-              navigation={navigation}
-            />
+            <ProgressHeader current={2} total={3} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -102,11 +94,7 @@ const SucHab01Navigator = () => {
         name="PromptAudio1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={2}
-              total={3}
-              navigation={navigation}
-            />
+            <ProgressHeader current={2} total={3} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -125,11 +113,7 @@ const SucHab01Navigator = () => {
         name="PromptAudio2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={3}
-              total={3}
-              navigation={navigation}
-            />
+            <ProgressHeader current={3} total={3} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -148,7 +132,7 @@ const SucHab01Navigator = () => {
         name="PromptVideo1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={2}
               total={3}
               navigation={navigation}
@@ -176,7 +160,7 @@ const SucHab01Navigator = () => {
         name="PromptVideo2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={3}
               total={3}
               navigation={navigation}
@@ -204,7 +188,7 @@ const SucHab01Navigator = () => {
         name="Preview1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={2}
               total={3}
               navigation={navigation}
@@ -228,7 +212,7 @@ const SucHab01Navigator = () => {
         name="Preview2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={2}
               total={3}
               navigation={navigation}
@@ -252,7 +236,7 @@ const SucHab01Navigator = () => {
         name="PromptText1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={2}
               total={3}
               navigation={navigation}
@@ -275,7 +259,7 @@ const SucHab01Navigator = () => {
         name="PromptText2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={3}
               total={3}
               navigation={navigation}
@@ -298,7 +282,7 @@ const SucHab01Navigator = () => {
         name="PostActivity"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               title={'Past Successful Habits'}
               navigation={navigation}
             />

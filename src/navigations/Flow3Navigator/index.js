@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Flow3 from '../../screens/BenefitListFlow3/Flow3'
 import ReviewBenefitList from '../../screens/BenefitListFlow3/ReviewBenefitList'
-import BenefitProgressHeader from '../../components/BenefitProgressHeader'
+import ProgressHeader from '../../components/ProgressHeader'
 import PromptAudio from '../../screens/SucHab01Screens/PromptAudio'
 import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
 import PromptText from '../../screens/SucHab01Screens/PromptText'
@@ -38,7 +38,7 @@ const Flow3Navigator = () => {
         name="video"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={1}
               total={5}
               navigation={navigation}
@@ -60,11 +60,7 @@ const Flow3Navigator = () => {
         name="PromptAudio1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={2}
-              total={5}
-              navigation={navigation}
-            />
+            <ProgressHeader current={2} total={5} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -84,11 +80,7 @@ const Flow3Navigator = () => {
         name="PromptAudio2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={4}
-              total={5}
-              navigation={navigation}
-            />
+            <ProgressHeader current={4} total={5} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -108,7 +100,7 @@ const Flow3Navigator = () => {
         name="PromptVideo1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={2}
               total={5}
               navigation={navigation}
@@ -137,7 +129,7 @@ const Flow3Navigator = () => {
         name="PromptVideo2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={4}
               total={5}
               navigation={navigation}
@@ -166,7 +158,7 @@ const Flow3Navigator = () => {
         name="Preview1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={2}
               total={5}
               navigation={navigation}
@@ -190,7 +182,7 @@ const Flow3Navigator = () => {
         name="Preview2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={4}
               total={5}
               navigation={navigation}
@@ -214,7 +206,7 @@ const Flow3Navigator = () => {
         name="PromptText1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={2}
               total={5}
               navigation={navigation}
@@ -238,7 +230,7 @@ const Flow3Navigator = () => {
         name="PromptText2"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
+            <ProgressHeader
               current={4}
               total={5}
               navigation={navigation}
@@ -262,11 +254,7 @@ const Flow3Navigator = () => {
         name="Breathe"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={3}
-              total={5}
-              navigation={navigation}
-            />
+            <ProgressHeader current={3} total={5} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -284,11 +272,7 @@ const Flow3Navigator = () => {
         name="ReviewBenefitList"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={5}
-              total={5}
-              navigation={navigation}
-            />
+            <ProgressHeader current={5} total={5} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -304,10 +288,7 @@ const Flow3Navigator = () => {
         name="PostActivity"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              title={'Benefits List'}
-              navigation={navigation}
-            />
+            <ProgressHeader title={'Benefits List'} navigation={navigation} />
           )
         })}
         children={(props) => (

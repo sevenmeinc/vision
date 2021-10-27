@@ -8,8 +8,8 @@ import ShortTermBenefits from '../../screens/BenefitListFlow2/ShortTermBenefits'
 import LongTermBenefits from '../../screens/BenefitListFlow2/LongTermBenefits'
 import ShortTermBenefitModal from '../../screens/BenefitListFlow2/ShortTermBenefitModal'
 import LongTermBenefitModal from '../../screens/BenefitListFlow2/LongTermBenefitModal'
-import BenefitProgressHeader from '../../components/BenefitProgressHeader'
-import ShortTermModalHeader from '../../components/ShortTermModalHeader'
+import ProgressHeader from '../../components/ProgressHeader'
+import BenefitModalHeader from '../../components/BenefitModalHeader'
 import LongTermModalHeader from '../../components/LongTermModalHeader'
 import BreatheScreen from '../../screens/SucHab01Screens/Breathe'
 import FeedbackScreen from '../../screens/BenefitListFlow2/Feedback'
@@ -54,11 +54,7 @@ const Flow2Navigator = () => {
         name="shortTermScreen"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={1}
-              total={4}
-              navigation={navigation}
-            />
+            <ProgressHeader current={1} total={4} navigation={navigation} />
           )
         })}
         children={() => (
@@ -73,7 +69,12 @@ const Flow2Navigator = () => {
       <Stack.Screen
         name="shortTermModal1"
         options={({ navigation }) => ({
-          header: () => <ShortTermModalHeader navigation={navigation} />,
+          header: () => (
+            <BenefitModalHeader
+              title={' Short-term benefits'}
+              navigation={navigation}
+            />
+          ),
           presentation: 'modal'
         })}
         children={() => (
@@ -86,7 +87,12 @@ const Flow2Navigator = () => {
       <Stack.Screen
         name="shortTermModal2"
         options={({ navigation }) => ({
-          header: () => <ShortTermModalHeader navigation={navigation} />,
+          header: () => (
+            <BenefitModalHeader
+              title={' Short-term benefits'}
+              navigation={navigation}
+            />
+          ),
           presentation: 'modal'
         })}
         children={() => (
@@ -99,7 +105,12 @@ const Flow2Navigator = () => {
       <Stack.Screen
         name="shortTermModal3"
         options={({ navigation }) => ({
-          header: () => <ShortTermModalHeader navigation={navigation} />,
+          header: () => (
+            <BenefitModalHeader
+              title={' Short-term benefits'}
+              navigation={navigation}
+            />
+          ),
           presentation: 'modal'
         })}
         children={() => (
@@ -113,11 +124,7 @@ const Flow2Navigator = () => {
         name="Breathe"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={2}
-              total={4}
-              navigation={navigation}
-            />
+            <ProgressHeader current={2} total={4} navigation={navigation} />
           )
         })}
         children={(props) => (
@@ -132,11 +139,7 @@ const Flow2Navigator = () => {
         name="longTerm"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={3}
-              total={4}
-              navigation={navigation}
-            />
+            <ProgressHeader current={3} total={4} navigation={navigation} />
           )
         })}
         children={() => (
@@ -191,11 +194,7 @@ const Flow2Navigator = () => {
         name="reviewBenefitList"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={4}
-              total={4}
-              navigation={navigation}
-            />
+            <ProgressHeader current={4} total={4} navigation={navigation} />
           )
         })}
         children={() => (
@@ -211,10 +210,7 @@ const Flow2Navigator = () => {
         component={FeedbackScreen}
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              title={'Benefits List'}
-              navigation={navigation}
-            />
+            <Header title={'Benefits List'} navigation={navigation} />
           )
         })}
       />

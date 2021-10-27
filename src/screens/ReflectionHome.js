@@ -318,7 +318,8 @@ const ReflectionHome = ({ onPress }) => {
         <TouchableOpacity
           style={{
             margin: 4,
-            justifyContent: 'center'
+            justifyContent: 'center',
+            marginBottom: 16
           }}
           onPress={() => navigation.goBack()}>
           <Text
