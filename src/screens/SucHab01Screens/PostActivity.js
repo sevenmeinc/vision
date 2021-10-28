@@ -9,7 +9,6 @@ import {
   TouchableOpacity
 } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Title } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import useKeyboard from '../../hooks/useKeyboard'
 
@@ -19,6 +18,8 @@ const PostActivity = ({ postActivity }) => {
   const [res, setRes] = useState('')
   const [responses, setResponses] = useState([])
   const [saveDisabled, setSaveDisabled] = useState(true)
+
+  const { description, prompts } = postActivity
 
   const styles = StyleSheet.create({
     container: {
@@ -75,20 +76,8 @@ const PostActivity = ({ postActivity }) => {
             paddingBottom: 16,
             justifyContent: 'center'
           }}>
-          <Title
-            styles={{
-              fontSize: 36,
-              fontStyle: 'normal',
-              fontWeight: '600',
-              lineHeight: 40,
-              letterSpacing: -0.03,
-              textAlign: 'left'
-            }}>
-            Great Job!
-          </Title>
           <Text style={{ ...styles.importedText, color: '#666666' }}>
-            With your past successful habit in mind, take a moment to look back
-            on your vision and goal.
+            {description}
           </Text>
         </View>
         <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
@@ -135,9 +124,9 @@ const PostActivity = ({ postActivity }) => {
             minHeight: 320
           }}>
           <Text style={styles.importedText}>
-            {postActivity.length > responses.length
-              ? postActivity[responses.length]
-              : postActivity[postActivity.length - 1]}
+            {prompts.length > responses.length
+              ? prompts[responses.length]
+              : prompts[prompts.length - 1]}
           </Text>
           <TextInput
             style={{
@@ -164,12 +153,12 @@ const PostActivity = ({ postActivity }) => {
               disabled={saveDisabled}
               style={{
                 opacity:
-                  saveDisabled || postActivity.length === responses.length
+                  saveDisabled || prompts.length === responses.length
                     ? 0.4
                     : null
               }}
               onPress={() => {
-                if (postActivity.length > responses.length) {
+                if (prompts.length > responses.length) {
                   setResponses([...responses, res])
                   setSaveDisabled(true)
                   return
@@ -199,12 +188,12 @@ const PostActivity = ({ postActivity }) => {
             alignItems: 'center'
           }}>
           <TouchableOpacity
-            disabled={postActivity.length > responses.length}
+            disabled={prompts.length > responses.length}
             onPress={() => navigation.navigate('Flows')}
             style={{
               ...styles.button,
               backgroundColor: '#193340',
-              opacity: postActivity.length > responses.length ? 0.4 : null
+              opacity: prompts.length > responses.length ? 0.4 : null
             }}>
             <Text
               style={{
