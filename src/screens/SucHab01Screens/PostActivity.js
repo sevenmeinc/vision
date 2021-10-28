@@ -13,7 +13,7 @@ import { Title } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const PostActivity = ({ postActivity }) => {
+const PostActivity = ({ postActivity, title }) => {
   const { onFocus, onBlur } = useKeyboard()
   const navigation = useNavigation()
   const [res, setRes] = useState('')
@@ -84,11 +84,10 @@ const PostActivity = ({ postActivity }) => {
               letterSpacing: -0.03,
               textAlign: 'left'
             }}>
-            Great Job!
+            Great Job! {title}
           </Title>
           <Text style={{ ...styles.importedText, color: '#666666' }}>
-            With your past successful habit in mind, take a moment to look back
-            on your vision and goal.
+            {postActivity.description}
           </Text>
         </View>
         <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
@@ -137,7 +136,7 @@ const PostActivity = ({ postActivity }) => {
           <Text style={styles.importedText}>
             {postActivity.length > responses.length
               ? postActivity[responses.length]
-              : postActivity[postActivity.length - 1]}
+              : postActivity.prompts[postActivity.length - 1]}
           </Text>
           <TextInput
             style={{

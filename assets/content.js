@@ -1,25 +1,32 @@
 export const content = {
   successfulHabits: {
+    chatDescription:
+      'Reflect on past successes and apply what you learned to your current goal.',
     title: 'Past Successful Habits',
     description:
-      'Identify one current healthy habit you have been able to sustain long-term. Reflect on why you think you’ve been able to stick with it for so long. This will provide insights you can use to help build and maintain new healthy habits. If you’re a visual learner, consider drawing or writing what comes to mind.',
+      'We can learn from our past successes and use those same strategies towards our current goals. In this activity, you will identify one healthy habit that you have sustained long term and reflect on what made it successful.',
     timeEst: 8,
     type: 'Reflection Activity',
     prompts: [
       {
         contemplation:
-          'Take a moment to reflect on the past few years. Consider what healthy habits you have stuck with for more than six months.',
+          'Before we begin, take a deep breath in and out to shift into a reflective mental space.',
         prompt:
           'What is one healthy habit that you have maintained for longer than six months?'
       },
       {
-        prompt:
-          'Why do you think you have been able to stick with it for so long?'
+        contemplation:
+          'Celebrate your success by reminding yourself: my hard work was worth it.',
+        prompt: 'What helped you continue with this habit?'
       }
     ],
-    postActivity: [
-      'What insight did you gain from this reflection that you can apply in your pursuit of this vision and goal?'
-    ]
+    postActivity: {
+      description:
+        'With your past successful habit in mind, look back on your vision and goal.',
+      prompts: [
+        'How can you apply what you’ve learned as you pursue this vision and goal?'
+      ]
+    }
   },
   benefitsList: {
     title: 'Benefits List',

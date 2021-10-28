@@ -4,7 +4,13 @@ import Svg, { Rect, Path, Defs, Circle, ClipPath, G } from 'react-native-svg'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
-const MessageLanging = ({ timeEst, title, activityType, goTo }) => {
+const MessageLanging = ({
+  timeEst,
+  title,
+  activityType,
+  chatDescription,
+  goTo
+}) => {
   const navigation = useNavigation()
 
   return (
@@ -80,7 +86,6 @@ const MessageLanging = ({ timeEst, title, activityType, goTo }) => {
             <View
               style={{
                 width: 259,
-                height: 170,
                 borderRadius: 14,
                 backgroundColor: '#E6E7EA',
                 padding: 12,
@@ -110,7 +115,7 @@ const MessageLanging = ({ timeEst, title, activityType, goTo }) => {
                   fontWeight: '500',
                   marginTop: 16
                 }}>
-                Spend a few minutes looking back on what you've learned so far!
+                {chatDescription}
               </Text>
               <TouchableOpacity
                 onPress={() => navigation.navigate(...goTo)}

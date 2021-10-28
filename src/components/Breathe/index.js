@@ -18,13 +18,13 @@ const Breathe = ({ contemplationPrompt }) => {
           fontSize: 17,
           fontStyle: 'normal',
           fontWeight: '500',
-          lineHeight: 20,
+          lineHeight: 20.29,
           letterSpacing: -0.01,
           textAlign: 'center',
           color: '#16161A',
           marginBottom: 12
         }}>
-        {contemplationPrompt ? 'Breathing Space' : 'Nice!'}
+        {contemplationPrompt ? 'Breathe' : 'Pause'}
       </Text>
       <Text
         style={{

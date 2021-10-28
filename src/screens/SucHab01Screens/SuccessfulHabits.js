@@ -4,7 +4,7 @@ import MessageLanding from '../../components/MessageLanding'
 import { content } from '../../../assets/content'
 
 const {
-  successfulHabits: { title, timeEst, type }
+  successfulHabits: { title, timeEst, type, chatDescription }
 } = content
 
 const SucHab01 = () => {
@@ -13,6 +13,7 @@ const SucHab01 = () => {
       timeEst={timeEst}
       title={title}
       activityType={type}
+      chatDescription={chatDescription}
       goTo={['PreActivity', { ...content.successfulHabits }]}
     />
   )

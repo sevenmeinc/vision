@@ -305,7 +305,7 @@ const SucHab01Navigator = () => {
           )
         })}
         children={(props) => (
-          <PostActivity {...props} postActivity={postActivity} />
+          <PostActivity {...props} postActivity={(postActivity, title)} />
         )}
       />
     </Stack.Navigator>
