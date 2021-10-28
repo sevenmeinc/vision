@@ -6,17 +6,23 @@ export const content = {
     description:
       'We can learn from our past successes and use those same strategies towards our current goals. In this activity, you will identify one healthy habit that you have sustained long term and reflect on what made it successful.',
     timeEst: 8,
-    type: 'Reflection Activity',
+    type: 'Coaching Tool',
     prompts: [
       {
-        contemplation:
-          'Before we begin, take a deep breath in and out to shift into a reflective mental space.',
+        contemplation: {
+          title: 'Breathe',
+          description:
+            'Before we begin, take a deep breath in and out to shift into a reflective mental space.'
+        },
         prompt:
           'What is one healthy habit that you have maintained for longer than six months?'
       },
       {
-        contemplation:
-          'Celebrate your success by reminding yourself: my hard work was worth it.',
+        contemplation: {
+          title: 'Pause',
+          description:
+            'Celebrate your success by reminding yourself:\nmy hard work was worth it.'
+        },
         prompt: 'What helped you continue with this habit?'
       }
     ],
