@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import Svg, { Path } from 'react-native-svg'
 import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import FeatherIcons from 'react-native-vector-icons/Feather'
+import Feather from 'react-native-vector-icons/Feather'
 import { Colors } from '../../constants/colors'
 
 const BenefitProgressHeader = ({
@@ -19,7 +19,7 @@ const BenefitProgressHeader = ({
     const progressArray = []
     while (stage++ < total) {
       progressArray.push(
-        <FeatherIcons
+        <Feather.FeatherIcons
           key={stage}
           name={'minus'}
           size={36}

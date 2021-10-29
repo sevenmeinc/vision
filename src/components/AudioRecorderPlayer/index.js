@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import FeatherIcons from 'react-native-vector-icons/Feather'
+import Feather from 'react-native-vector-icons/Feather'
 import { TouchableOpacity, Text, View } from 'react-native'
 import Space from '../Space'
 import Timer from './Timer'
@@ -156,7 +156,7 @@ const AuxRecorderPlayer = ({
         }}>
         {/* btn1: pause/resume */}
         <TouchableOpacity onPress={handleMode[btn1Mode]}>
-          <FeatherIcons
+          <Feather.Feather.FeatherIcons
             name={BUTTON_MODES[btn1Mode]}
             size={32}
             color={'black'}
@@ -176,7 +176,7 @@ const AuxRecorderPlayer = ({
               ? 'transparent'
               : 'red'
           }}>
-          <FeatherIcons
+          <Feather.Feather.FeatherIcons
             name={BUTTON_MODES[btn2Mode]}
             size={25}
             color={['play', 'pause'].includes(btn2Mode) ? 'black' : 'white'}
@@ -190,7 +190,7 @@ const AuxRecorderPlayer = ({
           style={{
             height: isRecording ? 0 : null
           }}>
-          <FeatherIcons
+          <Feather.Feather.FeatherIcons
             name={BUTTON_MODES[btn3Mode]}
             size={32}
             color={'black'}
