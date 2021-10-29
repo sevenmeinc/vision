@@ -9,7 +9,7 @@ import {
   StyleSheet
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import Feather from 'react-native-vector-icons/Feather'
+import { Feather } from '@expo/vector-icons'
 import ButtonBackNext from '../../components/ButtonBackNext'
 
 const { width, height } = Dimensions.get('window')
@@ -87,11 +87,7 @@ const PreviewScreen = ({ prompt, imgUri, duration, time, nextScreen }) => {
                 onPress={() => {
                   navigation.goBack()
                 }}>
-                <Feather.FeatherIcons
-                  name={'trash-2'}
-                  size={32}
-                  color={'white'}
-                />
+                <Feather name={'trash-2'} size={32} color={'white'} />
               </TouchableOpacity>
               {/* btn2: play */}
               <TouchableOpacity
@@ -104,18 +100,14 @@ const PreviewScreen = ({ prompt, imgUri, duration, time, nextScreen }) => {
                   height: 80,
                   borderRadius: 50
                 }}>
-                <Feather.FeatherIcons name={'play'} size={50} color={'white'} />
+                <Feather name={'play'} size={50} color={'white'} />
               </TouchableOpacity>
               {/* btn3: restart */}
               <TouchableOpacity
                 onPress={() => {
                   alert('Feature not available in prototype')
                 }}>
-                <Feather.FeatherIcons
-                  name={'rotate-ccw'}
-                  size={32}
-                  color={'white'}
-                />
+                <Feather name={'rotate-ccw'} size={32} color={'white'} />
               </TouchableOpacity>
             </View>
           </View>

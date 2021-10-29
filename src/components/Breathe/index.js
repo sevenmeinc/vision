@@ -13,19 +13,21 @@ const Breathe = ({ contemplationPrompt }) => {
         alignContent: 'center',
         justifyContent: 'space-between'
       }}>
-      <Text
-        style={{
-          fontSize: 17,
-          fontStyle: 'normal',
-          fontWeight: '500',
-          lineHeight: 20.29,
-          letterSpacing: -0.01,
-          textAlign: 'center',
-          color: '#16161A',
-          marginBottom: 12
-        }}>
-        {contemplationPrompt.title ?? ''}
-      </Text>
+      {contemplationPrompt?.title && (
+        <Text
+          style={{
+            fontSize: 17,
+            fontStyle: 'normal',
+            fontWeight: '500',
+            lineHeight: 20.29,
+            letterSpacing: -0.01,
+            textAlign: 'center',
+            color: '#16161A',
+            marginBottom: 12
+          }}>
+          {contemplationPrompt.title}
+        </Text>
+      )}
       <Text
         style={{
           color: '#4D4D4D',

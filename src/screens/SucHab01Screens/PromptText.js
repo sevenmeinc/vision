@@ -13,7 +13,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
-import Feather from 'react-native-vector-icons/Feather'
+import { Feather } from '@expo/vector-icons'
 import useKeyboard from '../../hooks/useKeyboard'
 import ButtonBackNext from '../../components/ButtonBackNext'
 
@@ -125,11 +125,7 @@ const PromptText = ({
                   onPress={() => {
                     navigation.navigate(audioScreen)
                   }}>
-                  <Feather.FeatherIcons
-                    name={'mic'}
-                    size={20}
-                    color={'#717173'}
-                  />
+                  <Feather name={'mic'} size={20} color={'#717173'} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   disabled={!isKeyboardVisible}
@@ -137,11 +133,7 @@ const PromptText = ({
                   onPress={() => {
                     navigation.navigate(videoScreen)
                   }}>
-                  <Feather.FeatherIcons
-                    name={'video'}
-                    size={20}
-                    color={'#717173'}
-                  />
+                  <Feather name={'video'} size={20} color={'#717173'} />
                 </TouchableOpacity>
               </View>
               <TouchableOpacity
@@ -151,11 +143,7 @@ const PromptText = ({
                   Keyboard.dismiss()
                   dismissKeyboardPadding()
                 }}>
-                <Feather.FeatherIcons
-                  name={'chevron-down'}
-                  size={30}
-                  color={'#717173'}
-                />
+                <Feather name={'chevron-down'} size={30} color={'#717173'} />
               </TouchableOpacity>
             </View>
           </View>

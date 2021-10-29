@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { Text, View, TouchableOpacity } from 'react-native'
-import Feather from 'react-native-vector-icons/Feather'
+import { Feather } from '@expo/vector-icons'
 import { Camera } from 'expo-camera'
 import Timer from '../AudioRecorderPlayer/Timer'
 import styles from './styles'
@@ -126,7 +126,7 @@ const VideoRec = ({
             marginBottom: 16
           }}
           onPress={() => navigation.popToTop()}>
-          <Feather.FeatherIcons name="x" size={36} color={'white'} />
+          <Feather name="x" size={36} color={'white'} />
         </TouchableOpacity>
         <View
           style={{
@@ -167,7 +167,7 @@ const VideoRec = ({
           <View style={styles.buttonContainer}>
             {/* btn1 */}
             <TouchableOpacity onPress={handleMode[btn1Mode]}>
-              <Feather.FeatherIcons
+              <Feather
                 name={BUTTON_MODES[btn1Mode]}
                 size={32}
                 color={'white'}
@@ -183,7 +183,7 @@ const VideoRec = ({
                 borderRadius: 50,
                 backgroundColor: 'red'
               }}>
-              <Feather.FeatherIcons
+              <Feather
                 name={BUTTON_MODES[btn2Mode]}
                 size={50}
                 color={'white'}
@@ -192,7 +192,7 @@ const VideoRec = ({
             </TouchableOpacity>
             {/* btn3 */}
             <TouchableOpacity onPress={handleMode[btn3Mode]}>
-              <Feather.FeatherIcons
+              <Feather
                 name={BUTTON_MODES[btn3Mode]}
                 size={32}
                 color={'white'}

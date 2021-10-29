@@ -9,7 +9,7 @@ import {
   ScrollView,
   StyleSheet
 } from 'react-native'
-import Feather from 'react-native-vector-icons/Feather'
+import { Feather } from '@expo/vector-icons'
 import Space from '../Space'
 
 const { height, width } = Dimensions.get('window')
@@ -78,8 +78,8 @@ const PreActivityCard = ({
               letterSpacing: 0,
               textAlign: 'left'
             }}>
-            <Feather.FeatherIcons name="clock" size={20} color={'#808080'} />{' '}
-            {timeEst} min activity
+            <Feather name="clock" size={20} color={'#808080'} /> {timeEst} min
+            activity
           </Text>
           <Space index={3} />
           <Text
