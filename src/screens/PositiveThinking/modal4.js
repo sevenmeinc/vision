@@ -58,7 +58,7 @@ const Modal4 = () => {
             backgroundColor: '#193340',
             justifyContent: 'center'
           }}
-          onPress={() => navigation.navigate('video')}>
+          onPress={() => navigation.navigate('Flows')}>
           <Text
             style={{
               fontSize: 17,
@@ -66,7 +66,7 @@ const Modal4 = () => {
               fontWeight: '500',
               textAlign: 'center'
             }}>
-            Next
+            Finish
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -74,7 +74,7 @@ const Modal4 = () => {
             margin: 4,
             justifyContent: 'center'
           }}
-          onPress={() => navigation.navigate('video')}>
+          onPress={() => navigation.navigate('positiveThinkingHome')}>
           <Text
             style={{
               fontSize: 14,

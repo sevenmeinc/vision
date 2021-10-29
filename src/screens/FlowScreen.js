@@ -31,8 +31,14 @@ const FlowScreen = (props) => {
       <Button
         style={{ marginTop: 8 }}
         mode="outlined"
-        onPress={() => props.navigation.navigate('positiveThinking')}>
-        Positive Thinking
+        onPress={() => props.navigation.navigate('positiveThinking1')}>
+        Positive Thinking 1
+      </Button>
+      <Button
+        style={{ marginTop: 8 }}
+        mode="outlined"
+        onPress={() => props.navigation.navigate('positiveThinking2')}>
+        Positive Thinking 2
       </Button>
     </View>
   )

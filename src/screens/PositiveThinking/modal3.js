@@ -75,7 +75,7 @@ const Modal3 = () => {
             margin: 4,
             justifyContent: 'center'
           }}
-          onPress={() => navigation.navigate('video')}>
+          onPress={() => navigation.navigate('positiveThinkingHome')}>
           <Text
             style={{
               fontSize: 14,
