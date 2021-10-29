@@ -35,7 +35,7 @@ const MainNavigator = () => {
       />
 
       <Stack.Screen
-        name="positiveThinking1"
+        name="positiveThinkingFlow1"
         component={FlowPositiveThinking1Navigator}
         options={{
           headerShown: false
@@ -43,7 +43,7 @@ const MainNavigator = () => {
       />
 
       <Stack.Screen
-        name="positiveThinking2"
+        name="positiveThinkingFlow2"
         component={FlowPositiveThinking2Navigator}
         options={{
           headerShown: false

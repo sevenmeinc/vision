@@ -7,7 +7,6 @@ import {
   Keyboard
 } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import Button from '../../components/Button'
@@ -72,7 +71,7 @@ const PostVideo1 = ({
               <Button
                 disabled={disableNextButton}
                 title="Continue"
-                background={disableNextButton ? '#9e9ea0' : Colors.pianoBlack}
+                background={disableNextButton ? '#9e9ea0' : '#010B02'}
                 onPress={() => navigation.navigate('postVideo2')}
               />
             </View>
