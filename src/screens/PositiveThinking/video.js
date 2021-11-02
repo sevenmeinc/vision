@@ -69,7 +69,7 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
             ref={video}
             style={{ flex: 1 }}
             source={{
-              uri: 'https://content-stage.seven-internal.me/media/original_videos/Habits.mp4'
+              uri: 'https://content-stage.seven-internal.me/media/original_videos/Positivethinking.MOV'
             }}
             resizeMode="contain"
             onPlaybackStatusUpdate={_onPlaybackStatusUpdate}
