@@ -69,7 +69,7 @@ const ProgressHeader = ({ navigation, route, backgroundColor, fillColor }) => {
           name="md-close-sharp"
           size={24}
           color={fillColor ? fillColor : 'white'}
-          onPress={() => navigation.navigate('positiveThinkingHome')}
+          onPress={() => navigation.navigate('Flows')}
         />
       </View>
     </SafeAreaView>
