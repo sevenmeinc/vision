@@ -124,7 +124,7 @@ const AuxRecorderPlayer = ({
             textAlign: 'left',
             color: '#737376'
           }}>
-          Think out loud
+          Tap the button to record
         </Text>
       ) : (
         <Text
