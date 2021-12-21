@@ -20,7 +20,7 @@ const CardOfSeries = ({ title, text, img, onNext, onBack, isLast = false }) => {
           flexDirection: 'column'
         }}>
         <Image
-          source={require(img)}
+          source={img}
           style={{
             margin: 16
           }}
