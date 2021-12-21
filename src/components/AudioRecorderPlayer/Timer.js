@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Text } from 'react-native'
 
-const Timer = ({ time, setTime, timerGo, reset }) => {
+const Timer = ({ time, setTime, timerGo, reset, darkMode }) => {
   const [min, setMinutes] = useState(time.min)
   const [sec, setSeconds] = useState(time.sec)
   useEffect(() => {
@@ -30,7 +30,7 @@ const Timer = ({ time, setTime, timerGo, reset }) => {
 
   return (
     <>
-      <Text>
+      <Text style={{ color: darkMode ? 'white' : 'black' }}>
         {min < 10 ? `0${min}` : min}:{sec < 10 ? `0${sec}` : sec}
       </Text>
     </>

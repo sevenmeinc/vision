@@ -130,7 +130,8 @@ const AuxRecorderPlayer = ({
         <Text
           style={{
             textAlign: 'center',
-            width: '50%'
+            width: '50%',
+            color: 'black'
           }}>
           <Timer
             time={time}

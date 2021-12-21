@@ -162,6 +162,7 @@ const VideoRec = ({
               timerGo={timerGo}
               setTime={setTime}
               reset={resetTimer}
+              darkMode={true}
             />
           </Text>
           <View style={styles.buttonContainer}>

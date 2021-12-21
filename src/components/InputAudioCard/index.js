@@ -36,6 +36,7 @@ const InputAudioCard = ({ index, item, setIsPreview }) => {
         }}>
         {item}
       </Text>
+      {/* TODO: Text Input. Possibly add video thumbnail? */}
       <Text
         style={{
           fontStyle: 'italic',

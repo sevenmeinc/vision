@@ -58,6 +58,7 @@ const Modal4 = () => {
             backgroundColor: '#193340',
             justifyContent: 'center'
           }}
+          // this shoudl go to the next screen.
           onPress={() => navigation.navigate('Flows')}>
           <Text
             style={{
