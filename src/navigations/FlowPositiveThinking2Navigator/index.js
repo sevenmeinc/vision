@@ -2,32 +2,30 @@ import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { content } from '../../../assets/content'
 import VideoPlayer from '../../screens/PositiveThinking/video'
-// import PostVideo1 from '../../screens/PositiveThinking/postVideo1'
-// import PostVideo2 from '../../screens/PositiveThinking/postVideo2'
-// import PostVideo3 from '../../screens/PositiveThinking/postVideo3'
-// import PostVideo4 from '../../screens/PositiveThinking/postVideo4'
-// import PostVideo5 from '../../screens/PositiveThinking/postVideo5'
-// import PostVideo6 from '../../screens/PositiveThinking/postVideo6'
-// import PromptVideo from '../../screens/SucHab01Screens/PromptVideo'
 import PostPromptLoading from '../../screens/PositiveThinking/PostPromptLoading'
 import PositiveThinkingPrompt from '../../screens/PositiveThinking/PositiveThinkingPrompt'
 import PositiveThinkingReframe from '../../screens/PositiveThinking/PositiveThinkingReframe'
 import PostActivity1 from '../../screens/PositiveThinking/PostActivity1'
+import PostActivity2 from '../../screens/PositiveThinking/PostActivity2'
 import BenefitProgressHeader from '../../components/BenefitProgressHeader'
 import ProgressHeader from '../../components/ProgressHeader'
 import { Colors } from '../../constants/colors'
 import CoachHeader from '../../components/CoachHeader'
 import InputCard from '../../components/InputCard'
-import { content } from '../../../assets/content'
+import PromptVideo from '../../screens/PositiveThinking/PromptVideo'
 
 const Stack = createStackNavigator()
 const { activity, postActivity } = content.positiveThinking
+const newTimer = { min: 0, sec: 0 }
 
 const FlowPositiveThinking2Navigator = () => {
   const [isPreview, setIsPreview] = useState(false)
   const [positiveThinking1, setPositiveThinking1] = useState('')
   const [positiveThinking2, setPositiveThinking2] = useState('')
   const [positiveThinking3, setPositiveThinking3] = useState('')
+  const [previews, setPreviews] = useState({ 0: null, 1: null, 2: null })
+  const [duration, setDuration] = useState(newTimer)
+  const [time, setTime] = useState(newTimer)
 
   const renderItem = ({ item, index }) => {
     return (
@@ -47,7 +45,7 @@ const FlowPositiveThinking2Navigator = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="video"
         options={({ navigation }) => ({
           header: () => (
@@ -69,31 +67,6 @@ const FlowPositiveThinking2Navigator = () => {
             videoUri={content.positiveThinking.videoUri}
           />
         )}
-      />
-      {/* <Stack.Screen
-        name="postVideo1"
-        children={({ navigation }) => (
-          <PostVideo1
-            navigation={navigation}
-            renderItem={renderItem}
-            positiveThinking1={positiveThinking1}
-            positiveThinking2={positiveThinking2}
-            positiveThinking3={positiveThinking3}
-          />
-        )}
-        options={({ navigation, route }) => ({
-          headerTitle: () => (
-            <ProgressHeader
-              navigation={navigation}
-              route={route}
-              backgroundColor={Colors.doctor}
-              fillColor="black"
-            />
-          ),
-          headerLeft: () => null,
-          headerRight: () => null,
-          headerStyle: { backgroundColor: Colors.doctor }
-        })}
       /> */}
       <Stack.Screen
         name="postVideo1"
@@ -122,26 +95,6 @@ const FlowPositiveThinking2Navigator = () => {
           headerStyle: { backgroundColor: Colors.doctor }
         })}
       />
-      {/* <Stack.Screen
-        name="postVideo2"
-        component={PostVideo2}
-        options={({ navigation, route }) => ({
-          headerTitle: () => (
-            <ProgressHeader
-              navigation={navigation}
-              route={route}
-              backgroundColor={Colors.blueWhale}
-              fillColor="white"
-            />
-          ),
-          headerLeft: () => null,
-          headerRight: () => null,
-          headerStyle: {
-            backgroundColor: Colors.blueWhale,
-            shadowColor: 'transparent'
-          }
-        })}
-      /> */}
       <Stack.Screen
         name="postVideo2"
         children={({ props }) => (
@@ -168,35 +121,6 @@ const FlowPositiveThinking2Navigator = () => {
           }
         })}
       />
-      {/* <Stack.Screen
-        name="postVideo3"
-        children={({ navigation }) => (
-          <PostVideo3
-            navigation={navigation}
-            positiveThinking1={positiveThinking1}
-            positiveThinking2={positiveThinking2}
-            positiveThinking3={positiveThinking3}
-            setIsPreview={setIsPreview}
-            isPreview={isPreview}
-          />
-        )}
-        options={({ navigation, route }) => ({
-          headerTitle: () => (
-            <ProgressHeader
-              navigation={navigation}
-              route={route}
-              backgroundColor={Colors.doctor}
-              fillColor="black"
-            />
-          ),
-          headerLeft: () => null,
-          headerRight: () => null,
-          headerStyle: {
-            backgroundColor: Colors.doctor,
-            shadowColor: 'transparent'
-          }
-        })}
-      /> */}
       <Stack.Screen
         name="postVideo3"
         children={({ props }) => (
@@ -204,12 +128,13 @@ const FlowPositiveThinking2Navigator = () => {
             {...props}
             text={activity.prompts[1].prompt.text}
             onNext={activity.prompts[1].prompt.onNext}
-            renderItem={renderItem}
             positiveThinking1={positiveThinking1}
             positiveThinking2={positiveThinking2}
             positiveThinking3={positiveThinking3}
             setIsPreview={setIsPreview}
             isPreview={isPreview}
+            previews={previews}
+            setPreviews={setPreviews}
           />
         )}
         options={({ navigation, route }) => ({
@@ -229,26 +154,6 @@ const FlowPositiveThinking2Navigator = () => {
           }
         })}
       />
-      {/* <Stack.Screen
-        name="postVideo4"
-        component={PostVideo4}
-        options={({ navigation, route }) => ({
-          headerTitle: () => (
-            <ProgressHeader
-              navigation={navigation}
-              route={route}
-              backgroundColor={Colors.blueWhale}
-              fillColor="white"
-            />
-          ),
-          headerLeft: () => null,
-          headerRight: () => null,
-          headerStyle: {
-            backgroundColor: Colors.blueWhale,
-            shadowColor: 'transparent'
-          }
-        })}
-      /> */}
       <Stack.Screen
         name="postVideo4"
         children={({ props }) => (
@@ -275,25 +180,12 @@ const FlowPositiveThinking2Navigator = () => {
           }
         })}
       />
-      {/* <Stack.Screen
-        name="postVideo5"
-        component={PostVideo5}
-        options={({ navigation }) => ({
-          headerTitle: () => <CoachHeader navigation={navigation} />,
-          headerLeft: () => null,
-          headerRight: () => null,
-          headerStyle: {
-            backgroundColor: Colors.cottonField,
-            shadowColor: 'transparent'
-          }
-        })}
-      /> */}
       <Stack.Screen
         name="postVideo5"
-        // component={PostVideo5}
         children={(props) => (
           <PostActivity1
             {...props}
+            title={postActivity[0].title}
             prompts={postActivity[0].prompts}
             onNext={postActivity[0].onNext}
           />
@@ -308,9 +200,17 @@ const FlowPositiveThinking2Navigator = () => {
           }
         })}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="postVideo6"
-        component={PostVideo6}
+        // component={PostVideo6}
+        children={(props) => (
+          <PostActivity2
+            {...props}
+            title={postActivity[1].title}
+            text={postActivity[1].text}
+            onNext={postActivity[1].onNext}
+          />
+        )}
         options={({ navigation }) => ({
           headerTitle: () => <CoachHeader navigation={navigation} />,
           headerLeft: () => null,
@@ -320,15 +220,21 @@ const FlowPositiveThinking2Navigator = () => {
             shadowColor: 'transparent'
           }
         })}
-      /> */}
+      />
       <Stack.Screen
-        name="postVideo6"
+        name="videoPrompt"
         // component={PostVideo6}
         children={(props) => (
-          <PostActivity1
+          <PromptVideo
             {...props}
-            prompts={postActivity[0].prompts}
-            onNext={postActivity[0].onNext}
+            // prompt={}
+            // audioScreen={}
+            // textScreen={}
+            // previewScreen={}
+            // setImgUri={ }
+            setDuration={setDuration}
+            time={time}
+            setTime={setTime}
           />
         )}
         options={({ navigation }) => ({

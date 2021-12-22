@@ -7,11 +7,11 @@ import Timer from './Timer'
 const newTimer = { min: 0, sec: 0 }
 
 const AuxRecorderPlayer = ({
-  handleVideo,
-  handleText,
+  handleVideo, // function
+  handleText, // function
   setIsPreview,
-  btn1Initial,
-  btn3Initial,
+  btn1Initial, // {button_mode_key: 'feather-icon-name'}
+  btn3Initial, // {button_mode_key: 'feather-icon-name'}
   setSavedRecording
 }) => {
   const BUTTON_MODES = {

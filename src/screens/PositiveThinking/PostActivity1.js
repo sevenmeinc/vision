@@ -16,15 +16,11 @@ import ReflectionInput from '../../components/ReflectionInput'
 import Button from '../../components/Button'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const PostActivity1 = ({ prompts, onNext }) => {
+const PostActivity1 = ({ title, prompts, onNext }) => {
   const navigation = useNavigation()
   const { isKeyboardVisible } = useKeyboard()
 
-  // const [value1, setValue1] = useState('')
-  // const [value2, setValue2] = useState('')
-  // const [value3, setValue3] = useState('')
-
-  const [values, setValues] = useState(['', '', ''])
+  const [values, setValues] = useState({ 0: '', 1: '', 2: '' })
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.cottonField }}>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -47,7 +43,8 @@ const PostActivity1 = ({ prompts, onNext }) => {
                     marginTop: 24,
                     marginBottom: 40
                   }}>
-                  One last thing...
+                  {/* One last thing... */}
+                  {title}
                 </Text>
               </View>
               <View
@@ -72,14 +69,16 @@ const PostActivity1 = ({ prompts, onNext }) => {
                 {prompts.map((p, i) => {
                   return (
                     <ReflectionInput
+                      key={i}
                       question={p}
                       value={values[i]}
                       onChangeText={(text) => {
-                        const copy = values
-                        copy[i] = text
-                        setValues(copy)
+                        // const copy = values
+                        // copy[i] = text
+                        // setValues(copy)
+                        setValues({ ...values, [i]: text })
                       }}
-                      disabled={!values[i]}
+                      disabled={!values[i].length}
                     />
                   )
                 })}

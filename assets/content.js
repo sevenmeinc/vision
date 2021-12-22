@@ -205,6 +205,7 @@ In this activity, we will guide you through identifying the short- and long-term
     },
     postActivity: [
       {
+        title: 'Closing Reflection',
         prompts: [
           'What did you learn from this activity?',
           'Where can you apply this knowledge in your everyday life?',

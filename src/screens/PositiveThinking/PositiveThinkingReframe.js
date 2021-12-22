@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   View,
   Text,
@@ -17,21 +17,20 @@ import Button from '../../components/Button'
 const PositiveThinkingReframe = ({
   text,
   onNext,
-  renderItem,
   positiveThinking1,
   positiveThinking2,
   positiveThinking3,
-  setIsPreview,
-  isPreview
+  previews,
+  setPreviews
 }) => {
   const navigation = useNavigation()
   const list = [positiveThinking1, positiveThinking2, positiveThinking3]
 
   let disableNextButton = true
-  if (isPreview) {
+  if (previews[0] && previews[1] && previews[2]) {
     disableNextButton = false
   }
-  const [textInput, setTextInput] = useState(false)
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -65,24 +64,47 @@ const PositiveThinkingReframe = ({
             keyExtractor={(item, index) => `${index}-${item}`}
             horizontal
             data={list}
-            // ! currently changes all cards dependent upon the type of input selected
-            renderItem={
-              textInput
-                ? renderItem
-                : ({ item, index }) => {
-                    return (
-                      <InputAudioCard
-                        index={index}
-                        item={item}
-                        positiveThinking1={positiveThinking1}
-                        positiveThinking2={positiveThinking2}
-                        positiveThinking3={positiveThinking3}
-                        setIsPreview={setIsPreview}
-                        setTextInput={setTextInput}
-                      />
-                    )
-                  }
-            }
+            renderItem={({ item, index }) => {
+              return (
+                <InputAudioCard
+                  index={index}
+                  item={item}
+                  positiveThinking1={positiveThinking1}
+                  positiveThinking2={positiveThinking2}
+                  positiveThinking3={positiveThinking3}
+                  // videoScreen={{
+                  //   routeName: 'videoPrompt',
+                  //   params: {
+                  //     prompt: list[index],
+                  //     audioScreen: 'postVideo3',
+                  //     textScreen: 'postVideo3',
+                  //     previewScreen: '',
+                  //     setImgUri: (uri) => {
+                  //       // const copy = { ...previews, [index]: uri }
+                  //       const copy = previews
+                  //       copy[index] = uri
+                  //       setPreviews(copy)
+                  //     }
+                  //   }
+                  // }}
+                  videoScreen={[
+                    'videoPrompt',
+                    {
+                      prompt: list[index],
+                      audioScreen: 'postVideo3',
+                      textScreen: 'postVideo3',
+                      previewScreen: '',
+                      setImgUri: (uri) => {
+                        // const copy = { ...previews, [index]: uri }
+                        const copy = previews
+                        copy[index] = uri
+                        setPreviews(copy)
+                      }
+                    }
+                  ]}
+                />
+              )
+            }}
             ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ padding: 10 }}

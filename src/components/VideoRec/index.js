@@ -105,7 +105,7 @@ const VideoRec = ({
   if (hasPermission === false) {
     return <Text>No access to camera</Text>
   }
-
+  console.log('VideoRec prompt', prompt)
   return (
     <View style={styles.container}>
       <View

@@ -1,10 +1,23 @@
 import React, { useState } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { Colors } from '../../constants/colors'
 import AuxRecorderPlayer from '../AudioRecorderPlayer'
 
-const InputAudioCard = ({ index, item, setIsPreview }) => {
+// TODO: refactor such that the TextInput from InputCard appears here disabled until setTextInput is true
+const InputAudioCard = ({ index, item, videoScreen }) => {
+  const navigation = useNavigation()
+
   const [savedRecording, setSavedRecording] = useState(false)
+  const [textDisabled, setTextDisabled] = useState(true)
+  const [textValue, setTextValue] = useState('')
+
+  const handleChange = (text) => {
+    setTextValue(text)
+  }
+  // if (index === 0) {
+  //   console.log('\nReframe videoScreen\n', videoScreen)
+  // }
   return (
     <View
       style={{
@@ -36,23 +49,27 @@ const InputAudioCard = ({ index, item, setIsPreview }) => {
         }}>
         {item}
       </Text>
-      <Text
-        style={{
-          fontStyle: 'italic',
-          fontSize: 17,
-          color: savedRecording ? Colors.pianoBlack : '#B2B2B2',
-          marginHorizontal: 16,
-          marginVertical: 12
-        }}>
-        Your response will appear here.
-      </Text>
+
+      <TextInput
+        editable={!textDisabled}
+        placeholder={'Your response will appear here.'}
+        onChangeText={handleChange}
+        multiline={true}
+        value={textValue}
+        style={{ textAlignVertical: 'top', padding: 16 }}
+      />
+
       <View style={{ flex: 1, justifyContent: 'flex-end', marginBottom: 15 }}>
         <AuxRecorderPlayer
-          btn1Initial={{}}
-          btn3Initial={{}}
-          setIsPreview={() => {
-            setIsPreview(true)
+          handleText={() => {
+            setTextDisabled(false)
           }}
+          handleVideo={() => {
+            setTextDisabled(true)
+            navigation.navigate(...videoScreen)
+          }}
+          btn1Initial={{ text: 'edit' }}
+          btn3Initial={{ video: 'video' }}
           setSavedRecording={setSavedRecording}
         />
       </View>
