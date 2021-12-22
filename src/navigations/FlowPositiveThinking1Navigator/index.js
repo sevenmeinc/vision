@@ -2,6 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Header from '../../components/Header'
 import FlowPositiveThinking from '../../screens/FlowPositiveThinking'
+import PositiveThinkingHome from '../../screens/PositiveThinking/ChatScreen'
 import Modal1 from '../../screens/PositiveThinking/modal1'
 import Modal2 from '../../screens/PositiveThinking/modal2'
 import Modal3 from '../../screens/PositiveThinking/modal3'
@@ -12,9 +13,16 @@ const Stack = createStackNavigator()
 const FlowPositiveThinking1Navigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="positiveThinkingHome"
         component={FlowPositiveThinking}
+        options={{
+          headerTitle: 'Chat'
+        }}
+      /> */}
+      <Stack.Screen
+        name="positiveThinkingHome"
+        component={PositiveThinkingHome}
         options={{
           headerTitle: 'Chat'
         }}
