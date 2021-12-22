@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const ShortTermModalHeader = (props) => {
   return (
-    <View
+    <SafeAreaView
       style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -47,7 +48,7 @@ const ShortTermModalHeader = (props) => {
           Save
         </Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   )
 }
 

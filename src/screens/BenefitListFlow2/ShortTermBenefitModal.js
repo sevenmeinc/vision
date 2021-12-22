@@ -4,7 +4,7 @@ import { TextInput } from 'react-native-gesture-handler'
 
 const ShortTermBenefitModal = ({ shortTermItem, setShortTermItem }) => {
   return (
-    <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: '#fff', flex: 1, paddingTop: 16 }}>
       <TextInput
         placeholder="One benefit would be..."
         value={shortTermItem}
