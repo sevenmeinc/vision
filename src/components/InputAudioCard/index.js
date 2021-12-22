@@ -1,23 +1,27 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Colors } from '../../constants/colors'
 import AuxRecorderPlayer from '../AudioRecorderPlayer'
 
-// TODO: refactor such that the TextInput from InputCard appears here disabled until setTextInput is true
-const InputAudioCard = ({ index, item, videoScreen }) => {
+const InputAudioCard = ({
+  index,
+  item,
+  videoScreen,
+  imageUri,
+  textValue,
+  setTextValue,
+  savedRecording,
+  setSavedRecording
+}) => {
   const navigation = useNavigation()
 
-  const [savedRecording, setSavedRecording] = useState(false)
   const [textDisabled, setTextDisabled] = useState(true)
-  const [textValue, setTextValue] = useState('')
 
   const handleChange = (text) => {
     setTextValue(text)
   }
-  // if (index === 0) {
-  //   console.log('\nReframe videoScreen\n', videoScreen)
-  // }
+
   return (
     <View
       style={{
@@ -39,6 +43,7 @@ const InputAudioCard = ({ index, item, videoScreen }) => {
         }}>
         Example {index + 1}
       </Text>
+
       <Text
         style={{
           textAlignVertical: 'top',
@@ -49,17 +54,33 @@ const InputAudioCard = ({ index, item, videoScreen }) => {
         }}>
         {item}
       </Text>
-
-      <TextInput
-        editable={!textDisabled}
-        placeholder={'Your response will appear here.'}
-        onChangeText={handleChange}
-        multiline={true}
-        value={textValue}
-        style={{ textAlignVertical: 'top', padding: 16 }}
-      />
-
-      <View style={{ flex: 1, justifyContent: 'flex-end', marginBottom: 15 }}>
+      {imageUri ? (
+        <Image
+          source={imageUri}
+          style={{
+            width: '100%',
+            flex: 1,
+            resizeMode: 'contain'
+          }}
+        />
+      ) : (
+        <TextInput
+          editable={!textDisabled}
+          placeholder={'Your response will appear here.'}
+          onChangeText={handleChange}
+          multiline={true}
+          value={
+            savedRecording ? 'Transcript not available in prototype' : textValue
+          }
+          style={{ textAlignVertical: 'top', padding: 16 }}
+        />
+      )}
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'flex-end',
+          marginBottom: 15
+        }}>
         <AuxRecorderPlayer
           handleText={() => {
             setTextDisabled(false)
@@ -71,6 +92,7 @@ const InputAudioCard = ({ index, item, videoScreen }) => {
           btn1Initial={{ text: 'edit' }}
           btn3Initial={{ video: 'video' }}
           setSavedRecording={setSavedRecording}
+          setIsPreview={setSavedRecording}
         />
       </View>
     </View>

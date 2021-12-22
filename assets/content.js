@@ -140,7 +140,6 @@ In this activity, we will guide you through identifying the short- and long-term
       type: 'Coaching Tool'
     },
     preActivity: [
-      // positiveThinking1
       {
         title: 'What is positive thinking?',
         text: 'Positive thinking is kind thinking. Even when the negative things we say to ourselves feel true, there are always kinder, healthier, and more helpful ways to frame our thoughts. ',

@@ -4,17 +4,7 @@ import VideoRec from '../../components/VideoRec'
 
 const { width, height } = Dimensions.get('window')
 
-const PromptVideo = ({
-  route,
-  // prompt,
-  // audioScreen,
-  // textScreen,
-  // previewScreen,
-  // setImgUri,
-  setDuration,
-  time,
-  setTime
-}) => {
+const PromptVideo = ({ route, setDuration, time, setTime }) => {
   const { prompt, audioScreen, textScreen, previewScreen, setImgUri } =
     route.params
   const styles = StyleSheet.create({
@@ -28,26 +18,6 @@ const PromptVideo = ({
       margin: 20
     }
   })
-
-  console.log(
-    'PositiveThinking PromptVideo',
-    '\nprompt',
-    prompt,
-    '\naudioScreen',
-    audioScreen,
-    '\ntextScreen',
-    textScreen,
-    '\npreviewScreen',
-    previewScreen,
-    '\nsetImgUri',
-    setImgUri,
-    '\nsetDuration',
-    setDuration,
-    '\ntime',
-    time,
-    '\nsetTime',
-    setTime
-  )
 
   return (
     <View

@@ -73,33 +73,12 @@ const PostActivity1 = ({ title, prompts, onNext }) => {
                       question={p}
                       value={values[i]}
                       onChangeText={(text) => {
-                        // const copy = values
-                        // copy[i] = text
-                        // setValues(copy)
                         setValues({ ...values, [i]: text })
                       }}
                       disabled={!values[i].length}
                     />
                   )
                 })}
-                {/* <ReflectionInput
-                  question="What are some things that you learned from this activity?"
-                  value={value1}
-                  onChangeText={(text) => setValue1(text)}
-                  disabled={!value1}
-                />
-                <ReflectionInput
-                  question="Where could you apply this new knowledge in your daily life?"
-                  value={value2}
-                  onChangeText={(text) => setValue2(text)}
-                  disabled={!value2}
-                />
-                <ReflectionInput
-                  question="What is something you wish to be able to do comfortably a month from now?"
-                  value={value3}
-                  onChangeText={(text) => setValue3(text)}
-                  disabled={!value3}
-                /> */}
               </View>
               <View
                 style={{

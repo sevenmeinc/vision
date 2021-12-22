@@ -131,8 +131,6 @@ const FlowPositiveThinking2Navigator = () => {
             positiveThinking1={positiveThinking1}
             positiveThinking2={positiveThinking2}
             positiveThinking3={positiveThinking3}
-            setIsPreview={setIsPreview}
-            isPreview={isPreview}
             previews={previews}
             setPreviews={setPreviews}
           />
@@ -202,7 +200,6 @@ const FlowPositiveThinking2Navigator = () => {
       />
       <Stack.Screen
         name="postVideo6"
-        // component={PostVideo6}
         children={(props) => (
           <PostActivity2
             {...props}
@@ -223,29 +220,15 @@ const FlowPositiveThinking2Navigator = () => {
       />
       <Stack.Screen
         name="videoPrompt"
-        // component={PostVideo6}
         children={(props) => (
           <PromptVideo
             {...props}
-            // prompt={}
-            // audioScreen={}
-            // textScreen={}
-            // previewScreen={}
-            // setImgUri={ }
             setDuration={setDuration}
             time={time}
             setTime={setTime}
           />
         )}
-        options={({ navigation }) => ({
-          headerTitle: () => <CoachHeader navigation={navigation} />,
-          headerLeft: () => null,
-          headerRight: () => null,
-          headerStyle: {
-            backgroundColor: Colors.cottonField,
-            shadowColor: 'transparent'
-          }
-        })}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   )

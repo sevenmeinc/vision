@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   View,
   Text,
@@ -24,10 +24,17 @@ const PositiveThinkingReframe = ({
   setPreviews
 }) => {
   const navigation = useNavigation()
+
+  const [textValue, setTextValue] = useState({ 0: '', 1: '', 2: '' })
+
   const list = [positiveThinking1, positiveThinking2, positiveThinking3]
 
   let disableNextButton = true
-  if (previews[0] && previews[1] && previews[2]) {
+  if (
+    (previews[0] || textValue[0]) &&
+    (previews[1] || textValue[1]) &&
+    (previews[2] || textValue[2])
+  ) {
     disableNextButton = false
   }
 
@@ -72,36 +79,35 @@ const PositiveThinkingReframe = ({
                   positiveThinking1={positiveThinking1}
                   positiveThinking2={positiveThinking2}
                   positiveThinking3={positiveThinking3}
-                  // videoScreen={{
-                  //   routeName: 'videoPrompt',
-                  //   params: {
-                  //     prompt: list[index],
-                  //     audioScreen: 'postVideo3',
-                  //     textScreen: 'postVideo3',
-                  //     previewScreen: '',
-                  //     setImgUri: (uri) => {
-                  //       // const copy = { ...previews, [index]: uri }
-                  //       const copy = previews
-                  //       copy[index] = uri
-                  //       setPreviews(copy)
-                  //     }
-                  //   }
-                  // }}
+                  savedRecording={
+                    typeof previews[index] === 'boolean'
+                      ? previews[index]
+                      : null
+                  }
+                  setSavedRecording={() => {
+                    const copy = { ...previews, [index]: true }
+                    setPreviews(copy)
+                  }}
                   videoScreen={[
                     'videoPrompt',
                     {
                       prompt: list[index],
                       audioScreen: 'postVideo3',
                       textScreen: 'postVideo3',
-                      previewScreen: '',
+                      previewScreen: 'postVideo3',
                       setImgUri: (uri) => {
-                        // const copy = { ...previews, [index]: uri }
-                        const copy = previews
-                        copy[index] = uri
+                        const copy = { ...previews, [index]: uri }
                         setPreviews(copy)
                       }
                     }
                   ]}
+                  imageUri={
+                    typeof previews[index] === 'object' ? previews[index] : null
+                  }
+                  textValue={textValue[index]}
+                  setTextValue={(text) => {
+                    setTextValue({ ...textValue, [index]: text })
+                  }}
                 />
               )
             }}
