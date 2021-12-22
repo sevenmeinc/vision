@@ -62,9 +62,13 @@ In this activity, we will guide you through identifying the short- and long-term
           'Why do you think you have been able to stick with it for so long?'
       }
     ],
-    postActivity: [
-      'Where will you apply what you just reflected on in your daily life?'
-    ]
+    postActivity: {
+      description:
+        'Where will you apply what you just reflected on in your daily life?',
+      prompts: [
+        'How can you apply what you’ve learned as you pursue this vision and goal?'
+      ]
+    }
   },
   botMessages: {
     introduction:

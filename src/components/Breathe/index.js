@@ -36,7 +36,7 @@ const Breathe = ({ contemplationPrompt }) => {
           letterSpacing: 0.01,
           textAlign: 'center'
         }}>
-        {contemplationPrompt.description ??
+        {contemplationPrompt?.description ??
           'Take a moment to relax and breathe.'}
       </Text>
       <Breathe2 />
