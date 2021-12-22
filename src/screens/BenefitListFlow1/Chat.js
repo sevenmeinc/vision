@@ -13,6 +13,7 @@ import Svg, { Circle, Path } from 'react-native-svg'
 import BotMessage from '../../components/BotMessage'
 import OutlineButton from '../../components/OutlineButton'
 import { Colors } from '../../constants/colors'
+import { content } from '../../../assets/content'
 
 function Send(props) {
   return (
@@ -34,48 +35,7 @@ function Send(props) {
   )
 }
 
-const BotMessagesData = [
-  {
-    id: 1,
-    messages: [
-      {
-        message: 'Great! First Question:'
-      },
-      {
-        message:
-          'What short-term benefits might you gain from completing your Weekly Commitment?'
-      }
-    ]
-  },
-  {
-    id: 1,
-    messages: [
-      {
-        message: 'Nice! Try to come with two more.'
-      }
-    ]
-  },
-  {
-    id: 1,
-    messages: [
-      {
-        message: 'Good job! Next question:'
-      },
-      {
-        message:
-          'What are three long-term benefits might you gain from completing your Weekly Commitment?'
-      }
-    ]
-  },
-  {
-    id: 1,
-    messages: [
-      {
-        message: 'Well done!'
-      }
-    ]
-  }
-]
+const BotMessagesData = content.botMessages.messages
 
 const UserMessage = ({ messages }) => {
   return (
@@ -108,11 +68,11 @@ const Chat = (props) => {
   const keyExtractor = (item, index) => `${index}-${item}`
 
   useEffect(() => {
-    if (userResponse.length === 1 || userResponse.length === 4) {
+    if (userResponse.length === 1 || userResponse.length === 3) {
       setChatMessages((prev) => [BotMessagesData[1], ...prev])
-    } else if (userResponse.length === 3) {
+    } else if (userResponse.length === 2) {
       setChatMessages((prev) => [BotMessagesData[2], ...prev])
-    } else if (userResponse.length === 6) {
+    } else if (userResponse.length === 4) {
       setChatMessages((prev) => [BotMessagesData[3], ...prev])
     }
   }, [userResponse])
@@ -151,11 +111,11 @@ const Chat = (props) => {
             inverted
             showsVerticalScrollIndicator={false}
           />
-          {userResponse.length >= 6 ? (
+          {userResponse.length >= 4 ? (
             <View style={{ justifyContent: 'flex-end' }}>
               <View style={{ alignSelf: 'flex-end' }}>
                 <OutlineButton
-                  title="Continue"
+                  title={content.botMessages.continueButtonTitle}
                   onPress={() => {
                     const middleIndex = Math.ceil(userResponse.length / 2)
                     props.navigation.navigate('BenefitList', {
@@ -166,7 +126,7 @@ const Chat = (props) => {
                 />
                 <View style={{ marginTop: 8 }} />
                 <OutlineButton
-                  title="Come back later"
+                  title={content.botMessages.laterButtonTitle}
                   onPress={() => props.navigation.navigate('Flow1')}
                 />
               </View>
