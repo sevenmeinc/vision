@@ -64,9 +64,9 @@ In this activity, we will guide you through identifying the short- and long-term
     ],
     postActivity: {
       description:
-        'Where will you apply what you just reflected on in your daily life?',
+        'After reminding yourself why your weekly commitment is worth completing, reflect on your vision and goal below.',
       prompts: [
-        'How can you apply what you’ve learned as you pursue this vision and goal?'
+        'Can you think of short- and long-term benefits for these as well?'
       ]
     }
   },
