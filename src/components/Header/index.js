@@ -12,7 +12,7 @@ const Header = ({ navigation, title }) => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          paddingTop: 16,
+          paddingTop: 32,
           marginVertical: 8,
           marginHorizontal: 16,
           backgroundColor: '#fff'

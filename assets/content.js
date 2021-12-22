@@ -36,6 +36,10 @@ export const content = {
   },
   benefitsList: {
     title: 'Benefits List',
+    duration: '8 min activity',
+    description: `One of the best ways to boost our motivation is to remind ourselves of all the reasons why we are working so hard. 
+
+In this activity, we will guide you through identifying the short- and long-term benefits of completing your weekly commitment.`,
     prompts: [
       {
         contemplation:
