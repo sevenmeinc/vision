@@ -53,6 +53,7 @@ const Flow3Navigator = () => {
             subTitle={'Benefits List'}
             nextScreen={'PromptAudio1'}
             hideTapMore={true}
+            videoUri={content.benefitsList.videoUri}
           />
         )}
       />
@@ -272,7 +273,6 @@ const Flow3Navigator = () => {
         children={(props) => (
           <BreatheScreen
             {...props}
-            prompt={'Breathing space'}
             nextScreen={'PromptAudio2'}
             setImgUri={setImgUri}
             setDuration={setDuration}

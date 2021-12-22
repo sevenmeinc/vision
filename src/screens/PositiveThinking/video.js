@@ -24,7 +24,7 @@ export const millisToMinutesAndSeconds = (millis) => {
     ? minutes + 1 + ':00'
     : minutes + ':' + (seconds < 10 ? '0' : '') + seconds
 }
-const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
+const VideoPage = ({ nextScreen, title, subTitle, hideTapMore, videoUri }) => {
   const [opacity, setOpacity] = useState(false)
   const [status, setStatus] = useState({})
   const [finish, setFinish] = useState(false)
@@ -69,7 +69,7 @@ const VideoPage = ({ nextScreen, title, subTitle, hideTapMore }) => {
             ref={video}
             style={{ flex: 1 }}
             source={{
-              uri: 'https://content-stage.seven-internal.me/media/original_videos/Positivethinking.MOV'
+              uri: videoUri
             }}
             resizeMode="contain"
             onPlaybackStatusUpdate={_onPlaybackStatusUpdate}

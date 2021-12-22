@@ -13,6 +13,7 @@ import ProgressHeader from '../../components/ProgressHeader'
 import { Colors } from '../../constants/colors'
 import CoachHeader from '../../components/CoachHeader'
 import InputCard from '../../components/InputCard'
+import { content } from '../../../assets/content'
 
 const Stack = createStackNavigator()
 
@@ -58,6 +59,7 @@ const FlowPositiveThinking2Navigator = () => {
             subTitle={'Benefits of Positive Thinking'}
             nextScreen={'postVideo1'}
             hideTapMore={false}
+            videoUri={content.positiveThinking.videoUri}
           />
         )}
       />

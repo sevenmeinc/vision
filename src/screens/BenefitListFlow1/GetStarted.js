@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
+import { content } from '../../../assets/content'
 
 const GetStarted = (props) => {
   const { navigation } = props
@@ -22,22 +23,22 @@ const GetStarted = (props) => {
               fontSize: 25,
               marginVertical: 24
             }}>
-            Hey! I'm Seven. I will be guiding you through this activity.
+            {content.botMessages.introduction}
           </Text>
 
           <Text style={{ fontFamily: 'semiBold', fontSize: 24 }}>
-            Ready to get started?
+            {content.botMessages.readyMessage}
           </Text>
         </View>
         <View style={{ flex: 1, justifyContent: 'flex-end' }}>
           <View style={{ alignSelf: 'flex-end' }}>
             <OutlineButton
-              title="Let's get started"
+              title={content.botMessages.startButtonTitle}
               onPress={() => navigation.navigate('Chat')}
             />
             <View style={{ marginTop: 12 }} />
             <OutlineButton
-              title="Come back later"
+              title={content.botMessages.laterButtonTitle}
               onPress={() => navigation.navigate('Flow1')}
             />
           </View>

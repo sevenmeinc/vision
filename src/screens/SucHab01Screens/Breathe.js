@@ -28,7 +28,7 @@ const BreatheScreen = ({
         alignItems: 'center',
         justifyContent: 'space-between'
       }}>
-      <Breathe contemplationPrompt={prompt.contemplation} />
+      <Breathe contemplationPrompt={prompt?.contemplation} />
       <ButtonBackNext nextScreen={nextScreen} />
     </SafeAreaView>
   )
