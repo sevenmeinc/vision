@@ -273,7 +273,6 @@ const Flow3Navigator = () => {
         children={(props) => (
           <BreatheScreen
             {...props}
-            prompt={'Breathing space'}
             nextScreen={'PromptAudio2'}
             setImgUri={setImgUri}
             setDuration={setDuration}

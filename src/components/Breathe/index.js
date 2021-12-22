@@ -24,7 +24,7 @@ const Breathe = ({ contemplationPrompt }) => {
           color: '#16161A',
           marginBottom: 12
         }}>
-        {contemplationPrompt.title ?? ''}
+        {contemplationPrompt?.title ?? 'Breathing space'}
       </Text>
       <Text
         style={{

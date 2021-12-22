@@ -123,7 +123,6 @@ const Flow2Navigator = () => {
         children={(props) => (
           <BreatheScreen
             {...props}
-            prompt={'Breathing space'}
             nextScreen={'longTerm'}
           />
         )}
