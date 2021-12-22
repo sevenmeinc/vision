@@ -53,6 +53,7 @@ const Flow3Navigator = () => {
             subTitle={'Benefits List'}
             nextScreen={'PromptAudio1'}
             hideTapMore={true}
+            videoUri={content.benefitsList.videoUri}
           />
         )}
       />
