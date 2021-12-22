@@ -124,7 +124,7 @@ const PostActivity = ({ postActivity }) => {
             minHeight: 320
           }}>
           <Text style={styles.importedText}>
-            {prompts?.length > responses.length
+            {prompts.length > responses.length
               ? prompts[responses.length]
               : prompts[prompts.length - 1]}
           </Text>
