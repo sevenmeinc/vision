@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Keyboard
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import { Colors } from '../../constants/colors'
@@ -15,13 +16,11 @@ import ReflectionInput from '../../components/ReflectionInput'
 import Button from '../../components/Button'
 import useKeyboard from '../../hooks/useKeyboard'
 
-const PostVideo5 = (props) => {
-  const { navigation } = props
+const PostActivity1 = ({ title, prompts, onNext }) => {
+  const navigation = useNavigation()
   const { isKeyboardVisible } = useKeyboard()
 
-  const [value1, setValue1] = useState('')
-  const [value2, setValue2] = useState('')
-  const [value3, setValue3] = useState('')
+  const [values, setValues] = useState({ 0: '', 1: '', 2: '' })
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.cottonField }}>
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -44,7 +43,8 @@ const PostVideo5 = (props) => {
                     marginTop: 24,
                     marginBottom: 40
                   }}>
-                  One last thing...
+                  {/* One last thing... */}
+                  {title}
                 </Text>
               </View>
               <View
@@ -66,24 +66,19 @@ const PostVideo5 = (props) => {
                   </View>
                   <Text>Reflection</Text>
                 </View>
-                <ReflectionInput
-                  question="What are some things that you learned from this activity?"
-                  value={value1}
-                  onChangeText={(text) => setValue1(text)}
-                  disabled={!value1}
-                />
-                <ReflectionInput
-                  question="Where could you apply this new knowledge in your daily life?"
-                  value={value2}
-                  onChangeText={(text) => setValue2(text)}
-                  disabled={!value2}
-                />
-                <ReflectionInput
-                  question="What is something you wish to be able to do comfortably a month from now?"
-                  value={value3}
-                  onChangeText={(text) => setValue3(text)}
-                  disabled={!value3}
-                />
+                {prompts.map((p, i) => {
+                  return (
+                    <ReflectionInput
+                      key={i}
+                      question={p}
+                      value={values[i]}
+                      onChangeText={(text) => {
+                        setValues({ ...values, [i]: text })
+                      }}
+                      disabled={!values[i].length}
+                    />
+                  )
+                })}
               </View>
               <View
                 style={{
@@ -103,7 +98,7 @@ const PostVideo5 = (props) => {
                     title="Continue"
                     background={Colors.pianoBlack}
                     color={'white'}
-                    onPress={() => navigation.navigate('postVideo6')}
+                    onPress={() => navigation.navigate(onNext)}
                   />
                 </View>
               </View>
@@ -115,4 +110,4 @@ const PostVideo5 = (props) => {
   )
 }
 
-export default PostVideo5
+export default PostActivity1

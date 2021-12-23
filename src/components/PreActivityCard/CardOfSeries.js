@@ -2,8 +2,18 @@ import React from 'react'
 import { ScrollView, Image, Text, SafeAreaView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
+import DotProgressFooter from '../DotProgressFooter'
 
-const Modal1 = () => {
+const CardOfSeries = ({
+  title,
+  text,
+  img,
+  onNext,
+  onBack,
+  isLast = false,
+  current,
+  total
+}) => {
   const navigation = useNavigation()
 
   return (
@@ -20,7 +30,7 @@ const Modal1 = () => {
           flexDirection: 'column'
         }}>
         <Image
-          source={require('../../../assets/PositiveThinking/modal-banner1.png')}
+          source={img}
           style={{
             margin: 16
           }}
@@ -34,7 +44,7 @@ const Modal1 = () => {
             alignSelf: 'flex-start',
             margin: 16
           }}>
-          What is positive thinking?
+          {title}
         </Text>
         <Text
           style={{
@@ -45,13 +55,11 @@ const Modal1 = () => {
             margin: 16,
             alignSelf: 'flex-start'
           }}>
-          Positive thinking has been linked to various health benefits,
-          including reducing symptoms of depression and improving cardiovascular
-          health..
+          {text}
         </Text>
 
         <TouchableOpacity
-          onPress={() => navigation.navigate('positiveThinking2')}
+          onPress={() => navigation.navigate(onNext)}
           style={{
             margin: 16,
             marginTop: 40,
@@ -68,7 +76,7 @@ const Modal1 = () => {
               fontWeight: '500',
               textAlign: 'center'
             }}>
-            Next
+            {isLast ? 'Start activity' : 'Next'}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -76,7 +84,7 @@ const Modal1 = () => {
             margin: 4,
             justifyContent: 'center'
           }}
-          onPress={() => navigation.navigate('positiveThinkingHome')}>
+          onPress={() => navigation.navigate(onBack)}>
           <Text
             style={{
               fontSize: 14,
@@ -89,8 +97,9 @@ const Modal1 = () => {
           </Text>
         </TouchableOpacity>
       </ScrollView>
+      <DotProgressFooter current={current} total={total} />
     </SafeAreaView>
   )
 }
 
-export default Modal1
+export default CardOfSeries

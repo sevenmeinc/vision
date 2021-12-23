@@ -8,22 +8,26 @@ import {
 } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
+import { useNavigation } from '@react-navigation/native'
 import Logo from '../../components/Logo'
 import OutlineButton from '../../components/OutlineButton'
 import Button from '../../components/Button'
 
-const PostVideo1 = ({
-  navigation,
+const PositiveThinkingPrompt = ({
+  text,
+  onNext,
   renderItem,
   positiveThinking1,
   positiveThinking2,
   positiveThinking3
 }) => {
+  const navigation = useNavigation()
   const list = [1, 2, 3]
   let disableNextButton = true
   if (positiveThinking1 || positiveThinking2 || positiveThinking3) {
     disableNextButton = false
   }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -44,7 +48,7 @@ const PostVideo1 = ({
                   marginVertical: 24,
                   fontWeight: '600'
                 }}>
-                Share 2-3 negative statements that you tell yourself.
+                {text}
               </Text>
             </View>
           </TouchableWithoutFeedback>
@@ -73,7 +77,7 @@ const PostVideo1 = ({
                 disabled={disableNextButton}
                 title="Continue"
                 background={disableNextButton ? '#9e9ea0' : Colors.pianoBlack}
-                onPress={() => navigation.navigate('postVideo2')}
+                onPress={() => navigation.navigate(onNext)}
               />
             </View>
           </View>
@@ -83,4 +87,4 @@ const PostVideo1 = ({
   )
 }
 
-export default PostVideo1
+export default PositiveThinkingPrompt

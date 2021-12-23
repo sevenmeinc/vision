@@ -7,12 +7,13 @@ import Timer from './Timer'
 const newTimer = { min: 0, sec: 0 }
 
 const AuxRecorderPlayer = ({
-  handleVideo,
-  handleText,
+  handleVideo, // function
+  handleText, // function
   setIsPreview,
-  btn1Initial,
-  btn3Initial,
-  setSavedRecording
+  btn1Initial, // {button_mode_key: 'feather-icon-name'}
+  btn3Initial, // {button_mode_key: 'feather-icon-name'}
+  setSavedRecording,
+  cleanUpOnRecord = () => {}
 }) => {
   const BUTTON_MODES = {
     play: 'play',
@@ -42,6 +43,7 @@ const AuxRecorderPlayer = ({
 
   // onPress handlers
   const handleRecord = () => {
+    cleanUpOnRecord()
     setIsRecording(true)
     setBtn1Mode('delete')
     setBtn2Mode('stop')
@@ -130,7 +132,8 @@ const AuxRecorderPlayer = ({
         <Text
           style={{
             textAlign: 'center',
-            width: '50%'
+            width: '50%',
+            color: 'black'
           }}>
           <Timer
             time={time}

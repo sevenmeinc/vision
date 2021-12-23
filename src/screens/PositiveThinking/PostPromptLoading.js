@@ -2,12 +2,13 @@ import { Ionicons } from '@expo/vector-icons'
 import React, { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import * as Progress from 'react-native-progress'
+import { useNavigation } from '@react-navigation/native'
 import Logo from '../../components/Logo'
 import { Colors } from '../../constants/colors'
 
-const PostVideo2 = (props) => {
+const PostPromptLoading = ({ onNext, text }) => {
   const [progress, setProgress] = useState(0)
-  const { navigation } = props
+  const navigation = useNavigation()
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -31,26 +32,22 @@ const PostVideo2 = (props) => {
           paddingRight: 15,
           marginTop: 20
         }}>
+        <Logo fill="white" />
         <View>
-          <Logo fill="white" />
-          <Text
-            style={{
-              fontFamily: 'semiBold',
-              fontSize: 36,
-              marginVertical: 24,
-              color: 'white'
-            }}>
-            You’re doing great!
-          </Text>
-          <Text
-            style={{
-              fontFamily: 'semiBold',
-              fontSize: 36,
-              marginVertical: 24,
-              color: 'white'
-            }}>
-            Let’s take a second to breathe and gather your thoughts.
-          </Text>
+          {text.map((t, i) => {
+            return (
+              <Text
+                key={i}
+                style={{
+                  fontFamily: 'semiBold',
+                  fontSize: 36,
+                  marginVertical: 24,
+                  color: 'white'
+                }}>
+                {t}
+              </Text>
+            )
+          })}
         </View>
         <View
           style={{
@@ -78,7 +75,7 @@ const PostVideo2 = (props) => {
                 name="play-skip-forward"
                 color="white"
                 size={24}
-                onPress={() => navigation.navigate('postVideo3')}
+                onPress={() => navigation.navigate(onNext)}
               />
             </View>
           </View>
@@ -88,4 +85,4 @@ const PostVideo2 = (props) => {
   )
 }
 
-export default PostVideo2
+export default PostPromptLoading

@@ -26,7 +26,7 @@ const PostActivity = ({ postActivity }) => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-start',
-      padding: 16,
+      padding: 12,
       marginHorizontal: 16,
       marginBottom: 16,
       borderRadius: 8
@@ -80,7 +80,7 @@ const PostActivity = ({ postActivity }) => {
             {description}
           </Text>
         </View>
-        <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
+        {/* <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
           <Text style={styles.heading}>
             {' '}
             <Image
@@ -95,7 +95,7 @@ const PostActivity = ({ postActivity }) => {
               nisi integer quis vel morbi elementum.
             </Text>
           </View>
-        </View>
+        </View> */}
         <View style={{ ...styles.container, backgroundColor: '#EBEDEE' }}>
           <Text style={styles.heading}>
             <Image
@@ -106,7 +106,8 @@ const PostActivity = ({ postActivity }) => {
           </Text>
           <View style={{ ...styles.container, backgroundColor: '#fff' }}>
             <Text style={styles.importedText}>
-              Aliquet nisi integer quis vel morbi elementum.
+              {/* Aliquet nisi integer quis vel morbi elementum. */}
+              Please refer back to the goal you set earlier in this study.
             </Text>
           </View>
         </View>

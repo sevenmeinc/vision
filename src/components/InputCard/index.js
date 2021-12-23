@@ -4,6 +4,7 @@ import { Colors } from '../../constants/colors'
 
 const InputCard = ({
   index,
+  example,
   setPositiveThinking1,
   setPositiveThinking2,
   setPositiveThinking3
@@ -38,7 +39,9 @@ const InputCard = ({
         Example {index + 1}
       </Text>
       <TextInput
-        placeholder="I have failed at every diet I have ever tried."
+        placeholder={
+          example ? example : 'I have failed at every diet I have ever tried.'
+        }
         onChangeText={(text) => handleChange(index, text)}
         multiline={true}
         style={{ textAlignVertical: 'top', padding: 16 }}

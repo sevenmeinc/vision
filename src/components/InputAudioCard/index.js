@@ -1,10 +1,28 @@
-import React, { useState } from 'react'
-import { View, Text } from 'react-native'
+import React, { useState, useRef } from 'react'
+import { View, Text, TextInput, Image } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { Colors } from '../../constants/colors'
 import AuxRecorderPlayer from '../AudioRecorderPlayer'
 
-const InputAudioCard = ({ index, item, setIsPreview }) => {
-  const [savedRecording, setSavedRecording] = useState(false)
+const InputAudioCard = ({
+  index,
+  item,
+  videoScreen,
+  imageUri,
+  textValue,
+  setTextValue,
+  savedRecording,
+  setSavedRecording
+}) => {
+  const navigation = useNavigation()
+  const textInputRef = useRef()
+
+  const [textDisabled, setTextDisabled] = useState(true)
+
+  const handleChange = (text) => {
+    setTextValue(text)
+  }
+
   return (
     <View
       style={{
@@ -26,6 +44,7 @@ const InputAudioCard = ({ index, item, setIsPreview }) => {
         }}>
         Example {index + 1}
       </Text>
+
       <Text
         style={{
           textAlignVertical: 'top',
@@ -36,24 +55,58 @@ const InputAudioCard = ({ index, item, setIsPreview }) => {
         }}>
         {item}
       </Text>
-      <Text
-        style={{
-          fontStyle: 'italic',
-          fontSize: 17,
-          color: savedRecording ? Colors.pianoBlack : '#B2B2B2',
-          marginHorizontal: 16,
-          marginVertical: 12
-        }}>
-        Your response will appear here.
-      </Text>
-      <View style={{ flex: 1, justifyContent: 'flex-end', marginBottom: 15 }}>
-        <AuxRecorderPlayer
-          btn1Initial={{}}
-          btn3Initial={{}}
-          setIsPreview={() => {
-            setIsPreview(true)
+      {imageUri ? (
+        <Image
+          source={
+            typeof imageUri === 'object'
+              ? imageUri
+              : require('../../../assets/seven-icon.png')
+          }
+          style={{
+            width: '100%',
+            flex: 1,
+            resizeMode: 'contain'
           }}
+        />
+      ) : (
+        <TextInput
+          editable={!textDisabled}
+          placeholder={'Your response will appear here.'}
+          onChangeText={handleChange}
+          multiline={true}
+          ref={textInputRef}
+          value={
+            savedRecording ? 'Transcript not available in prototype' : textValue
+          }
+          style={{ textAlignVertical: 'top', padding: 16 }}
+        />
+      )}
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'flex-end',
+          marginBottom: 15
+        }}>
+        <AuxRecorderPlayer
+          handleText={async () => {
+            await setTextDisabled(false)
+            setSavedRecording(false)
+            textInputRef.current.focus()
+          }}
+          handleVideo={() => {
+            setSavedRecording(false)
+            setTextValue('')
+            setTextDisabled(true)
+            navigation.navigate(...videoScreen)
+          }}
+          btn1Initial={{ text: 'edit' }}
+          btn3Initial={{ video: 'video' }}
           setSavedRecording={setSavedRecording}
+          setIsPreview={setSavedRecording}
+          cleanUpOnRecord={() => {
+            setTextValue('')
+            setSavedRecording(false)
+          }}
         />
       </View>
     </View>
