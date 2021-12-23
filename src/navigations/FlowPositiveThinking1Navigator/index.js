@@ -81,7 +81,7 @@ const FlowPositiveThinking1Navigator = () => {
           header: () => (
             <Header navigation={navigation} title="Positive thinking" />
           ),
-          presentation: 'card'
+          presentation: 'modal'
         })}
         children={(props) => (
           <CardOfSeries
@@ -101,7 +101,7 @@ const FlowPositiveThinking1Navigator = () => {
           header: () => (
             <Header navigation={navigation} title="Positive thinking" />
           ),
-          presentation: 'card'
+          presentation: 'modal'
         })}
         children={(props) => (
           <CardOfSeries
@@ -121,7 +121,7 @@ const FlowPositiveThinking1Navigator = () => {
           header: () => (
             <Header navigation={navigation} title="Positive thinking" />
           ),
-          presentation: 'card'
+          presentation: 'modal'
         })}
         children={(props) => (
           <CardOfSeries
