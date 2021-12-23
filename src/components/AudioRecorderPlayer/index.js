@@ -43,7 +43,6 @@ const AuxRecorderPlayer = ({
 
   // onPress handlers
   const handleRecord = () => {
-    // ? something extra to manage outside behavior
     cleanUpOnRecord()
     setIsRecording(true)
     setBtn1Mode('delete')

@@ -14,7 +14,6 @@ import PostActivity1 from '../../screens/PositiveThinking/PostActivity1'
 import InputCard from '../../components/InputCard'
 import PostPromptLoading from '../../screens/PositiveThinking/PostPromptLoading'
 import ProgressHeader from '../../components/ProgressHeader'
-// import DotProgressFooter from '../../components/DotProgressFooter'
 import PostActivity2 from '../../screens/PositiveThinking/PostActivity2'
 import PromptVideo from '../../screens/PositiveThinking/PromptVideo'
 import CoachHeader from '../../components/CoachHeader'
@@ -263,7 +262,7 @@ const FlowPositiveThinking2Navigator = () => {
             {...props}
             title={postActivity[0].title}
             prompts={postActivity[0].prompts}
-            onNext={'positiveThinkingHome'}
+            onNext={postActivity[0].onNext}
           />
         )}
         options={({ navigation }) => ({

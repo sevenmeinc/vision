@@ -90,7 +90,6 @@ const InputAudioCard = ({
             textInputRef.current.focus()
           }}
           handleVideo={() => {
-            //clear preview[index]
             setSavedRecording(false)
             setTextValue('')
             setTextDisabled(true)
