@@ -57,7 +57,11 @@ const InputAudioCard = ({
       </Text>
       {imageUri ? (
         <Image
-          source={imageUri}
+          source={
+            typeof imageUri === 'object'
+              ? imageUri
+              : require('../../../assets/seven-icon.png')
+          }
           style={{
             width: '100%',
             flex: 1,

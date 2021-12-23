@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, Platform } from 'react-native'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import { Camera } from 'expo-camera'
 import Timer from '../AudioRecorderPlayer/Timer'
@@ -51,7 +51,11 @@ const VideoRec = ({
         setImgUri(p)
       }
     }
-    await cam.takePictureAsync(options)
+    if (Platform.OS === 'android') {
+      await setImgUri('android')
+    } else {
+      await cam.takePictureAsync(options)
+    }
   }
 
   // onPress handlers
@@ -145,7 +149,6 @@ const VideoRec = ({
         </View>
       </View>
       <Camera
-        useCamera2Api={true}
         style={styles.camera}
         type={Camera.Constants.Type.front}
         ref={(r) => {

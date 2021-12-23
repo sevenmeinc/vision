@@ -102,7 +102,10 @@ const PositiveThinkingReframe = ({
                     }
                   ]}
                   imageUri={
-                    typeof previews[index] === 'object' ? previews[index] : null
+                    typeof previews[index] === 'object' ||
+                    typeof previews[index] === 'string'
+                      ? previews[index]
+                      : null
                   }
                   textValue={textValue[index]}
                   setTextValue={(text) => {
