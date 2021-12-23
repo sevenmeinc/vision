@@ -84,8 +84,8 @@ const PositiveThinkingReframe = ({
                       ? previews[index]
                       : null
                   }
-                  setSavedRecording={() => {
-                    const copy = { ...previews, [index]: true }
+                  setSavedRecording={(value) => {
+                    const copy = { ...previews, [index]: value ?? true }
                     setPreviews(copy)
                   }}
                   videoScreen={[

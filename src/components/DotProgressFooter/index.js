@@ -1,6 +1,5 @@
 import React from 'react'
 import { View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons'
 import { Colors } from '../../constants/colors'
 
@@ -36,11 +35,12 @@ const DotProgressFooter = ({
   }
 
   return (
-    <SafeAreaView
+    <View
       style={{
         flexDirection: 'row',
         justifyContent: 'center',
         paddingBottom: paddingBottom,
+        height: 24,
         paddingHorizontal: 16,
         alignItems: 'center'
       }}>
@@ -50,7 +50,7 @@ const DotProgressFooter = ({
         }}>
         {renderProgress()}
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 

@@ -12,7 +12,8 @@ const AuxRecorderPlayer = ({
   setIsPreview,
   btn1Initial, // {button_mode_key: 'feather-icon-name'}
   btn3Initial, // {button_mode_key: 'feather-icon-name'}
-  setSavedRecording
+  setSavedRecording,
+  cleanUpOnRecord = () => {}
 }) => {
   const BUTTON_MODES = {
     play: 'play',
@@ -42,6 +43,8 @@ const AuxRecorderPlayer = ({
 
   // onPress handlers
   const handleRecord = () => {
+    // ? something extra to manage outside behavior
+    cleanUpOnRecord()
     setIsRecording(true)
     setBtn1Mode('delete')
     setBtn2Mode('stop')

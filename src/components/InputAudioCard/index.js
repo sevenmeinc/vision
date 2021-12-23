@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { View, Text, TextInput, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Colors } from '../../constants/colors'
@@ -15,6 +15,7 @@ const InputAudioCard = ({
   setSavedRecording
 }) => {
   const navigation = useNavigation()
+  const textInputRef = useRef()
 
   const [textDisabled, setTextDisabled] = useState(true)
 
@@ -69,6 +70,7 @@ const InputAudioCard = ({
           placeholder={'Your response will appear here.'}
           onChangeText={handleChange}
           multiline={true}
+          ref={textInputRef}
           value={
             savedRecording ? 'Transcript not available in prototype' : textValue
           }
@@ -82,10 +84,15 @@ const InputAudioCard = ({
           marginBottom: 15
         }}>
         <AuxRecorderPlayer
-          handleText={() => {
-            setTextDisabled(false)
+          handleText={async () => {
+            await setTextDisabled(false)
+            setSavedRecording(false)
+            textInputRef.current.focus()
           }}
           handleVideo={() => {
+            //clear preview[index]
+            setSavedRecording(false)
+            setTextValue('')
             setTextDisabled(true)
             navigation.navigate(...videoScreen)
           }}
@@ -93,6 +100,10 @@ const InputAudioCard = ({
           btn3Initial={{ video: 'video' }}
           setSavedRecording={setSavedRecording}
           setIsPreview={setSavedRecording}
+          cleanUpOnRecord={() => {
+            setTextValue('')
+            setSavedRecording(false)
+          }}
         />
       </View>
     </View>

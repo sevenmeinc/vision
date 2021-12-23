@@ -145,6 +145,7 @@ const VideoRec = ({
         </View>
       </View>
       <Camera
+        useCamera2Api={true}
         style={styles.camera}
         type={Camera.Constants.Type.front}
         ref={(r) => {
