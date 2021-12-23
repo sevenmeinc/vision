@@ -1,22 +1,28 @@
 import React, { useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { content } from '../../../assets/content'
-import VideoPlayer from '../../screens/PositiveThinking/video'
-import PostPromptLoading from '../../screens/PositiveThinking/PostPromptLoading'
+import Header from '../../components/Header'
+import PositiveThinkingHome from '../../screens/PositiveThinking/ChatScreen'
+import banner1 from '../../../assets/PositiveThinking/modal-banner1.png'
+import banner2 from '../../../assets/PositiveThinking/modal-banner2.png'
+import banner3 from '../../../assets/PositiveThinking/modal-banner3.png'
+import banner4 from '../../../assets/PositiveThinking/modal-banner4.png'
+import CardOfSeries from '../../components/PreActivityCard/CardOfSeries'
 import PositiveThinkingPrompt from '../../screens/PositiveThinking/positiveThinkingPrompt'
 import PositiveThinkingReframe from '../../screens/PositiveThinking/PositiveThinkingReframe'
 import PostActivity1 from '../../screens/PositiveThinking/PostActivity1'
-import PostActivity2 from '../../screens/PositiveThinking/PostActivity2'
-import BenefitProgressHeader from '../../components/BenefitProgressHeader'
-import ProgressHeader from '../../components/ProgressHeader'
-import { Colors } from '../../constants/colors'
-import CoachHeader from '../../components/CoachHeader'
 import InputCard from '../../components/InputCard'
+import PostPromptLoading from '../../screens/PositiveThinking/PostPromptLoading'
+import ProgressHeader from '../../components/ProgressHeader'
+import PostActivity2 from '../../screens/PositiveThinking/PostActivity2'
 import PromptVideo from '../../screens/PositiveThinking/PromptVideo'
-import PositiveThinkingHome from '../../screens/PositiveThinking/ChatScreen'
+import CoachHeader from '../../components/CoachHeader'
+import { Colors } from '../../constants/colors'
 
 const Stack = createStackNavigator()
-const { activity, postActivity } = content.positiveThinking
+
+const { preActivity, activity, postActivity } = content.positiveThinking
+
 const newTimer = { min: 0, sec: 0 }
 
 const FlowPositiveThinking2Navigator = () => {
@@ -42,7 +48,6 @@ const FlowPositiveThinking2Navigator = () => {
       />
     )
   }
-
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -53,26 +58,82 @@ const FlowPositiveThinking2Navigator = () => {
         }}
       />
       <Stack.Screen
-        // name="video"
         name="positiveThinking1"
         options={({ navigation }) => ({
           header: () => (
-            <BenefitProgressHeader
-              current={1}
-              total={5}
-              navigation={navigation}
-              darkMode={true}
-            />
-          )
+            <Header navigation={navigation} title="Positive thinking" />
+          ),
+          presentation: 'modal'
         })}
         children={(props) => (
-          <VideoPlayer
+          <CardOfSeries
             {...props}
-            title={'Part 01'}
-            subTitle={'Benefits of Positive Thinking'}
-            nextScreen={'postVideo1'}
-            hideTapMore={false}
-            videoUri={content.positiveThinking.videoUri}
+            title={preActivity[0].title}
+            text={preActivity[0].text}
+            img={banner1}
+            onNext={preActivity[0].onNext}
+            onBack={preActivity[0].onBack}
+            isLast={false}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="positiveThinking2"
+        options={({ navigation }) => ({
+          header: () => (
+            <Header navigation={navigation} title="Positive thinking" />
+          ),
+          presentation: 'modal'
+        })}
+        children={(props) => (
+          <CardOfSeries
+            {...props}
+            title={preActivity[1].title}
+            text={preActivity[1].text}
+            img={banner2}
+            onNext={preActivity[1].onNext}
+            onBack={preActivity[1].onBack}
+            isLast={false}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="positiveThinking3"
+        options={({ navigation }) => ({
+          header: () => (
+            <Header navigation={navigation} title="Positive thinking" />
+          ),
+          presentation: 'modal'
+        })}
+        children={(props) => (
+          <CardOfSeries
+            {...props}
+            title={preActivity[2].title}
+            text={preActivity[2].text}
+            img={banner3}
+            onNext={preActivity[2].onNext}
+            onBack={preActivity[2].onBack}
+            isLast={false}
+          />
+        )}
+      />
+      <Stack.Screen
+        name="positiveThinking4"
+        options={({ navigation }) => ({
+          header: () => (
+            <Header navigation={navigation} title="Positive thinking" />
+          ),
+          presentation: 'modal'
+        })}
+        children={(props) => (
+          <CardOfSeries
+            {...props}
+            title={preActivity[3].title}
+            text={preActivity[3].text}
+            img={banner4}
+            onNext={preActivity[3].onNext}
+            onBack={preActivity[3].onBack}
+            isLast={true}
           />
         )}
       />
@@ -193,7 +254,7 @@ const FlowPositiveThinking2Navigator = () => {
             {...props}
             title={postActivity[0].title}
             prompts={postActivity[0].prompts}
-            onNext={postActivity[0].onNext}
+            onNext={'positiveThinkingHome'}
           />
         )}
         options={({ navigation }) => ({
