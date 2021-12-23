@@ -13,18 +13,18 @@ import { Colors } from '../../constants/colors'
 import CoachHeader from '../../components/CoachHeader'
 import InputCard from '../../components/InputCard'
 import PromptVideo from '../../screens/PositiveThinking/PromptVideo'
+import PositiveThinkingHome from '../../screens/PositiveThinking/ChatScreen'
 
 const Stack = createStackNavigator()
 const { activity, postActivity } = content.positiveThinking
 const newTimer = { min: 0, sec: 0 }
 
 const FlowPositiveThinking2Navigator = () => {
-  const [isPreview, setIsPreview] = useState(false)
   const [positiveThinking1, setPositiveThinking1] = useState('')
   const [positiveThinking2, setPositiveThinking2] = useState('')
   const [positiveThinking3, setPositiveThinking3] = useState('')
   const [previews, setPreviews] = useState({ 0: null, 1: null, 2: null })
-  const [duration, setDuration] = useState(newTimer)
+  const [_, setDuration] = useState(newTimer)
   const [time, setTime] = useState(newTimer)
 
   const renderItem = ({ item, index }) => {
@@ -45,8 +45,16 @@ const FlowPositiveThinking2Navigator = () => {
 
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen
-        name="video"
+      <Stack.Screen
+        name="positiveThinkingHome"
+        component={PositiveThinkingHome}
+        options={{
+          headerTitle: 'Chat'
+        }}
+      />
+      <Stack.Screen
+        // name="video"
+        name="positiveThinking1"
         options={({ navigation }) => ({
           header: () => (
             <BenefitProgressHeader
@@ -67,7 +75,7 @@ const FlowPositiveThinking2Navigator = () => {
             videoUri={content.positiveThinking.videoUri}
           />
         )}
-      /> */}
+      />
       <Stack.Screen
         name="postVideo1"
         children={({ props }) => (
