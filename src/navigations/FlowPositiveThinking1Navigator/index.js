@@ -53,7 +53,6 @@ const FlowPositiveThinking1Navigator = () => {
         }}
       />
       <Stack.Screen
-        // name="video"
         name="positiveThinking1"
         options={({ navigation }) => ({
           header: () => (

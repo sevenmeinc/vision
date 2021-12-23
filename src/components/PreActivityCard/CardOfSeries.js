@@ -2,8 +2,18 @@ import React from 'react'
 import { ScrollView, Image, Text, SafeAreaView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
+import DotProgressFooter from '../DotProgressFooter'
 
-const CardOfSeries = ({ title, text, img, onNext, onBack, isLast = false }) => {
+const CardOfSeries = ({
+  title,
+  text,
+  img,
+  onNext,
+  onBack,
+  isLast = false,
+  current,
+  total
+}) => {
   const navigation = useNavigation()
 
   return (
@@ -87,6 +97,7 @@ const CardOfSeries = ({ title, text, img, onNext, onBack, isLast = false }) => {
           </Text>
         </TouchableOpacity>
       </ScrollView>
+      <DotProgressFooter current={current} total={total} />
     </SafeAreaView>
   )
 }

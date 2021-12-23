@@ -14,6 +14,7 @@ import PostActivity1 from '../../screens/PositiveThinking/PostActivity1'
 import InputCard from '../../components/InputCard'
 import PostPromptLoading from '../../screens/PositiveThinking/PostPromptLoading'
 import ProgressHeader from '../../components/ProgressHeader'
+// import DotProgressFooter from '../../components/DotProgressFooter'
 import PostActivity2 from '../../screens/PositiveThinking/PostActivity2'
 import PromptVideo from '../../screens/PositiveThinking/PromptVideo'
 import CoachHeader from '../../components/CoachHeader'
@@ -74,6 +75,8 @@ const FlowPositiveThinking2Navigator = () => {
             onNext={preActivity[0].onNext}
             onBack={preActivity[0].onBack}
             isLast={false}
+            current={1}
+            total={4}
           />
         )}
       />
@@ -94,6 +97,8 @@ const FlowPositiveThinking2Navigator = () => {
             onNext={preActivity[1].onNext}
             onBack={preActivity[1].onBack}
             isLast={false}
+            current={2}
+            total={4}
           />
         )}
       />
@@ -114,6 +119,8 @@ const FlowPositiveThinking2Navigator = () => {
             onNext={preActivity[2].onNext}
             onBack={preActivity[2].onBack}
             isLast={false}
+            current={3}
+            total={4}
           />
         )}
       />
@@ -134,6 +141,8 @@ const FlowPositiveThinking2Navigator = () => {
             onNext={preActivity[3].onNext}
             onBack={preActivity[3].onBack}
             isLast={true}
+            current={4}
+            total={4}
           />
         )}
       />
