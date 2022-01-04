@@ -106,7 +106,7 @@ const PositiveThinkingReframe = ({
                   ]}
                   imageUri={
                     typeof previews[index] === 'object' ||
-                      typeof previews[index] === 'string'
+                    typeof previews[index] === 'string'
                       ? previews[index]
                       : null
                   }
