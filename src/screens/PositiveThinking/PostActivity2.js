@@ -82,7 +82,7 @@ const PostActivity2 = ({ title, text, onNext }) => {
                 marginVertical: 40
               }}>
               {weeks.map((_, i, arr) => {
-                return <WeekComponent weekNumber={1 + 1} image={arr[i]} />
+                return <WeekComponent weekNumber={i + 1} image={arr[i]} />
               })}
             </View>
           </View>
