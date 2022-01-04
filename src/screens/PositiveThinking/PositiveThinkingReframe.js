@@ -31,9 +31,12 @@ const PositiveThinkingReframe = ({
 
   let disableNextButton = true
   if (
-    (previews[0] || textValue[0]) &&
-    (previews[1] || textValue[1]) &&
-    (previews[2] || textValue[2])
+    previews[0] ||
+    textValue[0] ||
+    previews[1] ||
+    textValue[1] ||
+    previews[2] ||
+    textValue[2]
   ) {
     disableNextButton = false
   }
